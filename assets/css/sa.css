@@ -113,7 +113,7 @@ section.open ul li { margin-left: 3rem; }
 Subcategories
 ---------------------------------------------------------------*/
 .subcategories-wrapper { margin-left: 0; }
-.subcategory-title { margin-left: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.subcategory-title { margin-left: 1rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
 
 .subcategories-wrapper ul li { margin-left: 1rem; }
 
