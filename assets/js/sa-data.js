@@ -17,7 +17,7 @@ const sectionsData = [
 		]
 	},
 	{
-		category: 'Wine estates @ Franshoek',
+		category: 'Wine estates @ Franschhoek',
 		links: [
 			{ text: 'Colmant', url: 'https://colmant.co.za/'}
 		]
