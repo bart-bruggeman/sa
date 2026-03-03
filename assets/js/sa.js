@@ -3,6 +3,7 @@ function createSections(sections) {
 	const container = document.getElementById("section-container");
 
 	sections.forEach(section => {
+
 		// Section element
 		const sectionEl = document.createElement("section");
 		sectionEl.className = "mb-3 border-bottom";
@@ -12,54 +13,130 @@ function createSections(sections) {
 		header.className = "h5 mb-3 d-flex justify-content-between align-items-center";
 		header.textContent = section.category;
 
-		// Chevron icoon
 		const chevron = document.createElement("i");
 		chevron.className = "bi bi-chevron-down";
 		header.appendChild(chevron);
 
 		sectionEl.appendChild(header);
 
-		// Links lijst
-		const ul = document.createElement("ul");
-		ul.className = "list-unstyled mb-0";
+		//------------------------------------------
+		// CASE 1: section met subcategories
+		//------------------------------------------
+		if (section.subcategories) {
 
-		section.links.forEach(link => {
-			const li = document.createElement("li");
+			const wrapper = document.createElement("div");
+			wrapper.className = "subcategories-wrapper section-content"; // toggle werkt op section-content
 
-			// Badge placeholder
-			if (link.status) {
-				const badge = document.createElement("span");
-				badge.className = "badge ms-2";
-				li.appendChild(badge);
-			}
+			let row;
 
-			// Link
-			const a = document.createElement("a");
-			a.href = link.url;
-			a.target = "_blank";
-			a.textContent = link.text;
+			section.subcategories.forEach((subcat, index) => {
 
-			if (link.period) a.setAttribute("data-period", link.period);
-			if (link.status) a.setAttribute("data-status", link.status);
+				// Maak nieuwe row bij start of elke 4 items
+				if (index % 4 === 0) {
+					row = document.createElement("div");
+					row.className = "row g-4";
+					wrapper.appendChild(row);
+				}
 
-			li.appendChild(a);
+				const col = document.createElement("div");
+				col.className = "col-12 col-md-6 col-lg-3";
 
-			// Info icoon
-			if (link.info) {
-				const infoIcon = document.createElement("i");
-				infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
-				infoIcon.setAttribute("tabindex", "0");
-				infoIcon.setAttribute("role", "button");
-				infoIcon.setAttribute("title", link.info);
-				infoIcon.setAttribute("data-bs-toggle", "tooltip");
-				infoIcon.setAttribute("data-bs-placement", "right");
-				li.appendChild(infoIcon);
-			}
+				// Subcategorie titel
+				const subTitle = document.createElement("h3");
+				subTitle.className = "h6 mb-2 subcategory-title";
+				subTitle.textContent = subcat.subcategory;
+				col.appendChild(subTitle);
 
-			ul.appendChild(li);
-		});
+				// Links lijst
+				const ul = document.createElement("ul");
+				ul.className = "list-unstyled mb-0";
 
-		sectionEl.appendChild(ul);
+				if (subcat.links && subcat.links.length > 0) {
+					subcat.links.forEach(link => {
+						const li = document.createElement("li");
+
+						if (link.status) {
+							const badge = document.createElement("span");
+							badge.className = "badge ms-2";
+							li.appendChild(badge);
+						}
+
+						const a = document.createElement("a");
+						a.href = link.url;
+						a.target = "_blank";
+						a.textContent = link.text;
+
+						if (link.period) a.setAttribute("data-period", link.period);
+						if (link.status) a.setAttribute("data-status", link.status);
+
+						li.appendChild(a);
+
+						if (link.info) {
+							const infoIcon = document.createElement("i");
+							infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
+							infoIcon.setAttribute("tabindex", "0");
+							infoIcon.setAttribute("role", "button");
+							infoIcon.setAttribute("title", link.info);
+							infoIcon.setAttribute("data-bs-toggle", "tooltip");
+							infoIcon.setAttribute("data-bs-placement", "right");
+							li.appendChild(infoIcon);
+						}
+
+						ul.appendChild(li);
+					});
+				}
+
+				col.appendChild(ul);
+				row.appendChild(col);
+			});
+
+			sectionEl.appendChild(wrapper);
+		}
+
+		//------------------------------------------
+		// CASE 2: gewone categorie zonder subcat
+		//------------------------------------------
+		else if (section.links) {
+
+			const ul = document.createElement("ul");
+			ul.className = "list-unstyled mb-0 section-content";
+
+			section.links.forEach(link => {
+				const li = document.createElement("li");
+
+				if (link.status) {
+					const badge = document.createElement("span");
+					badge.className = "badge ms-2";
+					li.appendChild(badge);
+				}
+
+				const a = document.createElement("a");
+				a.href = link.url;
+				a.target = "_blank";
+				a.textContent = link.text;
+
+				if (link.period) a.setAttribute("data-period", link.period);
+				if (link.status) a.setAttribute("data-status", link.status);
+
+				li.appendChild(a);
+
+				if (link.info) {
+					const infoIcon = document.createElement("i");
+					infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
+					infoIcon.setAttribute("tabindex", "0");
+					infoIcon.setAttribute("role", "button");
+					infoIcon.setAttribute("title", link.info);
+					infoIcon.setAttribute("data-bs-toggle", "tooltip");
+					infoIcon.setAttribute("data-bs-placement", "right");
+					li.appendChild(infoIcon);
+				}
+
+				ul.appendChild(li);
+			});
+
+			sectionEl.appendChild(ul);
+		}
+
 		container.appendChild(sectionEl);
 	});
 
@@ -68,34 +145,50 @@ function createSections(sections) {
 	tooltipTriggerList.forEach(tooltipTriggerEl => {
 		new bootstrap.Tooltip(tooltipTriggerEl);
 	});
-}//------------------------------------------- END section content --------------------------------------------//
+}
+//------------------------------------------- END section content --------------------------------------------//
 
 
 //--------------------------------------- BEGIN section functionality ----------------------------------------//
 document.addEventListener("DOMContentLoaded", function () {
+
 	createSections(sectionsData);
+
 	const sections = document.querySelectorAll("section");
+
+	// Verberg alle content containers
 	sections.forEach(section => {
-		const ul = section.querySelector("ul");
-		if (ul) ul.style.display = "none";
+		const content = section.querySelector(".section-content");
+		if (content) content.style.display = "none";
 		section.classList.remove("open");
 	});
+
 	let currentlyOpenSection = null;
+
 	sections.forEach(section => {
-		section.addEventListener("click", function () {
-			if (event.target.closest("a")) return; // don't close section when hyperlink is clicked
-			const ul = this.querySelector("ul");
+
+		section.addEventListener("click", function (event) {
+
+			// Klik op link mag section niet sluiten
+			if (event.target.closest("a")) return;
+
+			const content = this.querySelector(".section-content");
+
 			if (currentlyOpenSection === this) {
-				if (ul) ul.style.display = "none";
+
+				if (content) content.style.display = "none";
 				this.classList.remove("open");
 				currentlyOpenSection = null;
+
 			} else {
+
 				sections.forEach(s => {
-					const otherUl = s.querySelector("ul");
-					if (otherUl) otherUl.style.display = "none";
+					const otherContent = s.querySelector(".section-content");
+					if (otherContent) otherContent.style.display = "none";
 					s.classList.remove("open");
 				});
-				if (ul) ul.style.display = "block";
+
+				if (content) content.style.display = "block";
 				this.classList.add("open");
 				currentlyOpenSection = this;
 			}
@@ -114,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		investigated: { class: "bg-light", text: "Investigated" },
 		developed: { class: "bg-success", text: "Developed" },
 		deployed: { class: "bg-primary", text: "Deployed" },
-		solved: { class: "bg-dark", text: "Closed" }, // solved and closed have the same meaning
+		solved: { class: "bg-dark", text: "Closed" },
 		closed: { class: "bg-dark", text: "Closed" }
 	};
 

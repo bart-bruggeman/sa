@@ -82,128 +82,57 @@ Navbar
 /*---------------------------------------------------------------
 Badges
 ---------------------------------------------------------------*/
-.badge.bg-warning {
-	color: #0a0a0a;
-}
-.badge.bg-light {
-	background-color: #cfcfcf;
-	color: #0a0a0a;
-}
+.badge.bg-warning { color: #0a0a0a; }
+.badge.bg-light { background-color: #cfcfcf; color: #0a0a0a; }
 
-:root[data-bs-theme='dark'] .badge.bg-primary {
-	background-color: var(--nord10) !important;
-	color: var(--nord4) !important;
-}
-:root[data-bs-theme='dark'] .badge.bg-secondary {
-	background-color: var(--nord13) !important;
-	color: var(--nord0) !important;
-}
-:root[data-bs-theme='dark'] .badge.bg-success {
-	background-color: var(--nord14) !important;
-	color: var(--nord0) !important;
-}
-:root[data-bs-theme='dark'] .badge.bg-warning {
-	background-color: var(--nord12) !important;
-	color: var(--nord0) !important;
-}
-:root[data-bs-theme='dark'] .badge.bg-danger {
-	background-color: var(--nord11) !important;
-	color: var(--nord4) !important;
-}
-:root[data-bs-theme='dark'] .badge.bg-light {
-	background-color: var(--nord5) !important;
-	color: var(--nord0) !important;
-}
-:root[data-bs-theme='dark'] .badge.bg-dark {
-	background-color: var(--nord1) !important;
-	color: var(--nord6) !important;
-	border: 1px solid var(--nord2);
-}
-
-
-/*---------------------------------------------------------------
-Tables
----------------------------------------------------------------*/
-:root[data-bs-theme='dark'] .table .table-active,
-:root[data-bs-theme='dark'] .table .table-active > th,
-:root[data-bs-theme='dark'] .table .table-active > td {
-	background-color: var(--nord4) !important;
-	color: var(--nord0) !important;
-}
+:root[data-bs-theme='dark'] .badge.bg-primary { background-color: var(--nord10) !important; color: var(--nord4) !important; }
+:root[data-bs-theme='dark'] .badge.bg-secondary { background-color: var(--nord13) !important; color: var(--nord0) !important; }
+:root[data-bs-theme='dark'] .badge.bg-success { background-color: var(--nord14) !important; color: var(--nord0) !important; }
+:root[data-bs-theme='dark'] .badge.bg-warning { background-color: var(--nord12) !important; color: var(--nord0) !important; }
+:root[data-bs-theme='dark'] .badge.bg-danger { background-color: var(--nord11) !important; color: var(--nord4) !important; }
+:root[data-bs-theme='dark'] .badge.bg-light { background-color: var(--nord5) !important; color: var(--nord0) !important; }
+:root[data-bs-theme='dark'] .badge.bg-dark { background-color: var(--nord1) !important; color: var(--nord6) !important; border: 1px solid var(--nord2); }
 
 
 /*---------------------------------------------------------------
 Sections
 ---------------------------------------------------------------*/
-section {
-	cursor: pointer;
-}
-section.open {
-	padding-bottom: 1.5rem;
-}
-section h2 {
-	position: relative;
-	margin: 1rem 0;
-	cursor: pointer;
-}
-section h2 i {
-	transition: transform 0.2s ease;
-}
-section.open h2 i {
-	transform: rotate(180deg);
-}
-section ul {
-	display: none;
-}
-section.open ul li {
-	margin-left: 3rem;
-}
+section { cursor: pointer; }
+section.open { padding-bottom: 1.5rem; }
+section h2 { position: relative; margin: 1rem 0; cursor: pointer; }
+section h2 i { transition: transform 0.2s ease; }
+section.open h2 i { transform: rotate(180deg); }
+
+section ul { display: none; }
+section.open ul, section.open .subcategories-wrapper { display: block; }
+
+section.open ul li { margin-left: 3rem; }
+
+
+/*---------------------------------------------------------------
+Subcategories
+---------------------------------------------------------------*/
+.subcategories-wrapper { margin-left: 0; }
+.subcategory-title { margin-left: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+.subcategories-wrapper ul li { margin-left: 1rem; }
 
 
 /*---------------------------------------------------------------
 Lists
 ---------------------------------------------------------------*/
-li {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-li a {
-	display: inline-block;
-	text-decoration: none;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	color: #0d6efd;
-	transition: color 0.3s ease;
-}
-li a[data-status="none"] {
-	margin-left: 105px;
-}
-li a:hover {
-	color: #084298;
-}
-:root[data-bs-theme='dark'] li a {
-	color: var(--nord4);
-}
-:root[data-bs-theme='dark'] li a:hover {
-	color: var(--nord8);
-}
+li { display: flex; align-items: center; gap: 0.5rem; }
+li a { display: inline-block; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #0d6efd; transition: color 0.3s ease; }
+li a[data-status="none"] { margin-left: 105px; }
+li a:hover { color: #084298; }
+:root[data-bs-theme='dark'] li a { color: var(--nord4); }
+:root[data-bs-theme='dark'] li a:hover { color: var(--nord8); }
 
 
 /*---------------------------------------------------------------
 Badges in <li>
 ---------------------------------------------------------------*/
-.badge {
-	display: inline-block;
-	width: 90px;
-	min-width: 90px;
-	max-width: 90px;
-	text-align: center;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
+.badge { display: inline-block; width: 90px; min-width: 90px; max-width: 90px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 
 /*---------------------------------------------------------------
@@ -215,13 +144,7 @@ Bootstrap tooltips
 	font-size: 0.875rem;
 	padding: 0.35rem 0.65rem;
 }
-.tooltip-inner {
-	max-width: 400px;
-	padding: 10px 15px;
-	font-size: 1rem;
-	white-space: normal;
-	text-align: left;
-}
+.tooltip-inner { max-width: 400px; padding: 10px 15px; font-size: 1rem; white-space: normal; text-align: left; }
 
 
 /*---------------------------------------------------------------
@@ -234,7 +157,4 @@ Tooltip icons
 	font-size: 0.95rem;
 	transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
-:root[data-bs-theme='dark'] i.bi-info-circle-fill:hover {
-	color: var(--nord13);
-	opacity: 1;
-}
+:root[data-bs-theme='dark'] i.bi-info-circle-fill:hover { color: var(--nord13); opacity: 1; }
