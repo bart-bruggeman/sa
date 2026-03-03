@@ -15,5 +15,11 @@ const sectionsData = [
 			{ text: 'SA Hometraders', url: 'https://www.sahometraders.co.za/property-for-sale-in-gordons-bay-c395/'},
 			{ text: 'Seef property Group', url: 'https://www.seeff.com/results/residential/for-sale/gordons-bay/'}
 		]
+	},
+	{
+		category: 'Wine estates @ Franshoek',
+		links: [
+			{ text: 'Colmant', url: 'https://colmant.co.za/'}
+		]
 	}
 ];
