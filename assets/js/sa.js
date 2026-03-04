@@ -1,14 +1,45 @@
 //------------------------------------------ BEGIN section content -------------------------------------------//
 function createSections(sections) {
 	const container = document.getElementById("section-container");
+	const fragment = document.createDocumentFragment();
+
+	// Helper: maak link <li>
+	const createLinkItem = (link) => {
+		const li = document.createElement("li");
+
+		const a = document.createElement("a");
+		a.href = link.url;
+		a.target = "_blank";
+		a.textContent = link.text;
+		li.appendChild(a);
+
+		if (link.info) {
+			const infoIcon = document.createElement("i");
+			infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
+			infoIcon.tabIndex = 0;
+			infoIcon.role = "button";
+			infoIcon.title = link.info;
+			infoIcon.dataset.bsToggle = "tooltip";
+			infoIcon.dataset.bsPlacement = "right";
+			li.appendChild(infoIcon);
+		}
+
+		return li;
+	};
+
+	// Helper: maak <ul> met links
+	const createLinkList = (links, extraClass = "") => {
+		const ul = document.createElement("ul");
+		ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
+		links?.forEach(link => ul.appendChild(createLinkItem(link)));
+		return ul;
+	};
 
 	sections.forEach(section => {
-
-		// Section element
 		const sectionEl = document.createElement("section");
 		sectionEl.className = "mb-3 border-bottom";
 
-		// Header met categorie en chevron
+		// Header
 		const header = document.createElement("h2");
 		header.className = "h5 mb-3 d-flex justify-content-between align-items-center";
 		header.textContent = section.category;
@@ -16,22 +47,16 @@ function createSections(sections) {
 		const chevron = document.createElement("i");
 		chevron.className = "bi bi-chevron-down";
 		header.appendChild(chevron);
-
 		sectionEl.appendChild(header);
 
-		//------------------------------------------
-		// CASE 1: section met subcategories
-		//------------------------------------------
+		// CASE 1: met subcategories
 		if (section.subcategories) {
-
 			const wrapper = document.createElement("div");
-			wrapper.className = "subcategories-wrapper section-content"; // toggle werkt op section-content
+			wrapper.className = "subcategories-wrapper section-content";
 
 			let row;
 
 			section.subcategories.forEach((subcat, index) => {
-
-				// Maak nieuwe row bij start of elke 4 items
 				if (index % 4 === 0) {
 					row = document.createElement("div");
 					row.className = "row g-4";
@@ -41,90 +66,31 @@ function createSections(sections) {
 				const col = document.createElement("div");
 				col.className = "col-12 col-md-6 col-lg-3";
 
-				// Subcategorie titel
 				const subTitle = document.createElement("h3");
 				subTitle.className = "h6 mb-2 subcategory-title";
 				subTitle.textContent = subcat.subcategory;
+
 				col.appendChild(subTitle);
-
-				// Links lijst
-				const ul = document.createElement("ul");
-				ul.className = "list-unstyled mb-0";
-
-				if (subcat.links && subcat.links.length > 0) {
-					subcat.links.forEach(link => {
-						const li = document.createElement("li");
-						const a = document.createElement("a");
-						a.href = link.url;
-						a.target = "_blank";
-						a.textContent = link.text;
-
-						li.appendChild(a);
-
-						if (link.info) {
-							const infoIcon = document.createElement("i");
-							infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
-							infoIcon.setAttribute("tabindex", "0");
-							infoIcon.setAttribute("role", "button");
-							infoIcon.setAttribute("title", link.info);
-							infoIcon.setAttribute("data-bs-toggle", "tooltip");
-							infoIcon.setAttribute("data-bs-placement", "right");
-							li.appendChild(infoIcon);
-						}
-
-						ul.appendChild(li);
-					});
-				}
-
-				col.appendChild(ul);
+				col.appendChild(createLinkList(subcat.links));
 				row.appendChild(col);
 			});
 
 			sectionEl.appendChild(wrapper);
 		}
 
-		//------------------------------------------
-		// CASE 2: gewone categorie zonder subcat
-		//------------------------------------------
+		// CASE 2: zonder subcategories
 		else if (section.links) {
-
-			const ul = document.createElement("ul");
-			ul.className = "list-unstyled mb-0 section-content";
-
-			section.links.forEach(link => {
-				const li = document.createElement("li");
-				const a = document.createElement("a");
-				a.href = link.url;
-				a.target = "_blank";
-				a.textContent = link.text;
-
-				li.appendChild(a);
-
-				if (link.info) {
-					const infoIcon = document.createElement("i");
-					infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
-					infoIcon.setAttribute("tabindex", "0");
-					infoIcon.setAttribute("role", "button");
-					infoIcon.setAttribute("title", link.info);
-					infoIcon.setAttribute("data-bs-toggle", "tooltip");
-					infoIcon.setAttribute("data-bs-placement", "right");
-					li.appendChild(infoIcon);
-				}
-
-				ul.appendChild(li);
-			});
-
-			sectionEl.appendChild(ul);
+			sectionEl.appendChild(createLinkList(section.links, "section-content"));
 		}
 
-		container.appendChild(sectionEl);
+		fragment.appendChild(sectionEl);
 	});
 
-	// Bootstrap tooltips initialiseren
-	const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-	tooltipTriggerList.forEach(tooltipTriggerEl => {
-		new bootstrap.Tooltip(tooltipTriggerEl);
-	});
+	container.appendChild(fragment);
+
+	// Tooltips initialiseren (1 query i.p.v. per section)
+	document.querySelectorAll('[data-bs-toggle="tooltip"]')
+		.forEach(el => new bootstrap.Tooltip(el));
 }
 //------------------------------------------- END section content --------------------------------------------//
 
