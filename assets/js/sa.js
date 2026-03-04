@@ -54,20 +54,10 @@ function createSections(sections) {
 				if (subcat.links && subcat.links.length > 0) {
 					subcat.links.forEach(link => {
 						const li = document.createElement("li");
-
-						if (link.status) {
-							const badge = document.createElement("span");
-							badge.className = "badge ms-2";
-							li.appendChild(badge);
-						}
-
 						const a = document.createElement("a");
 						a.href = link.url;
 						a.target = "_blank";
 						a.textContent = link.text;
-
-						if (link.period) a.setAttribute("data-period", link.period);
-						if (link.status) a.setAttribute("data-status", link.status);
 
 						li.appendChild(a);
 
@@ -103,20 +93,10 @@ function createSections(sections) {
 
 			section.links.forEach(link => {
 				const li = document.createElement("li");
-
-				if (link.status) {
-					const badge = document.createElement("span");
-					badge.className = "badge ms-2";
-					li.appendChild(badge);
-				}
-
 				const a = document.createElement("a");
 				a.href = link.url;
 				a.target = "_blank";
 				a.textContent = link.text;
-
-				if (link.period) a.setAttribute("data-period", link.period);
-				if (link.status) a.setAttribute("data-status", link.status);
 
 				li.appendChild(a);
 
@@ -196,39 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 //---------------------------------------- END section functionality -----------------------------------------//
-
-
-//---------------------------------------- BEGIN badge functionality -----------------------------------------//
-document.addEventListener("DOMContentLoaded", function () {
-	const statusConfig = {
-		todo: { class: "bg-danger", text: "Open" },
-		onhold: { class: "bg-secondary", text: "On hold" },
-		busy: { class: "bg-warning", text: "Busy" },
-		investigated: { class: "bg-light", text: "Investigated" },
-		developed: { class: "bg-success", text: "Developed" },
-		deployed: { class: "bg-primary", text: "Deployed" },
-		solved: { class: "bg-dark", text: "Closed" },
-		closed: { class: "bg-dark", text: "Closed" }
-	};
-
-	document.querySelectorAll("li").forEach(li => {
-		const a = li.querySelector("a");
-		const badge = li.querySelector(".badge");
-
-		if (!a || !badge) return;
-
-		const status = (a.getAttribute("data-status") || "").toLowerCase();
-
-		if (statusConfig[status]) {
-			const { class: badgeClass, text } = statusConfig[status];
-			badge.classList.add("badge", badgeClass, "ms-2");
-			badge.textContent = text;
-		} else {
-			badge.remove();
-		}
-	});
-});
-//----------------------------------------- END badge functionality ------------------------------------------//
 
 
 //-------------------------------- BEGIN toggle and save theme functionality ---------------------------------//
