@@ -113,23 +113,7 @@ li a:hover { color: #084298; }
 /*---------------------------------------------------------------
 Bootstrap tooltips
 ---------------------------------------------------------------*/
-:root[data-bs-theme='dark'] .tooltip {
+:root[data-bs-theme='dark'] {
 	--bs-tooltip-bg: var(--nord2);
-	--bs-tooltip-color: var(--nord6);
-	font-size: 0.875rem;
-	padding: 0.35rem 0.65rem;
+	--bs-tooltip-color: var(--nord5);
 }
-.tooltip-inner { max-width: 400px; padding: 10px 15px; font-size: 1rem; white-space: normal; text-align: left; }
-
-
-/*---------------------------------------------------------------
-Tooltip icons
----------------------------------------------------------------*/
-:root[data-bs-theme='dark'] i.bi-info-circle-fill {
-	color: var(--nord8) !important;
-	opacity: 0.9;
-	cursor: pointer;
-	font-size: 0.95rem;
-	transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-:root[data-bs-theme='dark'] i.bi-info-circle-fill:hover { color: var(--nord13); opacity: 1; }
