@@ -8,11 +8,11 @@ const sectionsData =
                 "subcategory": "Real Estate Agency",
                 "links": [
                     {
-                        "text": "Greeff Gordon's Bay & Strand",
+                        "text": "Greeff Christie’s International Real Estate",
                         "url": "https://www.greeff.co.za/",
-                        "address": "",
-                        "phone": "",
-                        "mail": ""
+                        "address": "262 Main Road, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
+                        "phone": "+27 21 763 4120",
+                        "mail": "info@greeff.co.za"
                     },
                     {
                         "text": "Harbour Island Properties",
