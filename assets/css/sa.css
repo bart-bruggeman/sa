@@ -1,119 +1,109 @@
 /*---------------------------------------------------------------
-Colors
+Colors (light by default, dark overrides below)
 ---------------------------------------------------------------*/
 :root {
-	--bg-body: #f8f9fa;
-	--text-body: #212529;
-	--bg-card: #fdfdfd;
-	--text-card: #212529;
-	--bg-navbar: #ffffff;
-	--language-line-color: #cccccc;
+    /* Base colors */
+    --bg-body: #f8f9fa;
+    --text-body: #212529;
+    --bg-card: #fdfdfd;
+    --text-card: #212529;
+    --bg-navbar: #ffffff;
+    --link-color: #0d6efd;
+    --link-hover-color: #084298;
+    --language-line-color: #cccccc;
+    --tooltip-bg: #212529;
+    --tooltip-color: #f8f9fa;
 
-	/* Dark theme colors (Nord theme) */
-	--nord0: #2E3440;
-	--nord1: #3B4252;
-	--nord2: #434C5E;
-	--nord3: #4C566A;
-	--nord4: #D8DEE9;
-	--nord5: #E5E9F0;
-	--nord6: #ECEFF4;
-	--nord7: #8FBCBB;
-	--nord8: #88C0D0;
-	--nord9: #81A1C1;
-	--nord10: #5E81AC;
-	--nord11: #BF616A;
-	--nord12: #D08770;
-	--nord13: #EBCB8B;
-	--nord14: #A3BE8C;
-	--nord15: #B48EAD;
+    /* Nord palette for dark theme reference */
+    --nord0: #2E3440;
+    --nord1: #3B4252;
+    --nord2: #434C5E;
+    --nord3: #4C566A;
+    --nord4: #D8DEE9;
+    --nord5: #E5E9F0;
+    --nord6: #ECEFF4;
+    --nord7: #8FBCBB;
+    --nord8: #88C0D0;
+    --nord9: #81A1C1;
+    --nord10: #5E81AC;
+    --nord11: #BF616A;
+    --nord12: #D08770;
+    --nord13: #EBCB8B;
+    --nord14: #A3BE8C;
+    --nord15: #B48EAD;
 }
 
+/* Dark theme: override only colors */
 :root[data-bs-theme='dark'] {
-	--bg-body: var(--nord0);
-	--text-body: var(--nord4);
-	--bg-card: var(--nord1);
-	--text-card: var(--nord6);
-	--bg-navbar: var(--nord0);
-	--language-line-color: var(--nord3);
+    --bg-body: var(--nord0);
+    --text-body: var(--nord4);
+    --bg-card: var(--nord1);
+    --text-card: var(--nord6);
+    --bg-navbar: var(--nord0);
+    --link-color: var(--nord9);
+    --link-hover-color: var(--nord8);
+    --language-line-color: var(--nord3);
+    --tooltip-bg: var(--nord2);
+    --tooltip-color: var(--nord5);
 }
-
 
 /*---------------------------------------------------------------
 Common
 ---------------------------------------------------------------*/
 html {
-	overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 body {
-	background-color: var(--bg-body);
-	color: var(--text-body);
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	transition: background-color 0.4s ease, color 0.4s ease;
+    background-color: var(--bg-body);
+    color: var(--text-body);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
-
 
 /*---------------------------------------------------------------
 Navbar
 ---------------------------------------------------------------*/
 .navbar {
-	position: sticky;
-	top: 0;
-	z-index: 1050;
-	background-color: var(--bg-navbar) !important;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    background-color: var(--bg-navbar) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #themeToggleLink {
-	margin-left: 1.25rem;
+    margin-left: 1.25rem;
 }
 
 .nav-link {
-	transition: color 0.3s ease;
+    transition: color 0.3s ease;
 }
 .nav-link:hover {
-	color: #0d6efd;
+    color: var(--link-hover-color);
 }
-:root[data-bs-theme='dark'] .nav-link:hover {
-	color: var(--nord8);
-}
-
 
 /*---------------------------------------------------------------
-Sections
+Sections & lists
 ---------------------------------------------------------------*/
 section { cursor: pointer; }
 section.open { padding-bottom: 1.5rem; }
 section h2 { position: relative; margin: 1rem 0; cursor: pointer; }
 section h2 i { transition: transform 0.2s ease; }
 section.open h2 i { transform: rotate(180deg); }
-
 section ul { display: none; }
 section.open ul, section.open .subcategories-wrapper { display: block; }
-
-
-/*---------------------------------------------------------------
-Subcategories
----------------------------------------------------------------*/
 .subcategories-wrapper { margin-left: 0; }
-.subcategory-title { /*margin-left: 1rem;*/ font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
-
-
-/*---------------------------------------------------------------
-Lists
----------------------------------------------------------------*/
+.subcategory-title { font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
 li { display: flex; align-items: center; gap: 0.5rem; }
-li a { display: inline-block; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #0d6efd; transition: color 0.3s ease; }
-li a[data-status="none"] { margin-left: 105px; }
-li a:hover { color: #084298; }
-:root[data-bs-theme='dark'] li a { color: var(--nord9); }
-:root[data-bs-theme='dark'] li a:hover { color: var(--nord8); }
-
-
-/*---------------------------------------------------------------
-Bootstrap tooltips
----------------------------------------------------------------*/
-:root[data-bs-theme='dark'] {
-	--bs-tooltip-bg: var(--nord2);
-	--bs-tooltip-color: var(--nord5);
+li a {
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--link-color);
+    transition: color 0.3s ease;
 }
+li a[data-status="none"] { margin-left: 105px; }
+li a:hover { color: var(--link-hover-color); }

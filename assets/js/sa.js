@@ -6,24 +6,11 @@ function createSections(sections) {
 	// Helper: maak link <li>
 	const createLinkItem = (link) => {
 		const li = document.createElement("li");
-
 		const a = document.createElement("a");
 		a.href = link.url;
 		a.target = "_blank";
 		a.textContent = link.text;
 		li.appendChild(a);
-
-		if (link.info) {
-			const infoIcon = document.createElement("i");
-			infoIcon.className = "bi bi-info-circle-fill text-secondary ms-2";
-			infoIcon.tabIndex = 0;
-			infoIcon.role = "button";
-			infoIcon.title = link.info;
-			infoIcon.dataset.bsToggle = "tooltip";
-			infoIcon.dataset.bsPlacement = "right";
-			li.appendChild(infoIcon);
-		}
-
 		return li;
 	};
 
@@ -87,10 +74,6 @@ function createSections(sections) {
 	});
 
 	container.appendChild(fragment);
-
-	// Tooltips initialiseren (1 query i.p.v. per section)
-	document.querySelectorAll('[data-bs-toggle="tooltip"]')
-		.forEach(el => new bootstrap.Tooltip(el));
 }
 //------------------------------------------- END section content --------------------------------------------//
 
