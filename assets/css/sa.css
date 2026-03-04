@@ -106,16 +106,14 @@ section.open h2 i { transform: rotate(180deg); }
 section ul { display: none; }
 section.open ul, section.open .subcategories-wrapper { display: block; }
 
-section.open ul li { margin-left: 3rem; }
+/*section.open ul li { margin-left: 3rem; }*/
 
 
 /*---------------------------------------------------------------
 Subcategories
 ---------------------------------------------------------------*/
 .subcategories-wrapper { margin-left: 0; }
-.subcategory-title { margin-left: 1rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
-
-.subcategories-wrapper ul li { margin-left: 1rem; }
+.subcategory-title { /*margin-left: 1rem;*/ font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
 
 
 /*---------------------------------------------------------------
