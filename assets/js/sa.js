@@ -3,22 +3,46 @@ function createSections(sections) {
 	const container = document.getElementById("section-container");
 	const fragment = document.createDocumentFragment();
 
-	// Helper: maak link <li>
-	const createLinkItem = (link) => {
+	// Helper: maak link <li> en bind click om pane te openen
+	const createLinkItem = (link, category = "", subcategory = "") => {
 		const li = document.createElement("li");
 		const a = document.createElement("a");
-		a.href = link.url;
-		a.target = "_blank";
+		a.href = "#"; // Geen externe navigatie, pane opent
 		a.textContent = link.text;
+
+		a.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			// Vul de offcanvas
+			document.getElementById("paneCategory").textContent = category || "-";
+			document.getElementById("paneSubcategory").textContent = subcategory || "-";
+			document.getElementById("paneName").textContent = link.text;
+			const urlEl = document.getElementById("paneUrl");
+			if(link.url) {
+				urlEl.href = link.url;
+				urlEl.style.display = "inline";
+			} else {
+				urlEl.style.display = "none";
+			}
+			document.getElementById("paneAddress").textContent = link.address || "-";
+			document.getElementById("panePhone").textContent = link.phone || "-";
+			document.getElementById("paneMail").textContent = link.mail || "-";
+
+			// Open de offcanvas
+			const offcanvasEl = document.getElementById('linkPane');
+			const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+			bsOffcanvas.show();
+		});
+
 		li.appendChild(a);
 		return li;
 	};
 
 	// Helper: maak <ul> met links
-	const createLinkList = (links, extraClass = "") => {
+	const createLinkList = (links, category = "", subcategory = "", extraClass = "") => {
 		const ul = document.createElement("ul");
 		ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
-		links?.forEach(link => ul.appendChild(createLinkItem(link)));
+		links?.forEach(link => ul.appendChild(createLinkItem(link, category, subcategory)));
 		return ul;
 	};
 
@@ -58,7 +82,7 @@ function createSections(sections) {
 				subTitle.textContent = subcat.subcategory;
 
 				col.appendChild(subTitle);
-				col.appendChild(createLinkList(subcat.links));
+				col.appendChild(createLinkList(subcat.links, section.category, subcat.subcategory));
 				row.appendChild(col);
 			});
 
@@ -67,7 +91,7 @@ function createSections(sections) {
 
 		// CASE 2: zonder subcategories
 		else if (section.links) {
-			sectionEl.appendChild(createLinkList(section.links, "section-content"));
+			sectionEl.appendChild(createLinkList(section.links, section.category, ""));
 		}
 
 		fragment.appendChild(sectionEl);

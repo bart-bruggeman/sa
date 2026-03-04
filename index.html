@@ -26,6 +26,22 @@
 	</nav>
 	<!-- sections container -->
 	<div class="container mt-5" id="section-container"></div>
+	<!-- Offcanvas right/full pane -->
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="linkPane" data-bs-scroll="true" data-bs-backdrop="true">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="linkPaneLabel">Link info</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<p class="pane-name"><span id="paneName"></span></p>
+			<p class="pane-category"><span id="paneCategory"></span> - <span id="paneSubcategory"></span></p>
+			<hr/>
+			<p><strong>Website:</strong> <a href="#" target="_blank" id="paneUrl">Visit</a></p>
+			<p><strong>Address:</strong> <span id="paneAddress"></span></p>
+			<p><strong>Phone:</strong> <span id="panePhone"></span></p>
+			<p><strong>Email:</strong> <span id="paneMail"></span></p>
+		</div>
+	</div>
 	<!-- Scripts -->
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/js/sa-data.js"></script>

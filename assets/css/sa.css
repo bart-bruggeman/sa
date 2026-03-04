@@ -42,7 +42,7 @@ Colors (light by default, dark overrides below)
     --bg-navbar: var(--nord0);
     --link-color: var(--nord9);
     --link-hover-color: var(--nord8);
-    --language-line-color: var(--nord3);
+    --language-line-color: var(--nord10);
     --tooltip-bg: var(--nord2);
     --tooltip-color: var(--nord5);
 }
@@ -60,6 +60,50 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
+
+
+/*---------------------------------------------------------------
+Right pane
+---------------------------------------------------------------*/
+@media (max-width: 768px) {
+    .offcanvas-end {
+        width: 100% !important;
+    }
+}
+.offcanvas {
+    background-color: var(--bg-card);
+    color: var(--text-card);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+.offcanvas a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+.offcanvas a:hover {
+    color: var(--link-hover-color);
+}
+.offcanvas .offcanvas-body {
+    border: none;
+    margin: 0.75rem 0;
+}
+.offcanvas .offcanvas-body hr {
+	border-top: 1px solid var(--language-line-color);
+    margin: 0.75rem 0;
+}
+.pane-name {
+    font-weight: 700;
+    color: var(--text-body);
+    margin-bottom: 0.25rem;
+}
+.pane-category, .pane-subcategory {
+	font-size: 0.9rem;
+    color: var(--text-body);
+    margin-bottom: 0.15rem;
+}
+.offcanvas-body p strong {
+    margin-right: 0.25rem;
+}
+
 
 /*---------------------------------------------------------------
 Navbar
