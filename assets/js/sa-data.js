@@ -86,7 +86,7 @@ const sectionsData =
                 ]
             }, 
             {
-                "subcategory": "Real Estate Marketplace/Portal",
+                "subcategory": "Real Estate Marketplace / Portal",
                 "links": [
                     {
                         "text": "Buy a Property",
@@ -133,10 +133,10 @@ const sectionsData =
         ]
     },
 	{
-		"category": "Costal Region Wine estates",
+		"category": "Costal Region Wine Estates",
 		"subcategories": [
 			{
-				"subcategory": "District Cape Peninsula",
+				"subcategory": "Cape Peninsula District",
 				"links": [
                     {
                         "text": "Cape Point Vineyards",
@@ -176,7 +176,7 @@ const sectionsData =
                 ]
 			},
 			{
-				"subcategory": "District Darling",
+				"subcategory": "Darling District",
 				"links": [
                     {
                         "text": "Darling Cellars",
@@ -216,7 +216,7 @@ const sectionsData =
                 ]
 			},
 			{
-				"subcategory": "District Franschhoek",
+				"subcategory": "Franschhoek District",
 				"links": [
                     {
                         "text": "Babylonstoren",
@@ -256,7 +256,7 @@ const sectionsData =
                 ]
 			},
 			{
-				"subcategory": "District Paarl",
+				"subcategory": "Paarl District",
 				"links": [
                     {
                         "text": "Avondale Wine",
@@ -296,7 +296,7 @@ const sectionsData =
 				]
 			},
 			{
-				"subcategory": "District Stellenbosch",
+				"subcategory": "Stellenbosch District",
 				"links": [
                     {
                         "text": "Delaire Graff Estate",
@@ -336,7 +336,7 @@ const sectionsData =
 				]
 			},
 			{
-				"subcategory": "District Swartland",
+				"subcategory": "Swartland District",
 				"links": [
                     {
                         "text": "AA Badenhorst Family Wines",
@@ -376,7 +376,7 @@ const sectionsData =
 				]
 			},
 			{
-				"subcategory": "District Tulbagh",
+				"subcategory": "Tulbagh District",
 				"links": [
                     {
                         "text": "Lemberg Wine Estate",
@@ -416,7 +416,7 @@ const sectionsData =
 				]
 			},
 			{
-				"subcategory": "District Tygerberg",
+				"subcategory": "Tygerberg District",
 				"links": [
                     {
                         "text": "De Grendel Wine Estate",
@@ -456,7 +456,7 @@ const sectionsData =
 				]
 			},
 			{
-				"subcategory": "District Wellington",
+				"subcategory": "Wellington District",
 				"links": [
                     {
                         "text": "Bosman Family Vineyards",
