@@ -1,55 +1,134 @@
 const sectionsData =
 [
     {
-        "category": "Immo",
-        "links": [
+        "category": "Real Estate",
+        "subcategories": [
             {
-                "text": "ImmoAfrika",
-                "url": "https://www.immoafrika.de/nl-be/gordons-bay/western-cape/zuid-afrika/"
-            },
+                "subcategory": "Real Estate Agency",
+                "links": [
+                    {
+                        "text": "Greeff Gordon's Bay & Strand",
+                        "url": "https://www.greeff.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Harbour Island Properties",
+                        "url": "https://www.facebook.com/harbourislandproperties/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Homelink Estates",
+                        "url": "https://www.homelinkestates.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Pam Golding Properties",
+                        "url": "https://www.pamgolding.co.za/property-search/properties-for-sale-gordons-bay/2160/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Paul Matthews Real Estate",
+                        "url": "https://www.paulmatthews.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Peter Venter Estates",
+                        "url": "https://www.peterventer.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Property.CoZa",
+                        "url": "https://www.propertycoza.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Rawson Property Group",
+                        "url": "https://rawson.co.za/property/for-sale/gordons-bay/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "RE/MAX South Africa",
+                        "url": "https://www.remax.co.za/property-for-sale-south-africa/western-cape/gordons-bay/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "SA Hometraders",
+                        "url": "https://www.sahometraders.co.za/property-for-sale-in-gordons-bay-c395/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Seef Property Group",
+                        "url": "https://www.seeff.com/results/residential/for-sale/gordons-bay/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    }
+                ]
+            }, 
             {
-                "text": "JamesEdition",
-                "url": "https://www.jamesedition.com/real_estate/gordons-bay-central-south-africa"
-            },
-            {
-                "text": "Pam Golding",
-                "url": "https://www.pamgolding.co.za/property-search/properties-for-sale-gordons-bay/2160/"
-            },
-            {
-                "text": "PrimeLocation",
-                "url": "https://www.primelocation.com/overseas/property/south-africa/western-cape/gordons-bay/"
-            },
-            {
-                "text": "Private Property",
-                "url": "https://www.privateproperty.co.za/for-sale/"
-            },
-            {
-                "text": "Properstar",
-                "url": "https://www.properstar.be/zuid-afrika/koop/"
-            },
-            {
-                "text": "property24",
-                "url": "https://www.property24.com/for-sale/gordons-bay/western-cape/395/"
-            },
-            {
-                "text": "Property.CoZa",
-                "url": "https://www.propertycoza.com/"
-            },
-            {
-                "text": "Rawson",
-                "url": "https://rawson.co.za/property/for-sale/gordons-bay/"
-            },
-            {
-                "text": "RE/MAX",
-                "url": "https://www.remax.co.za/property-for-sale-south-africa/western-cape/gordons-bay/"
-            },
-            {
-                "text": "SA Hometraders",
-                "url": "https://www.sahometraders.co.za/property-for-sale-in-gordons-bay-c395/"
-            },
-            {
-                "text": "Seef property Group",
-                "url": "https://www.seeff.com/results/residential/for-sale/gordons-bay/"
+                "subcategory": "Real Estate Marketplace/Portal",
+                "links": [
+                    {
+                        "text": "Buy a Property",
+                        "url": "https://www.buyaproperty.co.za/"
+                    },
+                    {
+                        "text": "House24",
+                        "url": "https://www.house24.co.za/"
+                    },
+                    {
+                        "text": "ImmoAfrika",
+                        "url": "https://www.immoafrika.de/nl-be/gordons-bay/western-cape/zuid-afrika/"
+                    },
+                    {
+                        "text": "JamesEdition",
+                        "url": "https://www.jamesedition.com/real_estate/gordons-bay-central-south-africa"
+                    },
+                    {
+                        "text": "ListOne",
+                        "url": "https://listone.co.za/"
+                    },
+                    {
+                        "text": "PrimeLocation",
+                        "url": "https://www.primelocation.com/overseas/property/south-africa/western-cape/gordons-bay/"
+                    },
+                    {
+                        "text": "Private Property",
+                        "url": "https://www.privateproperty.co.za/for-sale/"
+                    },
+                    {
+                        "text": "Properstar",
+                        "url": "https://www.properstar.be/zuid-afrika/koop/"
+                    },
+                    {
+                        "text": "property24",
+                        "url": "https://www.property24.com/for-sale/gordons-bay/western-cape/395/"
+                    },
+                    {
+                        "text": "Property Portal",
+                        "url": "https://propertyportal.co.za/"
+                    }
+                ]
             }
         ]
     },
