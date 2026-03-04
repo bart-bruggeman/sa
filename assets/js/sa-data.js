@@ -1,5 +1,6 @@
 const sectionsData =
 [
+    //--- Real Estate ---
     {
         "category": "Real Estate",
         "subcategories": [
@@ -15,7 +16,7 @@ const sectionsData =
                     },
                     {
                         "text": "Harbour Island Properties",
-                        "url": "https://www.facebook.com/harbourislandproperties/",
+                        "url": "https://www.hip.co.za/",
                         "address": "",
                         "phone": "",
                         "mail": ""
@@ -132,6 +133,8 @@ const sectionsData =
             }
         ]
     },
+    
+    //--- Wine Estate ---
 	{
 		"category": "Costal Region Wine Estates",
 		"subcategories": [
