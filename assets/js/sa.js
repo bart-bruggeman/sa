@@ -164,15 +164,11 @@ if (savedTheme) {
 
 toggleBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const current = html.getAttribute("data-bs-theme");
-    const newTheme = current === "dark" ? "light" : "dark";
+    const newTheme = html.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
     html.setAttribute("data-bs-theme", newTheme);
-
-    // Bewaar de nieuwe keuze
     localStorage.setItem("theme", newTheme);
 
-    const icon = toggleBtn.querySelector("i");
-    icon.classList.toggle("bi-toggle-on");
-    icon.classList.toggle("bi-toggle-off");
+    toggleBtn.querySelector("i").classList.toggle("bi-toggle-on");
+    toggleBtn.querySelector("i").classList.toggle("bi-toggle-off");
 });
 //--------------------------------- END toggle and save theme functionality ----------------------------------//
