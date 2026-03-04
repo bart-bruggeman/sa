@@ -54,348 +54,368 @@ const sectionsData =
         ]
     },
 	{
-		"category": "Wine estates",
+		"category": "Costal Region Wine estates",
 		"subcategories": [
 			{
-				"subcategory": "Helderberg",
+				"subcategory": "District Cape Peninsula",
 				"links": [
                     {
-                        "text": "Vergelegen Wine Estate",
-                        "url": "http://www.vergelegen.co.za/",
-                        "phone": "+27 21 847 2111",
-                        "mail": "",
-                        "address": "Lourensford Rd, Somerset West, Cape Town, 7130, South Africa",
-                        "route": true
+                        "text": "Cape Point Vineyards",
+                        "url": "https://cpv.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Morgenster Estate",
-                        "url": "https://morgensterestate.co.za/",
-                        "phone": "+27 21 852 1738",
-                        "mail": "",
-                        "address": "Vergelegen Avenue, Off Lourensford Rd, Somerset West, Cape Town, 7130, South Africa",
-                        "route": true
+                        "text": "Durbanville Hills Wine",
+                        "url": "https://www.durbanvillehills.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Waterkloof Wine Estate",
-                        "url": "http://www.waterkloofwines.co.za/",
-                        "phone": "+27 21 858 1292",
-                        "mail": "",
-                        "address": "Old Sir Lowry's Pass Rd, Somerset West, Cape Town, 7130, South Africa",
-                        "route": true
+                        "text": "Groot Constantia",
+                        "url": "https://grootconstantia.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Cavalli Estate",
-                        "url": "https://cavalliestate.com/",
-                        "phone": "+27 21 855 3218",
-                        "mail": "",
-                        "address": "Strand Rd, Somerset West, Cape Town, 7129, South Africa",
-                        "route": true
+                        "text": "Klein Constantia",
+                        "url": "https://www.kleinconstantia.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Lourensford Wine Estate",
-                        "url": "http://www.lourensford.co.za/",
-                        "phone": "+27 21 847 2200",
-                        "mail": "",
-                        "address": "Lourensford Rd, Somerset West, Cape Town, 7130, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Longridge Wine Estate",
-                        "url": "http://www.longridge.co.za/",
-                        "phone": "+27 21 855 2005",
-                        "mail": "",
-                        "address": "R44 between Somerset West & Helderbergpad, Stellenbosch, Cape Town, 7600, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Avontuur Wine Estate",
-                        "url": "http://www.avontuurestate.co.za/",
-                        "phone": "+27 21 855 3450",
-                        "mail": "",
-                        "address": "R44, Somerset West, Cape Town, 7135, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Helderberg Winery",
-                        "url": "",
-                        "phone": "+27 21 842 2371",
-                        "mail": "",
-                        "address": "Winery Rd, Somerset West, Raithby, 7599, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Vergenoegd Löw Wine Estate",
-                        "url": "https://vergenoegd.co.za/",
-                        "phone": "+27 21 843 3248",
-                        "mail": "",
-                        "address": "1 Faure Village Rd, Stellenbosch Farms, Cape Town, 7134, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Stellenrust Wine Estate",
-                        "url": "http://www.stellenrust.co.za/",
-                        "phone": "+27 21 880 2283",
-                        "mail": "",
-                        "address": "Off the R44 between Stellenbosch & Somerset West, Stellenbosch, 7600, South Africa",
-                        "route": true
+                        "text": "Steenberg Vineyards",
+                        "url": "https://www.steenbergfarm.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     }
                 ]
 			},
 			{
-				"subcategory": "Stellenbosch",
+				"subcategory": "District Darling",
 				"links": [
                     {
-                        "text": "Delaire Graff Estate",
-                        "url": "http://www.delaire.co.za/",
-                        "phone": "+27 21 885 8160",
-                        "mail": "info@delaire.co.za",
-                        "address": "Helshoogte Rd, Stellenbosch, 7602, South Africa",
-                        "route": false
+                        "text": "Darling Cellars",
+                        "url": "https://www.darlingcellars.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Rust en Vrede Wine Estate",
-                        "url": "http://rustenvrede.com/",
-                        "phone": "+27 21 881 3881",
-                        "mail": "info@rustenvrede.com",
-                        "address": "Annandale Rd, Stellenbosch, 7600, South Africa",
-                        "route": false
+                        "text": "Cloof Wine Estate",
+                        "url": "https://www.cloofwines.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Tokara Wine Estate",
-                        "url": "http://www.tokara.com/",
-                        "phone": "+27 21 808 5900",
-                        "mail": "",
-                        "address": "Helshoogte Rd, Stellenbosch, Cape Town, 7600, South Africa",
-                        "route": false
+                        "text": "Groote Post Vineyards",
+                        "url": "https://www.grootepost.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Jordan Wine Estate",
-                        "url": "http://www.jordanwines.com/",
-                        "phone": "+27 21 881 3441",
-                        "mail": "",
-                        "address": "Stellenbosch Kloof Rd, Vlottenberg, Stellenbosch, 7604, South Africa",
-                        "route": false
+                        "text": "Mawson Wines",
+                        "url": "https://www.mawsonwine.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Waterford Estate",
-                        "url": "http://www.waterfordestate.co.za/",
-                        "phone": "+27 21 880 5300",
-                        "mail": "",
-                        "address": "Upper Blaauwklippen Rd, Helderberg Rural, Stellenbosch, 7600, South Africa",
-                        "route": false
-                    },
-                    {
-                        "text": "Meerlust Wine Estate",
-                        "url": "http://www.meerlust.co.za/",
-                        "phone": "+27 21 843 3587",
-                        "mail": "shop@meerlust.co.za",
-                        "address": "33 Baden Powell Dr, R310, Stellenbosch, 7600, South Africa",
-                        "route": false
-                    },
-                    {
-                        "text": "Stellenbosch Vineyards",
-                        "url": "http://www.stellenboschvineyards.co.za/",
-                        "phone": "+27 21 881 3870",
-                        "mail": "",
-                        "address": "R310 Baden Powell Dr, Lynedoch, Stellenbosch, 7603, South Africa",
-                        "route": false
-                    },
-                    {
-                        "text": "Stellenrust Wine Estate",
-                        "url": "http://www.stellenrust.co.za/",
-                        "phone": "+27 21 880 2283",
-                        "mail": "",
-                        "address": "Off the R44, Stellenbosch, 7600, South Africa",
-                        "route": false
-                    },
-                    {
-                        "text": "Oldenburg Vineyards",
-                        "url": "https://oldenburgvineyards.com/",
-                        "phone": "+27 21 885 1618",
-                        "mail": "",
-                        "address": "Banghoek Rd, Stellenbosch, 7601, South Africa",
-                        "route": false
-                    },
-                    {
-                        "text": "Spier Wine Farm",
-                        "url": "https://www.spier.co.za/",
-                        "phone": "+27 21 809 1100",
-                        "mail": "",
-                        "address": "R310 Baden Powell Dr, Stellenbosch, 7603, South Africa",
-                        "route": false
+                        "text": "Ormonde Private Cellar",
+                        "url": "https://www.ormonde.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     }
-				]
+                ]
 			},
 			{
-				"subcategory": "Franschhoek",
+				"subcategory": "District Franschhoek",
 				"links": [
                     {
-                        "text": "Maison Estate",
-                        "url": "http://maisonestate.com/",
-                        "phone": "+27 21 876 2116",
-                        "mail": "",
-                        "address": "R45, Franschhoek, Cape Town, 7690, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "La Motte Wine Farm",
-                        "url": "https://www.la-motte.com/",
-                        "phone": "+27 21 876 8000",
-                        "mail": "",
-                        "address": "R45, Franschhoek, 7691, South Africa",
-                        "route": true
+                        "text": "Babylonstoren",
+                        "url": "https://www.babylonstoren.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
                         "text": "Haute Cabrière",
                         "url": "https://www.cabriere.co.za/",
-                        "phone": "+27 21 876 8500",
-                        "mail": "",
-                        "address": "Lambrechts Rd, Franschhoek, 7690, South Africa",
-                        "route": true
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Dieu Donné Vineyards Cellar & Tasting Room",
-                        "url": "http://www.dieudonnevineyards.com/",
-                        "phone": "+27 21 224 0667",
-                        "mail": "",
-                        "address": "Uitkyk Street, Franschhoek Valley, Franschhoek, 7690, South Africa",
-                        "route": true
+                        "text": "La Motte Estate",
+                        "url": "https://www.la-motte.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Holden Manz Wine Estate",
-                        "url": "http://holdenmanz.com/",
-                        "phone": "+27 21 876 2738",
-                        "mail": "",
-                        "address": "Green Valley Rd, Franschhoek, 7690, South Africa",
-                        "route": true
+                        "text": "Leopard's Leap",
+                        "url": "https://www.leopardsleap.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "Grande Provence Heritage Wine Estate",
-                        "url": "http://www.grandeprovence.co.za/contact-us/",
-                        "phone": "+27 21 876 8600",
-                        "mail": "",
-                        "address": "R45 Main Rd, Franschhoek, 7690, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Leopard’s Leap Restaurant & Wine Farm",
-                        "url": "https://leopardsleap.co.za/",
-                        "phone": "+27 21 876 8002",
-                        "mail": "",
-                        "address": "R45 Main Rd, Franschhoek, 7690, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Eikehof Wines",
-                        "url": "http://www.eikehof.com/",
-                        "phone": "+27 83 232 6223",
-                        "mail": "",
-                        "address": "La‑Motte, R45, Franschhoek, 7691, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Rickety Bridge Estate",
-                        "url": "https://www.ricketybridge.com/",
-                        "phone": "+27 21 876 2129",
-                        "mail": "",
-                        "address": "R45, Franschhoek, 7690, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "Chamonix Wine Farm",
-                        "url": "http://www.chamonix.co.za/",
-                        "phone": "+27 21 876 8400",
-                        "mail": "",
-                        "address": "Uitkyk St, Franschhoek, 7690, South Africa",
-                        "route": true
+                        "text": "Mont Rochelle",
+                        "url": "https://www.montrochelle.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     }
                 ]
 			},
 			{
-				"subcategory": "Paarl",
+				"subcategory": "District Paarl",
 				"links": [
                     {
-                        "text": "Nederburg Wines",
-                        "url": "http://www.nederburg.com/",
-                        "phone": "+27 21 877 5183",
-                        "mail": "",
-                        "address": "Sonstraal Rd, Paarl, 7646, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "",
-                        "url": "https://www.fairview.co.za/",
-                        "phone": "+27 21 863 2450",
-                        "mail": "",
-                        "address": "Suid-Agter-Paarl Rd, Suider, Paarl, 7646, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "",
-                        "url": "http://www.baccoestate.co.za/",
-                        "phone": "+27 63 296 2147",
-                        "mail": "",
-                        "address": "Simonsvlei Rd, Paarl, 7620, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "",
-                        "url": "https://www.vendome.co.za/",
-                        "phone": "+27 64 681 8464",
-                        "mail": "",
-                        "address": "Arboretum, Suider, Paarl, 7645, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "",
-                        "url": "http://www.underoaks.co.za/",
+                        "text": "Avondale Wine",
+                        "url": "https://avondalewine.co.za/",
+                        "address": "",
                         "phone": "",
-                        "mail": "",
-                        "address": "Noord Agter - Paarl Rd, Paarl, 7620, South Africa",
-                        "route": true
+                        "mail": ""
                     },
                     {
-                        "text": "",
-                        "url": "http://www.laborieestate.co.za/",
-                        "phone": "+27 21 807 3095",
-                        "mail": "",
-                        "address": "Taillefer Street, Laborie Wine Estate, Paarl, 7646, South Africa",
-                        "route": true
+                        "text": "Boschendal Estate",
+                        "url": "https://boschendal.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "",
-                        "url": "http://www.landskroonwines.com/",
-                        "phone": "+27 21 863 1039",
-                        "mail": "",
-                        "address": "Suid-Agter-Paarl Rd, Southern Paarl, Paarl, 7624, South Africa",
-                        "route": true
+                        "text": "Fairview Wine & Cheese",
+                        "url": "https://www.fairview.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "",
-                        "url": "http://www.rhebokskloof.co.za/",
-                        "phone": "+27 21 869 8386",
-                        "mail": "",
-                        "address": "Noord Agter - Paarl Rd, Windmeul, 7623, South Africa",
-                        "route": true
+                        "text": "Lanzerac Wine Estate",
+                        "url": "https://www.lanzerac.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     },
                     {
-                        "text": "",
-                        "url": "http://www.ridgebackwines.co.za/",
-                        "phone": "+27 21 869 8068",
-                        "mail": "",
-                        "address": "Off R44, Windmeul, North Agter Paarl, Paarl, 7630, South Africa",
-                        "route": true
-                    },
-                    {
-                        "text": "",
-                        "url": "http://www.tempelwines.co.za/",
-                        "phone": "+27 79 833 9617",
-                        "mail": "",
-                        "address": "R44 Malmesbury Rd, Northern Paarl, Paarl, 7646, South Africa",
-                        "route": true
+                        "text": "Rustenberg Wines",
+                        "url": "https://www.rustenberg.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
                     }
 				]
-			}
+			},
+			{
+				"subcategory": "District Stellenbosch",
+				"links": [
+                    {
+                        "text": "Delaire Graff Estate",
+                        "url": "https://www.delaire.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Quoin Rock",
+                        "url": "https://www.quoinrock.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Simonsig Estate",
+                        "url": "https://www.simonsig.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Spier Wine Farm",
+                        "url": "https://www.spier.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Tokara Wine Estate",
+                        "url": "https://www.tokara.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    }
+				]
+			},
+			{
+				"subcategory": "District Swartland",
+				"links": [
+                    {
+                        "text": "AA Badenhorst Family Wines",
+                        "url": "https://www.badenhorstwine.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Kloovenburg Wines",
+                        "url": "https://www.kloovenburg.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Mullineux & Leeu Family Wines",
+                        "url": "https://www.mullineux.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Sadie Family Wines",
+                        "url": "https://www.sadiefamily.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Testalonga",
+                        "url": "https://testalonga.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    }
+				]
+			},
+			{
+				"subcategory": "District Tulbagh",
+				"links": [
+                    {
+                        "text": "Lemberg Wine Estate",
+                        "url": "https://www.lemberg.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Olifantsberg Wine Estate",
+                        "url": "https://olifantsberg.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Rijk's Wine Estate",
+                        "url": "https://rjks.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Saronsberg Wine Cellar",
+                        "url": "https://www.saronsberg.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Waverley Hills",
+                        "url": "https://waverley.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    }
+				]
+			},
+			{
+				"subcategory": "District Tygerberg",
+				"links": [
+                    {
+                        "text": "De Grendel Wine Estate",
+                        "url": "https://degrendel.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Diemersdal Wine Estate",
+                        "url": "http://www.diemersdal.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Durbanville Hills Wine",
+                        "url": "https://www.durbanvillehills.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Hillcrest Wine & Olive Estate",
+                        "url": "https://www.hillcrestwineestate.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Meerendal Wine Estate",
+                        "url": "https://www.meerendal.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    }
+				]
+			},
+			{
+				"subcategory": "District Wellington",
+				"links": [
+                    {
+                        "text": "Bosman Family Vineyards",
+                        "url": "https://www.bosmanwines.com/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Diemersfontein Wine & Country Estate",
+                        "url": "https://www.diemersfontein.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Doolhof Wine Estate",
+                        "url": "https://www.doolhof.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Dunstone Winery",
+                        "url": "https://www.dunstonewines.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    },
+                    {
+                        "text": "Vrymansfontein",
+                        "url": "https://vrymansfontein.co.za/",
+                        "address": "",
+                        "phone": "",
+                        "mail": ""
+                    }
+				]
+			},
 		]
 	}
 ]
