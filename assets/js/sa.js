@@ -233,14 +233,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //-------------------------------- BEGIN toggle and save theme functionality ---------------------------------//
 const toggleBtn = document.getElementById("themeToggleLink");
-const html = document.documentElement
+const html = document.documentElement;
+
+// Controleer bij laden of er een opgeslagen thema is
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+    html.setAttribute("data-bs-theme", savedTheme);
+    const icon = toggleBtn.querySelector("i");
+    if (savedTheme === "dark") {
+        icon.classList.add("bi-toggle-on");
+        icon.classList.remove("bi-toggle-off");
+    } else {
+        icon.classList.add("bi-toggle-off");
+        icon.classList.remove("bi-toggle-on");
+    }
+}
 
 toggleBtn.addEventListener("click", (e) => {
-	e.preventDefault();
-	const current = html.getAttribute("data-bs-theme");
-	html.setAttribute("data-bs-theme", current === "dark" ? "light" : "dark");
-	const icon = toggleBtn.querySelector("i");
-	icon.classList.toggle("bi-toggle-on");
-	icon.classList.toggle("bi-toggle-off");
+    e.preventDefault();
+    const current = html.getAttribute("data-bs-theme");
+    const newTheme = current === "dark" ? "light" : "dark";
+    html.setAttribute("data-bs-theme", newTheme);
+
+    // Bewaar de nieuwe keuze
+    localStorage.setItem("theme", newTheme);
+
+    const icon = toggleBtn.querySelector("i");
+    icon.classList.toggle("bi-toggle-on");
+    icon.classList.toggle("bi-toggle-off");
 });
 //--------------------------------- END toggle and save theme functionality ----------------------------------//
