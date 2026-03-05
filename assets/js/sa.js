@@ -156,21 +156,27 @@ document.addEventListener("DOMContentLoaded", function () {
 //-------------------------------- BEGIN toggle and save theme functionality ---------------------------------//
 const toggleBtn = document.getElementById("themeToggleLink");
 const html = document.documentElement;
+const icon = toggleBtn.querySelector("i");
 
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-    html.setAttribute("data-bs-theme", savedTheme);
-    const icon = toggleBtn.querySelector("i");
-    icon.classList.toggle(savedTheme === "dark" ? "bi-toggle-on" : "bi-toggle-off");
-    icon.classList.toggle(savedTheme === "dark" ? "bi-toggle-off" : "bi-toggle-on");
+function setTheme(theme) {
+    html.setAttribute("data-bs-theme", theme);
+    localStorage.setItem("theme", theme);
+
+    if (theme === "dark") {
+        icon.classList.add("bi-toggle-on");
+        icon.classList.remove("bi-toggle-off");
+    } else {
+        icon.classList.add("bi-toggle-off");
+        icon.classList.remove("bi-toggle-on");
+    }
 }
+
+const savedTheme = localStorage.getItem("theme") || "light";
+setTheme(savedTheme);
 
 toggleBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const newTheme = html.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-bs-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-    toggleBtn.querySelector("i").classList.toggle("bi-toggle-on");
-    toggleBtn.querySelector("i").classList.toggle("bi-toggle-off");
+    setTheme(newTheme);
 });
 //--------------------------------- END toggle and save theme functionality ----------------------------------//
