@@ -160,24 +160,16 @@ const html = document.documentElement;
 const icon = toggleBtn.querySelector("i");
 
 function setTheme(theme) {
-    html.setAttribute("data-bs-theme", theme);
+    html.dataset.bsTheme = theme;
     localStorage.setItem("theme", theme);
-
-    if (theme === "dark") {
-        icon.classList.add("bi-toggle-on");
-        icon.classList.remove("bi-toggle-off");
-    } else {
-        icon.classList.add("bi-toggle-off");
-        icon.classList.remove("bi-toggle-on");
-    }
+    icon.classList.toggle("bi-toggle-on", theme === "dark");
+    icon.classList.toggle("bi-toggle-off", theme !== "dark");
 }
 
-const savedTheme = localStorage.getItem("theme") || "light";
-setTheme(savedTheme);
+setTheme(localStorage.getItem("theme") || "light");
 
-toggleBtn.addEventListener("click", (e) => {
+toggleBtn.addEventListener("click", e => {
     e.preventDefault();
-    const newTheme = html.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
-    setTheme(newTheme);
+    setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
 });
 //--------------------------------- END toggle and save theme functionality ----------------------------------//
