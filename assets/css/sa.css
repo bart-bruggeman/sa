@@ -76,7 +76,7 @@ Right pane
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.offcanvas a {
+.offcanvas a, .offcanvas a:link, .offcanvas a:visited {
     color: var(--link-color);
     text-decoration: none;
 }
@@ -211,7 +211,7 @@ li {
     gap: 0.5rem;
 }
 
-li a {
+li a, li a:link, li a:visited {
     display: inline-block;
     text-decoration: none;
     white-space: nowrap;
@@ -219,10 +219,6 @@ li a {
     text-overflow: ellipsis;
     color: var(--link-color);
     transition: color 0.3s ease;
-}
-
-li a[data-status="none"] {
-    margin-left: 105px;
 }
 
 li a:hover {
