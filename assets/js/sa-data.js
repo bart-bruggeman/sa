@@ -11,15 +11,17 @@ const sectionsData =
                         "text": "Greeff Christie's International Real Estate, office Gordon's Bay & Strand",
                         "url": "https://www.greeff.co.za/",
                         "address": "8 Watt Street, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
+                        "coordinates": "-34.157103,18.870143",
                         "phone": "+27 21 856 4846",
                         "email": "info@greeff.co.za"
                     },
                     {
                         "text": "Harbour Island Properties",
                         "url": "https://www.hip.co.za/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "Krystal Beach Hotel, Breakwater Lane, Harbour Island, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
+                        "coordinates": "-34.1513,18.8591",
+                        "phone": "+27 21 856 2000",
+                        "email": "pj@hip.co.za"
                     },
                     {
                         "text": "Homelink Estates",

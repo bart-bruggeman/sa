@@ -31,6 +31,15 @@ function createSections(sections) {
                 addressEl.style.display = "none";
             }
 
+            const coordinatesEl = document.getElementById("paneCoordinates");
+            const coordinatesText = coordinatesEl.querySelector(".text");
+            if (link.coordinates && link.coordinates !== "-") {
+                coordinatesText.innerHTML = `<a href="https://www.google.com/maps?q=${link.coordinates}" target="_blank">${link.coordinates}</a>`
+                coordinatesEl.style.display = "block";
+            } else {
+                coordinatesEl.style.display = "none";
+            }
+
             const phoneEl = document.getElementById("panePhone");
             const phoneText = phoneEl.querySelector(".text");
             if (link.phone && link.phone !== "-") {
