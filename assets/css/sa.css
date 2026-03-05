@@ -6,11 +6,10 @@ Colors (light by default, dark overrides below)
     --bg-body: #f8f9fa;
     --text-body: #212529;
     --bg-card: #fdfdfd;
-    --text-card: #212529;
     --bg-navbar: #ffffff;
     --link-color: #0d6efd;
     --link-hover-color: #084298;
-    --language-line-color: #cccccc;
+    --pane-line-color: #a6a6a6;
     --tooltip-bg: #212529;
     --tooltip-color: #f8f9fa;
 
@@ -38,11 +37,10 @@ Colors (light by default, dark overrides below)
     --bg-body: var(--nord0);
     --text-body: var(--nord4);
     --bg-card: var(--nord1);
-    --text-card: var(--nord6);
     --bg-navbar: var(--nord0);
     --link-color: var(--nord9);
     --link-hover-color: var(--nord8);
-    --language-line-color: var(--nord4);
+    --pane-line-color: var(--nord4);
     --tooltip-bg: var(--nord2);
     --tooltip-color: var(--nord5);
 }
@@ -103,7 +101,7 @@ Right pane
 }
 
 .offcanvas .offcanvas-body hr {
-    border-top: 1px solid var(--language-line-color);
+    border-top: 1px solid var(--pane-line-color);
     margin: 0.75rem 0;
 }
 
