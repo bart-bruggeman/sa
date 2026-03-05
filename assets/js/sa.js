@@ -1,4 +1,38 @@
 //------------------------------------------ BEGIN section content -------------------------------------------//
+
+function updatePane(paneId, value, type = "text") {
+    const el = document.getElementById(paneId);
+    const textEl = el.querySelector(".text");
+
+    if (value && value !== "-") {
+        switch (type) {
+            // "type" contains only plain text => textEl.textContent = link.info;
+            // "type" contains html text       => textEl.innerHTML = link.info;
+            case "link":
+                textEl.innerHTML = `<a href="${value}" target="_blank">${value}</a>`;
+                break;
+            case "phone":
+                textEl.innerHTML = `<a href="tel:${value.replace(/\s+/g,'')}">${value}</a>`;
+                break;
+            case "mail":
+                textEl.innerHTML = `<a href="mailto:${value}">${value}</a>`;
+                break;
+            case "maps":
+                textEl.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}" target="_blank">${value}</a>`;
+                break;
+            case "info":
+                textEl.textContent = link.info;
+                break;
+            default:
+                textEl.textContent = value;
+        }
+        el.style.display = "block";
+    } else {
+        el.style.display = "none";
+    }
+}
+
+
 function createSections(sections) {
     const container = document.getElementById("section-container");
     const fragment = document.createDocumentFragment();
@@ -13,68 +47,13 @@ function createSections(sections) {
             e.preventDefault();
             document.getElementById("paneName").textContent = link.text;
 
-            const websiteEl = document.getElementById("paneWebsite");
-            const websiteText = websiteEl.querySelector(".text");
-            if (link.url && link.url !== "-") {
-                websiteText.innerHTML = `<a href="${link.url}" target="_blank">${link.url}</a>`;
-                websiteEl.style.display = "block";
-            } else {
-                websiteEl.style.display = "none";
-            }
-
-            const addressEl = document.getElementById("paneAddress");
-            const addressText = addressEl.querySelector(".text");
-            if (link.address && link.address !== "-") {
-                addressText.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(link.address)}" target="_blank">${link.address}</a>`
-                addressEl.style.display = "block";
-            } else {
-                addressEl.style.display = "none";
-            }
-
-            const coordinatesEl = document.getElementById("paneCoordinates");
-            const coordinatesText = coordinatesEl.querySelector(".text");
-            if (link.coordinates && link.coordinates !== "-") {
-                coordinatesText.innerHTML = `<a href="https://www.google.com/maps?q=${link.coordinates}" target="_blank">${link.coordinates}</a>`
-                coordinatesEl.style.display = "block";
-            } else {
-                coordinatesEl.style.display = "none";
-            }
-
-            const phoneEl = document.getElementById("panePhone");
-            const phoneText = phoneEl.querySelector(".text");
-            if (link.phone && link.phone !== "-") {
-                phoneText.innerHTML = `<a href="tel:${link.phone.replace(/\s+/g, '')}">${link.phone}</a>`;
-                phoneEl.style.display = "block";
-            } else {
-                phoneEl.style.display = "none";
-            }
-
-            const mailEl = document.getElementById("paneMail");
-            const mailText = mailEl.querySelector(".text");
-            if (link.email && link.email !== "-") {
-                mailText.innerHTML = `<a href="mailto:${link.email}">${link.email}</a>`;
-                mailEl.style.display = "block";
-            } else {
-                mailEl.style.display = "none";
-            }
-
-            const infoEl = document.getElementById("paneInfo");
-            const infoText = infoEl.querySelector(".text");
-            if(link.info && link.info !== "-") {
-                /* 
-                Use this if the "info" field in the JSON contains only plain text:
-                     infoText.textContent = link.info;
-                     
-                Use this if the "info" field may contain HTML markup:
-                     infoText.innerHTML = link.info;
-                */
-                infoText.textContent = link.info;
-                //infoText.innerHTML = link.info;
-                infoEl.style.display = "block";
-            } else {
-                infoEl.style.display = "none";
-            }
-
+            updatePane("paneWebsite", link.url, "link");
+            updatePane("paneAddress", link.address, "maps");
+            updatePane("paneCoordinates", link.coordinates, "maps");
+            updatePane("panePhone", link.phone, "phone");
+            updatePane("paneMail", link.email, "mail");
+            updatePane("paneInfo", link.info);
+            
             const offcanvasEl = document.getElementById('linkPane');
             const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
             bsOffcanvas.show();
