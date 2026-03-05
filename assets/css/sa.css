@@ -80,6 +80,7 @@ Right pane
     color: var(--link-color);
     text-decoration: none;
 }
+
 .offcanvas a:hover {
     color: var(--link-hover-color);
 }
@@ -100,24 +101,21 @@ Right pane
     margin-bottom: 0.25rem;
 }
 
-.pane-category, .pane-subcategory {
-    font-size: 0.9rem;
-    color: var(--text-body);
-    margin-bottom: 0.15rem;
-}
-
-/* Icons in offcanvas: same width + spacing + alignment */
-.offcanvas-body .icon {
-    display: inline-block;
-    width: 24px;          /* vaste breedte */
-    text-align: left;     /* links uitlijnen */
-    margin-right: 12px;   /* ruimte tussen icoon en data */
-    vertical-align: middle;
-}
-
+/* Icon + text layout */
 .offcanvas-body .value {
-    display: inline-flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    column-gap: 12px;
+    align-items: start;
+}
+
+.offcanvas-body .icon {
+    grid-column: 1;
+    width: 24px;
+}
+
+.offcanvas-body .text {
+    grid-column: 2;
 }
 
 .offcanvas-body p {
@@ -150,16 +148,53 @@ Navbar
 /*---------------------------------------------------------------
 Sections & lists
 ---------------------------------------------------------------*/
-section { cursor: pointer; }
-section.open { padding-bottom: 1.5rem; }
-section h2 { position: relative; margin: 1rem 0; cursor: pointer; }
-section h2 i { transition: transform 0.2s ease; }
-section.open h2 i { transform: rotate(180deg); }
-section ul { display: none; }
-section.open ul, section.open .subcategories-wrapper { display: block; }
-.subcategories-wrapper { margin-left: 0; }
-.subcategory-title { font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
-li { display: flex; align-items: center; gap: 0.5rem; }
+section {
+    cursor: pointer;
+}
+
+section.open {
+    padding-bottom: 1.5rem;
+}
+
+section h2 {
+    position: relative;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+section h2 i {
+    transition: transform 0.2s ease;
+}
+
+section.open h2 i {
+    transform: rotate(180deg);
+}
+
+section ul {
+    display: none;
+}
+
+section.open ul,
+section.open .subcategories-wrapper {
+    display: block;
+}
+
+.subcategories-wrapper {
+    margin-left: 0;
+}
+
+.subcategory-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 li a {
     display: inline-block;
     text-decoration: none;
@@ -169,5 +204,11 @@ li a {
     color: var(--link-color);
     transition: color 0.3s ease;
 }
-li a[data-status="none"] { margin-left: 105px; }
-li a:hover { color: var(--link-hover-color); }
+
+li a[data-status="none"] {
+    margin-left: 105px;
+}
+
+li a:hover {
+    color: var(--link-hover-color);
+}

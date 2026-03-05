@@ -14,8 +14,6 @@ function createSections(sections) {
             e.preventDefault();
 
             // Vul de offcanvas
-            document.getElementById("paneCategory").textContent = category || "-";
-            document.getElementById("paneSubcategory").textContent = subcategory || "-";
             document.getElementById("paneName").textContent = link.text;
 
             // Website
