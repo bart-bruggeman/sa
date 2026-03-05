@@ -8,10 +8,10 @@ const sectionsData =
                 "subcategory": "Real Estate Agency",
                 "links": [
                     {
-                        "text": "Greeff Christie’s International Real Estate",
+                        "text": "Greeff Christie's International Real Estate, office Gordon's Bay & Strand",
                         "url": "https://www.greeff.co.za/",
-                        "address": "262 Main Road, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
-                        "phone": "+27 21 763 4120",
+                        "address": "8 Watt Street, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
+                        "phone": "+27 21 856 4846",
                         "email": "info@greeff.co.za"
                     },
                     {
