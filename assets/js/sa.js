@@ -3,7 +3,6 @@ function createSections(sections) {
     const container = document.getElementById("section-container");
     const fragment = document.createDocumentFragment();
 
-    // Helper: maak link <li> en bind click om pane te openen
     const createLinkItem = (link, category = "", subcategory = "") => {
         const li = document.createElement("li");
         const a = document.createElement("a");
@@ -12,11 +11,8 @@ function createSections(sections) {
 
         a.addEventListener("click", (e) => {
             e.preventDefault();
-
-            // Vul de offcanvas
             document.getElementById("paneName").textContent = link.text;
 
-            // Website
             const websiteEl = document.getElementById("paneWebsite");
             const websiteText = websiteEl.querySelector(".text");
             if (link.url && link.url !== "-") {
@@ -26,18 +22,15 @@ function createSections(sections) {
                 websiteEl.style.display = "none";
             }
 
-            // Address
             const addressEl = document.getElementById("paneAddress");
             const addressText = addressEl.querySelector(".text");
             if (link.address && link.address !== "-") {
-                //addressText.textContent = link.address;
                 addressText.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(link.address)}" target="_blank">${link.address}</a>`
                 addressEl.style.display = "block";
             } else {
                 addressEl.style.display = "none";
             }
 
-            // Phone
             const phoneEl = document.getElementById("panePhone");
             const phoneText = phoneEl.querySelector(".text");
             if (link.phone && link.phone !== "-") {
@@ -47,7 +40,6 @@ function createSections(sections) {
                 phoneEl.style.display = "none";
             }
 
-            // Email
             const mailEl = document.getElementById("paneMail");
             const mailText = mailEl.querySelector(".text");
             if (link.email && link.email !== "-") {
@@ -57,7 +49,6 @@ function createSections(sections) {
                 mailEl.style.display = "none";
             }
 
-            // Open de offcanvas
             const offcanvasEl = document.getElementById('linkPane');
             const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
             bsOffcanvas.show();
@@ -67,7 +58,6 @@ function createSections(sections) {
         return li;
     };
 
-    // Helper: maak <ul> met links
     const createLinkList = (links, category = "", subcategory = "", extraClass = "") => {
         const ul = document.createElement("ul");
         ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
@@ -79,7 +69,6 @@ function createSections(sections) {
         const sectionEl = document.createElement("section");
         sectionEl.className = "mb-3 border-bottom";
 
-        // Header
         const header = document.createElement("h2");
         header.className = "h5 mb-3 d-flex justify-content-between align-items-center";
         header.textContent = section.category;
@@ -89,8 +78,7 @@ function createSections(sections) {
         header.appendChild(chevron);
         sectionEl.appendChild(header);
 
-        // CASE 1: met subcategories
-        if (section.subcategories) {
+        if (section.subcategories) { // CASE 1: subcategories
             const wrapper = document.createElement("div");
             wrapper.className = "subcategories-wrapper section-content";
 
@@ -114,9 +102,7 @@ function createSections(sections) {
             });
 
             sectionEl.appendChild(wrapper);
-        }
-        // CASE 2: zonder subcategories
-        else if (section.links) {
+        } else if (section.links) { // CASE 2: no subcategories
             sectionEl.appendChild(createLinkList(section.links, section.category, ""));
         }
 
@@ -127,7 +113,8 @@ function createSections(sections) {
 }
 //------------------------------------------- END section content --------------------------------------------//
 
-//--------------------------------------- BEGIN section functionality ----------------------------------------//
+
+//---------------------------------- BEGIN open/close section functionality ----------------------------------//
 document.addEventListener("DOMContentLoaded", function () {
     createSections(sectionsData);
 
@@ -163,7 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-//---------------------------------------- END section functionality -----------------------------------------//
+//---------------------------------- END open/close section functionality  -----------------------------------//
+
 
 //-------------------------------- BEGIN toggle and save theme functionality ---------------------------------//
 const toggleBtn = document.getElementById("themeToggleLink");

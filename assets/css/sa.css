@@ -101,7 +101,6 @@ Right pane
     margin-bottom: 0.25rem;
 }
 
-/* Icon + text layout */
 .offcanvas-body .value {
     display: grid;
     grid-template-columns: 24px 1fr;
