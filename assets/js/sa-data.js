@@ -122,7 +122,7 @@ const sectionsData =
                         "url": "https://www.properstar.be/"
                     },
                     {
-                        "text": "property24",
+                        "text": "Property24",
                         "url": "https://www.property24.com/"
                     },
                     {
