@@ -132,6 +132,11 @@ Right pane
     margin-bottom: 0.75rem;
 }
 
+#paneInfo .text {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 /*---------------------------------------------------------------
 Navbar
 ---------------------------------------------------------------*/

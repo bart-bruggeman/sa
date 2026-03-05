@@ -52,7 +52,15 @@ function createSections(sections) {
             const infoEl = document.getElementById("paneInfo");
             const infoText = infoEl.querySelector(".text");
             if(link.info && link.info !== "-") {
+                /* 
+                Use this if the "info" field in the JSON contains only plain text:
+                     infoText.textContent = link.info;
+                     
+                Use this if the "info" field may contain HTML markup:
+                     infoText.innerHTML = link.info;
+                */
                 infoText.textContent = link.info;
+                //infoText.innerHTML = link.info;
                 infoEl.style.display = "block";
             } else {
                 infoEl.style.display = "none";
