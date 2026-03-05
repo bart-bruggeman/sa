@@ -1,38 +1,4 @@
 //------------------------------------------ BEGIN section content -------------------------------------------//
-
-function updatePane(paneId, value, type = "text") {
-    const el = document.getElementById(paneId);
-    const textEl = el.querySelector(".text");
-
-    if (value && value !== "-") {
-        switch (type) {
-            case "link":
-                textEl.innerHTML = `<a href="${value}" target="_blank">${value}</a>`;
-                break;
-            case "phone":
-                textEl.innerHTML = `<a href="tel:${value.replace(/\s+/g,'')}">${value}</a>`;
-                break;
-            case "mail":
-                textEl.innerHTML = `<a href="mailto:${value}">${value}</a>`;
-                break;
-            case "maps":
-                textEl.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}" target="_blank">${value}</a>`;
-                break;
-            case "info":
-                // value contains only plain text, use: textEl.textContent = link.info;
-                // value contains html text, use: textEl.innerHTML = link.info;
-                textEl.textContent = value;
-                break;
-            default:
-                textEl.textContent = value;
-        }
-        el.style.display = "block";
-    } else {
-        el.style.display = "none";
-    }
-}
-
-
 function createSections(sections) {
     const container = document.getElementById("section-container");
     const fragment = document.createDocumentFragment();
@@ -46,6 +12,38 @@ function createSections(sections) {
         a.addEventListener("click", (e) => {
             e.preventDefault();
             document.getElementById("paneName").textContent = link.text;
+
+            const updatePane = (paneId, value, type = "text") => {
+                const el = document.getElementById(paneId);
+                const textEl = el.querySelector(".text");
+
+                if (value && value !== "-") {
+                    switch (type) {
+                        case "link":
+                            textEl.innerHTML = `<a href="${value}" target="_blank">${value}</a>`;
+                            break;
+                        case "phone":
+                            textEl.innerHTML = `<a href="tel:${value.replace(/\s+/g,'')}">${value}</a>`;
+                            break;
+                        case "mail":
+                            textEl.innerHTML = `<a href="mailto:${value}">${value}</a>`;
+                            break;
+                        case "maps":
+                            textEl.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}" target="_blank">${value}</a>`;
+                            break;
+                        case "info":
+                            // value contains only plain text, use: textEl.textContent = link.info;
+                            // value contains html text, use: textEl.innerHTML = link.info;
+                            textEl.textContent = value;
+                            break;
+                        default:
+                            textEl.textContent = value;
+                    }
+                    el.style.display = "block";
+                } else {
+                    el.style.display = "none";
+                }
+            };
 
             updatePane("paneWebsite", link.url, "link");
             updatePane("paneAddress", link.address, "maps");
@@ -159,12 +157,12 @@ const toggleBtn = document.getElementById("themeToggleLink");
 const html = document.documentElement;
 const icon = toggleBtn.querySelector("i");
 
-function setTheme(theme) {
+const setTheme = theme => {
     html.dataset.bsTheme = theme;
     localStorage.setItem("theme", theme);
     icon.classList.toggle("bi-toggle-on", theme === "dark");
     icon.classList.toggle("bi-toggle-off", theme !== "dark");
-}
+};
 
 setTheme(localStorage.getItem("theme") || "light");
 
