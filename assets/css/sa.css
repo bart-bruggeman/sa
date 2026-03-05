@@ -85,6 +85,17 @@ Right pane
     color: var(--link-hover-color);
 }
 
+.offcanvas .offcanvas-header {
+    border: none;
+    margin-top: 3rem;
+    margin-bottom: -2rem;
+}
+
+.offcanvas-header .btn-close {
+    outline: none;
+    box-shadow: none;
+}
+
 .offcanvas .offcanvas-body {
     border: none;
     margin: 0.75rem 0;
