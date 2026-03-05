@@ -19,9 +19,9 @@ function updatePane(paneId, value, type = "text") {
                 textEl.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}" target="_blank">${value}</a>`;
                 break;
             case "info":
-                // link.info contains only plain text, use: textEl.textContent = link.info;
-                // link.info contains html text, use: textEl.innerHTML = link.info;
-                textEl.textContent = link.info;
+                // value contains only plain text, use: textEl.textContent = link.info;
+                // value contains html text, use: textEl.innerHTML = link.info;
+                textEl.textContent = value;
                 break;
             default:
                 textEl.textContent = value;
@@ -138,19 +138,15 @@ document.addEventListener("DOMContentLoaded", function () {
             if (event.target.closest("a")) return;
             const content = this.querySelector(".section-content");
 
-            if (currentlyOpenSection === this) {
-                if (content) content.style.display = "none";
-                this.classList.remove("open");
-                currentlyOpenSection = null;
-            } else {
-                sections.forEach(s => {
-                    const otherContent = s.querySelector(".section-content");
-                    if (otherContent) otherContent.style.display = "none";
-                    s.classList.remove("open");
-                });
-                if (content) content.style.display = "block";
+            const isOpen = this.classList.contains("open");
+            sections.forEach(s => {
+                s.classList.remove("open");
+                s.querySelector(".section-content") && (s.querySelector(".section-content").style.display = "none");
+            });
+
+            if (!isOpen) {
                 this.classList.add("open");
-                currentlyOpenSection = this;
+                content.style.display = "block";
             }
         });
     });
