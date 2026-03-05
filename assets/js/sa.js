@@ -6,8 +6,6 @@ function updatePane(paneId, value, type = "text") {
 
     if (value && value !== "-") {
         switch (type) {
-            // "type" contains only plain text => textEl.textContent = link.info;
-            // "type" contains html text       => textEl.innerHTML = link.info;
             case "link":
                 textEl.innerHTML = `<a href="${value}" target="_blank">${value}</a>`;
                 break;
@@ -21,6 +19,8 @@ function updatePane(paneId, value, type = "text") {
                 textEl.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}" target="_blank">${value}</a>`;
                 break;
             case "info":
+                // link.info contains only plain text, use: textEl.textContent = link.info;
+                // link.info contains html text, use: textEl.innerHTML = link.info;
                 textEl.textContent = link.info;
                 break;
             default:
@@ -53,7 +53,7 @@ function createSections(sections) {
             updatePane("panePhone", link.phone, "phone");
             updatePane("paneMail", link.email, "mail");
             updatePane("paneInfo", link.info);
-            
+
             const offcanvasEl = document.getElementById('linkPane');
             const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
             bsOffcanvas.show();
