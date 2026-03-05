@@ -94,11 +94,12 @@ Right pane
 .offcanvas-header .btn-close {
     outline: none;
     box-shadow: none;
+    font-size: 0.80rem;
 }
 
 .offcanvas .offcanvas-body {
     border: none;
-    margin: 0.75rem 0;
+    margin: 1.25rem 0;
 }
 
 .offcanvas .offcanvas-body hr {
