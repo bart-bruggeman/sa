@@ -12,77 +12,77 @@ const sectionsData =
                         "url": "https://www.greeff.co.za/",
                         "address": "262 Main Road, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
                         "phone": "+27 21 763 4120",
-                        "mail": "info@greeff.co.za"
+                        "email": "info@greeff.co.za"
                     },
                     {
                         "text": "Harbour Island Properties",
                         "url": "https://www.hip.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Homelink Estates",
                         "url": "https://www.homelinkestates.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Pam Golding Properties",
                         "url": "https://www.pamgolding.co.za/property-search/properties-for-sale-gordons-bay/2160/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Paul Matthews Real Estate",
                         "url": "https://www.paulmatthews.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Peter Venter Estates",
                         "url": "https://www.peterventer.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Property.CoZa",
                         "url": "https://www.propertycoza.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Rawson Property Group",
                         "url": "https://rawson.co.za/property/for-sale/gordons-bay/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "RE/MAX South Africa",
                         "url": "https://www.remax.co.za/property-for-sale-south-africa/western-cape/gordons-bay/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "SA Hometraders",
                         "url": "https://www.sahometraders.co.za/property-for-sale-in-gordons-bay-c395/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Seef Property Group",
                         "url": "https://www.seeff.com/results/residential/for-sale/gordons-bay/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
                 ]
             }, 
@@ -146,35 +146,35 @@ const sectionsData =
                         "url": "https://cpv.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Durbanville Hills Wine",
                         "url": "https://www.durbanvillehills.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Groot Constantia",
                         "url": "https://grootconstantia.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Klein Constantia",
                         "url": "https://www.kleinconstantia.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Steenberg Vineyards",
                         "url": "https://www.steenbergfarm.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
                 ]
 			},
@@ -186,35 +186,35 @@ const sectionsData =
                         "url": "https://www.darlingcellars.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Cloof Wine Estate",
                         "url": "https://www.cloofwines.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Groote Post Vineyards",
                         "url": "https://www.grootepost.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Mawson Wines",
                         "url": "https://www.mawsonwine.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Ormonde Private Cellar",
                         "url": "https://www.ormonde.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
                 ]
 			},
@@ -226,35 +226,35 @@ const sectionsData =
                         "url": "https://www.babylonstoren.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Haute Cabrière",
                         "url": "https://www.cabriere.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "La Motte Estate",
                         "url": "https://www.la-motte.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Leopard's Leap",
                         "url": "https://www.leopardsleap.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Mont Rochelle",
                         "url": "https://www.montrochelle.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
                 ]
 			},
@@ -266,35 +266,35 @@ const sectionsData =
                         "url": "https://avondalewine.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Boschendal Estate",
                         "url": "https://boschendal.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Fairview Wine & Cheese",
                         "url": "https://www.fairview.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Lanzerac Wine Estate",
                         "url": "https://www.lanzerac.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Rustenberg Wines",
                         "url": "https://www.rustenberg.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
 				]
 			},
@@ -306,35 +306,35 @@ const sectionsData =
                         "url": "https://www.delaire.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Quoin Rock",
                         "url": "https://www.quoinrock.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Simonsig Estate",
                         "url": "https://www.simonsig.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Spier Wine Farm",
                         "url": "https://www.spier.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Tokara Wine Estate",
                         "url": "https://www.tokara.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
 				]
 			},
@@ -346,35 +346,35 @@ const sectionsData =
                         "url": "https://www.badenhorstwine.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Kloovenburg Wines",
                         "url": "https://www.kloovenburg.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Mullineux & Leeu Family Wines",
                         "url": "https://www.mullineux.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Sadie Family Wines",
                         "url": "https://www.sadiefamily.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Testalonga",
                         "url": "https://testalonga.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
 				]
 			},
@@ -386,35 +386,35 @@ const sectionsData =
                         "url": "https://www.lemberg.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Olifantsberg Wine Estate",
                         "url": "https://olifantsberg.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Rijk's Wine Estate",
                         "url": "https://rjks.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Saronsberg Wine Cellar",
                         "url": "https://www.saronsberg.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Waverley Hills",
                         "url": "https://waverley.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
 				]
 			},
@@ -426,35 +426,35 @@ const sectionsData =
                         "url": "https://degrendel.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Diemersdal Wine Estate",
                         "url": "http://www.diemersdal.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Durbanville Hills Wine",
                         "url": "https://www.durbanvillehills.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Hillcrest Wine & Olive Estate",
                         "url": "https://www.hillcrestwineestate.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Meerendal Wine Estate",
                         "url": "https://www.meerendal.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
 				]
 			},
@@ -466,35 +466,35 @@ const sectionsData =
                         "url": "https://www.bosmanwines.com/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Diemersfontein Wine & Country Estate",
                         "url": "https://www.diemersfontein.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Doolhof Wine Estate",
                         "url": "https://www.doolhof.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Dunstone Winery",
                         "url": "https://www.dunstonewines.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     },
                     {
                         "text": "Vrymansfontein",
                         "url": "https://vrymansfontein.co.za/",
                         "address": "",
                         "phone": "",
-                        "mail": ""
+                        "email": ""
                     }
 				]
 			},

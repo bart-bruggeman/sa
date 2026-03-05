@@ -30,7 +30,8 @@ function createSections(sections) {
             const addressEl = document.getElementById("paneAddress");
             const addressText = addressEl.querySelector(".text");
             if (link.address && link.address !== "-") {
-                addressText.textContent = link.address;
+                //addressText.textContent = link.address;
+                addressText.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(link.address)}" target="_blank">${link.address}</a>`
                 addressEl.style.display = "block";
             } else {
                 addressEl.style.display = "none";
@@ -40,7 +41,7 @@ function createSections(sections) {
             const phoneEl = document.getElementById("panePhone");
             const phoneText = phoneEl.querySelector(".text");
             if (link.phone && link.phone !== "-") {
-                phoneText.textContent = link.phone;
+                phoneText.innerHTML = `<a href="tel:${link.phone.replace(/\s+/g, '')}">${link.phone}</a>`;
                 phoneEl.style.display = "block";
             } else {
                 phoneEl.style.display = "none";
@@ -49,8 +50,8 @@ function createSections(sections) {
             // Email
             const mailEl = document.getElementById("paneMail");
             const mailText = mailEl.querySelector(".text");
-            if (link.mail && link.mail !== "-") {
-                mailText.textContent = link.mail;
+            if (link.email && link.email !== "-") {
+                mailText.innerHTML = `<a href="mailto:${link.email}">${link.email}</a>`;
                 mailEl.style.display = "block";
             } else {
                 mailEl.style.display = "none";
