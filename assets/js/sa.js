@@ -49,6 +49,15 @@ function createSections(sections) {
                 mailEl.style.display = "none";
             }
 
+            const infoEl = document.getElementById("paneInfo");
+            const infoText = infoEl.querySelector(".text");
+            if(link.info && link.info !== "-") {
+                infoText.textContent = link.info;
+                infoEl.style.display = "block";
+            } else {
+                infoEl.style.display = "none";
+            }
+
             const offcanvasEl = document.getElementById('linkPane');
             const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
             bsOffcanvas.show();
