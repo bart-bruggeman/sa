@@ -8,12 +8,24 @@ const sectionsData =
                 "subcategory": "Real Estate Agency",
                 "links": [
                     {
-                        "text": "Greeff Christie's International Real Estate, office Gordon's Bay & Strand",
+                        "text": "Greeff Christie's International Real Estate",
                         "url": "https://www.greeff.co.za/",
-                        "address": "8 Watt Street, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
-                        "coordinates": "-34.157103,18.870143",
-                        "phone": "+27 21 856 4846",
-                        "email": "info@greeff.co.za"
+                        "offices": [
+                            {
+                                "type": "Head Office",
+                                "address": "262 Main Rd, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
+                                "coordinates": "-33.9931035,18.4687839",
+                                "phone": "+27 21 763 4120",
+                                "email": "info@greeff.co.za"
+                            },
+                            {
+                                "type": "Branch Office: Gordon’s Bay & Strand",
+                                "address": "8 Watt Street, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
+                                "coordinates": "-34.157103,18.870143",
+                                "phone": "+27 21 856 4846",
+                                "email": "info@greeff.co.za"
+                            }
+                        ]
                     },
                     {
                         "text": "Harbour Island Properties",
@@ -26,9 +38,26 @@ const sectionsData =
                     {
                         "text": "Homelink Estates",
                         "url": "https://www.homelinkestates.co.za/",
-                        "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
-                        "phone": "+27 021 856 0235",
-                        "email": "info@homelinkestates.co.za"
+                        "offices": [
+                            {
+                                "type": "head office",
+                                "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
+                                "phone": "+27 021 856 0235",
+                                "email": "info@homelinkestates.co.za"
+                            },
+                            {
+                                "type": "branch office",
+                                "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
+                                "phone": "+27 021 856 0235",
+                                "email": "info@homelinkestates.co.za"
+                            },
+                            {
+                                "type": "branch office",
+                                "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
+                                "phone": "+27 021 856 0235",
+                                "email": "info@homelinkestates.co.za"
+                            }
+                        ]
                     },
                     {
                         "text": "Pam Golding Properties",

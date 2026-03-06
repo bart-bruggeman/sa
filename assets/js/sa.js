@@ -3,63 +3,133 @@ function createSections(sections) {
     const container = document.getElementById("section-container");
     const fragment = document.createDocumentFragment();
 
-    const createLinkItem = (link, category = "", subcategory = "") => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = "#"; 
-        a.textContent = link.text;
+const createLinkItem = (link, category = "", subcategory = "") => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#";
+    a.textContent = link.text;
 
-        a.addEventListener("click", (e) => {
-            e.preventDefault();
-            document.getElementById("paneName").textContent = link.text;
+    a.addEventListener("click", (e) => {
+        e.preventDefault();
 
-            const updatePane = (paneId, value, type = "text") => {
-                const el = document.getElementById(paneId);
-                const textEl = el.querySelector(".text");
+        const offcanvasEl = document.getElementById('linkPane');
+        const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
 
-                if (value && value !== "-") {
-                    switch (type) {
-                        case "link":
-                            textEl.innerHTML = `<a href="${value}" target="_blank">${value}</a>`;
-                            break;
-                        case "phone":
-                            textEl.innerHTML = `<a href="tel:${value.replace(/\s+/g,'')}">${value}</a>`;
-                            break;
-                        case "mail":
-                            textEl.innerHTML = `<a href="mailto:${value}">${value}</a>`;
-                            break;
-                        case "maps":
-                            textEl.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}" target="_blank">${value}</a>`;
-                            break;
-                        case "info":
-                            // value contains only plain text, use: textEl.textContent = link.info;
-                            // value contains html text, use: textEl.innerHTML = link.info;
-                            textEl.textContent = value;
-                            break;
-                        default:
-                            textEl.textContent = value;
-                    }
-                    el.style.display = "block";
-                } else {
-                    el.style.display = "none";
-                }
-            };
+        const paneNameEl = document.getElementById("paneName");
+        if (paneNameEl) paneNameEl.textContent = link.text;
 
-            updatePane("paneWebsite", link.url, "link");
-            updatePane("paneAddress", link.address, "maps");
-            updatePane("paneCoordinates", link.coordinates, "maps");
-            updatePane("panePhone", link.phone, "phone");
-            updatePane("paneMail", link.email, "mail");
-            updatePane("paneInfo", link.info);
+        const offcanvasBody = offcanvasEl.querySelector(".offcanvas-body");
 
-            const offcanvasEl = document.getElementById('linkPane');
-            const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-            bsOffcanvas.show();
+        // verwijder oude content behalve paneName
+        Array.from(offcanvasBody.children).forEach(child => {
+            if (!child.id || child.id !== "paneName") {
+                child.remove();
+            }
         });
 
-        li.appendChild(a);
-        return li;
-    };
+        // TOP: naam bovenaan
+        const topBlock = document.createElement("div");
+        topBlock.className = "office-top mb-3";
+
+        const nameTitle = document.createElement("p");
+        nameTitle.innerHTML = `<strong>${link.text}</strong>`;
+        topBlock.appendChild(nameTitle);
+
+        // scheidingslijn
+        const hr = document.createElement("hr");
+        topBlock.appendChild(hr);
+
+        offcanvasBody.appendChild(topBlock);
+
+        // URL onder de lijn
+        if (link.url) {
+            const pUrl = document.createElement("p");
+            pUrl.innerHTML = `<span class="value"><i class="bi bi-globe icon"></i> <a href="${link.url}" target="_blank">${link.url}</a></span>`;
+            offcanvasBody.appendChild(pUrl);
+        }
+
+        // helper: blok per office
+        const createOfficeBlock = (office, multipleOffices) => {
+            const div = document.createElement("div");
+            div.className = "office-block mb-3";
+
+            // type alleen tonen als er meerdere offices zijn
+            if (multipleOffices) {
+                const typeTitle = document.createElement("p");
+                typeTitle.innerHTML = `<strong>${office.type}</strong>`;
+                div.appendChild(typeTitle);
+            }
+
+            // address
+            if (office.address) {
+                const pAddr = document.createElement("p");
+                pAddr.innerHTML = `<span class="value"><i class="bi bi-geo-alt icon"></i> <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address)}" target="_blank">${office.address}</a></span>`;
+                div.appendChild(pAddr);
+            }
+
+            // coordinates
+            if (office.coordinates) {
+                const pCoord = document.createElement("p");
+                pCoord.innerHTML = `<span class="value"><i class="bi bi-geo icon"></i> <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.coordinates)}" target="_blank">${office.coordinates}</a></span>`;
+                div.appendChild(pCoord);
+            }
+
+            // phone
+            if (office.phone) {
+                const pPhone = document.createElement("p");
+                pPhone.innerHTML = `<span class="value"><i class="bi bi-telephone icon"></i> <a href="tel:${office.phone.replace(/\s+/g,'')}">${office.phone}</a></span>`;
+                div.appendChild(pPhone);
+            }
+
+            // email
+            if (office.email) {
+                const pMail = document.createElement("p");
+                pMail.innerHTML = `<span class="value"><i class="bi bi-envelope icon"></i> <a href="mailto:${office.email}">${office.email}</a></span>`;
+                div.appendChild(pMail);
+            }
+
+            // info (optioneel)
+            if (office.info) {
+                const pInfo = document.createElement("p");
+                pInfo.innerHTML = `<span class="value"><i class="bi bi-info-circle icon"></i> ${office.info}</span>`;
+                div.appendChild(pInfo);
+            }
+
+            return div;
+        };
+
+        if (link.offices && link.offices.length) {
+            const multipleOffices = link.offices.length > 1;
+
+            // sorteer head office eerst
+            const sorted = [
+                ...link.offices.filter(o => o.type === "head office"),
+                ...link.offices.filter(o => o.type !== "head office")
+            ];
+
+            sorted.forEach(office => {
+                const block = createOfficeBlock(office, multipleOffices);
+                offcanvasBody.appendChild(block);
+            });
+        } else {
+            // fallback
+            const block = createOfficeBlock({
+                type: "Office",
+                address: link.address,
+                coordinates: link.coordinates,
+                phone: link.phone,
+                email: link.email,
+                info: link.info
+            }, false);
+            offcanvasBody.appendChild(block);
+        }
+
+        bsOffcanvas.show();
+    });
+
+    li.appendChild(a);
+    return li;
+};
 
     const createLinkList = (links, category = "", subcategory = "", extraClass = "") => {
         const ul = document.createElement("ul");
