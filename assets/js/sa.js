@@ -27,7 +27,7 @@ const createLinkItem = (link, category = "", subcategory = "") => {
             }
         });
 
-        // TOP: naam van het kantoor
+        // TOP: naam van het kantoor (hoofdkantoor)
         const topBlock = document.createElement("div");
         topBlock.className = "office-top mb-3";
 
@@ -36,28 +36,32 @@ const createLinkItem = (link, category = "", subcategory = "") => {
         topBlock.appendChild(nameTitle);
 
         // scheidingslijn
-        const hr = document.createElement("hr");
-        topBlock.appendChild(hr);
+        const hrTop = document.createElement("hr");
+        topBlock.appendChild(hrTop);
 
         offcanvasBody.appendChild(topBlock);
 
-        // URL van main office
+        // URL van hoofdkantoor
         if (link.url) {
             const pUrl = document.createElement("p");
             pUrl.innerHTML = `<span class="value"><i class="bi bi-globe icon"></i> <a href="${link.url}" target="_blank">${link.url}</a></span>`;
             offcanvasBody.appendChild(pUrl);
         }
 
-        // Helper: office block (hoofdkantoor + branches)
+        // Helper: office block
         const createOfficeBlock = (office, showName = true) => {
             const div = document.createElement("div");
-            div.className = "office-block mb-3";
+            div.className = "office-block mb-4"; // meer ruimte tussen blocks
 
-            // Naam type alleen tonen als showName = true
+            // Naam van branch tonen indien showName
             if (showName) {
                 const typeTitle = document.createElement("p");
                 typeTitle.innerHTML = `<strong>${office.name}</strong>`;
                 div.appendChild(typeTitle);
+
+                // hr onder branch naam
+                const hrBranch = document.createElement("hr");
+                div.appendChild(hrBranch);
             }
 
             // address
@@ -100,7 +104,7 @@ const createLinkItem = (link, category = "", subcategory = "") => {
 
         // MAIN OFFICE
         const mainOffice = {
-            name: "", // hoofdkantoor hoeft geen type-naam te tonen
+            name: "", // hoofdkantoor geen type-naam tonen
             address: link.address,
             coordinates: link.coordinates,
             phone: link.phone,
@@ -121,6 +125,7 @@ const createLinkItem = (link, category = "", subcategory = "") => {
     li.appendChild(a);
     return li;
 };
+
     const createLinkList = (links, category = "", subcategory = "", extraClass = "") => {
         const ul = document.createElement("ul");
         ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
