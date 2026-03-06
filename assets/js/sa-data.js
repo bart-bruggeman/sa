@@ -8,27 +8,23 @@ const sectionsData =
                 "subcategory": "Real Estate Agency",
                 "links": [
                     {
-                        "text": "Greeff Christie's International Real Estate",
+                        "name": "Greeff Christie's International Real Estate",
                         "url": "https://www.greeff.co.za/",
-                        "offices": [
+                        "address": "262 Main Rd, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
+                        "coordinates": "-33.9931035,18.4687839",
+                        "phone": "+27 21 763 4120",
+                        "email": "info@greeff.co.za",
+                        "branches": [
                             {
-                                "type": "Head Office",
-                                "address": "262 Main Rd, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
-                                "coordinates": "-33.9931035,18.4687839",
-                                "phone": "+27 21 763 4120",
-                                "email": "info@greeff.co.za"
-                            },
-                            {
-                                "type": "Branch Office: Gordon’s Bay & Strand",
+                                "name": "Gordon's Bay & Strand branch office",
                                 "address": "8 Watt Street, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                                 "coordinates": "-34.157103,18.870143",
-                                "phone": "+27 21 856 4846",
-                                "email": "info@greeff.co.za"
+                                "phone": "+27 21 856 4846"
                             }
                         ]
                     },
                     {
-                        "text": "Harbour Island Properties",
+                        "name": "Harbour Island Properties",
                         "url": "https://www.hip.co.za/",
                         "address": "Krystal Beach Hotel, Breakwater Lane, Harbour Island, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                         "coordinates": "-34.1513,18.8591",
@@ -36,80 +32,71 @@ const sectionsData =
                         "email": "pj@hip.co.za"
                     },
                     {
-                        "text": "Homelink Estates",
+                        "name": "Homelink Estates",
                         "url": "https://www.homelinkestates.co.za/",
-                        "offices": [
+                        "address": "153 Faure Marine Drive, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
+                        "coordinates": "-34.1569,18.8656",
+                        "phone": "+27 021 856 0235",
+                        "email": "info@homelinkestates.co.za",
+                        "branches": [
                             {
-                                "type": "head office",
-                                "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
-                                "phone": "+27 021 856 0235",
-                                "email": "info@homelinkestates.co.za"
-                            },
-                            {
-                                "type": "branch office",
-                                "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
-                                "phone": "+27 021 856 0235",
-                                "email": "info@homelinkestates.co.za"
-                            },
-                            {
-                                "type": "branch office",
-                                "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
-                                "phone": "+27 021 856 0235",
-                                "email": "info@homelinkestates.co.za"
+                                "name": "Harbour Island branch office",
+                                "address": "The Boardwalk, Breakwater Lane, Harbour Island, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
+                                "coordinates": "-34.1517153,18.8582581"
                             }
                         ]
                     },
                     {
-                        "text": "Pam Golding Properties",
+                        "name": "Pam Golding Properties",
                         "url": "https://www.pamgolding.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Paul Matthews Real Estate",
+                        "name": "Paul Matthews Real Estate",
                         "url": "https://www.paulmatthews.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Peter Venter Estates",
+                        "name": "Peter Venter Estates",
                         "url": "https://www.peterventer.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Property.CoZa",
+                        "name": "Property.CoZa",
                         "url": "https://www.propertycoza.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Rawson Property Group",
+                        "name": "Rawson Property Group",
                         "url": "https://rawson.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "RE/MAX South Africa",
+                        "name": "RE/MAX South Africa",
                         "url": "https://www.remax.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "SA Hometraders",
+                        "name": "SA Hometraders",
                         "url": "https://www.sahometraders.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Seef Property Group",
+                        "name": "Seef Property Group",
                         "url": "https://www.seeff.com/",
                         "address": "",
                         "phone": "",
@@ -121,43 +108,43 @@ const sectionsData =
                 "subcategory": "Real Estate Marketplace / Portal",
                 "links": [
                     {
-                        "text": "Buy a Property",
+                        "name": "Buy a Property",
                         "url": "https://www.buyaproperty.co.za/"
                     },
                     {
-                        "text": "House24",
+                        "name": "House24",
                         "url": "https://www.house24.co.za/"
                     },
                     {
-                        "text": "ImmoAfrika",
+                        "name": "ImmoAfrika",
                         "url": "https://www.immoafrika.de/nl-be/"
                     },
                     {
-                        "text": "JamesEdition",
+                        "name": "JamesEdition",
                         "url": "https://www.jamesedition.com/"
                     },
                     {
-                        "text": "ListOne",
+                        "name": "ListOne",
                         "url": "https://listone.co.za/"
                     },
                     {
-                        "text": "PrimeLocation",
+                        "name": "PrimeLocation",
                         "url": "https://www.primelocation.com/"
                     },
                     {
-                        "text": "Private Property",
+                        "name": "Private Property",
                         "url": "https://www.privateproperty.co.za/"
                     },
                     {
-                        "text": "Properstar",
+                        "name": "Properstar",
                         "url": "https://www.properstar.be/"
                     },
                     {
-                        "text": "Property24",
+                        "name": "Property24",
                         "url": "https://www.property24.com/"
                     },
                     {
-                        "text": "Property Portal",
+                        "name": "Property Portal",
                         "url": "https://propertyportal.co.za/"
                     }
                 ]
@@ -173,35 +160,35 @@ const sectionsData =
 				"subcategory": "Cape Peninsula District",
 				"links": [
                     {
-                        "text": "Cape Point Vineyards",
+                        "name": "Cape Point Vineyards",
                         "url": "https://cpv.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Durbanville Hills Wine",
+                        "name": "Durbanville Hills Wine",
                         "url": "https://www.durbanvillehills.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Groot Constantia",
+                        "name": "Groot Constantia",
                         "url": "https://grootconstantia.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Klein Constantia",
+                        "name": "Klein Constantia",
                         "url": "https://www.kleinconstantia.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Steenberg Vineyards",
+                        "name": "Steenberg Vineyards",
                         "url": "https://www.steenbergfarm.com/",
                         "address": "",
                         "phone": "",
@@ -213,35 +200,35 @@ const sectionsData =
 				"subcategory": "Darling District",
 				"links": [
                     {
-                        "text": "Darling Cellars",
+                        "name": "Darling Cellars",
                         "url": "https://www.darlingcellars.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Cloof Wine Estate",
+                        "name": "Cloof Wine Estate",
                         "url": "https://www.cloofwines.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Groote Post Vineyards",
+                        "name": "Groote Post Vineyards",
                         "url": "https://www.grootepost.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Mawson Wines",
+                        "name": "Mawson Wines",
                         "url": "https://www.mawsonwine.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Ormonde Private Cellar",
+                        "name": "Ormonde Private Cellar",
                         "url": "https://www.ormonde.co.za/",
                         "address": "",
                         "phone": "",
@@ -253,35 +240,35 @@ const sectionsData =
 				"subcategory": "Franschhoek District",
 				"links": [
                     {
-                        "text": "Babylonstoren",
+                        "name": "Babylonstoren",
                         "url": "https://www.babylonstoren.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Haute Cabrière",
+                        "name": "Haute Cabrière",
                         "url": "https://www.cabriere.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "La Motte Estate",
+                        "name": "La Motte Estate",
                         "url": "https://www.la-motte.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Leopard's Leap",
+                        "name": "Leopard's Leap",
                         "url": "https://www.leopardsleap.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Mont Rochelle",
+                        "name": "Mont Rochelle",
                         "url": "https://www.montrochelle.co.za/",
                         "address": "",
                         "phone": "",
@@ -293,35 +280,35 @@ const sectionsData =
 				"subcategory": "Paarl District",
 				"links": [
                     {
-                        "text": "Avondale Wine",
+                        "name": "Avondale Wine",
                         "url": "https://avondalewine.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Boschendal Estate",
+                        "name": "Boschendal Estate",
                         "url": "https://boschendal.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Fairview Wine & Cheese",
+                        "name": "Fairview Wine & Cheese",
                         "url": "https://www.fairview.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Lanzerac Wine Estate",
+                        "name": "Lanzerac Wine Estate",
                         "url": "https://www.lanzerac.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Rustenberg Wines",
+                        "name": "Rustenberg Wines",
                         "url": "https://www.rustenberg.co.za/",
                         "address": "",
                         "phone": "",
@@ -333,35 +320,35 @@ const sectionsData =
 				"subcategory": "Stellenbosch District",
 				"links": [
                     {
-                        "text": "Delaire Graff Estate",
+                        "name": "Delaire Graff Estate",
                         "url": "https://www.delaire.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Quoin Rock",
+                        "name": "Quoin Rock",
                         "url": "https://www.quoinrock.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Simonsig Estate",
+                        "name": "Simonsig Estate",
                         "url": "https://www.simonsig.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Spier Wine Farm",
+                        "name": "Spier Wine Farm",
                         "url": "https://www.spier.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Tokara Wine Estate",
+                        "name": "Tokara Wine Estate",
                         "url": "https://www.tokara.com/",
                         "address": "",
                         "phone": "",
@@ -373,35 +360,35 @@ const sectionsData =
 				"subcategory": "Swartland District",
 				"links": [
                     {
-                        "text": "AA Badenhorst Family Wines",
+                        "name": "AA Badenhorst Family Wines",
                         "url": "https://www.badenhorstwine.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Kloovenburg Wines",
+                        "name": "Kloovenburg Wines",
                         "url": "https://www.kloovenburg.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Mullineux & Leeu Family Wines",
+                        "name": "Mullineux & Leeu Family Wines",
                         "url": "https://www.mullineux.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Sadie Family Wines",
+                        "name": "Sadie Family Wines",
                         "url": "https://www.sadiefamily.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Testalonga",
+                        "name": "Testalonga",
                         "url": "https://testalonga.co.za/",
                         "address": "",
                         "phone": "",
@@ -413,35 +400,35 @@ const sectionsData =
 				"subcategory": "Tulbagh District",
 				"links": [
                     {
-                        "text": "Lemberg Wine Estate",
+                        "name": "Lemberg Wine Estate",
                         "url": "https://www.lemberg.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Olifantsberg Wine Estate",
+                        "name": "Olifantsberg Wine Estate",
                         "url": "https://olifantsberg.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Rijk's Wine Estate",
+                        "name": "Rijk's Wine Estate",
                         "url": "https://rjks.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Saronsberg Wine Cellar",
+                        "name": "Saronsberg Wine Cellar",
                         "url": "https://www.saronsberg.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Waverley Hills",
+                        "name": "Waverley Hills",
                         "url": "https://waverley.co.za/",
                         "address": "",
                         "phone": "",
@@ -453,35 +440,35 @@ const sectionsData =
 				"subcategory": "Tygerberg District",
 				"links": [
                     {
-                        "text": "De Grendel Wine Estate",
+                        "name": "De Grendel Wine Estate",
                         "url": "https://degrendel.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Diemersdal Wine Estate",
+                        "name": "Diemersdal Wine Estate",
                         "url": "http://www.diemersdal.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Durbanville Hills Wine",
+                        "name": "Durbanville Hills Wine",
                         "url": "https://www.durbanvillehills.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Hillcrest Wine & Olive Estate",
+                        "name": "Hillcrest Wine & Olive Estate",
                         "url": "https://www.hillcrestwineestate.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Meerendal Wine Estate",
+                        "name": "Meerendal Wine Estate",
                         "url": "https://www.meerendal.co.za/",
                         "address": "",
                         "phone": "",
@@ -493,35 +480,35 @@ const sectionsData =
 				"subcategory": "Wellington District",
 				"links": [
                     {
-                        "text": "Bosman Family Vineyards",
+                        "name": "Bosman Family Vineyards",
                         "url": "https://www.bosmanwines.com/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Diemersfontein Wine & Country Estate",
+                        "name": "Diemersfontein Wine & Country Estate",
                         "url": "https://www.diemersfontein.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Doolhof Wine Estate",
+                        "name": "Doolhof Wine Estate",
                         "url": "https://www.doolhof.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Dunstone Winery",
+                        "name": "Dunstone Winery",
                         "url": "https://www.dunstonewines.co.za/",
                         "address": "",
                         "phone": "",
                         "email": ""
                     },
                     {
-                        "text": "Vrymansfontein",
+                        "name": "Vrymansfontein",
                         "url": "https://vrymansfontein.co.za/",
                         "address": "",
                         "phone": "",

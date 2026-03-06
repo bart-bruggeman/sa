@@ -7,7 +7,7 @@ const createLinkItem = (link, category = "", subcategory = "") => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = "#";
-    a.textContent = link.text;
+    a.textContent = link.name;
 
     a.addEventListener("click", (e) => {
         e.preventDefault();
@@ -16,23 +16,23 @@ const createLinkItem = (link, category = "", subcategory = "") => {
         const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
 
         const paneNameEl = document.getElementById("paneName");
-        if (paneNameEl) paneNameEl.textContent = link.text;
+        if (paneNameEl) paneNameEl.textContent = link.name;
 
         const offcanvasBody = offcanvasEl.querySelector(".offcanvas-body");
 
-        // verwijder oude content behalve paneName
+        // Verwijder oude content behalve paneName
         Array.from(offcanvasBody.children).forEach(child => {
             if (!child.id || child.id !== "paneName") {
                 child.remove();
             }
         });
 
-        // TOP: naam bovenaan
+        // TOP: naam van het kantoor
         const topBlock = document.createElement("div");
         topBlock.className = "office-top mb-3";
 
         const nameTitle = document.createElement("p");
-        nameTitle.innerHTML = `<strong>${link.text}</strong>`;
+        nameTitle.innerHTML = `<strong>${link.name}</strong>`;
         topBlock.appendChild(nameTitle);
 
         // scheidingslijn
@@ -41,22 +41,22 @@ const createLinkItem = (link, category = "", subcategory = "") => {
 
         offcanvasBody.appendChild(topBlock);
 
-        // URL onder de lijn
+        // URL van main office
         if (link.url) {
             const pUrl = document.createElement("p");
             pUrl.innerHTML = `<span class="value"><i class="bi bi-globe icon"></i> <a href="${link.url}" target="_blank">${link.url}</a></span>`;
             offcanvasBody.appendChild(pUrl);
         }
 
-        // helper: blok per office
-        const createOfficeBlock = (office, multipleOffices) => {
+        // Helper: office block (hoofdkantoor + branches)
+        const createOfficeBlock = (office, showName = true) => {
             const div = document.createElement("div");
             div.className = "office-block mb-3";
 
-            // type alleen tonen als er meerdere offices zijn
-            if (multipleOffices) {
+            // Naam type alleen tonen als showName = true
+            if (showName) {
                 const typeTitle = document.createElement("p");
-                typeTitle.innerHTML = `<strong>${office.type}</strong>`;
+                typeTitle.innerHTML = `<strong>${office.name}</strong>`;
                 div.appendChild(typeTitle);
             }
 
@@ -98,30 +98,21 @@ const createLinkItem = (link, category = "", subcategory = "") => {
             return div;
         };
 
-        if (link.offices && link.offices.length) {
-            const multipleOffices = link.offices.length > 1;
+        // MAIN OFFICE
+        const mainOffice = {
+            name: "", // hoofdkantoor hoeft geen type-naam te tonen
+            address: link.address,
+            coordinates: link.coordinates,
+            phone: link.phone,
+            email: link.email
+        };
+        offcanvasBody.appendChild(createOfficeBlock(mainOffice, false));
 
-            // sorteer head office eerst
-            const sorted = [
-                ...link.offices.filter(o => o.type === "head office"),
-                ...link.offices.filter(o => o.type !== "head office")
-            ];
-
-            sorted.forEach(office => {
-                const block = createOfficeBlock(office, multipleOffices);
-                offcanvasBody.appendChild(block);
+        // BRANCHES
+        if (link.branches && link.branches.length) {
+            link.branches.forEach(branch => {
+                offcanvasBody.appendChild(createOfficeBlock(branch, true));
             });
-        } else {
-            // fallback
-            const block = createOfficeBlock({
-                type: "Office",
-                address: link.address,
-                coordinates: link.coordinates,
-                phone: link.phone,
-                email: link.email,
-                info: link.info
-            }, false);
-            offcanvasBody.appendChild(block);
         }
 
         bsOffcanvas.show();
@@ -130,7 +121,6 @@ const createLinkItem = (link, category = "", subcategory = "") => {
     li.appendChild(a);
     return li;
 };
-
     const createLinkList = (links, category = "", subcategory = "", extraClass = "") => {
         const ul = document.createElement("ul");
         ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
