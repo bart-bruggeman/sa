@@ -26,9 +26,9 @@ const sectionsData =
                     {
                         "text": "Homelink Estates",
                         "url": "https://www.homelinkestates.co.za/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "153 Faure Marine Drive, Gordon’s Bay, Cape Town, Western Cape, 7140, South Africa",
+                        "phone": "+27 021 856 0235",
+                        "email": "info@homelinkestates.co.za"
                     },
                     {
                         "text": "Pam Golding Properties",
