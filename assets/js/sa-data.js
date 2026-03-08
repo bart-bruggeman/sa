@@ -200,9 +200,33 @@ const sectionsData =
                     {
                         "name": "Cape Point Vineyards",
                         "url": "https://cpv.co.za/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "Silvermine Rd, Noordhoek, Cape Town 7979, South Africa",
+                        "coordinates": "-34.09360723884719, 18.38751004963936",
+                        "phone": "+27 21 789 0900",
+                        "email": "info@cape-point.com",
+                        "hours": "Monday - Tuesday 11:00-18:00<br/>Thursday – Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
+                        "branches": [
+                            {
+                                "name": "The Restaurant",
+                                "hours": "Sun - Thurs: 12:00 - 16:00<br/>Sat: 12:00 - 19:00"
+                            },
+                            {
+                                "name": "The Courtyard",
+                                "hours": "12:00 - 21:00"
+                            },
+                            {
+                                "name": "The Tasting Room",
+                                "hours": "11:00 - 18:00"
+                            },
+                            {
+                                "name": "The Picnic Lawns",
+                                "hours": "11:00 - 18:00"
+                            },
+                            {
+                                "name": "Market Thursdays",
+                                "hours": "16:30 - 20:30"
+                            }
+                        ]
                     },
                     {
                         "name": "Durbanville Hills Wine",
