@@ -114,7 +114,7 @@ Right pane
 .offcanvas-body .value {
     display: grid;
     grid-template-columns: 24px 1fr;
-    column-gap: 12px;
+    column-gap: 6px;
     align-items: start;
 }
 
@@ -128,7 +128,7 @@ Right pane
 }
 
 .offcanvas-body p {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.35rem;
 }
 
 #paneInfo .text {
