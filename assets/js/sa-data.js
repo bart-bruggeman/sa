@@ -1,5 +1,77 @@
 const sectionsData =
 [
+    //--- Healthcare ---
+    {
+        "category": "Healthcare",
+        "subcategories": [
+            {
+                "subcategory": "Doctors",
+                "links": [
+                    {
+                        "name": "Gordon's Bay Medical",
+                        "url": "https://gbmedical.co.za/",
+                        "address": "8 Riverside Avenue, Winslow, Gordon’s Bay, Cape Town, 7140, South Africa",
+                        "coordinates": "-34.15348994625148, 18.870561784302375",
+                        "phone": "+27 21 856 2504",
+                        "email": "reception@gbmedical.co.za",
+                        "hours": "Mon - Fri: 08:00 - 17:00<br/>Sat: 09:00 - 12:00"
+                    },
+                    {
+                        "name": "Sr Claire's Essential Care Clinic (Strand)",
+                        "address": "Shop 4 Broadway Business Centre, Cnr Chicago Avenue & Joseph Crescent, Strand, 7140",
+                        "coordinates": "-34.12057570628986, 18.85160429779488",
+                        "phone": "+27 81 236 2219",
+                        "email": "admin@claireclinic.co.za",
+                        "hours": "Mon - Fri: 09:00 - 17:00<br/>Sa: 09:00 - 13:00<br/>Sun: 09:00 - 12:00"
+                    }
+                ]
+            },
+            {
+                "subcategory": "Dentists",
+                "links": [
+                    {
+                        "name": "Dental & Ortho (Strand)",
+                        "url": "https://dentalandortho.co.za/",
+                        "address": "152 Gordon's Bay Dr, Broadlands Rd, Greenways, Cape Town, 7140, South Africa",
+                        "coordinates": "-34.134620345571875, 18.846838755822432",
+                        "phone": "+27 60 617 3260",
+                        "email": "info@dentalandortho.co.za",
+                        "hours": "Mon - Fri: 09:00 - 18:00<br/>Sat: 09:00 - 13:00"
+                    },
+                ]
+            },
+            {
+                "subcategory": "Pharmacies",
+                "links": [
+                    {
+                        "name": "",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "subcategory": "Hospitals",
+                "links": [
+                    {
+                        "name": "Mediclinic Vergelegen Hospital",
+                        "url": "https://www.mediclinic.co.za/en/vergelegen/home.html",
+                        "address": "Main Road, Somerset West, Cape Town, 7130, South Africa",
+                        "coordinates": "",
+                        "phone": "+27 86 133 5566"
+                    },
+                    {
+                        "name": "Busamed Paardevlei Private Hospital",
+                        "url": "https://busamed.co.za/hospitals/paardevlei-private-hospital/",
+                        "address": "Paardevlei Estate, 4 Gardner Williams Ave, Paardevlei, Cape Town, 7130, South Africa",
+                        "coordinates": "",
+                        "phone": "+27 21 840 6600",
+                        "phone_emergency": "+27 21 840 6642",
+                        "email": "bpphinfo@busamed.co.za",
+                    }
+                ]
+            }
+        ]
+    },
     //--- Real Estate ---
     {
         "category": "Real Estate",
@@ -204,11 +276,11 @@ const sectionsData =
                         "coordinates": "-34.09360723884719, 18.38751004963936",
                         "phone": "+27 21 789 0900",
                         "email": "info@cape-point.com",
-                        "hours": "Monday - Tuesday 11:00-18:00<br/>Thursday – Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
+                        "hours": "Mon - Tue 11:00-18:00<br/>Thu – Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
                         "branches": [
                             {
                                 "name": "The Restaurant",
-                                "hours": "Sun - Thurs: 12:00 - 16:00<br/>Sat: 12:00 - 19:00"
+                                "hours": "Sun - Thu: 12:00 - 16:00<br/>Sat: 12:00 - 19:00"
                             },
                             {
                                 "name": "The Courtyard",
@@ -228,33 +300,111 @@ const sectionsData =
                             }
                         ]
                     },
+
+
+
+
+
                     {
-                        "name": "Durbanville Hills Wine",
+                        "name": "Durbanville Hills Winery",
                         "url": "https://www.durbanvillehills.co.za/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
+                        "coordinates": "-33.82472307633439, 18.565798168946426",
+                        "phone": "+27 21 558 1300",
+                        "email": "info_durbanvillehills@heineken.com",
+                        "branches": [
+                            {
+                                "name": "The Restaurant",
+                                "hours": "Mon - Sun:<br/>08:30 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>Mon - Sat: 18:00 - 23:00 (dinner)"
+                            },
+                            {
+                                "name": "The Tasting Room",
+                                "hours": "Mon: 12:00 - 17:00<br/>Tue - Fri: 11:00 - 17:00<br/>Sat - Sun: 11:00 - 16:30"
+                            }
+                        ]
                     },
                     {
-                        "name": "Groot Constantia",
+                        "name": "Groot Constantia Wine Estate",
                         "url": "https://grootconstantia.co.za/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "Groot Constantia Rd, Constantia, Cape Town, 7806, South Africa",
+                        "coordinates": "-34.02935654497266, 18.42020943587593",
+                        "phone": "+27 21 794 5128",
+                        "email": "enquiries@grootconstantia.co.za",
+                        "hours": "Mon - Sun: 10:00 - 17:00",
+                        "branches": [
+                            {
+                                "name": "Wine Tasting & Retail Shop",
+                                "hours": "Mon - Sun: 09:00 - 18:00"
+                            },
+                            {
+                                "name": "Jonkershuis Restaurant",
+                                "url": "https://jonkershuisconstantia.co.za/",
+                                "coordinates": "-34.030414630792215, 18.418986348595567",
+                                "phone": "+27 21 794 6255",
+                                "email": "info@jhuis.co.za",
+                                "hours": "Mon - Sat: 08:00 - 21:00<br/>Sun: 08:00 - 17:00"
+                            },
+                            {
+                                "name": "Simon's Restaurant",
+                                "url": "https://simons.co.za/",
+                                "coordinates": "-34.031161506955975, 18.417731074807826",
+                                "phone": "+27 21 794 1143",
+                                "email": "info@simons.co.za"
+                            },
+                            {
+                                "name": "Iziko Museums of Cape Town",
+                                "url": "https://www.iziko.org.za/museums/groot-constantia/",
+                                "coordinates": "-34.03096467203029, 18.418772853608303",
+                                "phone": "+27 21 795 5140",
+                                "hours": "Mon - Sun: 10:00 - 17:00"
+                            }
+                        ]
                     },
                     {
                         "name": "Klein Constantia",
+
                         "url": "https://www.kleinconstantia.com/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "Klein Constantia Rd, Constantia, Cape Town, 7806, South Africa",
+                        "coordinates": "-34.0383551804114, 18.413399497787527",
+                        "phone": "+27 21 794 5188",
+                        "email": "info@kleinconstantia.com",
+                        "branches": [
+                            {
+                                "name": "Tasting Room",
+                                "hours": "Mon - Sun: 10:00-  17:00"
+                            },
+                            {
+                                "name": "Bistro",
+                                "hours": "Mon - Sun: 12:00 - 16:00"
+                            }
+                        ]
                     },
                     {
                         "name": "Steenberg Vineyards",
                         "url": "https://www.steenbergfarm.com/",
-                        "address": "",
-                        "phone": "",
-                        "email": ""
+                        "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
+                        "phone": "+27 21 207 8800",
+                        "branches": [
+                            {
+                                "name": "Bistro 1682 Restaurant",
+                                "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
+                                "phone": "+27 21 205 3866",
+                                "hours": "Mon - Sun:<br/>09:00 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>17:00 - 22:00 (dinner)"
+                            },
+                            {
+                                "name": "Tryn Restaurant",
+                                "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
+                                "phone": "+27 21 713 7178",
+                                "email": "info@tryn.co.za",
+                                "hours": "Mon - Sun:<br/>08:00 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>18:00 - 22:00 (dinner)"
+                            },
+                            {
+                                "name": "Steenberg 5-star Hotel",
+                                "url": "https://steenbergfarm.com/hotel/",
+                                "phone": "+27 21 713 2222",
+                                "email": "reservations@steenberghotel.com"
+                            }
+                        ]
                     }
                 ]
 			},

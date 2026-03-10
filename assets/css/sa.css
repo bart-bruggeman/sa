@@ -12,6 +12,8 @@ Colors (light by default, dark overrides below)
     --pane-line-color: #a6a6a6;
     --tooltip-bg: #212529;
     --tooltip-color: #f8f9fa;
+    --emergency-color: #dc3545;
+    --emergency-hover-color: hsl(348, 83%, 45%);
 
     /* Nord palette for dark theme reference */
     --nord0: #2E3440;
@@ -43,6 +45,8 @@ Colors (light by default, dark overrides below)
     --pane-line-color: var(--nord4);
     --tooltip-bg: var(--nord2);
     --tooltip-color: var(--nord5);
+    --emergency-color: var(--nord11);
+    --emergency-hover-color: hsl(355, 43%, 64%);
 }
 
 /*---------------------------------------------------------------
@@ -134,6 +138,16 @@ Right pane
 #paneInfo .text {
     text-align: justify;
     text-justify: inter-word;
+}
+
+.value.emergency, .value.emergency a:link, .value.emergency a:visited, .value.emergency a:focus {
+    color: var(--emergency-color);
+    cursor: pointer;
+}
+
+.value.emergency:active, .value.emergency:hover,
+.value.emergency a:active, .value.emergency a:hover {
+    color: var(--emergency-hover-color);
 }
 
 /*---------------------------------------------------------------

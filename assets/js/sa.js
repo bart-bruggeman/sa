@@ -26,6 +26,11 @@ const fieldConfig = {
         icon: "bi-telephone",
         render: v => `<a href="tel:${v.replace(/\s+/g, '')}">${v}</a>`
     },
+    phone_emergency: {
+        icon: "bi-telephone-plus-fill",
+        colorClass: "emergency",
+        render: v => `<a href="tel:${v.replace(/\s+/g, '')}" class="emergency">${v}</a>`
+    },
     url: {
         icon: "bi-globe",
         render: v => `<a href="${v}" target="_blank">${v}</a>`
@@ -38,7 +43,6 @@ const DEFAULT_ICON = "bi-dot";
 //-------------------------------- GENERIC FIELD RENDERER --------------------------------//
 function renderFields(data, container) {
     Object.entries(data).forEach(([key, value]) => {
-
         if (!value) return;
         if (key === "name" || key === "branches") return;
 
@@ -47,10 +51,12 @@ function renderFields(data, container) {
             render: v => v
         };
 
+        const colorClass = config.colorClass || "";
+
         const p = document.createElement("p");
         p.innerHTML = `
-            <span class="value">
-                <i class="bi ${config.icon} icon"></i>
+            <span class="value ${colorClass}">
+                <i class="bi ${config.icon} icon ${colorClass}"></i>
                 ${config.render(value)}
             </span>
         `;
