@@ -267,3 +267,13 @@ footer .link-footer i {
     line-height: 1;
     vertical-align: middle;
 }
+
+
+footer a.emergency:link, footer a.emergency:visited, footer a.emergency:focus {
+    color: var(--emergency-color);
+    cursor: pointer;
+}
+
+footer a.emergency:active, footer a.emergency:hover {
+    color: var(--emergency-hover-color);
+}
