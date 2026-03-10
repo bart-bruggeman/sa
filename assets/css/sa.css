@@ -12,6 +12,7 @@ Colors (light by default, dark overrides below)
     --pane-line-color: #a6a6a6;
     --tooltip-bg: #212529;
     --tooltip-color: #f8f9fa;
+    --bg-footer: #f1f3f5;
     --emergency-color: #dc3545;
     --emergency-hover-color: hsl(348, 83%, 45%);
 
@@ -45,6 +46,7 @@ Colors (light by default, dark overrides below)
     --pane-line-color: var(--nord4);
     --tooltip-bg: var(--nord2);
     --tooltip-color: var(--nord5);
+    --bg-footer: var(--bg-navbar);
     --emergency-color: var(--nord11);
     --emergency-hover-color: hsl(355, 43%, 64%);
 }
@@ -242,6 +244,7 @@ Sections & lists
 ---------------------------------------------------------------*/
 footer {
     font-size: 0.9rem;
+    background-color: var(--bg-footer);
 }
 
 footer h5 {
