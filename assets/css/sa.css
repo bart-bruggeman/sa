@@ -236,3 +236,31 @@ li a, li a:link, li a:visited, li a:focus {
 li a:active, li a:hover {
     color: var(--link-hover-color);
 }
+
+/*---------------------------------------------------------------
+Sections & lists
+---------------------------------------------------------------*/
+footer {
+    font-size: 0.9rem;
+}
+
+footer h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+footer .col-md-4, footer .col-6 {
+    padding-bottom: 0.2rem;
+}
+
+footer li {
+    margin-bottom: 0.2rem;
+    gap: 0.25rem;
+}
+
+footer .link-footer i {
+    font-size: 0.9rem !important;
+    line-height: 1;
+    vertical-align: middle;
+}

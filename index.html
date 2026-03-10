@@ -13,7 +13,7 @@
 	<!-- bookmarks -->
 	<link rel="stylesheet" href="assets/css/sa.css"/>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light py-2 border-bottom">
 		<div class="container d-flex justify-content-between align-items-center">
@@ -27,7 +27,7 @@
 		</div>
 	</nav>
 	<!-- sections container -->
-	<div class="container mt-5" id="section-container"></div>
+	<div class="container mt-5 flex-grow-1" id="section-container"></div>
 	<!-- offcanvas right/full pane -->
 	<div class="offcanvas offcanvas-end" tabindex="-1" id="linkPane" data-bs-scroll="true" data-bs-backdrop="true">
 		<div class="offcanvas-header">
@@ -38,6 +38,43 @@
 			<p class="pane-name"><span id="paneName"></span></p>
 		</div>
 	</div>
+	<!-- footer -->
+	<footer class="border-top mt-5 py-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-6 mb-3">
+					<h5>Emergency number</h5>
+					<ul class="list-unstyled">
+						<li><a href="tel:112" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> 112</a> (by mobile)</li>
+						<li><a href="tel:107" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> 107</a> (by landline)</li>
+					</ul>
+				</div>
+				<div class="col-md-4 col-6 mb-3">
+					<h5>Police</h5>
+					<ul class="list-unstyled">
+						<li><a href="tel:10111" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> 10111</a> (national)</li>
+						<li><a href="tel:+27218562677" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> +27 21 856 2677</a> (Gordon's Bay)</li>
+					</ul>
+				</div>
+				<div class="col-md-4 col-6 mb-3">
+					<h5>Fire</h5>
+					<!--
+					<ul class="list-unstyled">
+						<li><a href="tel:112" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> 112 (mobile)</a></li>
+					</ul>
+					-->
+				</div>
+				<div class="col-md-4 col-6 mb-3">
+					<h5>Ambulance</h5>
+					<ul class="list-unstyled">
+						<li><a href="tel:10177" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> 10177</a> (national)</li>
+						<li><a href="tel:+27218560214" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> +27 21 856 0214</a> (Gordon's Bay Security / medical assistance)</li>
+						<li><a href="tel:+27761855351" class="d-flex align-items-center link-footer"><i class="bi bi-telephone fs-5 me-1"></i> +27 76 185 5351</a> (Gordon's Bay Medical Rescue ambulance)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 	<!-- scripts -->
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/js/sa-data.js"></script>
