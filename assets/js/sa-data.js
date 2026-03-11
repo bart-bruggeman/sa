@@ -89,9 +89,10 @@ const sectionsData =
                         "branches": [
                             {
                                 "name": "Gordon's Bay & Strand Branch Office",
-                                "address": "10 Watt Street, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
-                                "coordinates": "-34.157178654284365, 18.87030631164557",
-                                "phone": "+27 21 856 4846"
+                                "address": "32A Miller Rd, Gordons Bay Central, Cape Town, 7140, South Africa",
+                                "coordinates": "-34.15623998401359, 18.868613413494263",
+                                "phone": "+27 21 856 4846",
+                                "hours": "Mon - Fri: 09:00 - 16:00"
                             }
                         ]
                     },
@@ -101,7 +102,8 @@ const sectionsData =
                         "address": "Krystal Beach Hotel, Breakwater Lane, Harbour Island, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                         "coordinates": "-34.1514874193122, 18.85890464989621",
                         "phone": "+27 21 856 2000",
-                        "email": "pj@hip.co.za"
+                        "email": "pj@hip.co.za",
+                        "hours": "Mon - Fri: 08:30 - 17:00<br/>Sat: 11:00 - 14:00"
                     },
                     {
                         "name": "Homelink Estates",
