@@ -14,7 +14,7 @@ Colors (light by default, dark overrides below)
     --tooltip-color: #f8f9fa;
     --bg-footer: #f1f3f5;
     --emergency-color: #dc3545;
-    --emergency-hover-color: hsl(348, 83%, 45%);
+    --emergency-hover-color: #D2143A; /*= hsl(348, 83%, 45%)*/
 
     /* Nord palette for dark theme reference */
     --nord0: #2E3440;
@@ -47,8 +47,8 @@ Colors (light by default, dark overrides below)
     --tooltip-bg: var(--nord2);
     --tooltip-color: var(--nord5);
     --bg-footer: var(--bg-navbar);
-    --emergency-color: var(--nord11);
-    --emergency-hover-color: hsl(355, 43%, 64%);
+    --emergency-color:#CB7C82; /* =hsl(355, 43%, 64%)*/
+    --emergency-hover-color: var(--nord11);    
 }
 
 /*---------------------------------------------------------------
@@ -276,18 +276,4 @@ footer a.emergency:link, footer a.emergency:visited, footer a.emergency:focus {
 
 footer a.emergency:active, footer a.emergency:hover {
     color: var(--emergency-hover-color);
-}
-
-
-
-footer a.emergency .hover-icon {
-    display: none;
-}
-
-footer a.emergency:hover .normal-icon {
-    display: none;
-}
-
-footer a.emergency:hover .hover-icon {
-    display: inline-block;
 }
