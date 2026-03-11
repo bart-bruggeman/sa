@@ -1,9 +1,9 @@
 const healthcareData  = {
-    "category": "Healthcare",
-    "subcategories": [
+    "label": "Healthcare",
+    "items": [
         {
-            "subcategory": "Doctors",
-            "links": [
+            "label": "Doctors",
+            "items": [
                 {
                     "name": "Gordon's Bay Medical",
                     "url": "https://gbmedical.co.za/",
@@ -24,8 +24,8 @@ const healthcareData  = {
             ]
         },
         {
-            "subcategory": "Dentists",
-            "links": [
+            "label": "Dentists",
+            "items": [
                 {
                     "name": "Dental & Ortho (Strand)",
                     "url": "https://dentalandortho.co.za/",
@@ -38,8 +38,8 @@ const healthcareData  = {
             ]
         },
         {
-            "subcategory": "Pharmacies",
-            "links": [
+            "label": "Pharmacies",
+            "items": [
                 {
                     "name": "",
                     "url": ""
@@ -47,8 +47,8 @@ const healthcareData  = {
             ]
         },
         {
-            "subcategory": "Hospitals",
-            "links": [
+            "label": "Hospitals",
+            "items": [
                 {
                     "name": "Mediclinic Vergelegen Hospital",
                     "url": "https://www.mediclinic.co.za/en/vergelegen/home.html",

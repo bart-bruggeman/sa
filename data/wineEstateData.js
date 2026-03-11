@@ -1,9 +1,9 @@
 const wineEstateData = {
-	"category": "Costal Region Wine Estates",
-	"subcategories": [
+	"label": "Costal Region Wine Estates",
+	"items": [
 		{
-			"subcategory": "Cape Peninsula District",
-			"links": [
+			"label": "Cape Peninsula District",
+			"items": [
                 {
                     "name": "Cape Point Vineyards",
                     "url": "https://cpv.co.za/",
@@ -12,7 +12,7 @@ const wineEstateData = {
                     "phone": "+27 21 789 0900",
                     "email": "info@cape-point.com",
                     "hours": "Mon - Tue 11:00-18:00<br/>Thu - Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
-                    "branches": [
+                    "items": [
                         {
                             "name": "The Restaurant",
                             "hours": "Sun - Thu: 12:00 - 16:00<br/>Sat: 12:00 - 19:00"
@@ -42,7 +42,7 @@ const wineEstateData = {
                     "coordinates": "-33.82472307633439, 18.565798168946426",
                     "phone": "+27 21 558 1300",
                     "email": "info_durbanvillehills@heineken.com",
-                    "branches": [
+                    "items": [
                         {
                             "name": "The Restaurant",
                             "hours": "Mon - Sun:<br/>08:30 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>Mon - Sat: 18:00 - 23:00 (dinner)"
@@ -61,7 +61,7 @@ const wineEstateData = {
                     "phone": "+27 21 794 5128",
                     "email": "enquiries@grootconstantia.co.za",
                     "hours": "Mon - Sun: 10:00 - 17:00",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Wine Tasting & Retail Shop",
                             "hours": "Mon - Sun: 09:00 - 18:00"
@@ -97,7 +97,7 @@ const wineEstateData = {
                     "coordinates": "-34.0383551804114, 18.413399497787527",
                     "phone": "+27 21 794 5188",
                     "email": "info@kleinconstantia.com",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Tasting Room",
                             "hours": "Mon - Sun: 10:00-  17:00"
@@ -113,7 +113,7 @@ const wineEstateData = {
                     "url": "https://www.steenbergfarm.com/",
                     "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
                     "phone": "+27 21 207 8800",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Bistro 1682 Restaurant",
                             "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
@@ -138,8 +138,8 @@ const wineEstateData = {
             ]
 		},
 		{
-			"subcategory": "Darling District",
-			"links": [
+			"label": "Darling District",
+			"items": [
                 {
                     "name": "Darling Cellars",
                     "url": "https://www.darlingcellars.co.za/",
@@ -178,8 +178,8 @@ const wineEstateData = {
             ]
 		},
 		{
-			"subcategory": "Franschhoek District",
-			"links": [
+			"label": "Franschhoek District",
+			"items": [
                 {
                     "name": "Babylonstoren",
                     "url": "https://www.babylonstoren.com/",
@@ -218,8 +218,8 @@ const wineEstateData = {
             ]
 		},
 		{
-			"subcategory": "Paarl District",
-			"links": [
+			"label": "Paarl District",
+			"items": [
                 {
                     "name": "Avondale Wine",
                     "url": "https://avondalewine.co.za/",
@@ -258,8 +258,8 @@ const wineEstateData = {
 			]
 		},
 		{
-			"subcategory": "Stellenbosch District",
-			"links": [
+			"label": "Stellenbosch District",
+			"items": [
                 {
                     "name": "Delaire Graff Estate",
                     "url": "https://www.delaire.co.za/",
@@ -298,8 +298,8 @@ const wineEstateData = {
 			]
 		},
 		{
-			"subcategory": "Swartland District",
-			"links": [
+			"label": "Swartland District",
+			"items": [
                 {
                     "name": "AA Badenhorst Family Wines",
                     "url": "https://www.badenhorstwine.co.za/",
@@ -338,8 +338,8 @@ const wineEstateData = {
 			]
 		},
 		{
-			"subcategory": "Tulbagh District",
-			"links": [
+			"label": "Tulbagh District",
+			"items": [
                 {
                     "name": "Lemberg Wine Estate",
                     "url": "https://www.lemberg.co.za/",
@@ -378,8 +378,8 @@ const wineEstateData = {
 			]
 		},
 		{
-			"subcategory": "Tygerberg District",
-			"links": [
+			"label": "Tygerberg District",
+			"items": [
                 {
                     "name": "De Grendel Wine Estate",
                     "url": "https://degrendel.co.za/",
@@ -418,8 +418,8 @@ const wineEstateData = {
 			]
 		},
 		{
-			"subcategory": "Wellington District",
-			"links": [
+			"label": "Wellington District",
+			"items": [
                 {
                     "name": "Bosman Family Vineyards",
                     "url": "https://www.bosmanwines.com/",

@@ -1,9 +1,9 @@
 const realEstateData  = {
-    "category": "Real Estate",
-    "subcategories": [
+    "label": "Real Estate",
+    "items": [
         {
-            "subcategory": "Real Estate Agency",
-            "links": [
+            "label": "Real Estate Agency",
+            "items": [
                 {
                     "name": "Greeff Christie's International Real Estate",
                     "url": "https://www.greeff.co.za/",
@@ -11,7 +11,7 @@ const realEstateData  = {
                     "coordinates": "-33.99307823023089, 18.468778993562882",
                     "phone": "+27 21 763 4120",
                     "email": "info@greeff.co.za",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Gordon's Bay & Strand Branch Office",
                             "address": "32A Miller Rd, Gordons Bay Central, Cape Town, 7140, South Africa",
@@ -43,7 +43,7 @@ const realEstateData  = {
                     "url": "https://www.pamgolding.co.za/",
                     "address": "12 - 14 Klaassens Road, Bishopscourt, Cape Town, Western Cape, 7708, South Africa",
                     "phone": "+27 21 710 1700",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road Unit 4, The Anchorage, Gordon's Bay Central, 7140, South Africa",
@@ -71,7 +71,7 @@ const realEstateData  = {
                     "url": "https://www.peterventer.com/",
                     "address": "79 Beach Road, Gordons Bay Central, Cape Town, Western Cape, 7151, South Africa",
                     "coordinates": "-34.16082958310041, 18.86811114214538",
-                    "branches": [ 
+                    "items": [ 
                         {
                             "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
@@ -95,7 +95,7 @@ const realEstateData  = {
                     "address": "222 Main Road, Rondebosch, Western Cape, 7700, South Africa",
                     "coordinates": "-33.96793465344247, 18.466092053623488",
                     "phone": "+27 21 658 7100",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Helderberg-Strand Branch Office",
                             "address": "On Strand, 97 Beach Rd, Strand, Cape Town, 7139, South Africa",
@@ -110,7 +110,7 @@ const realEstateData  = {
                     "address": "19 Tokai Road, Kirstenhof, Cape Town, 7945, Western Cape, South Africa",
                     "coordinates": "-34.065701115861984, 18.455397317579017",
                     "phone": "+27 21 700 2000",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Helderberg Branch Office",
                             "address": "167 Main Road, Audas Estate, Somerset West, 7130, Western Cape, South Africa",
@@ -126,7 +126,7 @@ const realEstateData  = {
                     "address": "35 On Rose, 35 Rose Street, Bo-Kaap, Cape Town, 8001, Western Cape, South Africa",
                     "coordinates": "-33.91964588320177, 18.416924944449775",
                     "phone": "+27 21 200 0999",
-                    "branches": [
+                    "items": [
                         {
                             "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road, Gordons Bay Central, Cape Town, 7140, Western Cape, South Africa",
@@ -138,8 +138,8 @@ const realEstateData  = {
             ]
         }, 
         {
-            "subcategory": "Real Estate Marketplace / Portal",
-            "links": [
+            "label": "Real Estate Marketplace / Portal",
+            "items": [
                 // probleem met PHP versie
                 /*{
                     "name": "Buy a Property",

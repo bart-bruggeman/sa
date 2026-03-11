@@ -39,12 +39,11 @@ const fieldConfig = {
 
 const DEFAULT_ICON = "bi-dot";
 
-
 //-------------------------------- GENERIC FIELD RENDERER --------------------------------//
 function renderFields(data, container) {
     Object.entries(data).forEach(([key, value]) => {
         if (!value) return;
-        if (key === "name" || key === "branches") return;
+        if (key === "name" || key === "items") return;
 
         const config = fieldConfig[key] || {
             icon: DEFAULT_ICON,
@@ -118,33 +117,27 @@ function createLinkItem(link) {
 
         offcanvasBody.appendChild(createOfficeBlock(link, false));
 
-        if (link.branches?.length) {
-
-            link.branches.forEach(branch => {
+        if (link.items?.length) {
+            link.items.forEach(branch => {
                 offcanvasBody.appendChild(createOfficeBlock(branch, true));
             });
-
         }
 
         bsOffcanvas.show();
-
     });
 
     li.appendChild(a);
     return li;
-
 }
 
 //-------------------------------- LINK LIST CREATOR --------------------------------//
 function createLinkList(links, extraClass = "") {
-
     const ul = document.createElement("ul");
     ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
 
     links?.forEach(link => ul.appendChild(createLinkItem(link)));
 
     return ul;
-
 }
 
 //-------------------------------- SECTION CREATOR --------------------------------//
@@ -158,7 +151,7 @@ function createSections(sections) {
 
         const header = document.createElement("h2");
         header.className = "h5 mb-3 d-flex justify-content-between align-items-center";
-        header.textContent = section.category;
+        header.textContent = section.label;
 
         const chevron = document.createElement("i");
         chevron.className = "bi bi-chevron-down";
@@ -166,11 +159,11 @@ function createSections(sections) {
         header.appendChild(chevron);
         sectionEl.appendChild(header);
 
-        if (section.subcategories) {
+        if (section.items) {
             const wrapper = document.createElement("div");
             wrapper.className = "subcategories-wrapper section-content";
             let row;
-            section.subcategories.forEach((subcat, index) => {
+            section.items.forEach((subcat, index) => {
                 if (index % 4 === 0) {
                     row = document.createElement("div");
                     row.className = "row g-4";
@@ -182,26 +175,23 @@ function createSections(sections) {
 
                 const subTitle = document.createElement("h3");
                 subTitle.className = "h6 mb-2 subcategory-title";
-                subTitle.textContent = subcat.subcategory;
+                subTitle.textContent = subcat.label;
 
                 col.appendChild(subTitle);
-                col.appendChild(createLinkList(subcat.links));
+                col.appendChild(createLinkList(subcat.items));
                 row.appendChild(col);
             });
 
             sectionEl.appendChild(wrapper);
-
         }
 
         else if (section.links) {
-
             const wrapper = document.createElement("div");
             wrapper.className = "section-content";
 
             wrapper.appendChild(createLinkList(section.links));
 
             sectionEl.appendChild(wrapper);
-
         }
 
         fragment.appendChild(sectionEl);
@@ -220,8 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sectionsData?.length) {
         createSections(sectionsData);
     }
-    
-    //const sections = document.querySelectorAll("section");
+
     const sections = document.querySelectorAll("#section-container section");
     sections.forEach(section => {
         const content = section.querySelector(".section-content");
@@ -259,7 +248,6 @@ const setTheme = theme => {
     localStorage.setItem("theme", theme);
     icon.classList.toggle("bi-toggle-on", theme === "dark");
     icon.classList.toggle("bi-toggle-off", theme !== "dark");
-
 };
 
 setTheme(localStorage.getItem("theme") || "light");
