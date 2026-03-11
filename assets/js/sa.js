@@ -210,10 +210,19 @@ function createSections(sections) {
 }
 
 //-------------------------------- SECTION OPEN/CLOSE --------------------------------//
+const sectionsData = [
+    healthcareData,
+    realEstateData,
+    wineEstateData
+];
+
 document.addEventListener("DOMContentLoaded", function () {
-    createSections(sectionsData);
+    if (sectionsData?.length) {
+        createSections(sectionsData);
+    }
     
-    const sections = document.querySelectorAll("section");
+    //const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll("#section-container section");
     sections.forEach(section => {
         const content = section.querySelector(".section-content");
         if (content) content.style.display = "none";
