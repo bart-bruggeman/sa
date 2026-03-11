@@ -11,7 +11,7 @@ const wineEstateData = {
                     "coordinates": "-34.09360723884719, 18.38751004963936",
                     "phone": "+27 21 789 0900",
                     "email": "info@cape-point.com",
-                    "hours": "Mon - Tue 11:00-18:00<br/>Thu – Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
+                    "hours": "Mon - Tue 11:00-18:00<br/>Thu - Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
                     "branches": [
                         {
                             "name": "The Restaurant",

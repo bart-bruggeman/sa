@@ -7,7 +7,7 @@ const healthcareData  = {
                 {
                     "name": "Gordon's Bay Medical",
                     "url": "https://gbmedical.co.za/",
-                    "address": "8 Riverside Avenue, Winslow, Gordon’s Bay, Cape Town, 7140, South Africa",
+                    "address": "8 Riverside Avenue, Winslow, Gordon's Bay, Cape Town, 7140, South Africa",
                     "coordinates": "-34.15348994625148, 18.870561784302375",
                     "phone": "+27 21 856 2504",
                     "email": "reception@gbmedical.co.za",
