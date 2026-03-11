@@ -37,7 +37,7 @@ const sectionsData =
                         "phone": "+27 60 617 3260",
                         "email": "info@dentalandortho.co.za",
                         "hours": "Mon - Fri: 09:00 - 18:00<br/>Sat: 09:00 - 13:00"
-                    },
+                    }
                 ]
             },
             {
@@ -302,11 +302,6 @@ const sectionsData =
                             }
                         ]
                     },
-
-
-
-
-
                     {
                         "name": "Durbanville Hills Winery",
                         "url": "https://www.durbanvillehills.co.za/",
@@ -729,7 +724,7 @@ const sectionsData =
                         "email": ""
                     }
 				]
-			},
+			}
 		]
 	}
 ]
