@@ -302,19 +302,32 @@ document.addEventListener("DOMContentLoaded", () => {
     initTheme();
 
     const search = document.getElementById("directory-search");
+
     if (search) {
         search.addEventListener("input", e => {
             searchDirectory(e.target.value);
         });
+    }
 
-        search.addEventListener("keydown", e => {
-            if (e.key === "Escape") {
+    // Globale Escape handler
+    document.addEventListener("keydown", e => {
+        if (e.key !== "Escape") return;
+
+        const pane = document.getElementById("linkPane");
+        const offcanvasInstance = bootstrap.Offcanvas.getInstance(pane);
+
+        if (offcanvasInstance && pane.classList.contains("show")) {
+            // 1️⃣ Right pane open → alleen sluiten
+            offcanvasInstance.hide();
+        } else {
+            // 2️⃣ Pane gesloten → zoekveld en filter reset
+            if (search) {
                 search.value = "";
                 filteredSectionsData = null;
                 renderSections();
             }
-        });
-    }
+        }
+    });
 });
 
 //-------------------------------- SEARCH --------------------------------//
