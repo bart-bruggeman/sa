@@ -302,10 +302,39 @@ document.addEventListener("DOMContentLoaded", () => {
     initTheme();
 
     const search = document.getElementById("directory-search");
+    const brand = document.querySelector(".navbar-brand");
+    const offcanvasEl = document.getElementById("linkPane");
+    const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
 
     if (search) {
         search.addEventListener("input", e => {
             searchDirectory(e.target.value);
+        });
+    }
+
+    // Click op navbar-brand ("South Africa")
+    if (brand) {
+        brand.addEventListener("click", e => {
+            e.preventDefault();
+
+            // 1. Zoekveld leegmaken
+            if (search) search.value = "";
+            filteredSectionsData = null;
+
+            // 2. Alle open sections sluiten
+            document.querySelectorAll("#section-container section").forEach(sec => {
+                sec.classList.remove("open");
+                const content = sec.querySelector(".section-content");
+                if (content) content.style.display = "none";
+            });
+
+            // 3. Gefilterde sections resetten
+            renderSections();
+
+            // 4. Offcanvas sluiten als die open is
+            if (bsOffcanvas._isShown) {
+                bsOffcanvas.hide();
+            }
         });
     }
 
