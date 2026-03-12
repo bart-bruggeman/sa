@@ -204,14 +204,43 @@ Navbar search / tools
     font-family: inherit;
 }
 
-.navbar-search::placeholder {
+.navbar-search:focus {
+    border-color: var(--link-color);
+    box-shadow: none;
+}
+
+.navbar-search:disabled {
+    background-color: var(--bg-card);
+    color: var(--text-body);
+    -webkit-text-fill-color: var(--text-body);
+    border: 1px solid var(--pane-line-color);
+    opacity: 1;
+    cursor: default;
+}
+
+
+/* placeholder identiek houden wanneer search disabled is */
+
+.navbar-search:disabled::placeholder {
     color: var(--pane-line-color);
     opacity: 0.8;
 }
 
-.navbar-search:focus {
-    border-color: var(--link-color);
-    box-shadow: none;
+/* WebKit (Chrome, Safari, iOS) */
+.navbar-search:disabled::-webkit-input-placeholder {
+    color: var(--pane-line-color);
+    opacity: 0.8;
+}
+
+/* Firefox */
+.navbar-search:disabled::-moz-placeholder {
+    color: var(--pane-line-color);
+    opacity: 0.8;
+}
+
+/* Edge / oude browsers */
+.navbar-search:disabled:-ms-input-placeholder {
+    color: var(--pane-line-color);
 }
 
 .theme-toggle {

@@ -336,6 +336,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 bsOffcanvas.hide();
             }
         });
+
+        const search = document.getElementById("directory-search");
+        const offcanvasEl = document.getElementById("linkPane");
+
+        offcanvasEl.addEventListener("shown.bs.offcanvas", () => {
+            search.disabled = true;
+            search.type = "text";     // kruisje verdwijnt
+        });
+
+        offcanvasEl.addEventListener("hidden.bs.offcanvas", () => {
+            search.disabled = false;
+            search.type = "search";   // kruisje terug
+        });
     }
 
     // Globale Escape handler
