@@ -180,11 +180,7 @@ Navbar
 }
 
 /*---------------------------------------------------------------
-Navbar search
----------------------------------------------------------------*/
-
-/*---------------------------------------------------------------
-Navbar tools
+Navbar search / tools
 ---------------------------------------------------------------*/
 
 .navbar-tools {
@@ -237,6 +233,13 @@ Navbar tools
     }
     .theme-toggle {
         height: 32px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .navbar-search {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%; /* forceert geen zoom */
     }
 }
 
