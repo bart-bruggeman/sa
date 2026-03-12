@@ -1,258 +1,259 @@
-//-------------------------------- FIELD CONFIGURATION --------------------------------//
+//-------------------------------- FIELD CONFIG --------------------------------//
+
 const fieldConfig = {
     address: {
         icon: "bi-geo-alt",
-        render: v =>
-            `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}" target="_blank">${v}</a>`
+        render: v => `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}" target="_blank">${v}</a>`
     },
     coordinates: {
         icon: "bi-geo",
-        render: v =>
-            `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}" target="_blank">${v}</a>`
+        render: v => `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}" target="_blank">${v}</a>`
     },
     email: {
         icon: "bi-envelope",
         render: v => `<a href="mailto:${v}">${v}</a>`
     },
-    hours: {
-        icon: "bi-clock",
-        render: v => v
-    },
-    info: {
-        icon: "bi-info-circle",
-        render: v => v
-    },
     phone: {
         icon: "bi-telephone",
-        render: v => `<a href="tel:${v.replace(/\s+/g, '')}">${v}</a>`
+        render: v => `<a href="tel:${v.replace(/\s+/g,'')}">${v}</a>`
     },
     phone_emergency: {
         icon: "bi-telephone-plus-fill",
         colorClass: "emergency",
-        render: v => `<a href="tel:${v.replace(/\s+/g, '')}" class="emergency">${v}</a>`
+        render: v => `<a href="tel:${v.replace(/\s+/g,'')}" class="emergency">${v}</a>`
     },
     url: {
         icon: "bi-globe",
         render: v => `<a href="${v}" target="_blank">${v}</a>`
-    }
+    },
+    hours: { icon: "bi-clock", render: v => v },
+    info: { icon: "bi-info-circle", render: v => v }
 };
 
 const DEFAULT_ICON = "bi-dot";
 
-//-------------------------------- GENERIC FIELD RENDERER --------------------------------//
-function renderFields(data, container) {
-    Object.entries(data).forEach(([key, value]) => {
-        if (!value) return;
-        if (key === "name" || key === "items") return;
-
-        const config = fieldConfig[key] || {
-            icon: DEFAULT_ICON,
-            render: v => v
-        };
-
-        const colorClass = config.colorClass || "";
-
-        const p = document.createElement("p");
-        p.innerHTML = `
-            <span class="value ${colorClass}">
-                <i class="bi ${config.icon} icon ${colorClass}"></i>
-                ${config.render(value)}
-            </span>
-        `;
-
-        container.appendChild(p);
-    });
-}
-
-//-------------------------------- OFFICE BLOCK CREATOR --------------------------------//
-function createOfficeBlock(office, showName = true) {
-    const div = document.createElement("div");
-    div.className = "office-block mb-4";
-
-    if (showName && office.name) {
-        const title = document.createElement("p");
-        title.innerHTML = `<strong>${office.name}</strong>`;
-
-        div.appendChild(title);
-        div.appendChild(document.createElement("hr"));
-    }
-
-    renderFields(office, div);
-    return div;
-}
-
-//-------------------------------- LINK ITEM CREATOR --------------------------------//
-function createLinkItem(link) {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = "#";
-    a.textContent = link.name;
-    a.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const offcanvasEl = document.getElementById('linkPane');
-        const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-
-        const paneNameEl = document.getElementById("paneName");
-        if (paneNameEl) paneNameEl.textContent = link.name;
-
-        const offcanvasBody = offcanvasEl.querySelector(".offcanvas-body");
-
-        Array.from(offcanvasBody.children).forEach(child => {
-            if (!child.id || child.id !== "paneName") {
-                child.remove();
-            }
-        });
-
-        const topBlock = document.createElement("div");
-        topBlock.className = "office-top mb-3";
-
-        const nameTitle = document.createElement("p");
-        nameTitle.innerHTML = `<strong>${link.name}</strong>`;
-
-        topBlock.appendChild(nameTitle);
-        topBlock.appendChild(document.createElement("hr"));
-
-        offcanvasBody.appendChild(topBlock);
-
-        offcanvasBody.appendChild(createOfficeBlock(link, false));
-
-        if (link.items?.length) {
-            link.items.forEach(branch => {
-                offcanvasBody.appendChild(createOfficeBlock(branch, true));
-            });
-        }
-
-        bsOffcanvas.show();
-    });
-
-    li.appendChild(a);
-    return li;
-}
-
-//-------------------------------- LINK LIST CREATOR --------------------------------//
-function createLinkList(links, extraClass = "") {
-    const ul = document.createElement("ul");
-    ul.className = `list-unstyled mb-0 ${extraClass}`.trim();
-
-    links?.forEach(link => ul.appendChild(createLinkItem(link)));
-
-    return ul;
-}
-
-//-------------------------------- SECTION CREATOR --------------------------------//
-function createSections(sections) {
-    const container = document.getElementById("section-container");
-    const fragment = document.createDocumentFragment();
-
-    sections.forEach(section => {
-        const sectionEl = document.createElement("section");
-        sectionEl.className = "mb-3 border-bottom";
-
-        const header = document.createElement("h2");
-        header.className = "h5 mb-3 d-flex justify-content-between align-items-center";
-        header.textContent = section.label;
-
-        const chevron = document.createElement("i");
-        chevron.className = "bi bi-chevron-down";
-
-        header.appendChild(chevron);
-        sectionEl.appendChild(header);
-
-        if (section.items) {
-            const wrapper = document.createElement("div");
-            wrapper.className = "subcategories-wrapper section-content";
-            let row;
-            section.items.forEach((subcat, index) => {
-                if (index % 4 === 0) {
-                    row = document.createElement("div");
-                    row.className = "row g-4";
-                    wrapper.appendChild(row);
-                }
-
-                const col = document.createElement("div");
-                col.className = "col-12 col-md-6 col-lg-3";
-
-                const subTitle = document.createElement("h3");
-                subTitle.className = "h6 mb-2 subcategory-title";
-                subTitle.textContent = subcat.label;
-
-                col.appendChild(subTitle);
-                col.appendChild(createLinkList(subcat.items));
-                row.appendChild(col);
-            });
-
-            sectionEl.appendChild(wrapper);
-        }
-
-        else if (section.links) {
-            const wrapper = document.createElement("div");
-            wrapper.className = "section-content";
-
-            wrapper.appendChild(createLinkList(section.links));
-
-            sectionEl.appendChild(wrapper);
-        }
-
-        fragment.appendChild(sectionEl);
-    });
-    container.appendChild(fragment);
-}
-
-//-------------------------------- SECTION OPEN/CLOSE --------------------------------//
 const sectionsData = [
     healthcareData,
     realEstateData,
     wineEstateData
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (sectionsData?.length) {
-        createSections(sectionsData);
+//-------------------------------- UTIL --------------------------------//
+
+function createEl(tag, className) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    return el;
+}
+
+//-------------------------------- FIELD RENDER --------------------------------//
+
+function renderFields(data) {
+    const frag = document.createDocumentFragment();
+
+    Object.entries(data).forEach(([key,value]) => {
+        if (!value || key === "name" || key === "items") return;
+        
+        const config = fieldConfig[key] || { icon: DEFAULT_ICON, render:v=>v };
+        const colorClass = config.colorClass || "";
+        const p = createEl("p");
+        
+        p.innerHTML = `
+            <span class="value ${colorClass}">
+                <i class="bi ${config.icon} icon ${colorClass}"></i>
+                ${config.render(value)}
+            </span>
+        `;
+        
+        frag.appendChild(p);
+    });
+
+    return frag;
+}
+
+//-------------------------------- OFFICE BLOCK --------------------------------//
+
+function createOfficeBlock(office, showName=true) {
+    const div = createEl("div","office-block mb-4");
+    
+    if(showName && office.name) {
+        const title = createEl("p");
+        title.innerHTML = `<strong>${office.name}</strong>`;
+        div.append(title,createEl("hr"));
     }
 
-    const sections = document.querySelectorAll("#section-container section");
-    sections.forEach(section => {
-        const content = section.querySelector(".section-content");
-        if (content) content.style.display = "none";
-        section.classList.remove("open");
+    div.appendChild(renderFields(office));
+    
+    return div;
+}
+
+//-------------------------------- OFFCANVAS --------------------------------//
+
+function renderOffcanvas(link) {
+    const offcanvasEl = document.getElementById("linkPane");
+    const body = offcanvasEl.querySelector(".offcanvas-body");
+    const frag = document.createDocumentFragment();
+    const top = createEl("div","office-top mb-3");
+    const name = createEl("p");
+
+    body.innerHTML="";
+    name.innerHTML=`<strong>${link.name}</strong>`;
+    top.append(name,createEl("hr"));
+    frag.appendChild(top);
+    frag.appendChild(createOfficeBlock(link,false));
+    
+    if(link.items?.length) {
+        link.items.forEach(branch=>{
+            frag.appendChild(createOfficeBlock(branch,true));
+        });
+    }
+    
+    body.appendChild(frag);
+    
+    bootstrap.Offcanvas
+        .getOrCreateInstance(offcanvasEl)
+        .show();
+}
+
+//-------------------------------- LINK LIST --------------------------------//
+
+function createLinkList(links) {
+    const frag = document.createDocumentFragment();
+    const ul = createEl("ul","list-unstyled mb-0");
+
+    ul._links = links;
+    links.forEach((link,i)=>{
+        const li = createEl("li");
+        const a = createEl("a");
+        
+        a.href="#";
+        a.textContent = link.name;
+        a.dataset.index = i;
+        
+        li.appendChild(a);
+        frag.appendChild(li);
     });
 
-    sections.forEach(section => {
-        section.addEventListener("click", function (event) {
-            if (event.target.closest("a")) return;
-            const content = this.querySelector(".section-content");
-            const isOpen = this.classList.contains("open");
+    ul.appendChild(frag);
+    
+    return ul;
+}
 
-            sections.forEach(s => {
-                s.classList.remove("open");
-                const c = s.querySelector(".section-content");
-                if (c) c.style.display = "none";
+//-------------------------------- SECTIONS --------------------------------//
+
+function createSections(sections) {
+    const container = document.getElementById("section-container");
+    const frag = document.createDocumentFragment();
+    
+    sections.forEach(section=>{
+        const sectionEl = createEl("section","mb-3 border-bottom");
+        const header = createEl(
+            "h2",
+            "h5 mb-3 d-flex justify-content-between align-items-center"
+        );
+    
+        header.innerHTML=`
+            ${section.label}
+            <i class="bi bi-chevron-down"></i>
+        `;
+        
+        sectionEl.appendChild(header);
+        
+        const content = createEl("div","section-content");
+        content.style.display="none";
+        
+        if(section.items) {
+            const wrapper = createEl("div","subcategories-wrapper");
+        
+            let row;
+            section.items.forEach((subcat,i)=>{
+                if(i % 4 === 0) {
+                    row = createEl("div","row g-4");
+                    wrapper.appendChild(row);
+                }
+
+                const col = createEl("div","col-12 col-md-6 col-lg-3");
+                const title = createEl("h3","h6 mb-2 subcategory-title");
+                title.textContent = subcat.label;
+                col.append(title,createLinkList(subcat.items));
+                row.appendChild(col);
             });
 
-            if (!isOpen) {
-                this.classList.add("open");
-                if (content) content.style.display = "block";
-            }
-        });
+            content.appendChild(wrapper);
+        } else if(section.links) {
+            content.appendChild(createLinkList(section.links));
+        }
+
+        sectionEl.append(content);
+        frag.appendChild(sectionEl);
     });
-});
 
-//-------------------------------- THEME TOGGLE --------------------------------//
-const toggleBtn = document.getElementById("themeToggleLink");
-const html = document.documentElement;
-const icon = toggleBtn.querySelector("i");
+    container.appendChild(frag);
+}
 
-const setTheme = theme => {
-    html.dataset.bsTheme = theme;
-    localStorage.setItem("theme", theme);
-    icon.classList.toggle("bi-toggle-on", theme === "dark");
-    icon.classList.toggle("bi-toggle-off", theme !== "dark");
-};
+//-------------------------------- EVENTS --------------------------------//
 
-setTheme(localStorage.getItem("theme") || "light");
+function initEvents() {
+    const container = document.getElementById("section-container");
+    
+    container.addEventListener("click",e=>{
+        const link = e.target.closest("a[data-index]");
+    
+        if(link) {
+            e.preventDefault();
+            const ul = link.closest("ul");
+            const links = ul._links;
+            renderOffcanvas(links[link.dataset.index]);
+            return;
+        }
+    
+        const section = e.target.closest("section");
+    
+        if(!section) return;
+    
+        const isOpen = section.classList.contains("open");
+    
+        document.querySelectorAll("#section-container section")
+        .forEach(s=>{
+            s.classList.remove("open");
+            const c = s.querySelector(".section-content");
+            if(c) c.style.display="none";
+        });
+    
+        if(!isOpen) {
+            section.classList.add("open");
+            section.querySelector(".section-content").style.display="block";
+        }
+    });
+}
 
-toggleBtn.addEventListener("click", e => {
-    e.preventDefault();
-    setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
+//-------------------------------- THEME --------------------------------//
+
+function initTheme() {
+    const btn = document.getElementById("themeToggleLink");
+    const html = document.documentElement;
+    const icon = btn.querySelector("i");
+    const setTheme = theme=>{
+        html.dataset.bsTheme = theme;
+        localStorage.setItem("theme",theme);
+        icon.classList.toggle("bi-toggle-on",theme==="dark");
+        icon.classList.toggle("bi-toggle-off",theme!=="dark");
+    };
+    
+    setTheme(localStorage.getItem("theme") || "light");
+    
+    btn.addEventListener("click",e=>{
+        e.preventDefault();
+        setTheme(
+            html.dataset.bsTheme==="dark" ? "light":"dark"
+        );
+    });
+}
+
+//-------------------------------- INIT --------------------------------//
+
+document.addEventListener("DOMContentLoaded",()=>{
+    createSections(sectionsData);
+    initEvents();
+    initTheme();
 });
