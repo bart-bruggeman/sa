@@ -179,12 +179,29 @@ Navbar
 Navbar search
 ---------------------------------------------------------------*/
 
+/*---------------------------------------------------------------
+Navbar tools
+---------------------------------------------------------------*/
+
+.navbar-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .navbar-search {
     width: 220px;
+    height: 32px;
+    padding: 0 10px;
+    font-size: 0.9rem;
+    line-height: normal;
     background-color: var(--bg-card);
     color: var(--text-body);
     border: 1px solid var(--pane-line-color);
+    border-radius: 0.25rem;
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    box-sizing: border-box;
+    font-family: inherit;
 }
 
 .navbar-search::placeholder {
@@ -193,16 +210,29 @@ Navbar search
 }
 
 .navbar-search:focus {
-    background-color: var(--bg-card);
-    color: var(--text-body);
     border-color: var(--link-color);
     box-shadow: none;
 }
 
-/* mobile */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    line-height: 1;
+}
+
+.theme-toggle i {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
 @media (max-width: 576px) {
     .navbar-search {
         width: 140px;
+        height: 32px;
+    }
+    .theme-toggle {
+        height: 32px;
     }
 }
 
