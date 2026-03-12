@@ -176,6 +176,37 @@ Navbar
 }
 
 /*---------------------------------------------------------------
+Navbar search
+---------------------------------------------------------------*/
+
+.navbar-search {
+    width: 220px;
+    background-color: var(--bg-card);
+    color: var(--text-body);
+    border: 1px solid var(--pane-line-color);
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.navbar-search::placeholder {
+    color: var(--pane-line-color);
+    opacity: 0.8;
+}
+
+.navbar-search:focus {
+    background-color: var(--bg-card);
+    color: var(--text-body);
+    border-color: var(--link-color);
+    box-shadow: none;
+}
+
+/* mobile */
+@media (max-width: 576px) {
+    .navbar-search {
+        width: 140px;
+    }
+}
+
+/*---------------------------------------------------------------
 Sections & lists
 ---------------------------------------------------------------*/
 section {

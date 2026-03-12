@@ -205,4 +205,84 @@ document.addEventListener("DOMContentLoaded",() => {
     renderSections();
     initEvents();
     initTheme();
+
+    const search=document.getElementById("directory-search");
+    if(search) {
+        search.addEventListener("input",e => {
+            searchDirectory(e.target.value);
+        });
+    }
+
+    search.addEventListener("keydown",e => {
+        if(e.key==="Escape") {
+            search.value="";
+            renderSections();
+        }
+    });
+
 });
+
+//-------------------------------- SEARCH --------------------------------//
+
+function searchDirectory(query) {
+    const q=query.toLowerCase().trim();
+    const container=document.getElementById("section-container");
+    if(!q) {
+        renderSections();
+        return;
+    }
+
+    let html="";
+
+    sectionsData.forEach((section,sIndex) => {
+        let sectionHTML="";
+
+        if(section.items) {
+            let rowOpen=false;
+
+            section.items.forEach((sub,cIndex) => {
+                const matches=sub.items.filter(item =>
+                    item.name && item.name.toLowerCase().includes(q)
+                );
+
+                if(!matches.length) return;
+
+                if(!rowOpen) {
+                    sectionHTML+=`<div class="row g-4">`;
+                    rowOpen=true;
+                }
+
+                sectionHTML+=`<div class="col-12 col-md-6 col-lg-3">`;
+                sectionHTML+=`<h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>`;
+                sectionHTML+=linkListHTML(matches,sIndex,cIndex);
+                sectionHTML+=`</div>`;
+            });
+
+            if(rowOpen) sectionHTML+=`</div>`;
+        }
+
+        if(section.links) {
+            const matches=section.links.filter(item =>
+                item.name && item.name.toLowerCase().includes(q)
+            );
+
+            if(matches.length) sectionHTML+=linkListHTML(matches,sIndex,-1);
+        }
+
+        if(sectionHTML) {
+            html+=`
+                <section class="mb-3 border-bottom open">
+                    <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
+                        ${section.label}
+                        <i class="bi bi-chevron-down"></i>
+                    </h2>
+                    <div class="section-content" style="display:block">
+                        ${sectionHTML}
+                    </div>
+                </section>
+            `;
+        }
+    });
+
+    container.innerHTML=html || `<p class="text-muted">No results found.</p>`;
+}
