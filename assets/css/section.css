@@ -1,0 +1,51 @@
+section{
+    cursor:pointer;
+}
+
+section.open{
+    padding-bottom:1.5rem;
+}
+
+section h2{
+    margin:1rem 0;
+}
+
+section h2 i{
+    transition:transform .2s ease;
+}
+
+section.open h2 i{
+    transform:rotate(180deg);
+}
+
+section ul {
+    opacity:0;
+    transform:translateY(-4px);
+    transition:all .25s ease;
+    display:none;
+}
+
+section.open ul{
+    display:block;
+    opacity:1;
+    transform:none;
+}
+
+.subcategory-title{
+    font-weight:600;
+    margin:.5rem 0 0;
+}
+
+li{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+}
+
+li a{
+    display:inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    transition: color 0.25s ease, transform 0.15s ease;
+}

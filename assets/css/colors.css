@@ -1,0 +1,49 @@
+:root {
+    /* Base colors */
+    --bg-body:#f8f9fa;
+    --text-body:#212529;
+    --bg-card:#fdfdfd;
+    --bg-navbar:#ffffff;
+    --link-color:#0d6efd;
+    --link-hover-color:#084298;
+    --pane-line-color:#a6a6a6;
+    --tooltip-bg:#212529;
+    --tooltip-color:#f8f9fa;
+    --bg-footer:#f1f3f5;
+    --emergency-color:#dc3545;
+    --emergency-hover-color:#D2143A;
+
+    /* Nord palette (dark reference) */
+    --nord0:#2E3440;
+    --nord1:#3B4252;
+    --nord2:#434C5E;
+    --nord3:#4C566A;
+    --nord4:#D8DEE9;
+    --nord5:#E5E9F0;
+    --nord6:#ECEFF4;
+    --nord7:#8FBCBB;
+    --nord8:#88C0D0;
+    --nord9:#81A1C1;
+    --nord10:#5E81AC;
+    --nord11:#BF616A;
+    --nord12:#D08770;
+    --nord13:#EBCB8B;
+    --nord14:#A3BE8C;
+    --nord15:#B48EAD;
+}
+
+/* Dark theme */
+:root[data-bs-theme="dark"]{
+    --bg-body:var(--nord0);
+    --text-body:var(--nord4);
+    --bg-card:var(--nord1);
+    --bg-navbar:var(--nord0);
+    --link-color:var(--nord9);
+    --link-hover-color:var(--nord8);
+    --pane-line-color:var(--nord4);
+    --tooltip-bg:var(--nord2);
+    --tooltip-color:var(--nord5);
+    --bg-footer:var(--bg-navbar);
+    --emergency-color:#CB7C82;
+    --emergency-hover-color:var(--nord11);
+}
