@@ -89,23 +89,22 @@ function renderRightPane(link) {
     }
 }
 
-
-
-
- 
-//-------------------------------- LINKS --------------------------------//
-
-function renderSectionContentLink(links, sectionIndex, subIndex) {
-    let html = `<ul class="list-unstyled mb-0">`;
-    links.forEach((l, i) => {
-        const dataS = sectionIndex >= 0 ? `data-s="${sectionIndex}"` : '';
-        const dataC = subIndex >= 0 ? `data-c="${subIndex}"` : '';
-        const dataI = i >= 0 ? `data-i="${i}"` : '';
-        const dataName = `data-name="${l.name.replace(/"/g, '&quot;')}"`;
-        html += `<li><a href="#" ${dataS} ${dataC} ${dataI} ${dataName}>${l.name}</a></li>`;
+//-------------------------------- SECTIONS --------------------------------//
+function renderSections() {
+    const container = document.getElementById("section-container");
+    let html = "";
+    sectionsData.forEach((section, i) => {
+        html += `
+            <section class="mb-3 border-bottom" data-section="${i}">
+                <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
+                    ${section.label}
+                    <i class="bi bi-chevron-down"></i>
+                </h2>
+                <div class="section-content" style="display:none"></div>
+            </section>
+        `;
     });
-    html += `</ul>`;
-    return html;
+    container.innerHTML = html;
 }
 
 function renderSectionContent(section, isFiltered = false) {
@@ -135,24 +134,19 @@ function renderSectionContent(section, isFiltered = false) {
     return html;
 }
 
-//-------------------------------- SECTIONS --------------------------------//
-
-function renderSections() {
-    const container = document.getElementById("section-container");
-    let html = "";
-    sectionsData.forEach((section, i) => {
-        html += `
-            <section class="mb-3 border-bottom" data-section="${i}">
-                <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
-                    ${section.label}
-                    <i class="bi bi-chevron-down"></i>
-                </h2>
-                <div class="section-content" style="display:none"></div>
-            </section>
-        `;
+function renderSectionContentLink(links, sectionIndex, subIndex) {
+    let html = `<ul class="list-unstyled mb-0">`;
+    links.forEach((l, i) => {
+        const dataS = sectionIndex >= 0 ? `data-s="${sectionIndex}"` : '';
+        const dataC = subIndex >= 0 ? `data-c="${subIndex}"` : '';
+        const dataI = i >= 0 ? `data-i="${i}"` : '';
+        const dataName = `data-name="${l.name.replace(/"/g, '&quot;')}"`;
+        html += `<li><a href="#" ${dataS} ${dataC} ${dataI} ${dataName}>${l.name}</a></li>`;
     });
-    container.innerHTML = html;
+    html += `</ul>`;
+    return html;
 }
+
 
 //-------------------------------- EVENTS --------------------------------//
 
@@ -253,6 +247,11 @@ function initTheme() {
     const btn = document.getElementById("themeToggleLink");
     const html = document.documentElement;
     const icon = btn.querySelector("i");
+    setTheme(localStorage.getItem("theme") || "light");
+    btn.addEventListener("click", e => {
+        e.preventDefault();
+        setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
+    });
 
     function setTheme(t) {
         html.dataset.bsTheme = t;
@@ -260,13 +259,6 @@ function initTheme() {
         icon.classList.toggle("bi-toggle-on", t === "dark");
         icon.classList.toggle("bi-toggle-off", t !== "dark");
     }
-
-    setTheme(localStorage.getItem("theme") || "light");
-
-    btn.addEventListener("click", e => {
-        e.preventDefault();
-        setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
-    });
 }
 
 //-------------------------------- INIT --------------------------------//
