@@ -43,53 +43,59 @@ const fieldConfig = {
 
 const sectionsData = [healthcareData, realEstateData, wineEstateData];
 
-// Variable to hold filtered data when searching
 let filteredSectionsData = null;
 
-//-------------------------------- FIELD HTML --------------------------------//
 
-function renderFields(data) {
-    let html = "";
-    for (const [key, val] of Object.entries(data)) {
-        if (!val || key === "name" || key === "items") continue;
-        const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
-        const color = cfg.colorClass || "";
-        html += `<p><span class="value ${color}"><i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}</span></p>`;
-    }
-    return html;
-}
+//-------------------------------- RIGHT PANE --------------------------------//
 
-//-------------------------------- OFFICE BLOCK --------------------------------//
-
-function officeBlockHTML(office, showName = true) {
-    let html = `<div class="office-block mb-4">`;
-    if (showName && office.name) {
-        html += `<p><strong>${office.name}</strong></p><hr>`;
-    }
-    html += renderFields(office);
-    html += `</div>`;
-    return html;
-}
-
-//-------------------------------- OFFCANVAS --------------------------------//
-
-function renderOffcanvas(link) {
+function renderRightPane(link) {
     const pane = document.getElementById("linkPane");
     const body = pane.querySelector(".offcanvas-body");
     let html = `<div class="office-top mb-3"><p><strong>${link.name}</strong></p><hr></div>`;
-    html += officeBlockHTML(link, false);
+    html += renderRightPaneBlock(link, false);
     if (link.items) {
         link.items.forEach(branch => {
-            html += officeBlockHTML(branch, true);
+            html += renderRightPaneBlock(branch, true);
         });
     }
     body.innerHTML = html;
     bootstrap.Offcanvas.getOrCreateInstance(pane).show();
+
+    function renderRightPaneBlock(office, showName = true) {
+        let html = `<div class="office-block mb-4">`;
+        html += renderHeader(office, showName);
+        html += renderData(office);
+        html += `</div>`;
+        return html;
+    }
+
+    function renderHeader(office, showName) {
+        let html = "";
+        if (showName && office.name) {
+            html += `<p><strong>${office.name}</strong></p><hr>`;
+        }
+        return html;
+    }
+    
+    function renderData(data) {
+        let html = "";
+        for (const [key, val] of Object.entries(data)) {
+            if (!val || key === "name" || key === "items") continue;
+            const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
+            const color = cfg.colorClass || "";
+            html += `<p><span class="value ${color}"><i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}</span></p>`;
+        }
+        return html;
+    }
 }
 
+
+
+
+ 
 //-------------------------------- LINKS --------------------------------//
 
-function linkListHTML(links, sectionIndex, subIndex) {
+function renderSectionContentLink(links, sectionIndex, subIndex) {
     let html = `<ul class="list-unstyled mb-0">`;
     links.forEach((l, i) => {
         const dataS = sectionIndex >= 0 ? `data-s="${sectionIndex}"` : '';
@@ -102,51 +108,29 @@ function linkListHTML(links, sectionIndex, subIndex) {
     return html;
 }
 
-//-------------------------------- SUBCATEGORY RENDER --------------------------------//
-
-function renderSubcategories(sectionIndex) {
-    const section = sectionsData[sectionIndex];
+function renderSectionContent(section, isFiltered = false) {
     let html = "";
     if (section.items) {
         let rowOpen = false;
         section.items.forEach((sub, i) => {
-            if (i % 4 === 0) {
+            // Filter empty items als nodig
+            if (isFiltered && sub.items.length === 0) return;
+
+            // Open nieuwe rij
+            if (!rowOpen || (!isFiltered && i % 4 === 0)) {
                 if (rowOpen) html += `</div>`;
                 html += `<div class="row g-4">`;
                 rowOpen = true;
             }
+
             html += `<div class="col-12 col-md-6 col-lg-3">`;
-            html += `<h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>`;
-            html += linkListHTML(sub.items, sectionIndex, i);
+            html += `<h3 class="h6 mb-2 subcategory-title" style="color:green;">${sub.label}</h3>`;
+            html += renderSectionContentLink(sub.items, isFiltered ? -1 : section.index, isFiltered ? -1 : i);
             html += `</div>`;
         });
         if (rowOpen) html += `</div>`;
     } else if (section.links) {
-        html += linkListHTML(section.links, sectionIndex, -1);
-    }
-    return html;
-}
-
-//-------------------------------- SUBCATEGORY RENDER FILTERED --------------------------------//
-
-function renderSubcategoriesFiltered(filteredSection) {
-    let html = "";
-    if (filteredSection.items) {
-        let rowOpen = false;
-        filteredSection.items.forEach(sub => {
-            if (sub.items.length === 0) return;
-            if (!rowOpen) {
-                html += `<div class="row g-4">`;
-                rowOpen = true;
-            }
-            html += `<div class="col-12 col-md-6 col-lg-3">`;
-            html += `<h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>`;
-            html += linkListHTML(sub.items, -1, -1);
-            html += `</div>`;
-        });
-        if (rowOpen) html += `</div>`;
-    } else if (filteredSection.links) {
-        html += linkListHTML(filteredSection.links, -1, -1);
+        html += renderSectionContentLink(section.links, -1, -1);
     }
     return html;
 }
@@ -175,7 +159,8 @@ function renderSections() {
 function initEvents() {
     const container = document.getElementById("section-container");
     container.addEventListener("click", e => {
-        // Links click
+
+        // ---------------------- LINK CLICKS ----------------------
         const link = e.target.closest("a[data-name]");
         if (link) {
             e.preventDefault();
@@ -184,10 +169,7 @@ function initEvents() {
             const i = link.dataset.i;
             const name = link.dataset.name;
             let item;
-
-            // Gebruik gefilterde data als aanwezig
             const dataSource = filteredSectionsData || sectionsData;
-
             if (s !== undefined && s !== '' && c !== undefined && c !== '' && i !== undefined && i !== '') {
                 const section = dataSource[s];
                 if (section) {
@@ -199,8 +181,8 @@ function initEvents() {
                 }
             }
 
+            // fallback zoeken op naam
             if (!item && name) {
-                // fallback op naam zoeken in dataSource
                 outer:
                 for (const section of dataSource) {
                     if (section.items) {
@@ -221,41 +203,31 @@ function initEvents() {
                     }
                 }
             }
-
             if (item) {
-                renderOffcanvas(item);
+                renderRightPane(item);
             }
             return;
         }
 
-        // Sections toggle open/close
+        // ---------------------- SECTION TOGGLE ----------------------
         const sectionEl = e.target.closest("section");
         if (!sectionEl || e.target.closest("a")) return;
-
         const isOpen = sectionEl.classList.contains("open");
 
+        // ---------------------- FILTERED DATA ----------------------
         if (filteredSectionsData) {
-            // Bij gefilterde data: alleen de aangeklikte sectie open/dicht houden
+            const content = sectionEl.querySelector(".section-content");
             if (isOpen) {
                 sectionEl.classList.remove("open");
-                const cont = sectionEl.querySelector(".section-content");
-                if (cont) cont.style.display = "none";
+                if (content) content.style.display = "none";
             } else {
                 sectionEl.classList.add("open");
-                const idx = sectionEl.dataset.section;
-                const content = sectionEl.querySelector(".section-content");
-                if (idx !== undefined && idx !== null && idx !== '') {
-                    if (!content.dataset.loaded) {
-                        content.innerHTML = renderSubcategoriesFiltered(filteredSectionsData[idx]);
-                        content.dataset.loaded = true;
-                    }
-                }
                 if (content) content.style.display = "block";
             }
             return;
         }
 
-        // Normale data: sluit alle behalve de aangeklikte sectie
+        // ---------------------- NORMALE DATA ----------------------
         document.querySelectorAll("#section-container section").forEach(sec => {
             sec.classList.remove("open");
             const cont = sec.querySelector(".section-content");
@@ -264,17 +236,17 @@ function initEvents() {
 
         if (!isOpen) {
             sectionEl.classList.add("open");
-            const idx = sectionEl.dataset.section;
+            const idx = parseInt(sectionEl.dataset.section, 10);
             const content = sectionEl.querySelector(".section-content");
             if (!content.dataset.loaded) {
-                content.innerHTML = renderSubcategories(idx);
+                const section = sectionsData[idx];
+                content.innerHTML = renderSectionContent(section);
                 content.dataset.loaded = true;
             }
             content.style.display = "block";
         }
     });
 }
-
 //-------------------------------- THEME --------------------------------//
 
 function initTheme() {
@@ -300,8 +272,7 @@ function initTheme() {
 //-------------------------------- INIT --------------------------------//
 
 document.addEventListener("DOMContentLoaded", () => {
-    renderEmergencyPhones();
-    renderFooterGeography();
+    renderFooter();
     renderSections();
     initEvents();
     initTheme();
@@ -422,9 +393,9 @@ function searchDirectory(query) {
         let sectionHTML = "";
 
         if (section.items) {
-            sectionHTML += renderSubcategoriesFiltered(section);
+            sectionHTML += renderSectionContent(section, true);
         } else if (section.links) {
-            sectionHTML += linkListHTML(section.links, -1, -1);
+            sectionHTML += renderSectionContentLink(section.links, -1, -1);
         }
 
         if (sectionHTML) {
@@ -446,40 +417,46 @@ function searchDirectory(query) {
 }
 
 //-------------------------------- FOOTER RENDER --------------------------------//
-function renderEmergencyPhones() {
-    const container = document.getElementById("emergencyPhones");
-    if (!container) return;
-    let html = '<div class="row">';
-    emergencyData.forEach(group => {
-        html += `<div class="col-md-3 col-6 mb-1">`;
-        html += `<h5>${group.label}</h5>`;
-        html += `<ul class="list-unstyled">`;
-        group.items.forEach(item => {
-            html += `<li>`;
-            html += `<a href="tel:${item.phone.replace(/\s+/g,'')}" class="d-flex align-items-center link-footer emergency">`;
-            html += `<i class="bi bi-telephone fs-5 me-1"></i>${item.phone}</a>`;
-            if (item.comment) html += ` ${item.comment}`;
-            html += `</li>`;
-        });
-        html += `</ul></div>`;
-    });
-    html += `</div>`;
-    container.innerHTML = html;
-}
+function renderFooter() {
+    renderFooterEmergency();
+    renderFooterGeography();
 
-function renderFooterGeography() {
-    const container = document.getElementById("footerGeography");
-    if (!container) return;
-    let html = `<div class="row">`;
-    html += `<p>`;
-    html += `Town/Place: ${geographicData.town} | `;
-    html += `Region/Area: ${geographicData.region} | `;
-    html += `City: ${geographicData.city} | `;
-    html += `Province: ${geographicData.province}`;
-    html += `</p>`;
-    if (Array.isArray(geographicData.suburbs) && geographicData.suburbs.length > 0) {
-        html += `<p>Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
+    function renderFooterEmergency() {
+        const container = document.getElementById("emergencyPhones");
+        if (!container) return;
+        let html = '<div class="row">';
+        emergencyData.forEach(group => {
+            html += `<div class="col-md-3 col-6 mb-1">`;
+            html += `<h5>${group.label}</h5>`;
+            html += `<ul class="list-unstyled">`;
+            group.items.forEach(item => {
+                html += `<li>`;
+                html += `<a href="tel:${item.phone.replace(/\s+/g,'')}" class="d-flex align-items-center link-footer emergency">`;
+                html += `<i class="bi bi-telephone fs-5 me-1"></i>${item.phone}</a>`;
+                if (item.comment) html += ` ${item.comment}`;
+                html += `</li>`;
+            });
+            html += `</ul></div>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
     }
-    html += `</div>`;
-    container.innerHTML = html;
+
+    function renderFooterGeography() {
+        const container = document.getElementById("footerGeography");
+        if (!container) return;
+        let html = `<div class="row">`;
+        html += `<p>`;
+        html += `Town/Place: ${geographicData.town} | `;
+        html += `Region/Area: ${geographicData.region} | `;
+        html += `City: ${geographicData.city} | `;
+        html += `Province: ${geographicData.province}`;
+        html += `</p>`;
+        if (Array.isArray(geographicData.suburbs) && geographicData.suburbs.length > 0) {
+            html += `<p>Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
+        }
+        html += `</div>`;
+        container.innerHTML = html;
+    }
+
 }
