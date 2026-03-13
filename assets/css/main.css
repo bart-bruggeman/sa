@@ -60,6 +60,7 @@
 
 html{
     overflow-y:scroll;
+    transition:background-color .4s ease,color .4s ease;
 }
 
 body{
@@ -83,6 +84,7 @@ body,
 a{
     color:var(--link-color);
     text-decoration:none;
+    transition: color 0.25s ease;
 }
 
 a:hover,
@@ -127,7 +129,6 @@ a:active{
 }
 
 /* search */
-
 .navbar-search{
     width:220px;
     height:32px;
@@ -136,9 +137,15 @@ a:active{
     background:var(--bg-card);
     color:var(--text-body);
     border:1px solid var(--pane-line-color);
-    border-radius:.25rem;
-    box-sizing:border-box;
+    border-radius:5px;
+    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease;
 }
+
+.navbar-search:focus{
+    border-color:var(--link-color);
+    box-shadow:0 0 0 2px rgba(13,110,253,0.15);
+}
+
 
 .navbar-search:focus{
     border-color:var(--link-color);
@@ -194,6 +201,7 @@ a:active{
 .offcanvas{
     background:var(--bg-card);
     color:var(--text-body);
+    box-shadow:-4px 0 20px rgba(0,0,0,0.15);
 }
 
 .offcanvas-header{
@@ -283,12 +291,17 @@ section.open h2 i{
     transform:rotate(180deg);
 }
 
-section ul{
+section ul {
+    opacity:0;
+    transform:translateY(-4px);
+    transition:all .25s ease;
     display:none;
 }
 
 section.open ul{
     display:block;
+    opacity:1;
+    transform:none;
 }
 
 .subcategory-title{
@@ -309,6 +322,7 @@ li a{
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    transition: color 0.25s ease, transform 0.15s ease;
 }
 
 /* ===============================================================
