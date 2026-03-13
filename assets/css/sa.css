@@ -315,13 +315,8 @@ section ul {
     display: none;
 }
 
-section.open ul,
-section.open .subcategories-wrapper {
+section.open ul {
     display: block;
-}
-
-.subcategories-wrapper {
-    margin-left: 0;
 }
 
 .subcategory-title {
