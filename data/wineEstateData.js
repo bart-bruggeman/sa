@@ -11,11 +11,18 @@ const wineEstateData = {
                     "coordinates": "-34.09360723884719, 18.38751004963936",
                     "phone": "+27 21 789 0900",
                     "email": "info@cape-point.com",
-                    "hours": "Mon - Tue 11:00-18:00<br/>Thu - Sat 11:00 - 22:00<br/>Sun: 11:00 - 17:00",
+                    "hours": [
+                        "Mon - Tue 11:00-18:00",
+                        "Thu - Sat 11:00 - 22:00",
+                        "Sun: 11:00 - 17:00"
+                    ],
                     "items": [
                         {
                             "name": "The Restaurant",
-                            "hours": "Sun - Thu: 12:00 - 16:00<br/>Sat: 12:00 - 19:00"
+                            "hours": [
+                                "Sun - Thu: 12:00 - 16:00",
+                                "Sat: 12:00 - 19:00"
+                            ]
                         },
                         {
                             "name": "The Courtyard",
@@ -45,11 +52,20 @@ const wineEstateData = {
                     "items": [
                         {
                             "name": "The Restaurant",
-                            "hours": "Mon - Sun:<br/>08:30 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>Mon - Sat: 18:00 - 23:00 (dinner)"
+                            "hours": [
+                                "Mon - Sun:",
+                                "08:30 - 11:00 (breakfast)",
+                                "12:00 - 15:00 (lunch)",
+                                "Mon - Sat: 18:00 - 23:00 (dinner)"
+                            ]
                         },
                         {
                             "name": "The Tasting Room",
-                            "hours": "Mon: 12:00 - 17:00<br/>Tue - Fri: 11:00 - 17:00<br/>Sat - Sun: 11:00 - 16:30"
+                            "hours": [
+                                "Mon: 12:00 - 17:00",
+                                "Tue - Fri: 11:00 - 17:00",
+                                "Sat - Sun: 11:00 - 16:30"
+                            ]
                         }
                     ]
                 },
@@ -72,7 +88,10 @@ const wineEstateData = {
                             "coordinates": "-34.030414630792215, 18.418986348595567",
                             "phone": "+27 21 794 6255",
                             "email": "info@jhuis.co.za",
-                            "hours": "Mon - Sat: 08:00 - 21:00<br/>Sun: 08:00 - 17:00"
+                            "hours": [
+                                "Mon - Sat: 08:00 - 21:00",
+                                "Sun: 08:00 - 17:00"
+                            ]
                         },
                         {
                             "name": "Simon's Restaurant",
@@ -118,14 +137,24 @@ const wineEstateData = {
                             "name": "Bistro 1682 Restaurant",
                             "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
                             "phone": "+27 21 205 3866",
-                            "hours": "Mon - Sun:<br/>09:00 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>17:00 - 22:00 (dinner)"
+                            "hours": [
+                                "Mon - Sun:",
+                                "09:00 - 11:00 (breakfast)",
+                                "12:00 - 15:00 (lunch)",
+                                "17:00 - 22:00 (dinner)"
+                            ]
                         },
                         {
                             "name": "Tryn Restaurant",
                             "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
                             "phone": "+27 21 713 7178",
                             "email": "info@tryn.co.za",
-                            "hours": "Mon - Sun:<br/>08:00 - 11:00 (breakfast)<br/>12:00 - 15:00 (lunch)<br/>18:00 - 22:00 (dinner)"
+                            "hours": [
+                                "Mon - Sun:",
+                                "08:00 - 11:00 (breakfast)",
+                                "12:00 - 15:00 (lunch)",
+                                "18:00 - 22:00 (dinner)"
+                            ]
                         },
                         {
                             "name": "Steenberg 5-star Hotel",

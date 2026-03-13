@@ -11,7 +11,10 @@ const healthcareData  = {
                     "coordinates": "-34.15348994625148, 18.870561784302375",
                     "phone": "+27 21 856 2504",
                     "email": "reception@gbmedical.co.za",
-                    "hours": "Mon - Fri: 08:00 - 17:00<br/>Sat: 09:00 - 12:00"
+                    "hours": [
+                        "Mon - Fri: 08:00 - 17:00",
+                        "Sat: 09:00 - 12:00"
+                    ]
                 },
                 {
                     "name": "Sr Claire's Essential Care Clinic (Strand)",
@@ -19,7 +22,11 @@ const healthcareData  = {
                     "coordinates": "-34.12057570628986, 18.85160429779488",
                     "phone": "+27 81 236 2219",
                     "email": "admin@claireclinic.co.za",
-                    "hours": "Mon - Fri: 09:00 - 17:00<br/>Sa: 09:00 - 13:00<br/>Sun: 09:00 - 12:00"
+                    "hours": [
+                        "Mon - Fri: 09:00 - 17:00",
+                        "Sa: 09:00 - 13:00",
+                        "Sun: 09:00 - 12:00"
+                    ]
                 }
             ]
         },
@@ -33,7 +40,10 @@ const healthcareData  = {
                     "coordinates": "-34.134620345571875, 18.846838755822432",
                     "phone": "+27 60 617 3260",
                     "email": "info@dentalandortho.co.za",
-                    "hours": "Mon - Fri: 09:00 - 18:00<br/>Sat: 09:00 - 13:00"
+                    "hours": [
+                        "Mon - Fri: 09:00 - 18:00",
+                        "Sat: 09:00 - 13:00"
+                    ]
                 }
             ]
         },

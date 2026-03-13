@@ -30,7 +30,10 @@ const fieldConfig = {
     },
     hours: {
         icon: "bi-clock",
-        render: v => v
+        render: v => {
+            const values = Array.isArray(v) ? v : [v];
+            return values.map(v => `${v}`).join('<br>'); 
+        }
     },
     info: {
         icon: "bi-info-circle",

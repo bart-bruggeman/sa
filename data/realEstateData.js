@@ -28,7 +28,10 @@ const realEstateData  = {
                     "coordinates": "-34.1514874193122, 18.85890464989621",
                     "phone": "+27 21 856 2000",
                     "email": "pj@hip.co.za",
-                    "hours": "Mon - Fri: 08:30 - 17:00<br/>Sat: 11:00 - 14:00"
+                    "hours": [
+                        "Mon - Fri: 08:30 - 17:00",
+                        "Sat: 11:00 - 14:00"
+                    ]
                 },
                 {
                     "name": "Homelink Estates",
