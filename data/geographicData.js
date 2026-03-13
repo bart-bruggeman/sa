@@ -1,0 +1,31 @@
+const geographicData = {
+    "country": "South Africa",
+    "province": "Western Cape",
+    "city": "Cape Town",
+    "region": "Helderberg",
+    "town": "Gordons Bay",
+    "suburbs": [
+        "Admirals Park",
+        "Anchorage Park",
+        "Bay Park",
+        "Cayman Beach",
+        "Dobson",
+        "Fairview Golf Estate",
+        "Firlands",
+        "Gordon Heights",
+        "Gordon Strand Estate",
+        "Gordons Bay Central",
+        "Gordons Bay Village",
+        "Greenbay Eco Estate",
+        "Harbour Island",
+        "Mansfield",
+        "Mansfield Industrial",
+        "Mountainside",
+        "Onverwacht",
+        "Pine Acres",
+        "Sea Breeze",
+        "Temperance Town",
+        "Whispering Pines",
+        "Winslow"
+    ]
+}

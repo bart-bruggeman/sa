@@ -1,4 +1,4 @@
-const footerData = [
+const emergencyData = [
     {
         "label": "Emergency",
         "items": [
