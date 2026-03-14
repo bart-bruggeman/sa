@@ -1,51 +1,58 @@
-section{
-    cursor:pointer;
+section {
+    cursor: pointer;
 }
 
-section.open{
-    padding-bottom:1.5rem;
+section.open {
+    padding-bottom: 0.75rem;
 }
 
-section h2{
-    margin:1rem 0;
+section h2 {
+    margin: 0.5rem 0;
 }
 
-section h2 i{
-    transition:transform .2s ease;
+section h2 i {
+    transition: transform .2s ease;
 }
 
-section.open h2 i{
-    transform:rotate(180deg);
+section.open h2 i {
+    transform: rotate(180deg);
+}
+
+section .section-content {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+section .row {
+    margin: 0;
+}
+
+.subcategory-title {
+    font-weight: 600;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 section ul {
-    opacity:0;
-    transform:translateY(-4px);
-    transition:all .25s ease;
-    display:none;
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
 }
 
-section.open ul{
-    display:block;
-    opacity:1;
-    transform:none;
+li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.125rem;
 }
 
-.subcategory-title{
-    font-weight:600;
-    margin:.5rem 0 0;
-}
-
-li{
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-}
-
-li a{
-    display:inline-block;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+li a {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: color 0.25s ease, transform 0.15s ease;
 }
