@@ -1,5 +1,4 @@
-//-------------------------------- CONFIG --------------------------------//
-
+//-------------------------------- CONFIG -------------------------------//
 const DEFAULT_ICON = "bi-dot";
 
 const fieldConfig = {
@@ -45,9 +44,64 @@ const sectionsData = [healthcareData, realEstateData, wineEstateData];
 
 let filteredSectionsData = null;
 
+//-------------------------- INIT EVENTHANDLERS -------------------------//
+document.addEventListener("DOMContentLoaded", eventListeners);
 
-//-------------------------------- RIGHT PANE --------------------------------//
+function eventListeners() {
+    const search = document.getElementById("directory-search");
+    const brand = document.querySelector(".navbar-brand");
+    const offcanvasEl = document.getElementById("linkPane");
+    const bsOffcanvas = offcanvasEl ? bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl) : null;
 
+    renderFooter();
+    renderSections();
+    initSectionEvents();
+    initTheme();
+
+    if (search) search.addEventListener("input", e => filterSections(e.target.value));
+    if (brand) brand.addEventListener("click", handleBrandClick);
+    if (offcanvasEl) {
+        offcanvasEl.addEventListener("shown.bs.offcanvas", () => toggleSearch(false));
+        offcanvasEl.addEventListener("hidden.bs.offcanvas", () => toggleSearch(true));
+    }
+    document.addEventListener("keydown", handleEscapeOrClose);
+
+    function handleBrandClick(e) {
+        e.preventDefault();
+        resetAndClose();
+        renderSections();
+        if (bsOffcanvas?._isShown) bsOffcanvas.hide();
+    }
+
+    function toggleSearch(enabled) {
+        if (!search) return;
+        search.disabled = !enabled;
+        search.type = enabled ? "search" : "text";
+    }
+
+    function handleEscapeOrClose(e) {
+        if (e.key !== "Escape") return;
+        if (bsOffcanvas && offcanvasEl.classList.contains("show")) {
+            bsOffcanvas.hide();
+        } else {
+            resetAndClose();
+            renderSections();
+        }
+    }
+
+    function resetAndClose() {
+        if (!search) return;
+        search.value = "";
+        filteredSectionsData = null;
+        document.querySelectorAll("#section-container section").forEach(sec => {
+            sec.classList.remove("open");
+            const content = sec.querySelector(".section-content");
+            if (content) content.style.display = "none";
+        });
+    }
+}
+
+//------------------------------ RIGHT PANE -----------------------------//
 function renderRightPane(link) {
     const pane = document.getElementById("linkPane");
     const body = pane.querySelector(".offcanvas-body");
@@ -89,7 +143,7 @@ function renderRightPane(link) {
     }
 }
 
-//-------------------------------- SECTIONS --------------------------------//
+//------------------------------- SECTIONS ------------------------------//
 function renderSections() {
     const container = document.getElementById("section-container");
     let html = "";
@@ -107,15 +161,12 @@ function renderSections() {
     container.innerHTML = html;
 }
 
-function renderSectionContent(section, isFiltered = false) {
+function renderSection(section, isFiltered = false) {
     let html = "";
     if (section.items) {
         let rowOpen = false;
         section.items.forEach((sub, i) => {
-            // Filter empty items als nodig
             if (isFiltered && sub.items.length === 0) return;
-
-            // Open nieuwe rij
             if (!rowOpen || (!isFiltered && i % 4 === 0)) {
                 if (rowOpen) html += `</div>`;
                 html += `<div class="row g-4">`;
@@ -123,18 +174,18 @@ function renderSectionContent(section, isFiltered = false) {
             }
 
             html += `<div class="col-12 col-md-6 col-lg-3">`;
-            html += `<h3 class="h6 mb-2 subcategory-title" style="color:green;">${sub.label}</h3>`;
-            html += renderSectionContentLink(sub.items, isFiltered ? -1 : section.index, isFiltered ? -1 : i);
+            html += `<h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>`;
+            html += renderSectionLinks(sub.items, isFiltered ? -1 : section.index, isFiltered ? -1 : i);
             html += `</div>`;
         });
         if (rowOpen) html += `</div>`;
     } else if (section.links) {
-        html += renderSectionContentLink(section.links, -1, -1);
+        html += renderSectionLinks(section.links, -1, -1);
     }
     return html;
 }
 
-function renderSectionContentLink(links, sectionIndex, subIndex) {
+function renderSectionLinks(links, sectionIndex, subIndex) {
     let html = `<ul class="list-unstyled mb-0">`;
     links.forEach((l, i) => {
         const dataS = sectionIndex >= 0 ? `data-s="${sectionIndex}"` : '';
@@ -147,268 +198,7 @@ function renderSectionContentLink(links, sectionIndex, subIndex) {
     return html;
 }
 
-
-//-------------------------------- EVENTS --------------------------------//
-
-function initEvents() {
-    const container = document.getElementById("section-container");
-    container.addEventListener("click", e => {
-
-        // ---------------------- LINK CLICKS ----------------------
-        const link = e.target.closest("a[data-name]");
-        if (link) {
-            e.preventDefault();
-            const s = link.dataset.s;
-            const c = link.dataset.c;
-            const i = link.dataset.i;
-            const name = link.dataset.name;
-            let item;
-            const dataSource = filteredSectionsData || sectionsData;
-            if (s !== undefined && s !== '' && c !== undefined && c !== '' && i !== undefined && i !== '') {
-                const section = dataSource[s];
-                if (section) {
-                    if (c >= 0 && section.items) {
-                        item = section.items[c]?.items[i];
-                    } else if (section.links) {
-                        item = section.links[i];
-                    }
-                }
-            }
-
-            // fallback zoeken op naam
-            if (!item && name) {
-                outer:
-                for (const section of dataSource) {
-                    if (section.items) {
-                        for (const sub of section.items) {
-                            const found = sub.items.find(it => it.name === name);
-                            if (found) {
-                                item = found;
-                                break outer;
-                            }
-                        }
-                    }
-                    if (section.links) {
-                        const found = section.links.find(it => it.name === name);
-                        if (found) {
-                            item = found;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (item) {
-                renderRightPane(item);
-            }
-            return;
-        }
-
-        // ---------------------- SECTION TOGGLE ----------------------
-        const sectionEl = e.target.closest("section");
-        if (!sectionEl || e.target.closest("a")) return;
-        const isOpen = sectionEl.classList.contains("open");
-
-        // ---------------------- FILTERED DATA ----------------------
-        if (filteredSectionsData) {
-            const content = sectionEl.querySelector(".section-content");
-            if (isOpen) {
-                sectionEl.classList.remove("open");
-                if (content) content.style.display = "none";
-            } else {
-                sectionEl.classList.add("open");
-                if (content) content.style.display = "block";
-            }
-            return;
-        }
-
-        // ---------------------- NORMALE DATA ----------------------
-        document.querySelectorAll("#section-container section").forEach(sec => {
-            sec.classList.remove("open");
-            const cont = sec.querySelector(".section-content");
-            if (cont) cont.style.display = "none";
-        });
-
-        if (!isOpen) {
-            sectionEl.classList.add("open");
-            const idx = parseInt(sectionEl.dataset.section, 10);
-            const content = sectionEl.querySelector(".section-content");
-            if (!content.dataset.loaded) {
-                const section = sectionsData[idx];
-                content.innerHTML = renderSectionContent(section);
-                content.dataset.loaded = true;
-            }
-            content.style.display = "block";
-        }
-    });
-}
-//-------------------------------- THEME --------------------------------//
-
-function initTheme() {
-    const btn = document.getElementById("themeToggleLink");
-    const html = document.documentElement;
-    const icon = btn.querySelector("i");
-    setTheme(localStorage.getItem("theme") || "light");
-    btn.addEventListener("click", e => {
-        e.preventDefault();
-        setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
-    });
-
-    function setTheme(t) {
-        html.dataset.bsTheme = t;
-        localStorage.setItem("theme", t);
-        icon.classList.toggle("bi-toggle-on", t === "dark");
-        icon.classList.toggle("bi-toggle-off", t !== "dark");
-    }
-}
-
-//-------------------------------- INIT --------------------------------//
-
-document.addEventListener("DOMContentLoaded", () => {
-    renderFooter();
-    renderSections();
-    initEvents();
-    initTheme();
-
-    const search = document.getElementById("directory-search");
-    const brand = document.querySelector(".navbar-brand");
-    const offcanvasEl = document.getElementById("linkPane");
-    const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-
-    if (search) {
-        search.addEventListener("input", e => {
-            searchDirectory(e.target.value);
-        });
-    }
-
-    // Click op navbar-brand ("South Africa")
-    if (brand) {
-        brand.addEventListener("click", e => {
-            e.preventDefault();
-
-            // 1. Zoekveld leegmaken
-            if (search) search.value = "";
-            filteredSectionsData = null;
-
-            // 2. Alle open sections sluiten
-            document.querySelectorAll("#section-container section").forEach(sec => {
-                sec.classList.remove("open");
-                const content = sec.querySelector(".section-content");
-                if (content) content.style.display = "none";
-            });
-
-            // 3. Gefilterde sections resetten
-            renderSections();
-
-            // 4. Offcanvas sluiten als die open is
-            if (bsOffcanvas._isShown) {
-                bsOffcanvas.hide();
-            }
-        });
-
-        const search = document.getElementById("directory-search");
-        const offcanvasEl = document.getElementById("linkPane");
-
-        offcanvasEl.addEventListener("shown.bs.offcanvas", () => {
-            search.disabled = true;
-            search.type = "text";     // kruisje verdwijnt
-        });
-
-        offcanvasEl.addEventListener("hidden.bs.offcanvas", () => {
-            search.disabled = false;
-            search.type = "search";   // kruisje terug
-        });
-    }
-
-    // Globale Escape handler
-    document.addEventListener("keydown", e => {
-        if (e.key !== "Escape") return;
-
-        const pane = document.getElementById("linkPane");
-        const offcanvasInstance = bootstrap.Offcanvas.getInstance(pane);
-
-        if (offcanvasInstance && pane.classList.contains("show")) {
-            // 1️⃣ Right pane open → alleen sluiten
-            offcanvasInstance.hide();
-        } else {
-            // 2️⃣ Pane gesloten → zoekveld en filter reset
-            if (search) {
-                search.value = "";
-                filteredSectionsData = null;
-                renderSections();
-            }
-        }
-    });
-});
-
-//-------------------------------- SEARCH --------------------------------//
-
-function searchDirectory(query) {
-    const q = query.toLowerCase().trim();
-    const container = document.getElementById("section-container");
-
-    if (!q) {
-        filteredSectionsData = null;
-        renderSections();
-        return;
-    }
-
-    filteredSectionsData = [];
-
-    sectionsData.forEach(section => {
-        let filteredSection = { label: section.label };
-
-        if (section.items) {
-            filteredSection.items = section.items.map(sub => {
-                const matches = sub.items.filter(item =>
-                    item.name && item.name.toLowerCase().includes(q)
-                );
-                return { label: sub.label, items: matches };
-            }).filter(sub => sub.items.length > 0);
-        }
-
-        if (section.links) {
-            filteredSection.links = section.links.filter(item =>
-                item.name && item.name.toLowerCase().includes(q)
-            );
-        }
-
-        // Alleen toevoegen als er resultaten zijn
-        if ((filteredSection.items && filteredSection.items.length > 0) ||
-            (filteredSection.links && filteredSection.links.length > 0)) {
-            filteredSectionsData.push(filteredSection);
-        }
-    });
-
-    let html = "";
-
-    filteredSectionsData.forEach(section => {
-        let sectionHTML = "";
-
-        if (section.items) {
-            sectionHTML += renderSectionContent(section, true);
-        } else if (section.links) {
-            sectionHTML += renderSectionContentLink(section.links, -1, -1);
-        }
-
-        if (sectionHTML) {
-            html += `
-                <section class="mb-3 border-bottom open">
-                    <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
-                        ${section.label}
-                        <i class="bi bi-chevron-down"></i>
-                    </h2>
-                    <div class="section-content" style="display:block">
-                        ${sectionHTML}
-                    </div>
-                </section>
-            `;
-        }
-    });
-
-    container.innerHTML = html || `<p class="text-muted">No results found.</p>`;
-}
-
-//-------------------------------- FOOTER RENDER --------------------------------//
+//---------------------------- FOOTER RENDER ----------------------------//
 function renderFooter() {
     renderFooterEmergency();
     renderFooterGeography();
@@ -451,4 +241,181 @@ function renderFooter() {
         container.innerHTML = html;
     }
 
+}
+
+//-------------------------------- THEME --------------------------------//
+function initTheme() {
+    const btn = document.getElementById("themeToggleLink");
+    const html = document.documentElement;
+    const icon = btn.querySelector("i");
+    setTheme(localStorage.getItem("theme") || "light");
+    btn.addEventListener("click", e => {
+        e.preventDefault();
+        setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
+    });
+
+    function setTheme(t) {
+        html.dataset.bsTheme = t;
+        localStorage.setItem("theme", t);
+        icon.classList.toggle("bi-toggle-on", t === "dark");
+        icon.classList.toggle("bi-toggle-off", t !== "dark");
+    }
+}
+
+//-------------------------------- FILTER -------------------------------//
+function filterSections(query) {
+    const normalize = q => q.toLowerCase().trim();
+    const match = (item, q) => item.name && item.name.toLowerCase().includes(q);
+
+    const filterSub = (sub, q) => ({
+        label: sub.label,
+        items: sub.items.filter(item => match(item, q))
+    });
+
+    const hasResults = s =>
+        (s.items && s.items.length) || (s.links && s.links.length);
+
+    const wrapSection = (label, content) => `
+        <section class="mb-3 border-bottom open">
+            <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
+                ${label}
+                <i class="bi bi-chevron-down"></i>
+            </h2>
+            <div class="section-content" style="display:block">
+                ${content}
+            </div>
+        </section>
+    `;
+
+    const q = normalize(query);
+    const container = document.getElementById("section-container");
+
+    if (!q) {
+        filteredSectionsData = null;
+        renderSections();
+        return;
+    }
+
+    filteredSectionsData = sectionsData
+        .map(section => {
+            const filtered = { label: section.label };
+            if (section.items) {
+                filtered.items = section.items
+                    .map(sub => filterSub(sub, q))
+                    .filter(sub => sub.items.length);
+            }
+            if (section.links) {
+                filtered.links = section.links.filter(item => match(item, q));
+            }
+            return hasResults(filtered) ? filtered : null;
+        })
+        .filter(Boolean);
+
+    const html = filteredSectionsData.map(section => {
+        let content = "";
+        if (section.items) {
+            content = renderSection(section, true);
+        } else if (section.links) {
+            content = renderSectionLinks(section.links, -1, -1);
+        }
+        return content ? wrapSection(section.label, content) : "";
+    }).join("");
+
+    container.innerHTML = html || `<p class="text-muted">No results found.</p>`;
+}
+
+
+
+//-------------------------------- EVENTS -------------------------------//
+function initSectionEvents() {
+    const container = document.getElementById("section-container");
+    container.addEventListener("click", (e) => {
+        const link = e.target.closest("a[data-name]");
+        if (link) {
+            handleLinkClick(link);
+            return;
+        }
+        const sectionEl = e.target.closest("section");
+        if (sectionEl && !e.target.closest("a")) {
+            handleSectionToggle(sectionEl);
+        }
+    });
+
+    function handleLinkClick(link) {
+        link.preventDefault?.();
+        const { s, c, i, name } = link.dataset;
+        const dataSource = filteredSectionsData || sectionsData;
+        let item = getItemByIndex(dataSource, s, c, i);
+        if (!item && name) {
+            item = getItemByName(dataSource, name);
+        }
+        if (item) renderRightPane(item);
+    }
+
+    function getItemByIndex(dataSource, s, c, i) {
+        if (s === undefined || c === undefined || i === undefined) return null;
+        const section = dataSource[s];
+        if (!section) return null;
+        if (c >= 0 && section.items) {
+            return section.items[c]?.items[i] || null;
+        } else if (section.links) {
+            return section.links[i] || null;
+        }
+        return null;
+    }
+
+    function getItemByName(dataSource, name) {
+        for (const section of dataSource) {
+            if (section.items) {
+                for (const sub of section.items) {
+                    const found = sub.items.find((it) => it.name === name);
+                    if (found) return found;
+                }
+            }
+            if (section.links) {
+                const found = section.links.find((it) => it.name === name);
+                if (found) return found;
+            }
+        }
+        return null;
+    }
+
+    function handleSectionToggle(sectionEl) {
+        const isOpen = sectionEl.classList.contains("open");
+        if (filteredSectionsData) {
+            toggleFilteredSection(sectionEl, !isOpen);
+        } else {
+            toggleNormalSection(sectionEl, !isOpen);
+        }
+    }
+
+    function toggleFilteredSection(sectionEl, open) {
+        const content = sectionEl.querySelector(".section-content");
+        if (open) {
+            sectionEl.classList.add("open");
+            if (content) content.style.display = "block";
+        } else {
+            sectionEl.classList.remove("open");
+            if (content) content.style.display = "none";
+        }
+    }
+
+    function toggleNormalSection(sectionEl, open) {
+        const allSections = document.querySelectorAll("#section-container section");
+        allSections.forEach((sec) => {
+            sec.classList.remove("open");
+            const cont = sec.querySelector(".section-content");
+            if (cont) cont.style.display = "none";
+        });
+        if (!open) return;
+        sectionEl.classList.add("open");
+        const idx = parseInt(sectionEl.dataset.section, 10);
+        const content = sectionEl.querySelector(".section-content");
+        if (!content.dataset.loaded) {
+            const section = sectionsData[idx];
+            content.innerHTML = renderSection(section);
+            content.dataset.loaded = true;
+        }
+        content.style.display = "block";
+    }
 }
