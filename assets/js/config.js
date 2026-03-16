@@ -15,12 +15,17 @@ const fieldConfig = {
     },
     phone: {
         icon: "bi-telephone",
-        render: v => `<a href="tel:${v.replace(/\s+/g, '')}">${v}</a>`
+        render: v => {
+            const values = Array.isArray(v) ? v : [v];
+            return values
+                .map(num => `<a href="tel:${num.replace(/\s+/g, '')}">${num}</a>`)
+                .join("<br>");
+        }
     },
     phone_emergency: {
-        icon: "bi-telephone-plus-fill",
+        icon: "bi-telephone",
         colorClass: "emergency",
-        render: v => `<a href="tel:${v.replace(/\s+/g, '')}" class="emergency">${v}</a>`
+        render: v => `<a href="tel:${v.replace(/\s+/g, '')}" class="emergency">${v} (emergency)</a>`
     },
     url: {
         icon: "bi-globe",

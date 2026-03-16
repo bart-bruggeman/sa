@@ -64,14 +64,21 @@ const healthcareData  = {
                     "url": "https://www.mediclinic.co.za/en/vergelegen/home.html",
                     "address": "Main Road, Somerset West, Cape Town, 7130, South Africa",
                     "coordinates": "",
-                    "phone": "+27 86 133 5566"
+                    "phone": [
+                        "+27 86 133 5566",
+                        "+27 21 850 9000"
+                    ],
+                    "phone_emergency": "+27 21 851 3399"
                 },
                 {
                     "name": "Busamed Paardevlei Private Hospital",
                     "url": "https://busamed.co.za/hospitals/paardevlei-private-hospital/",
                     "address": "Paardevlei Estate, 4 Gardner Williams Ave, Paardevlei, Cape Town, 7130, South Africa",
                     "coordinates": "",
-                    "phone": "+27 21 840 6600",
+                    "phone": [
+                        "+27 21 840 6600",
+                        "+27 21 840 6643"
+                    ],
                     "phone_emergency": "+27 21 840 6642",
                     "email": "bpphinfo@busamed.co.za",
                 }
