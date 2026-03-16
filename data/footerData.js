@@ -33,7 +33,7 @@ const emergencyData = [
 const geographicData = {
     "country": "South Africa",
     "province": "Western Cape",
-    "city": "Cape Town",
+    "municipality": "City of Cape Town",
     "region": "Helderberg",
     "town": "Gordons Bay",
     "suburbs": [

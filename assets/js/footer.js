@@ -30,7 +30,7 @@ function renderFooter() {
         html += `<p>`;
         html += `Town/Place: ${geographicData.town} | `;
         html += `Region/Area: ${geographicData.region} | `;
-        html += `City: ${geographicData.city} | `;
+        html += `Municipality: ${geographicData.municipality} | `;
         html += `Province: ${geographicData.province}`;
         html += `</p>`;
         if (Array.isArray(geographicData.suburbs) && geographicData.suburbs.length > 0) {
