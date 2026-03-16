@@ -18,6 +18,40 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
             </div>
         </section>
     `).join("");
+
+    function renderSection(section) {
+        if (section.items) {
+            return `
+                <div class="row g-4">
+                    ${section.items.map(sub => `
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>
+                            ${renderLinks(sub.items)}
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+        if (section.links) {
+            return renderLinks(section.links);
+        }
+        return "";
+
+        function renderLinks(links) {
+            return `
+                <ul class="list-unstyled mb-0">
+                    ${links.map((l,i)=>`
+                        <li>
+                            <a href="#" data-name="${l.name}">
+                                ${l.name}
+                            </a>
+                        </li>
+                    `).join("")}
+                </ul>
+            `;
+        }
+    }
+
 }
 
 function renderFilteredSections(query) {
@@ -26,53 +60,27 @@ function renderFilteredSections(query) {
         renderSections(sectionsData, false, false);
         return;
     }
-    const filteredSectionsData = sectionsData.map(section => {
-        const result = { label: section.label };
-        if (section.items) {
-            result.items = section.items
-                .map(sub => ({
-                    label: sub.label,
-                    items: sub.items.filter(i => i.name.toLowerCase().includes(q))
-                }))
-                .filter(sub => sub.items.length);
-        }
-        if (section.links) {
-            result.links = section.links.filter(i => i.name.toLowerCase().includes(q));
-        }
-        return (result.items?.length || result.links?.length) ? result : null;
-    }).filter(Boolean);
+    const filteredSectionsData = filterSections(sectionsData, q);
     renderSections(filteredSectionsData, true, true);
-}
 
-function renderSection(section) {
-    if (section.items) {
-        return `
-            <div class="row g-4">
-                ${section.items.map(sub => `
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>
-                        ${renderLinks(sub.items)}
-                    </div>
-                `).join("")}
-            </div>
-        `;
-    }
-    if (section.links) {
-        return renderLinks(section.links);
-    }
-    return "";
-}
+    function filterSections(sectionsData, q) {
+        return sectionsData
+            .map(section => {
+                const result = { label: section.label };
+                if (section.items) {
+                    result.items = section.items
+                        .map(sub => ({
+                            label: sub.label,
+                            items: sub.items.filter(i => i.name.toLowerCase().includes(q))
+                        }))
+                        .filter(sub => sub.items.length);
+                }
 
-function renderLinks(links) {
-    return `
-        <ul class="list-unstyled mb-0">
-            ${links.map((l,i)=>`
-                <li>
-                    <a href="#" data-name="${l.name}">
-                        ${l.name}
-                    </a>
-                </li>
-            `).join("")}
-        </ul>
-    `;
+                if (section.links) {
+                    result.links = section.links.filter(i => i.name.toLowerCase().includes(q));
+                }
+                return (result.items?.length || result.links?.length) ? result : null;
+            })
+            .filter(Boolean);
+    }
 }
