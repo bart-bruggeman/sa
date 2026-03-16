@@ -11,7 +11,7 @@ function eventListeners() {
     initSectionEvents();
     initTheme();
 
-    if (search) search.addEventListener("input", e => filterSections(e.target.value));
+    if (search) search.addEventListener("input", e => renderFilteredSections(e.target.value));
     if (brand) brand.addEventListener("click", handleBrandClick);
     if (offcanvasEl) {
         offcanvasEl.addEventListener("shown.bs.offcanvas", () => toggleSearch(false));
@@ -108,11 +108,34 @@ function initSectionEvents() {
     }
 
     function handleSectionToggle(sectionEl) {
-        const isOpen = sectionEl.classList.contains("open");
-        if (filteredSectionsData) {
-            toggleFilteredSection(sectionEl, !isOpen);
-        } else {
-            toggleNormalSection(sectionEl, !isOpen);
+        const open = !sectionEl.classList.contains("open");
+        toggleSection(sectionEl, open);
+
+        function toggleSection(sectionEl, open) {
+            const content = sectionEl.querySelector(".section-content");
+            const search = document.getElementById("directory-search");
+            const isFiltered = search && search.value.trim() !== "";
+            if (!isFiltered) {
+                document.querySelectorAll("#section-container section").forEach(sec => {
+                    if (sec !== sectionEl) {
+                        sec.classList.remove("open");
+                        const c = sec.querySelector(".section-content");
+                        if (c) c.style.display = "none";
+                    }
+                });
+            }
+            if (!open) {
+                sectionEl.classList.remove("open");
+                if (content) content.style.display = "none";
+                return;
+            }
+            sectionEl.classList.add("open");
+            if (!content.dataset.loaded && !filteredSectionsData) {
+                const idx = parseInt(sectionEl.dataset.section, 10);
+                content.innerHTML = renderSection(sectionsData[idx]);
+                content.dataset.loaded = "true";
+            }
+            content.style.display = "block";
         }
     }
 
