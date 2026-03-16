@@ -70,37 +70,21 @@ function initSectionEvents() {
 
     function handleLinkClick(link) {
         link.preventDefault?.();
-        const { s, c, i, name } = link.dataset;
-        const dataSource = filteredSectionsData || sectionsData;
-        let item = getItemByIndex(dataSource, s, c, i);
-        if (!item && name) {
-            item = getItemByName(dataSource, name);
-        }
+        const name = link.dataset.name;
+        const item = getItemByName(sectionsData, name);
         if (item) renderRightPane(item);
-    }
-
-    function getItemByIndex(dataSource, s, c, i) {
-        if (s === undefined || c === undefined || i === undefined) return null;
-        const section = dataSource[s];
-        if (!section) return null;
-        if (c >= 0 && section.items) {
-            return section.items[c]?.items[i] || null;
-        } else if (section.links) {
-            return section.links[i] || null;
-        }
-        return null;
     }
 
     function getItemByName(dataSource, name) {
         for (const section of dataSource) {
             if (section.items) {
                 for (const sub of section.items) {
-                    const found = sub.items.find((it) => it.name === name);
+                    const found = sub.items.find(it => it.name === name);
                     if (found) return found;
                 }
             }
             if (section.links) {
-                const found = section.links.find((it) => it.name === name);
+                const found = section.links.find(it => it.name === name);
                 if (found) return found;
             }
         }
@@ -109,63 +93,15 @@ function initSectionEvents() {
 
     function handleSectionToggle(sectionEl) {
         const open = !sectionEl.classList.contains("open");
-        toggleSection(sectionEl, open);
-
-        function toggleSection(sectionEl, open) {
-            const content = sectionEl.querySelector(".section-content");
-            const search = document.getElementById("directory-search");
-            const isFiltered = search && search.value.trim() !== "";
-            if (!isFiltered) {
-                document.querySelectorAll("#section-container section").forEach(sec => {
-                    if (sec !== sectionEl) {
-                        sec.classList.remove("open");
-                        const c = sec.querySelector(".section-content");
-                        if (c) c.style.display = "none";
-                    }
-                });
+        const search = document.getElementById("directory-search");
+        const isFiltered = search && search.value.trim() !== "";
+        container.querySelectorAll("section").forEach(sec => {
+            if (sec !== sectionEl && !isFiltered) {
+                sec.classList.remove("open");
+                sec.querySelector(".section-content").style.display = "none";
             }
-            if (!open) {
-                sectionEl.classList.remove("open");
-                if (content) content.style.display = "none";
-                return;
-            }
-            sectionEl.classList.add("open");
-            if (!content.dataset.loaded && !filteredSectionsData) {
-                const idx = parseInt(sectionEl.dataset.section, 10);
-                content.innerHTML = renderSection(sectionsData[idx]);
-                content.dataset.loaded = "true";
-            }
-            content.style.display = "block";
-        }
-    }
-
-    function toggleFilteredSection(sectionEl, open) {
-        const content = sectionEl.querySelector(".section-content");
-        if (open) {
-            sectionEl.classList.add("open");
-            if (content) content.style.display = "block";
-        } else {
-            sectionEl.classList.remove("open");
-            if (content) content.style.display = "none";
-        }
-    }
-
-    function toggleNormalSection(sectionEl, open) {
-        const allSections = document.querySelectorAll("#section-container section");
-        allSections.forEach((sec) => {
-            sec.classList.remove("open");
-            const cont = sec.querySelector(".section-content");
-            if (cont) cont.style.display = "none";
         });
-        if (!open) return;
-        sectionEl.classList.add("open");
-        const idx = parseInt(sectionEl.dataset.section, 10);
-        const content = sectionEl.querySelector(".section-content");
-        if (!content.dataset.loaded) {
-            const section = sectionsData[idx];
-            content.innerHTML = renderSection(section);
-            content.dataset.loaded = true;
-        }
-        content.style.display = "block";
+        sectionEl.classList.toggle("open", open);
+        sectionEl.querySelector(".section-content").style.display = open ? "block" : "none";
     }
 }

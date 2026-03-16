@@ -1,7 +1,9 @@
 function renderSections(data = sectionsData, open = false, filtered = false) {
-    if (!Array.isArray(data)) return "";
     const container = document.getElementById("section-container");
-
+    if (!Array.isArray(data) || !data.length) {
+        container.innerHTML = `<p class="text-muted">No results found.</p>`;
+        return;
+    }
     container.innerHTML = data.map((section, i) => `
         <section class="mb-3 border-bottom ${open ? 'open' : ''}" data-section="${i}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
@@ -11,11 +13,35 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
                 </span>
                 <i class="bi bi-chevron-down"></i>
             </h2>
-            <div class="section-content" style="display:${open ? 'block' : 'none'}">
-                ${open ? renderSection(section) : ''}
+            <div class="section-content" style="display:${open ? 'block' : 'none'}" data-loaded="true">
+                ${renderSection(section)}
             </div>
         </section>
     `).join("");
+}
+
+function renderFilteredSections(query) {
+    const q = query.toLowerCase().trim();
+    if (!q) {
+        renderSections(sectionsData, false, false);
+        return;
+    }
+    const filteredSectionsData = sectionsData.map(section => {
+        const result = { label: section.label };
+        if (section.items) {
+            result.items = section.items
+                .map(sub => ({
+                    label: sub.label,
+                    items: sub.items.filter(i => i.name.toLowerCase().includes(q))
+                }))
+                .filter(sub => sub.items.length);
+        }
+        if (section.links) {
+            result.links = section.links.filter(i => i.name.toLowerCase().includes(q));
+        }
+        return (result.items?.length || result.links?.length) ? result : null;
+    }).filter(Boolean);
+    renderSections(filteredSectionsData, true, true);
 }
 
 function renderSection(section) {
@@ -35,39 +61,6 @@ function renderSection(section) {
         return renderLinks(section.links);
     }
     return "";
-}
-
-function renderFilteredSections(query) {
-    const q = query.toLowerCase().trim();
-    if (!q) {
-        renderSections(sectionsData, false, false);
-        return;
-    }
-    const filtered = sectionsData.map(section => {
-        const result = { label: section.label };
-        if (section.items) {
-            result.items = section.items
-                .map(sub => ({
-                    label: sub.label,
-                    items: sub.items.filter(i =>
-                        i.name.toLowerCase().includes(q)
-                    )
-                }))
-                .filter(sub => sub.items.length);
-        }
-        if (section.links) {
-            result.links = section.links.filter(i =>
-                i.name.toLowerCase().includes(q)
-            );
-        }
-        return (result.items?.length || result.links?.length) ? result : null;
-    }).filter(Boolean);
-    const container = document.getElementById("section-container");
-    if (!filtered.length) {
-        container.innerHTML = `<p class="text-muted">No results found.</p>`;
-        return;
-    }
-    renderSections(filtered, true, true);
 }
 
 function renderLinks(links) {
