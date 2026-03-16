@@ -1,10 +1,14 @@
-function renderSections(data = sectionsData, open = false) {
-    if (!Array.isArray(data)) return "fuck";
+function renderSections(data = sectionsData, open = false, filtered = false) {
+    if (!Array.isArray(data)) return "";
     const container = document.getElementById("section-container");
+
     container.innerHTML = data.map((section, i) => `
         <section class="mb-3 border-bottom ${open ? 'open' : ''}" data-section="${i}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
-                ${section.label}
+                <span class="section-title-with-badge">
+                    ${section.label}
+                    ${filtered ? '<span class="badge text-bg-warning ms-1 align-text-top">filtered data</span>' : ''}
+                </span>
                 <i class="bi bi-chevron-down"></i>
             </h2>
             <div class="section-content" style="display:${open ? 'block' : 'none'}">
@@ -36,7 +40,7 @@ function renderSection(section) {
 function renderFilteredSections(query) {
     const q = query.toLowerCase().trim();
     if (!q) {
-        renderSections(sectionsData, false);
+        renderSections(sectionsData, false, false);
         return;
     }
     const filtered = sectionsData.map(section => {
@@ -63,7 +67,7 @@ function renderFilteredSections(query) {
         container.innerHTML = `<p class="text-muted">No results found.</p>`;
         return;
     }
-    renderSections(filtered, true);
+    renderSections(filtered, true, true);
 }
 
 function renderLinks(links) {

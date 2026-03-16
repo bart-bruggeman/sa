@@ -18,6 +18,16 @@ const realEstateData  = {
                             "coordinates": "-34.15623998401359, 18.868613413494263",
                             "phone": "+27 21 856 4846",
                             "hours": "Mon - Fri: 09:00 - 16:00"
+                        },
+                        {
+                            "name": "Helderberg Branch Office",
+                            "address": "Cnr 204 Main Road & Coronation Road, Somerset West, 7130, South Africa",
+                            "coordinates": "-34.07532758605864, 18.843277203928196",
+                            "phone": "+27 21 205 8284",
+                            "hours": [
+                                "Mon - Thu: 09:00 - 16:00",
+                                "Frii: 09:00 - 15:00"
+                            ]
                         }
                     ]
                 },
@@ -26,7 +36,10 @@ const realEstateData  = {
                     "url": "https://www.hip.co.za/",
                     "address": "Krystal Beach Hotel, Breakwater Lane, Harbour Island, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                     "coordinates": "-34.1514874193122, 18.85890464989621",
-                    "phone": "+27 21 856 2000",
+                    "phone": [
+                        "+27 21 856 2000",
+                        "+27 83 444 3322"
+                    ],
                     "email": "pj@hip.co.za",
                     "hours": [
                         "Mon - Fri: 08:30 - 17:00",

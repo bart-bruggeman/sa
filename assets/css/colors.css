@@ -34,6 +34,8 @@
 
 /* Dark theme */
 :root[data-bs-theme="dark"]{
+    --bs-warning:var(--nord12);
+    --bs-warning-rgb: 216,142,112;
     --bg-body:var(--nord0);
     --text-body:var(--nord4);
     --bg-card:var(--nord1);
