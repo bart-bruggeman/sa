@@ -9,7 +9,10 @@ const wineEstateData = {
                     "url": "https://cpv.co.za/",
                     "address": "Silvermine Rd, Noordhoek, Cape Town 7979, South Africa",
                     "coordinates": "-34.09360723884719, 18.38751004963936",
-                    "phone": "+27 21 789 0900",
+                    "phone": [
+                        "+27 21 789 0900",
+                        "+27 82 863 0578"
+                    ],
                     "email": "info@cape-point.com",
                     "hours": [
                         "Mon - Tue 11:00-18:00",
