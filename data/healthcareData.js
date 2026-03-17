@@ -50,10 +50,6 @@ const healthcareData  = {
         {
             "label": "Pharmacies",
             "items": [
-                {
-                    "name": "",
-                    "url": ""
-                }
             ]
         },
         {
