@@ -1,8 +1,22 @@
 const wineEstateData = {
 	"label": "Wine Estates",
 	"items": [
+        {
+            "label": "Boberg",
+            "items": [
+            ]
+        },
+        {
+            "label": "Breederiviervallei (Breede River Valley)",
+            "items": [
+            ]
+        },
+        {
+            "label": "Cape South Coast",
+            "items": [
+            ]
+        },
 		{
-
             "label": "Costal Region Wine Estates",
             "items": [
                 {
@@ -494,6 +508,16 @@ const wineEstateData = {
                         }
                     ]
                 }
+            ]
+        }, 
+        {
+            "label": "Klein Karoo",
+            "items": [
+            ]
+        },
+        {
+            "label": "Olifantsrivier (Olifants River)",
+            "items": [
             ]
         }
 	]
