@@ -46,11 +46,7 @@ function eventListeners() {
         if (!search) return;
         search.value = "";
         filteredSectionsData = null;
-        document.querySelectorAll("#section-container section").forEach(sec => {
-            sec.classList.remove("open");
-            const content = sec.querySelector(".section-content");
-            if (content) content.style.display = "none";
-        });
+        renderSections(sectionsData, false, false);
     }
 }
 
