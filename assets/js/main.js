@@ -77,15 +77,26 @@ function initSectionEvents() {
 
     function getItemByName(dataSource, name) {
         for (const section of dataSource) {
+            // level 2 or level 3
             if (section.items) {
-                for (const sub of section.items) {
-                    const found = sub.items.find(it => it.name === name);
-                    if (found) return found;
+                for (const item1 of section.items) {
+                    // level 2 (direct)
+                    if (item1.name === name) return item1;
+                    // level 2 (sub)
+                    if (item1.items) {
+                        const found = item1.items.find(i => i.name === name);
+                        if (found) return found;
+                        //level 3
+                        for (const item2 of item1.items) {
+                            if (item2.items) {
+                                const found3 = item2.items.find(i => i.name === name);
+                                if (found3) return found3;
+                            } else if (item2.name === name) {
+                                return item2;
+                            }
+                        }
+                    }
                 }
-            }
-            if (section.links) {
-                const found = section.links.find(it => it.name === name);
-                if (found) return found;
             }
         }
         return null;
@@ -95,13 +106,15 @@ function initSectionEvents() {
         const open = !sectionEl.classList.contains("open");
         const search = document.getElementById("directory-search");
         const isFiltered = search && search.value.trim() !== "";
-        container.querySelectorAll("section").forEach(sec => {
+        sectionEl.parentElement.querySelectorAll("section").forEach(sec => {
             if (sec !== sectionEl && !isFiltered) {
                 sec.classList.remove("open");
-                sec.querySelector(".section-content").style.display = "none";
+                const content = sec.querySelector(".section-content");
+                if (content) content.style.display = "none";
             }
         });
         sectionEl.classList.toggle("open", open);
-        sectionEl.querySelector(".section-content").style.display = open ? "block" : "none";
+        const content = sectionEl.querySelector(".section-content");
+        if (content) content.style.display = open ? "block" : "none";
     }
 }
