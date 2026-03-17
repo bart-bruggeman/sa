@@ -61,3 +61,18 @@ li a {
     text-overflow: ellipsis;
     transition: color 0.25s ease, transform 0.15s ease;
 }
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--bs-border-color);
+    color: var(--text-body);
+}
+
+.card h3, .card h4 {
+    color: var(--text-body);
+}
+
+.section-box {
+    background-color: var(--bg-body);
+    border: 1px solid var(--bs-border-color);
+}

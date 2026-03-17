@@ -12,6 +12,7 @@
     --bg-footer:#f1f3f5;
     --emergency-color:#dc3545;
     --emergency-hover-color:#D2143A;
+    --bs-border-color: #dee2e6;
 
     /* Nord palette (dark reference) */
     --nord0:#2E3440;
@@ -48,4 +49,5 @@
     --bg-footer:var(--bg-navbar);
     --emergency-color:#CB7C82;
     --emergency-hover-color:var(--nord11);
+    --bs-border-color: var(--nord3);
 }

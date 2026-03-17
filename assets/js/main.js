@@ -66,20 +66,21 @@ function initSectionEvents() {
 
     function handleLinkClick(link) {
         link.preventDefault?.();
+        const scrollY = window.scrollY;
         const name = link.dataset.name;
         const item = getItemByName(sectionsData, name);
         if (item) renderRightPane(item);
+        setTimeout(() => {
+            window.scrollTo(0, scrollY);
+        }, 0);
     }
 
     function getItemByName(dataSource, name) {
         for (const section of dataSource) {
-            // level 2 or level 3
-            if (section.items) {
+            if (section.items) { // level 2 or level 3
                 for (const item1 of section.items) {
-                    // level 2 (direct)
-                    if (item1.name === name) return item1;
-                    // level 2 (sub)
-                    if (item1.items) {
+                    if (item1.name === name) return item1; // level 2 (direct)
+                    if (item1.items) { // level 2 (sub)
                         const found = item1.items.find(i => i.name === name);
                         if (found) return found;
                         //level 3

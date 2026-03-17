@@ -27,24 +27,30 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
         `;
     }
 
-    function renderItemsLevel2(items = [], wrapRow = true) {
-        if (!items.length) return '';
-        const content = items.map(sub => `
-            <div class="col-12 col-md-6 col-lg-3">
-                <h3 class="h6 mb-2 subcategory-title">${sub.label}</h3>
-                ${renderLinks(sub.items)}
+function renderItemsLevel2(items = [], wrapRow = true) {
+    if (!items.length) return '';
+    const content = items.map(sub => `
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="h6 mb-3">${sub.label}</h3>
+                    ${renderLinks(sub.items)}
+                </div>
             </div>
-        `).join("");
-        return wrapRow ? `<div class="row g-4">${content}</div>` : content;
-    }
+        </div>
+    `).join("");
+    return wrapRow ? `<div class="row g-4">${content}</div>` : content;
+}
 
-    function renderItemsLevel3(level1bItems = []) {
-        if (!level1bItems.length) return '';
-        return level1bItems.map(level1b => `
-            <h4 class="h6 mt-3 mb-2 level-1b-title">${level1b.label}</h4>
-            ${renderItemsLevel2(level1b.items, true)} <!-- nu wrapRow = true -->
-        `).join("");
-    }
+function renderItemsLevel3(level1bItems = []) {
+    if (!level1bItems.length) return '';
+    return level1bItems.map(level1b => `
+        <div class="mb-4 p-3 section-box rounded">
+            <h4 class="h6 mb-3">${level1b.label}</h4>
+            ${renderItemsLevel2(level1b.items, true)}
+        </div>
+    `).join("");
+}
 
     function renderLinks(links = []) {
         if (!links.length) return '';
