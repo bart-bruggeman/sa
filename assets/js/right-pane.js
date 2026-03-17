@@ -17,24 +17,25 @@ function renderRightPane(link) {
         html += renderData(office);
         html += `</div>`;
         return html;
+
+        function renderHeader(office, showName) {
+            let html = "";
+            if (showName && office.name) {
+                html += `<p><strong>${office.name}</strong></p><hr>`;
+            }
+            return html;
+        }
+        
+        function renderData(data) {
+            let html = "";
+            for (const [key, val] of Object.entries(data)) {
+                if (!val || key === "name" || key === "items") continue;
+                const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
+                const color = cfg.colorClass || "";
+                html += `<p><span class="value ${color}"><i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}</span></p>`;
+            }
+            return html;
+        }
     }
 
-    function renderHeader(office, showName) {
-        let html = "";
-        if (showName && office.name) {
-            html += `<p><strong>${office.name}</strong></p><hr>`;
-        }
-        return html;
-    }
-    
-    function renderData(data) {
-        let html = "";
-        for (const [key, val] of Object.entries(data)) {
-            if (!val || key === "name" || key === "items") continue;
-            const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
-            const color = cfg.colorClass || "";
-            html += `<p><span class="value ${color}"><i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}</span></p>`;
-        }
-        return html;
-    }
 }

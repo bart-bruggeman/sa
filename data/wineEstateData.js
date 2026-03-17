@@ -7,7 +7,7 @@ const wineEstateData = {
             ]
         },
         {
-            "label": "Breederiviervallei (Breede River Valley)",
+            "label": "Breede River Valley (Breederiviervallei)",
             "items": [
             ]
         },
@@ -37,6 +37,11 @@ const wineEstateData = {
                                 "Mon - Tue 11:00-18:00",
                                 "Thu - Sat 11:00 - 22:00",
                                 "Sun: 11:00 - 17:00"
+                            ],
+                            "info": [
+                                "region: Costal Region",
+                                "district: Cape Peninsula District",
+                                "ward: -"
                             ],
                             "items": [
                                 {
@@ -71,6 +76,11 @@ const wineEstateData = {
                             "coordinates": "-33.82472307633439, 18.565798168946426",
                             "phone": "+27 21 558 1300",
                             "email": "info_durbanvillehills@heineken.com",
+                            "info": [
+                                "region: Costal Region",
+                                "district: Cape Peninsula District",
+                                "ward: Durbanville"
+                            ],
                             "items": [
                                 {
                                     "name": "The Restaurant",
@@ -99,6 +109,11 @@ const wineEstateData = {
                             "phone": "+27 21 794 5128",
                             "email": "enquiries@grootconstantia.co.za",
                             "hours": "Mon - Sun: 10:00 - 17:00",
+                            "info": [
+                                "region: Costal Region",
+                                "district: Cape Peninsula District",
+                                "ward: Constantia"
+                            ],
                             "items": [
                                 {
                                     "name": "Wine Tasting & Retail Shop",
@@ -138,6 +153,11 @@ const wineEstateData = {
                             "coordinates": "-34.0383551804114, 18.413399497787527",
                             "phone": "+27 21 794 5188",
                             "email": "info@kleinconstantia.com",
+                            "info": [
+                                "region: Costal Region",
+                                "district: Cape Peninsula District",
+                                "ward: Constantia"
+                            ],
                             "items": [
                                 {
                                     "name": "Tasting Room",
@@ -154,6 +174,11 @@ const wineEstateData = {
                             "url": "https://www.steenbergfarm.com/",
                             "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
                             "phone": "+27 21 207 8800",
+                            "info": [
+                                "region: Costal Region",
+                                "district: Cape Peninsula District",
+                                "ward: Constantia"
+                            ],
                             "items": [
                                 {
                                     "name": "Bistro 1682 Restaurant",
@@ -516,7 +541,7 @@ const wineEstateData = {
             ]
         },
         {
-            "label": "Olifantsrivier (Olifants River)",
+            "label": "Olifants River (Olifantsrivier)",
             "items": [
             ]
         }

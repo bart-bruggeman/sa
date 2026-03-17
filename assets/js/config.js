@@ -11,7 +11,12 @@ const fieldConfig = {
     },
     email: {
         icon: "bi-envelope",
-        render: v => `<a href="mailto:${v}">${v}</a>`
+        render: v => {
+            const values = Array.isArray(v) ? v : [v];
+            return values
+                .map(e => `<a href="mailto:${e}">${e}</a>`)
+                .join("<br>");
+        }
     },
     phone: {
         icon: "bi-telephone",
@@ -25,7 +30,12 @@ const fieldConfig = {
     phone_emergency: {
         icon: "bi-telephone",
         colorClass: "emergency",
-        render: v => `<a href="tel:${v.replace(/\s+/g, '')}" class="emergency">${v} (emergency)</a>`
+        render: v => {
+            const values = Array.isArray(v) ? v : [v];
+            return values
+                .map(num => `<a href="tel:${num.replace(/\s+/g, '')}" class="emergency">${num} (emergency)</a>`)
+                .join("<br>");
+        }
     },
     url: {
         icon: "bi-globe",
@@ -40,7 +50,10 @@ const fieldConfig = {
     },
     info: {
         icon: "bi-info-circle",
-        render: v => v
+        render: v => {
+            const values = Array.isArray(v) ? v : [v];
+            return values.join("<br>");
+        }
     }
 };
 
