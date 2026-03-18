@@ -55,7 +55,7 @@ function initSectionEvents() {
         }
         const sectionElement = e.target.closest("section");
         if (sectionElement && !e.target.closest("a")) {
-            handleSectionToggle(sectionElement);
+            toggleSection(sectionElement);
         }
     });
 
@@ -81,7 +81,7 @@ function initSectionEvents() {
         return null;
     }
 
-    function handleSectionToggle(sectionElement) {
+    function toggleSection(sectionElement) {
         const filterId = document.getElementById("filter-id");
         const isFiltered = filterId && filterId.value.trim() !== "";
         const isSectionClosed = !sectionElement.classList.contains("open");
@@ -97,15 +97,17 @@ function initSectionEvents() {
         else closeSection(sectionElement);
 
         function openSection(sectionElement) {
-            sectionElement.classList.add("open");
-            const content = sectionElement.querySelector(".section-content");
-            if (content) content.style.display = "block";
+            toggleSection(sectionElement, true);
         }
 
         function closeSection(sectionElement) {
-            sectionElement.classList.remove("open");
+            toggleSection(sectionElement, false);
+        }
+
+        function toggleSection(sectionElement, open) {
+            sectionElement.classList.toggle("open", open);
             const content = sectionElement.querySelector(".section-content");
-            if (content) content.style.display = "none";
+            if (content) content.style.display = open ? "block" : "none";
         }
     }
 }
