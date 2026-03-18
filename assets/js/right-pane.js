@@ -32,7 +32,9 @@ function renderRightPane(link) {
                 if (!val || key === "name" || key === "items") continue;
                 const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
                 const color = cfg.colorClass || "";
-                html += `<p><span class="value ${color}"><i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}</span></p>`;
+                html += `<p class="value ${color} mt-3">
+                            <i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}
+                        </p>`;
             }
             return html;
         }
