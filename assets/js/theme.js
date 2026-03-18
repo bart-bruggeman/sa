@@ -1,5 +1,5 @@
 function initTheme() {
-    const btn = document.getElementById("themeToggleLink");
+    const btn = document.getElementById("theme-id");
     const html = document.documentElement;
     const icon = btn.querySelector("i");
 
@@ -15,7 +15,6 @@ function initTheme() {
     function setTheme(theme) {
         html.dataset.bsTheme = theme;
         localStorage.setItem("theme", theme);
-
         icon.classList.toggle("bi-toggle-on", theme === "dark");
         icon.classList.toggle("bi-toggle-off", theme !== "dark");
     }

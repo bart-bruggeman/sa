@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", eventListeners);
 
 function eventListeners() {
-    const search = document.getElementById("directory-search");
+    const filter = document.getElementById("filter-id");
     const brand = document.querySelector(".navbar-brand");
     const offcanvasEl = document.getElementById("linkPane");
     const bsOffcanvas = offcanvasEl ? bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl) : null;
@@ -11,9 +11,9 @@ function eventListeners() {
     initSectionEvents();
     initTheme();
 
-    if (search) {
-        search.addEventListener("input", e => renderFilteredSections(e.target.value));
-        search.addEventListener("search", () => handleBrandClick());
+    if (filter) {
+        filter.addEventListener("input", e => renderFilteredSections(e.target.value));
+        filter.addEventListener("search", () => handleBrandClick());
     }
     
     if (brand) brand.addEventListener("click", handleBrandClick);
@@ -38,8 +38,8 @@ function eventListeners() {
     }
 
     function resetAndClose() {
-        if (!search) return;
-        search.value = "";
+        if (!filter) return;
+        filter.value = "";
         filteredSectionsData = null;
         renderSections(sectionsData, false, false);
     }
@@ -82,7 +82,7 @@ function initSectionEvents() {
     }
 
     function handleSectionToggle(sectionEl) {
-        const search = document.getElementById("directory-search");
+        const search = document.getElementById("filter-id");
         const isFiltered = search && search.value.trim() !== "";
         const isSectionClosed = !sectionEl.classList.contains("open");
         if (!isFiltered) { // close other sections, except when filtered data
