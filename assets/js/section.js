@@ -1,10 +1,10 @@
 function renderSections(data = sectionsData, open = false, filtered = false) {
-    const contenContainer = document.getElementById("content-container");
+    const contentContainer = document.getElementById("content-container");
     if (!Array.isArray(data) || !data.length) {
-        contenContainer.innerHTML = `<p class="text-muted">No results found.</p>`;
+        contentContainer.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found.</p>`;
         return;
     }
-    contenContainer.innerHTML = data.map((section, i) => renderSection(section, i, open, filtered)).join("");
+    contentContainer.innerHTML = data.map((section, i) => renderSection(section, i, open, filtered)).join("");
 
     function renderSection(section, index, open, filtered) {
         const content = hasOnlyLevel2Items(section)

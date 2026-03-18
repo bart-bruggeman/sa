@@ -83,3 +83,7 @@ li a {
     font-size: 0.75em;
     line-height: 1;
 }
+
+.text-muted i {
+    margin-right: 0.25rem;
+}
