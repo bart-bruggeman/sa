@@ -14,7 +14,7 @@ section h2 i {
     transition: transform .2s ease;
 }
 
-section.open h2 i {
+section.open h2 i.chevron-icon {
     transform: rotate(180deg);
 }
 
@@ -75,4 +75,30 @@ li a {
 .section-box {
     background-color: var(--bg-body);
     border: 1px solid var(--bs-border-color);
+}
+
+.section-title-with-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    line-height: 1.2;
+}
+
+.filtered-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.25em;
+    height: 1.25em;
+    border-radius: 50%;
+    background-color: var(--bs-secondary);
+    color: #fff;
+    font-size: 0.7em;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.filtered-icon i {
+    display: block;
+    transform: none;
 }

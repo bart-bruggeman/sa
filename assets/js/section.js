@@ -17,9 +17,9 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
                 <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
                     <span class="section-title-with-badge">
                         ${section.label}
-                        ${filtered ? '<span class="badge text-bg-warning ms-1 align-text-top">filtered data</span>' : ''}
+                        ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
                     </span>
-                    <i class="bi bi-chevron-down"></i>
+                    <i class="bi bi-chevron-down chevron-icon"></i>
                 </h2>
                 <div class="section-content" style="display:${open ? 'block' : 'none'}" data-loaded="true">
                     ${content}
