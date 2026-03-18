@@ -1,7 +1,7 @@
 function renderRightPane(link) {
     const rightPane = document.getElementById("rightpane-id");
     const rightPaneBody = rightPane.querySelector(".offcanvas-body");
-    let html = `<div class="office-top mb-3"><p><strong>${link.name}</strong></p><hr></div>`;
+    let html = `<div class="mb-3"><p><strong  style="font-size: 1rem;">${link.name}</strong></p><hr></div>`;// HIER
     html += renderRightPaneBlock(link, false);
     if (link.items) {
         link.items.forEach(branch => {
@@ -12,7 +12,7 @@ function renderRightPane(link) {
     bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
 
     function renderRightPaneBlock(office, showName = true) {
-        let html = `<div class="office-block mb-4">`;
+        let html = `<div class="mb-4 pb-2">`;
         html += renderHeader(office, showName);
         html += renderData(office);
         html += `</div>`;
@@ -21,7 +21,7 @@ function renderRightPane(link) {
         function renderHeader(office, showName) {
             let html = "";
             if (showName && office.name) {
-                html += `<p><strong>${office.name}</strong></p><hr>`;
+                html += `<p><strong style="font-size: 1rem;">${office.name}</strong></p><hr>`;//HIER
             }
             return html;
         }
