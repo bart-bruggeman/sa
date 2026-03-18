@@ -13,7 +13,7 @@ function renderFooter() {
             group.items.forEach(item => {
                 html += `<li>`;
                 html += `<a href="tel:${item.phone.replace(/\s+/g,'')}" class="d-flex align-items-center link-footer emergency">`;
-                html += `<i class="bi bi-telephone fs-5 me-1"></i>${item.phone}</a>`;
+                html += `<i class="bi bi-telephone-fill fs-5 me-1"></i>${item.phone}</a>`;
                 if (item.comment) html += ` ${item.comment}`;
                 html += `</li>`;
             });

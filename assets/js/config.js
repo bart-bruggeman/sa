@@ -28,7 +28,7 @@ const fieldConfig = {
         }
     },
     phone_emergency: {
-        icon: "bi-telephone",
+        icon: "bi-telephone-fill",
         colorClass: "emergency",
         render: v => {
             const values = Array.isArray(v) ? v : [v];

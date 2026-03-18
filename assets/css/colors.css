@@ -36,7 +36,6 @@
 /* Dark theme */
 :root[data-bs-theme="dark"]{
     --bs-secondary:#c0c8d2;
-    /*--bs-secondary-rgb: 216,142,112;*/
     --bg-body:var(--nord0);
     --text-body:var(--nord4);
     --bg-card:var(--nord1);
@@ -47,7 +46,7 @@
     --tooltip-bg:var(--nord2);
     --tooltip-color:var(--nord5);
     --bg-footer:var(--bg-navbar);
-    --emergency-color:#CB7C82;
+    --emergency-color:var(--nord12);
     --emergency-hover-color:var(--nord11);
     --bs-border-color: var(--nord3);
 }
