@@ -20,7 +20,7 @@ a {
     text-decoration: none;
 }
 
-a:hover, a:focus, a:active {
+a:hover {
     color: var(--link-hover-color);
     outline: none;
 }
