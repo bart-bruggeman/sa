@@ -31,11 +31,6 @@
     margin:.75rem 0;
 }
 
-.pane-name{
-    font-weight:700;
-    margin-bottom:.25rem;
-}
-
 .offcanvas-body .value{
     display:grid;
     grid-template-columns:24px 1fr;

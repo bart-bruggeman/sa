@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", eventListeners);
 function eventListeners() {
     const filter = document.getElementById("filter-id");
     const brand = document.querySelector(".navbar-brand");
-    const offcanvasEl = document.getElementById("linkPane");
+    const offcanvasEl = document.getElementById("rightpane-id");
     const bsOffcanvas = offcanvasEl ? bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl) : null;
 
     renderFooter();

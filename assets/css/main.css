@@ -1,6 +1,6 @@
 html{
     overflow-y:scroll;
-    transition:background-color .4s ease,color .4s ease;
+    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
 }
 
 body{
@@ -10,16 +10,15 @@ body{
 }
 
 body,
-.offcanvas,
-.navbar-search{
-    transition:background-color .4s ease,color .4s ease;
+.offcanvas{
+    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
 }
 
 
 a{
     color:var(--link-color);
     text-decoration:none;
-    transition: color 0.25s ease;
+    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
 }
 
 a:hover,

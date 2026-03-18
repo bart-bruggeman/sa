@@ -1,6 +1,6 @@
 function renderRightPane(link) {
-    const pane = document.getElementById("linkPane");
-    const body = pane.querySelector(".offcanvas-body");
+    const rightPane = document.getElementById("rightpane-id");
+    const rightPaneBody = rightPane.querySelector(".offcanvas-body");
     let html = `<div class="office-top mb-3"><p><strong>${link.name}</strong></p><hr></div>`;
     html += renderRightPaneBlock(link, false);
     if (link.items) {
@@ -8,8 +8,8 @@ function renderRightPane(link) {
             html += renderRightPaneBlock(branch, true);
         });
     }
-    body.innerHTML = html;
-    bootstrap.Offcanvas.getOrCreateInstance(pane).show();
+    rightPaneBody.innerHTML = html;
+    bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
 
     function renderRightPaneBlock(office, showName = true) {
         let html = `<div class="office-block mb-4">`;
