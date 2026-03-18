@@ -1,10 +1,10 @@
 function renderFooter() {
-    renderFooterEmergency();
-    renderFooterGeography();
+    renderEmergencyPhonesFooter();
+    renderGeographyFooter();
 
-    function renderFooterEmergency() {
-        const container = document.getElementById("emergencyPhones");
-        if (!container) return;
+    function renderEmergencyPhonesFooter() {
+        const emergencyPhonesContainer = document.getElementById("emergency-phones-footer-id");
+        if (!emergencyPhonesContainer) return;
         let html = '<div class="row">';
         emergencyData.forEach(group => {
             html += `<div class="col-md-3 col-6 mb-1">`;
@@ -20,12 +20,12 @@ function renderFooter() {
             html += `</ul></div>`;
         });
         html += `</div>`;
-        container.innerHTML = html;
+        emergencyPhonesContainer.innerHTML = html;
     }
 
-    function renderFooterGeography() {
-        const container = document.getElementById("footerGeography");
-        if (!container) return;
+    function renderGeographyFooter() {
+        const geographyContainer = document.getElementById("geography-footer-id");
+        if (!geographyContainer) return;
         let html = `<div class="row">`;
         html += `<p>`;
         html += `Town/Place: ${geographicData.town} | `;
@@ -37,7 +37,7 @@ function renderFooter() {
             html += `<p>Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
         }
         html += `</div>`;
-        container.innerHTML = html;
+        geographyContainer.innerHTML = html;
     }
 
 }
