@@ -27,17 +27,6 @@ section .row {
     margin: 0;
 }
 
-.level-1b-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-}
-
-.subcategory-title {
-    font-weight: 600;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-}
-
 section ul {
     display: block !important;
     opacity: 1 !important;
@@ -68,16 +57,12 @@ li a {
     color: var(--text-body);
 }
 
-.card h3, .card h4 {
-    color: var(--text-body);
-}
-
 .section-box {
     background-color: var(--bg-body);
     border: 1px solid var(--bs-border-color);
 }
 
-.section-title-with-badge {
+.section-title-with-filter-icon {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;

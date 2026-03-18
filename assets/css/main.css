@@ -1,27 +1,26 @@
-html{
-    overflow-y:scroll;
-    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
+html {
+    overflow-y: scroll;
 }
 
-body{
-    background:var(--bg-body);
-    color:var(--text-body);
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+html, body, .offcanvas, a {
+    transition: background-color .3s ease,
+                border-color .3s ease,
+                box-shadow .25s ease,
+                color .25s ease;
 }
 
-body,
-.offcanvas{
-    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
+body {
+    background: var(--bg-body);
+    color: var(--text-body);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-a{
-    color:var(--link-color);
-    text-decoration:none;
-    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
+a {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
-a:hover,
-a:active{
-    color:var(--link-hover-color);
+a:hover, a:focus, a:active {
+    color: var(--link-hover-color);
+    outline: none;
 }

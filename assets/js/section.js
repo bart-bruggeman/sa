@@ -1,21 +1,20 @@
 function renderSections(data = sectionsData, open = false, filtered = false) {
-    const container = document.getElementById("section-container");
+    const contenContainer = document.getElementById("content-container");
     if (!Array.isArray(data) || !data.length) {
-        container.innerHTML = `<p class="text-muted">No results found.</p>`;
+        contenContainer.innerHTML = `<p class="text-muted">No results found.</p>`;
         return;
     }
-    container.innerHTML = data.map((section, i) => renderSection(section, i, open, filtered)).join("");
+    contenContainer.innerHTML = data.map((section, i) => renderSection(section, i, open, filtered)).join("");
 
     function renderSection(section, index, open, filtered) {
-        const isLevel2 = isProcessLevel2(section);
-        const content = isLevel2 
+        const content = hasOnlyLevel2Items(section)
             ? renderItemsLevel2(section.items) 
             : renderItemsLevel3(section.items);
         if (!content) return '';
         return `
             <section class="mb-3 border-bottom ${open ? 'open' : ''}" data-section="${index}">
                 <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
-                    <span class="section-title-with-badge">
+                    <span class="section-title-with-filter-icon">
                         ${section.label}
                         ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
                     </span>
@@ -28,37 +27,37 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
         `;
 
         function renderItemsLevel2(items = [], wrapRow = true) {
-            const filteredItems = items.filter(sub => sub.items && sub.items.length);
+            const filteredItems = items.filter(level2 => level2.items && level2.items.length);
             if (!filteredItems.length) return '';
-            const content = filteredItems.map(sub => `
+            const content = filteredItems.map(level2 => `
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
-                            <h3 class="h6 mb-3">${sub.label}</h3>
-                            ${renderLinks(sub.items)}
+                            <h3 class="h6 mb-3">${level2.label}</h3>
+                            ${renderLinks(level2.items)}
                         </div>
                     </div>
                 </div>
             `).join("");
             return wrapRow ? `<div class="row g-4">${content}</div>` : content;
 
-            function renderLinks(links = []) {
-                if (!links.length) return '';
+            function renderLinks(items = []) {
+                if (!items.length) return '';
                 return `<ul class="list-unstyled mb-0">
-                    ${links.map(l => `<li><a href="#" data-name="${l.name}">${l.name}</a></li>`).join("")}
+                    ${items.map(item => `<li><a href="#" data-name="${item.name}">${item.name}</a></li>`).join("")}
                 </ul>`;
             }
         }
 
-        function renderItemsLevel3(level1bItems = []) {
-            const filteredLevel1b = level1bItems.filter(level1b =>
-                level1b.items?.some(level2 => level2.items && level2.items.length)
+        function renderItemsLevel3(level2Items = []) {
+            const filteredLevel2 = level2Items.filter(level2 =>
+                level2.items?.some(level3 => level3.items && level3.items.length)
             );
-            if (!filteredLevel1b.length) return '';
-            return filteredLevel1b.map(level1b => `
+            if (!filteredLevel2.length) return '';
+            return filteredLevel2.map(level2 => `
                 <div class="mb-4 p-3 section-box rounded">
-                    <h4 class="h6 mb-3">${level1b.label}</h4>
-                    ${renderItemsLevel2(level1b.items, true)}
+                    <h4 class="h6 mb-3">${level2.label}</h4>
+                    ${renderItemsLevel2(level2.items, true)}
                 </div>
             `).join("");
         }
@@ -77,16 +76,16 @@ function renderFilteredSections(query) {
     function filterData(data, q) {
         if (!q) return data;
         return data.map(section => {
-            const isLevel2 = isProcessLevel2(section);
+            const sectionHasonlyLevel2Items = hasOnlyLevel2Items(section);
             const result = { label: section.label };
-            if (isLevel2) {
+            if (sectionHasonlyLevel2Items) {
                 if (section.items) {
                     result.items = section.items
-                        .map(sub => ({
-                            label: sub.label,
-                            items: sub.items.filter(i => i.name.toLowerCase().includes(q))
+                        .map(level2 => ({
+                            label: level2.label,
+                            items: level2.items.filter(i => i.name.toLowerCase().includes(q))
                         }))
-                        .filter(sub => sub.items.length);
+                        .filter(level2 => level2.items.length);
                 }
                 if (section.links) {
                     result.links = section.links.filter(l => l.name.toLowerCase().includes(q));
@@ -94,17 +93,17 @@ function renderFilteredSections(query) {
             } else {
                 if (section.items) {
                     result.items = section.items
-                        .map(level1b => {
-                            const newLevel1b = { label: level1b.label };
-                            if (level1b.items) {
-                                newLevel1b.items = level1b.items
-                                    .map(level2 => ({
-                                        label: level2.label,
-                                        items: level2.items.filter(i => i.name.toLowerCase().includes(q))
+                        .map(level2 => {
+                            const newLevel2 = { label: level2.label };
+                            if (level2.items) {
+                                newLevel2.items = level2.items
+                                    .map(level3 => ({
+                                        label: level3.label,
+                                        items: level3.items?.filter(i => i.name.toLowerCase().includes(q)) ?? []
                                     }))
-                                    .filter(level2 => level2.items.length);
+                                    .filter(level3 => level3.items.length);
                             }
-                            return newLevel1b.items?.length ? newLevel1b : null;
+                            return newLevel2.items?.length ? newLevel2 : null;
                         })
                         .filter(Boolean);
                 }
@@ -114,9 +113,9 @@ function renderFilteredSections(query) {
     }
 }
 
-function isProcessLevel2(section) {
-    return !section.items?.some(level1b =>
-        Array.isArray(level1b.items) &&
-        level1b.items.some(level2 => level2.label && Array.isArray(level2.items))
+function hasOnlyLevel2Items(section) {
+    return !section.items?.some(level2 =>
+        Array.isArray(level2.items) &&
+        level2.items.some(level3 => level3.label && Array.isArray(level3.items))
     );
 }
