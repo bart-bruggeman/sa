@@ -11,25 +11,20 @@ function eventListeners() {
     initSectionEvents();
     initTheme();
 
-    if (search) search.addEventListener("input", e => renderFilteredSections(e.target.value));
-    if (brand) brand.addEventListener("click", handleBrandClick);
-    if (offcanvasEl) {
-        offcanvasEl.addEventListener("shown.bs.offcanvas", () => toggleSearch(false));
-        offcanvasEl.addEventListener("hidden.bs.offcanvas", () => toggleSearch(true));
+    if (search) {
+        search.addEventListener("input", e => renderFilteredSections(e.target.value));
+        search.addEventListener("search", () => handleBrandClick());
     }
+    
+    if (brand) brand.addEventListener("click", handleBrandClick);
+    
     document.addEventListener("keydown", handleEscapeOrClose);
 
     function handleBrandClick(e) {
-        e.preventDefault();
+        e?.preventDefault?.();
         resetAndClose();
         renderSections();
         if (bsOffcanvas?._isShown) bsOffcanvas.hide();
-    }
-
-    function toggleSearch(enabled) {
-        if (!search) return;
-        search.disabled = !enabled;
-        search.type = enabled ? "search" : "text";
     }
 
     function handleEscapeOrClose(e) {
@@ -75,43 +70,42 @@ function initSectionEvents() {
         }, 0);
     }
 
-    function getItemByName(dataSource, name) {
-        for (const section of dataSource) {
-            if (section.items) { // level 2 or level 3
-                for (const item1 of section.items) {
-                    if (item1.name === name) return item1; // level 2 (direct)
-                    if (item1.items) { // level 2 (sub)
-                        const found = item1.items.find(i => i.name === name);
-                        if (found) return found;
-                        //level 3
-                        for (const item2 of item1.items) {
-                            if (item2.items) {
-                                const found3 = item2.items.find(i => i.name === name);
-                                if (found3) return found3;
-                            } else if (item2.name === name) {
-                                return item2;
-                            }
-                        }
-                    }
-                }
+    function getItemByName(items, name) {
+        for (const item of items) {
+            if (item.name === name) return item;
+            if (item.items && Array.isArray(item.items)) {
+                const found = getItemByName(item.items, name);
+                if (found) return found;
             }
         }
         return null;
     }
 
     function handleSectionToggle(sectionEl) {
-        const open = !sectionEl.classList.contains("open");
         const search = document.getElementById("directory-search");
         const isFiltered = search && search.value.trim() !== "";
-        sectionEl.parentElement.querySelectorAll("section").forEach(sec => {
-            if (sec !== sectionEl && !isFiltered) {
-                sec.classList.remove("open");
-                const content = sec.querySelector(".section-content");
-                if (content) content.style.display = "none";
-            }
-        });
-        sectionEl.classList.toggle("open", open);
-        const content = sectionEl.querySelector(".section-content");
-        if (content) content.style.display = open ? "block" : "none";
+        const isSectionClosed = !sectionEl.classList.contains("open");
+        if (!isFiltered) { // close other sections, except when filtered data
+            const siblings = sectionEl.parentElement.querySelectorAll("section");
+            siblings.forEach(sec => {
+                if (sec !== sectionEl) {
+                    closeSection(sec);
+                }
+            });
+        }
+        if (isSectionClosed) openSection(sectionEl);
+        else closeSection(sectionEl);
+
+        function openSection(section) {
+            section.classList.add("open");
+            const content = section.querySelector(".section-content");
+            if (content) content.style.display = "block";
+        }
+
+        function closeSection(section) {
+            section.classList.remove("open");
+            const content = section.querySelector(".section-content");
+            if (content) content.style.display = "none";
+        }
     }
 }
