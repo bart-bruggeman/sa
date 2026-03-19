@@ -17,7 +17,7 @@ const wineEstateData = {
             ]
         },
 		{
-            "label": "Costal Region Wine Estates",
+            "label": "Coastal Region Wine Estates",
             "items": [
                 {
 
@@ -37,11 +37,6 @@ const wineEstateData = {
                                 "Mon - Tue 11:00-18:00",
                                 "Thu - Sat 11:00 - 22:00",
                                 "Sun: 11:00 - 17:00"
-                            ],
-                            "info": [
-                                "region: Costal Region",
-                                "district: Cape Peninsula District",
-                                "ward: -"
                             ],
                             "items": [
                                 {
@@ -70,50 +65,13 @@ const wineEstateData = {
                             ]
                         },
                         {
-                            "name": "Durbanville Hills Winery",
-                            "url": "https://www.durbanvillehills.co.za/",
-                            "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
-                            "coordinates": "-33.82472307633439, 18.565798168946426",
-                            "phone": "+27 21 558 1300",
-                            "email": "info_durbanvillehills@heineken.com",
-                            "info": [
-                                "region: Costal Region",
-                                "district: Cape Peninsula District",
-                                "ward: Durbanville"
-                            ],
-                            "items": [
-                                {
-                                    "name": "The Restaurant",
-                                    "hours": [
-                                        "Mon - Sun:",
-                                        "08:30 - 11:00 (breakfast)",
-                                        "12:00 - 15:00 (lunch)",
-                                        "Mon - Sat: 18:00 - 23:00 (dinner)"
-                                    ]
-                                },
-                                {
-                                    "name": "The Tasting Room",
-                                    "hours": [
-                                        "Mon: 12:00 - 17:00",
-                                        "Tue - Fri: 11:00 - 17:00",
-                                        "Sat - Sun: 11:00 - 16:30"
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Groot Constantia Wine Estate",
+                            "name": "Groot Constantia",
                             "url": "https://grootconstantia.co.za/",
                             "address": "Groot Constantia Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.02935654497266, 18.42020943587593",
                             "phone": "+27 21 794 5128",
                             "email": "enquiries@grootconstantia.co.za",
                             "hours": "Mon - Sun: 10:00 - 17:00",
-                            "info": [
-                                "region: Costal Region",
-                                "district: Cape Peninsula District",
-                                "ward: Constantia"
-                            ],
                             "items": [
                                 {
                                     "name": "Wine Tasting & Retail Shop",
@@ -153,11 +111,6 @@ const wineEstateData = {
                             "coordinates": "-34.0383551804114, 18.413399497787527",
                             "phone": "+27 21 794 5188",
                             "email": "info@kleinconstantia.com",
-                            "info": [
-                                "region: Costal Region",
-                                "district: Cape Peninsula District",
-                                "ward: Constantia"
-                            ],
                             "items": [
                                 {
                                     "name": "Tasting Room",
@@ -174,11 +127,6 @@ const wineEstateData = {
                             "url": "https://www.steenbergfarm.com/",
                             "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
                             "phone": "+27 21 207 8800",
-                            "info": [
-                                "region: Costal Region",
-                                "district: Cape Peninsula District",
-                                "ward: Constantia"
-                            ],
                             "items": [
                                 {
                                     "name": "Bistro 1682 Restaurant",
@@ -210,6 +158,49 @@ const wineEstateData = {
                                     "email": "reservations@steenberghotel.com"
                                 }
                             ]
+                        },
+                        {
+                            "name": "Buitenverwachting",
+                            "url": "https://buitenverwachting.com/",
+                            "address": "37 Klein Constantia Road, Constantia, Cape Town, 7806, South Africa",
+                            "coordinates": "-34.041203129770125, 18.41684802698282",
+                            "phone": [
+                                "+27 21 794 5190", 
+                                "+27 21 794 5191"
+                            ]
+                        },
+                        {
+                            "name": "Constantia Uitsig",
+                            "url": "https://www.constantiauitsig.co.za/",
+                            "address": "Spaanschemat River Rd, Fir Grove, Cape Town, 7806, South Afrika",
+                            "coordinates": "-34.047485674589005, 18.42483801263897",
+                            "phone": "+27 76 987 0743",
+                            "email": [
+                                "info@uitsig.co.za", 
+                                "wines@uitsig.co.za"
+                            ]
+                        },
+                        {
+                            "name": "Eagles' Nest",
+                            "url": "https://www.eaglesnestwines.com/",
+                            "address": "Constantia Main Rd, Constantia, Cape Town, 7806, Zuid-Afrika",
+                            "coordinates": "-34.014885013603184, 18.415135",
+                            "phone": "++27 21 794 3359"
+                        },
+                        {
+                            "name": "Beau Constantia",
+                            "url": "https://www.beauconstantia.com/",
+                            "address": "1043 Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
+                            "coordinates": "-34.013481696499056, 18.40642401349141",
+                            "phone": "+27 21 794 8632",
+                            "email": "reservations@beauconstantia.com"
+                        },
+                        {
+                            "name": "",
+                            "url": "https://silvermistestate.co.za/",
+                            "address": "Silvermist Wine Estate, Constantia Nek, Hout Bay Main Rd, Hout Bay, Cape Town, 7806, South Africa",
+                            "coordinates": "-34.01194769970817, 18.40240151349141",
+                            "phone": "+27 21 110 5420"
                         }
                     ]
                 },
@@ -471,11 +462,31 @@ const wineEstateData = {
                             "email": ""
                         },
                         {
-                            "name": "Durbanville Hills Wine",
+                            "name": "Durbanville Hills Winery",
                             "url": "https://www.durbanvillehills.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
+                            "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
+                            "coordinates": "-33.82472307633439, 18.565798168946426",
+                            "phone": "+27 21 558 1300",
+                            "email": "info_durbanvillehills@heineken.com",
+                            "items": [
+                                {
+                                    "name": "The Restaurant",
+                                    "hours": [
+                                        "Mon - Sun:",
+                                        "08:30 - 11:00 (breakfast)",
+                                        "12:00 - 15:00 (lunch)",
+                                        "Mon - Sat: 18:00 - 23:00 (dinner)"
+                                    ]
+                                },
+                                {
+                                    "name": "The Tasting Room",
+                                    "hours": [
+                                        "Mon: 12:00 - 17:00",
+                                        "Tue - Fri: 11:00 - 17:00",
+                                        "Sat - Sun: 11:00 - 16:30"
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "name": "Hillcrest Wine & Olive Estate",
