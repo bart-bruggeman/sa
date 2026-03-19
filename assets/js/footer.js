@@ -28,13 +28,15 @@ function renderFooter() {
         if (!geographyContainer) return;
         let html = `<div class="row">`;
         html += `<p>`;
-        html += `Town/Place: ${geographicData.town} | `;
-        html += `Region/Area: ${geographicData.region} | `;
-        html += `Municipality: ${geographicData.municipality} | `;
+        if (Array.isArray(geographicData.towns) && geographicData.towns.length > 0) {
+            html += `Towns: ${geographicData.towns.join(', ')} | `;
+        }
+        html += `Region: ${geographicData.region} | `;
+        html += `Metropolitan Municipality: ${geographicData.municipality} | `;
         html += `Province: ${geographicData.province}`;
         html += `</p>`;
         if (Array.isArray(geographicData.suburbs) && geographicData.suburbs.length > 0) {
-            html += `<p>Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
+            html += `<p>Gordon's Bay Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
         }
         html += `</div>`;
         geographyContainer.innerHTML = html;

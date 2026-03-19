@@ -35,7 +35,7 @@ const geographicData = {
     "province": "Western Cape",
     "municipality": "City of Cape Town",
     "region": "Helderberg",
-    "town": "Gordons Bay",
+    "towns": ["Gordons Bay", "Somerset West", "Strand"],
     "suburbs": [
         "Admirals Park",
         "Anchorage Park",
