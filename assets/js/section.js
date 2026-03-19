@@ -33,7 +33,7 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
             if (!filteredItems.length) return '';
             const content = filteredItems.map(level2 => `
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100">
                         <div class="card-body">
                             <h3 class="h6 mb-3">${level2.label}</h3>
                             ${renderLinks(level2.items)}
@@ -41,7 +41,7 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
                     </div>
                 </div>
             `).join("");
-            return wrapRow ? `<div class="row g-4">${content}</div>` : content;
+            return wrapRow ? `<div class="row">${content}</div>` : content;
 
             function renderLinks(items = []) {
                 if (!items.length) return '';

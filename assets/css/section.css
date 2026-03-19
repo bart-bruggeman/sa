@@ -52,9 +52,9 @@ li a {
 }
 
 .card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--bs-border-color);
-    color: var(--text-body);
+    background-color: transparent;
+    border: none;
+    color: inherit;
 }
 
 .section-box {
