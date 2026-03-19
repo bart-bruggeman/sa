@@ -66,7 +66,7 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
         if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
         const uniqueItems = Array.from(new Map(section.items.map(i => [i.name, i])).values());
         const sortedItems = uniqueItems.sort((a, b) => a.name.localeCompare(b.name));
-        return `<ul class="list-unstyled mb-0 filtered-list">
+        return `<ul class="list-unstyled mb-2 filtered-list">
             ${sortedItems.map(i => `<li><a href="#" data-name="${i.name}">${i.name}</a></li>`).join('')}
         </ul>`;
     }

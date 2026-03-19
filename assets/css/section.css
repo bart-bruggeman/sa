@@ -18,11 +18,6 @@ section.open h2 i.chevron-icon {
     transform: rotate(180deg);
 }
 
-section .section-content {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
 section .row {
     margin: 0;
 }
