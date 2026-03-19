@@ -9,7 +9,36 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
         contentContainer.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found for filter '${filterValue}'.</p>`;
         return;
     }
-    contentContainer.innerHTML = data.map((section, i) => renderSection(section, i, open, filtered)).join("");
+    const sortedData = sortSectionsData(data);
+    contentContainer.innerHTML = sortedData.map((section, i) => renderSection(section, i, open, filtered)).join("");
+
+    function sortSectionsData(data = []) {
+        return data.map(section => ({
+            ...section,
+            items: sortLevel(section.items, hasOnlyLevel2Items(section))
+        }));
+
+        function sortLevel(levelItems = [], isLevel2Only = false) {
+            if (!Array.isArray(levelItems)) return [];
+            const sorted = [...levelItems].sort((a, b) => 
+                (a.label || a.name || '').localeCompare(b.label || b.name || '')
+            );
+            if (isLevel2Only) {
+                return sorted.map(item => ({
+                    ...item,
+                    items: item.items
+                        ? [...item.items].sort((a, b) =>
+                            (a.name || '').localeCompare(b.name || '')
+                        )
+                        : []
+                }));
+            }
+            return sorted.map(level2 => ({
+                ...level2,
+                items: sortLevel(level2.items, true)
+            }));
+        }
+    }
 
     function renderSection(section, index, open, filtered) {
         const content = filtered 
@@ -31,6 +60,15 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
             </div>
         </section>
         `;
+    }
+
+    function renderFilteredItems(section) {
+        if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
+        const uniqueItems = Array.from(new Map(section.items.map(i => [i.name, i])).values());
+        const sortedItems = uniqueItems.sort((a, b) => a.name.localeCompare(b.name));
+        return `<ul class="list-unstyled mb-0 filtered-list">
+            ${sortedItems.map(i => `<li><a href="#" data-name="${i.name}">${i.name}</a></li>`).join('')}
+        </ul>`;
     }
 
     function renderItemsLevel2(items = [], wrapRow = true) {
@@ -76,7 +114,6 @@ function renderFilteredSections(query) {
         renderSections(sectionsData, false, false);
         return;
     }
-
     const filteredData = sectionsData.map(section => {
         const matchedItems = [];
         if (hasOnlyLevel2Items(section)) { // level 1 + level 2 section type
@@ -87,8 +124,7 @@ function renderFilteredSections(query) {
                     }
                 });
             });
-        } else {
-            // Level1 + Level2 + Level3 section type
+        } else { // Level1 + Level2 + Level3 section type
             section.items?.forEach(level1 => {
                 level1.items?.forEach(level2 => {
                     level2.items?.forEach(level3 => {
@@ -102,14 +138,6 @@ function renderFilteredSections(query) {
         return matchedItems.length ? { label: section.label, items: matchedItems } : null;
     }).filter(Boolean);
     renderSections(filteredData, true, true);
-}
-
-function renderFilteredItems(section) {
-    if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
-    const uniqueItems = Array.from(new Map(section.items.map(i => [i.name, i])).values());
-    return `<ul class="list-unstyled mb-0 filtered-list">
-        ${uniqueItems.map(i => `<li><a href="#" data-name="${i.name}">${i.name}</a></li>`).join('')}
-    </ul>`;
 }
 
 function hasOnlyLevel2Items(section) {
