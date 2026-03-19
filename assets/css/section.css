@@ -84,6 +84,16 @@ li a {
     line-height: 1;
 }
 
+.filtered-list {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 0;
+}
+
+.filtered-list li {
+  margin-bottom: 0.125rem;
+}
+
 .text-muted i {
     margin-right: 0.25rem;
 }

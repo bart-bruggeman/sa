@@ -56,7 +56,3 @@ const fieldConfig = {
         }
     }
 };
-
-const sectionsData = [healthcareData, realEstateData, wineEstateData];
-
-let filteredSectionsData = null;
