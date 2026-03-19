@@ -1,7 +1,9 @@
 function renderSections(data = sectionsData, open = false, filtered = false) {
     const contentContainer = document.getElementById("content-container");
     if (!Array.isArray(data) || !data.length) {
-        contentContainer.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found.</p>`;
+        const filterElement = document.getElementById("filter-id");
+        let filterValue = filterElement.value;
+        contentContainer.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found for filter '${filterValue}'.</p>`;
         return;
     }
     contentContainer.innerHTML = data.map((section, i) => renderSection(section, i, open, filtered)).join("");
