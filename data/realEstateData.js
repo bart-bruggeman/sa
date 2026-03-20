@@ -154,7 +154,7 @@ const realEstateData  = {
             ]
         }, 
         {
-            "label": "Real Estate Marketplace / Portal",
+            "label": "Real Estate Portal",
             "items": [
                 // probleem met PHP versie
                 /*{
