@@ -64,3 +64,23 @@
 .value.emergency a:active{
     color:var(--emergency-hover-color);
 }
+
+.pane-block {
+    margin-bottom: 1rem;
+}
+
+.block-header {
+    cursor: pointer;
+}
+
+.pane-block.collapsible .block-content {
+    display: none;
+}
+
+.pane-block.open .block-content {
+    display: block;
+}
+
+.block-header:hover {
+    opacity: 0.8;
+}
