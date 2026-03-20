@@ -92,3 +92,11 @@ li a {
 .text-muted i {
     margin-right: 0.25rem;
 }
+
+section.filtered {
+    cursor: default;
+}
+
+section.filtered h2 {
+    pointer-events: none;
+}

@@ -47,7 +47,7 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
                 ? renderItemsLevel2(section.items) 
                 : renderItemsLevel3(section.items);
         return `
-        <section class="mb-3 border-bottom" data-section="${index}">
+        <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${index}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
                 <span class="section-title-with-filter-icon">
                     ${section.label}

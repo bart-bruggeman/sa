@@ -84,15 +84,14 @@ function initSectionEvents() {
     function toggleSection(sectionElement) {
         const filterId = document.getElementById("filter-id");
         const isFiltered = filterId && filterId.value.trim() !== "";
+        if (isFiltered) return;
         const isSectionClosed = !sectionElement.classList.contains("open");
-        if (!isFiltered) { // close other sections, except when filtered
-            const sectionElements = sectionElement.parentElement.querySelectorAll("section");
-            sectionElements.forEach(currentSectionElement => {
-                if (currentSectionElement !== sectionElement) {
-                    closeSection(currentSectionElement);
-                }
-            });
-        }
+        const sectionElements = sectionElement.parentElement.querySelectorAll("section");
+        sectionElements.forEach(currentSectionElement => {
+            if (currentSectionElement !== sectionElement) {
+                closeSection(currentSectionElement);
+            }
+        });
         if (isSectionClosed) openSection(sectionElement);
         else closeSection(sectionElement);
 
@@ -107,7 +106,7 @@ function initSectionEvents() {
         function toggleSection(sectionElement, open) {
             sectionElement.classList.toggle("open", open);
             const content = sectionElement.querySelector(".section-content");
-            if (content) content.style.display = open ? "block" : "none";
+             if (content) content.style.display = open ? "block" : "none";
         }
     }
 }
