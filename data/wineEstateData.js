@@ -20,12 +20,10 @@ const wineEstateData = {
             "label": "Coastal Region Wine Estates",
             "items": [
                 {
-
                     "label": "Cape Peninsula District",
                     "items": [
                         {
                             "name": "Cape Point Vineyards",
-                            "url": "https://cpv.co.za/",
                             "address": "Silvermine Rd, Noordhoek, Cape Town 7979, South Africa",
                             "coordinates": "-34.09360723884719, 18.38751004963936",
                             "phone": [
@@ -33,6 +31,7 @@ const wineEstateData = {
                                 "+27 82 863 0578"
                             ],
                             "email": "info@cape-point.com",
+                            "url": "https://cpv.co.za/",
                             "hours": [
                                 "Mon - Tue 11:00-18:00",
                                 "Thu - Sat 11:00 - 22:00",
@@ -66,11 +65,11 @@ const wineEstateData = {
                         },
                         {
                             "name": "Groot Constantia",
-                            "url": "https://grootconstantia.co.za/",
                             "address": "Groot Constantia Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.02935654497266, 18.42020943587593",
                             "phone": "+27 21 794 5128",
                             "email": "enquiries@grootconstantia.co.za",
+                            "url": "https://grootconstantia.co.za/",
                             "hours": "Mon - Sun: 10:00 - 17:00",
                             "items": [
                                 {
@@ -79,10 +78,10 @@ const wineEstateData = {
                                 },
                                 {
                                     "name": "Jonkershuis Restaurant",
-                                    "url": "https://jonkershuisconstantia.co.za/",
                                     "coordinates": "-34.030414630792215, 18.418986348595567",
                                     "phone": "+27 21 794 6255",
                                     "email": "info@jhuis.co.za",
+                                    "url": "https://jonkershuisconstantia.co.za/",
                                     "hours": [
                                         "Mon - Sat: 08:00 - 21:00",
                                         "Sun: 08:00 - 17:00"
@@ -90,27 +89,27 @@ const wineEstateData = {
                                 },
                                 {
                                     "name": "Simon's Restaurant",
-                                    "url": "https://simons.co.za/",
                                     "coordinates": "-34.031161506955975, 18.417731074807826",
                                     "phone": "+27 21 794 1143",
-                                    "email": "info@simons.co.za"
+                                    "email": "info@simons.co.za",
+                                    "url": "https://simons.co.za/"
                                 },
                                 {
                                     "name": "Iziko Museums of Cape Town",
-                                    "url": "https://www.iziko.org.za/museums/groot-constantia/",
                                     "coordinates": "-34.03096467203029, 18.418772853608303",
                                     "phone": "+27 21 795 5140",
+                                    "url": "https://www.iziko.org.za/museums/groot-constantia/",
                                     "hours": "Mon - Sun: 10:00 - 17:00"
                                 }
                             ]
                         },
                         {
                             "name": "Klein Constantia",
-                            "url": "https://www.kleinconstantia.com/",
                             "address": "Klein Constantia Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.0383551804114, 18.413399497787527",
                             "phone": "+27 21 794 5188",
                             "email": "info@kleinconstantia.com",
+                            "url": "https://www.kleinconstantia.com/",
                             "items": [
                                 {
                                     "name": "Tasting Room",
@@ -124,14 +123,14 @@ const wineEstateData = {
                         },
                         {
                             "name": "Steenberg Vineyards",
-                            "url": "https://www.steenbergfarm.com/",
                             "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
                             "phone": "+27 21 207 8800",
+                            "url": "https://www.steenbergfarm.com/",
                             "items": [
                                 {
                                     "name": "Bistro 1682 Restaurant",
-                                    "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
                                     "phone": "+27 21 205 3866",
+                                    "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
                                     "hours": [
                                         "Mon - Sun:",
                                         "09:00 - 11:00 (breakfast)",
@@ -141,9 +140,9 @@ const wineEstateData = {
                                 },
                                 {
                                     "name": "Tryn Restaurant",
-                                    "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
                                     "phone": "+27 21 713 7178",
                                     "email": "info@tryn.co.za",
+                                    "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
                                     "hours": [
                                         "Mon - Sun:",
                                         "08:00 - 11:00 (breakfast)",
@@ -153,17 +152,17 @@ const wineEstateData = {
                                 },
                                 {
                                     "name": "Steenberg 5-star Hotel",
-                                    "url": "https://steenbergfarm.com/hotel/",
                                     "phone": "+27 21 713 2222",
-                                    "email": "reservations@steenberghotel.com"
+                                    "email": "reservations@steenberghotel.com",
+                                    "url": "https://steenbergfarm.com/hotel/"
                                 }
                             ]
                         },
                         {
                             "name": "Buitenverwachting",
-                            "url": "https://buitenverwachting.com/",
                             "address": "37 Klein Constantia Road, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.041203129770125, 18.41684802698282",
+                            "url": "https://buitenverwachting.com/",
                             "phone": [
                                 "+27 21 794 5190", 
                                 "+27 21 794 5191"
@@ -171,36 +170,36 @@ const wineEstateData = {
                         },
                         {
                             "name": "Constantia Uitsig",
-                            "url": "https://www.constantiauitsig.co.za/",
                             "address": "Spaanschemat River Rd, Fir Grove, Cape Town, 7806, South Afrika",
                             "coordinates": "-34.047485674589005, 18.42483801263897",
                             "phone": "+27 76 987 0743",
                             "email": [
                                 "info@uitsig.co.za", 
                                 "wines@uitsig.co.za"
-                            ]
+                            ],
+                            "url": "https://www.constantiauitsig.co.za/",
                         },
                         {
                             "name": "Eagles' Nest",
-                            "url": "https://www.eaglesnestwines.com/",
                             "address": "Constantia Main Rd, Constantia, Cape Town, 7806, Zuid-Afrika",
                             "coordinates": "-34.014885013603184, 18.415135",
-                            "phone": "++27 21 794 3359"
+                            "phone": "++27 21 794 3359",
+                            "url": "https://www.eaglesnestwines.com/",
                         },
                         {
                             "name": "Beau Constantia",
-                            "url": "https://www.beauconstantia.com/",
                             "address": "1043 Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.013481696499056, 18.40642401349141",
                             "phone": "+27 21 794 8632",
-                            "email": "reservations@beauconstantia.com"
+                            "email": "reservations@beauconstantia.com",
+                            "url": "https://www.beauconstantia.com/",
                         },
                         {
-                            "name": "",
-                            "url": "https://silvermistestate.co.za/",
+                            "name": "Silvermist",
                             "address": "Silvermist Wine Estate, Constantia Nek, Hout Bay Main Rd, Hout Bay, Cape Town, 7806, South Africa",
                             "coordinates": "-34.01194769970817, 18.40240151349141",
-                            "phone": "+27 21 110 5420"
+                            "phone": "+27 21 110 5420",
+                            "url": "https://silvermistestate.co.za/"
                         }
                     ]
                 },
@@ -209,38 +208,23 @@ const wineEstateData = {
                     "items": [
                         {
                             "name": "Darling Cellars",
-                            "url": "https://www.darlingcellars.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
+                            "url": "https://www.darlingcellars.co.za/"
                         },
                         {
                             "name": "Cloof Wine Estate",
-                            "url": "https://www.cloofwines.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
+                            "url": "https://www.cloofwines.co.za/"
                         },
                         {
                             "name": "Groote Post Vineyards",
                             "url": "https://www.grootepost.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Mawson Wines",
                             "url": "https://www.mawsonwine.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Ormonde Private Cellar",
                             "url": "https://www.ormonde.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -250,37 +234,22 @@ const wineEstateData = {
                         {
                             "name": "Babylonstoren",
                             "url": "https://www.babylonstoren.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Haute Cabrière",
                             "url": "https://www.cabriere.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "La Motte Estate",
                             "url": "https://www.la-motte.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Leopard's Leap",
                             "url": "https://www.leopardsleap.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Mont Rochelle",
                             "url": "https://www.montrochelle.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -290,37 +259,22 @@ const wineEstateData = {
                         {
                             "name": "Avondale Wine",
                             "url": "https://avondalewine.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Boschendal Estate",
                             "url": "https://boschendal.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Fairview Wine & Cheese",
                             "url": "https://www.fairview.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Lanzerac Wine Estate",
                             "url": "https://www.lanzerac.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Rustenberg Wines",
                             "url": "https://www.rustenberg.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -330,37 +284,22 @@ const wineEstateData = {
                         {
                             "name": "Delaire Graff Estate",
                             "url": "https://www.delaire.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Quoin Rock",
                             "url": "https://www.quoinrock.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Simonsig Estate",
                             "url": "https://www.simonsig.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Spier Wine Farm",
                             "url": "https://www.spier.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Tokara Wine Estate",
                             "url": "https://www.tokara.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -370,37 +309,22 @@ const wineEstateData = {
                         {
                             "name": "AA Badenhorst Family Wines",
                             "url": "https://www.badenhorstwine.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Kloovenburg Wines",
                             "url": "https://www.kloovenburg.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Mullineux & Leeu Family Wines",
                             "url": "https://www.mullineux.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Sadie Family Wines",
                             "url": "https://www.sadiefamily.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Testalonga",
                             "url": "https://testalonga.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -410,37 +334,22 @@ const wineEstateData = {
                         {
                             "name": "Lemberg Wine Estate",
                             "url": "https://www.lemberg.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Olifantsberg Wine Estate",
                             "url": "https://olifantsberg.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Rijk's Wine Estate",
                             "url": "https://rjks.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Saronsberg Wine Cellar",
                             "url": "https://www.saronsberg.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Waverley Hills",
                             "url": "https://waverley.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -450,24 +359,18 @@ const wineEstateData = {
                         {
                             "name": "De Grendel Wine Estate",
                             "url": "https://degrendel.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Diemersdal Wine Estate",
                             "url": "http://www.diemersdal.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Durbanville Hills Winery",
-                            "url": "https://www.durbanvillehills.co.za/",
                             "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
                             "coordinates": "-33.82472307633439, 18.565798168946426",
                             "phone": "+27 21 558 1300",
                             "email": "info_durbanvillehills@heineken.com",
+                            "url": "https://www.durbanvillehills.co.za/",
                             "items": [
                                 {
                                     "name": "The Restaurant",
@@ -491,16 +394,10 @@ const wineEstateData = {
                         {
                             "name": "Hillcrest Wine & Olive Estate",
                             "url": "https://www.hillcrestwineestate.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Meerendal Wine Estate",
                             "url": "https://www.meerendal.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 },
@@ -510,37 +407,22 @@ const wineEstateData = {
                         {
                             "name": "Bosman Family Vineyards",
                             "url": "https://www.bosmanwines.com/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Diemersfontein Wine & Country Estate",
                             "url": "https://www.diemersfontein.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Doolhof Wine Estate",
                             "url": "https://www.doolhof.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Dunstone Winery",
                             "url": "https://www.dunstonewines.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         },
                         {
                             "name": "Vrymansfontein",
                             "url": "https://vrymansfontein.co.za/",
-                            "address": "",
-                            "phone": "",
-                            "email": ""
                         }
                     ]
                 }
