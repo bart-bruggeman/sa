@@ -14,7 +14,7 @@ function renderRightPane(link) {
 
     function renderRightPaneBlock(office, showName = true, isMain = false) {
         const blockId = `block-${office.name?.replace(/\s+/g, "-")}-${Math.random().toString(36).slice(2,6)}`;
-        let html = `<div class="pane-block mb-4 pb-2 ${isMain ? "main-open" : "collapsible"} ${isMain ? "open" : ""}" data-block="${blockId}">`;
+        let html = `<div class="pane-block ${isMain ? 'mb-5 main-open open' : 'collapsible'}" data-block="${blockId}">`;
         if (showName && office.name) {
             html += `
                 <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>

@@ -65,12 +65,16 @@
     color:var(--emergency-hover-color);
 }
 
-.pane-block {
+.block-header {
+    cursor: pointer;
+}
+
+.pane-block.collapsible {
     margin-bottom: 1rem;
 }
 
-.block-header {
-    cursor: pointer;
+.pane-block.collapsible.open {
+    margin-bottom: 3rem;
 }
 
 .pane-block.collapsible .block-content {
