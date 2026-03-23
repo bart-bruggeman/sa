@@ -1,4 +1,4 @@
-section {
+section > h2 {
     cursor: pointer;
 }
 
@@ -22,7 +22,7 @@ section .row {
     margin: 0;
 }
 
-section ul {
+section ul:not(.dropdown-menu):not(.nav) {
     display: block !important;
     opacity: 1 !important;
     transform: none !important;
@@ -31,7 +31,7 @@ section ul {
     list-style: none;
 }
 
-li {
+section li {
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -76,17 +76,14 @@ li a {
 
 .filtered-icon i {
     font-size: 0.75em;
-    line-height: 1;
 }
 
 .filtered-list {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin: 0;
+    padding: 0.5rem 0;
 }
 
 .filtered-list li {
-  margin-bottom: 0.125rem;
+    margin-bottom: 0.125rem;
 }
 
 .text-muted i {
@@ -99,4 +96,13 @@ section.filtered {
 
 section.filtered h2 {
     pointer-events: none;
+}
+
+.nav-tabs {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+.dropdown-menu {
+    z-index: 1055;
 }

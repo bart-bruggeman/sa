@@ -54,7 +54,10 @@ function initSectionEvents() {
             return;
         }
         const sectionElement = e.target.closest("section");
-        if (sectionElement && !e.target.closest("a")) {
+        if (sectionElement
+        && !e.target.closest("a")
+        && !e.target.closest(".nav-tabs")
+        && !e.target.closest(".dropdown-menu")) {
             toggleSection(sectionElement);
         }
     });
