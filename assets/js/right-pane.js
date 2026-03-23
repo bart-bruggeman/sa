@@ -18,7 +18,10 @@ function renderRightPane(link) {
         if (showName && office.name) {
             html += `
                 <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>
-                    <p><strong style="font-size: 1rem;">${office.name}</strong></p>
+                    <div class="header-content d-flex justify-content-between align-items-center">
+                        <p class="mb-0"><strong style="font-size: 1rem;">${office.name}</strong></p>
+                        ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
+                    </div>
                     <hr>
                 </div>
             `;
@@ -50,11 +53,17 @@ function renderRightPane(link) {
                 const blockId = header.dataset.toggle;
                 const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
                 const isOpen = currentBlock.classList.contains("open");
+
                 container.querySelectorAll(".pane-block.collapsible").forEach(b => {
                     b.classList.remove("open");
+                    const icon = b.querySelector(".toggle-icon");
+                    if(icon) icon.style.transform = "rotate(0deg)";
                 });
+
                 if (!isOpen) {
                     currentBlock.classList.add("open");
+                    const icon = currentBlock.querySelector(".toggle-icon");
+                    if(icon) icon.style.transform = "rotate(180deg)";
                     currentBlock.scrollIntoView({
                         behavior: "smooth",
                         block: "start"

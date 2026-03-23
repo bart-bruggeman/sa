@@ -88,3 +88,16 @@
 .block-header:hover {
     opacity: 0.8;
 }
+
+
+
+
+
+.header-content {
+    width: 100%;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+    margin-left: auto;
+}
