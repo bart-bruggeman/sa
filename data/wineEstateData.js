@@ -1,11 +1,13 @@
 const wineEstateData = {
-	"label": "Wine Estates",
+	"label": "Wine Regions",
 	"items": [
-        {
+        // geografisch gezien geen echte wijnregio, maar aanduiding voor versterkte wijnen
+        // geproduceerd in Paarl, Franschhoek en Tulbagh
+        /*{
             "label": "Boberg",
             "items": [
             ]
-        },
+        },*/
         {
             "label": "Breede River Valley (Breederiviervallei)",
             "items": [
@@ -14,6 +16,82 @@ const wineEstateData = {
         {
             "label": "Cape South Coast",
             "items": [
+                {
+                    "label": "Cape Agulhas District",
+                    "items": [
+                        {
+                            "name": "Black Oystercatcher Wines"
+                        },
+                        {
+                            "name": "Ghost Corner"
+                        },
+                        {
+                            "name": "Kroonpoort"
+                        },
+                        {
+                            "name": "Land's End"
+                        },
+                        {
+                            "name": "Lomond Wine Estate"
+                        },
+                        {
+                            "name": "Lost Boy"
+                        },
+                        {
+                            "name": "Olivedale Wines"
+                        },
+                        {
+                            "name": "Sijnn Wines"
+                        },
+                        {
+                            "name": "Strandveld Vineyards"
+                        },
+                        {
+                            "name": "The Drift Estate"
+                        },
+                        {
+                            "name": "The Giant Periwinkle"
+                        },
+                        {
+                            "name": "Trizanne Signature Wines"
+                        },
+                        {
+                            "name": "Zoetendal Vineyard"
+                        }
+                    ]
+                },
+                {
+                    "label": "Overberg District",
+                    "items": [
+                        {
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "label": "Plettenberg Bay District",
+                    "items": [
+                        {
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "label": "Swellendam District",
+                    "items": [
+                        {
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "label": "Walker Bay District",
+                    "items": [
+                        {
+                            "name": ""
+                        }
+                    ]
+                }
             ]
         },
 		{
