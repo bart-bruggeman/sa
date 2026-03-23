@@ -1,20 +1,28 @@
 function renderRightPane(link) {
     const rightPane = document.getElementById("rightpane-id");
     const rightPaneBody = rightPane.querySelector(".offcanvas-body");
-    let html = `<div class="mb-3"><p><strong  style="font-size: 1rem;">${link.name}</strong></p><hr></div>`;// HIER
+    let html = `
+        <div class="mb-3">
+            <p><strong style="font-size: 1rem;">${link.name}</strong></p>
+            <hr>
+        </div>
+    `;
     html += renderRightPaneBlock(link, false, true);
     if (link.items) {
-        link.items.forEach(branch => {
-            html += renderRightPaneBlock(branch, true, false);
+        link.items.forEach((branch, index) => {
+            html += renderRightPaneBlock(branch, true, false, index === 0);
         });
     }
     rightPaneBody.innerHTML = html;
     initPaneAccordion(rightPaneBody);
     bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
 
-    function renderRightPaneBlock(office, showName = true, isMain = false) {
+    function renderRightPaneBlock(office, showName = true, isMain = false, isFirstSubBlock = false) {
         const blockId = `block-${office.name?.replace(/\s+/g, "-")}-${Math.random().toString(36).slice(2,6)}`;
         let html = `<div class="pane-block ${isMain ? 'mb-5 main-open open' : 'collapsible'}" data-block="${blockId}">`;
+        if (isFirstSubBlock && !isMain) {
+            html += `<hr>`;
+        }
         if (showName && office.name) {
             html += `
                 <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>
@@ -40,7 +48,8 @@ function renderRightPane(link) {
                 html += `
                     <p class="value ${color} mt-3">
                         <i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}
-                    </p>`;
+                    </p>
+                `;
             }
             return html;
         }
@@ -53,13 +62,11 @@ function renderRightPane(link) {
                 const blockId = header.dataset.toggle;
                 const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
                 const isOpen = currentBlock.classList.contains("open");
-
                 container.querySelectorAll(".pane-block.collapsible").forEach(b => {
                     b.classList.remove("open");
                     const icon = b.querySelector(".toggle-icon");
                     if(icon) icon.style.transform = "rotate(0deg)";
                 });
-
                 if (!isOpen) {
                     currentBlock.classList.add("open");
                     const icon = currentBlock.querySelector(".toggle-icon");
