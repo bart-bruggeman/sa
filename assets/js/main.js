@@ -1,10 +1,12 @@
-document.addEventListener("DOMContentLoaded", eventListeners);
+document.addEventListener("DOMContentLoaded", init);
 
-function eventListeners() {
+function init() {
     const filterElement = document.getElementById("filter-id");
     const brandElement = document.querySelector(".navbar-brand");
     const rightPaneElement = document.getElementById("rightpane-id");
-    const bsRightPaneElement = rightPaneElement ? bootstrap.Offcanvas.getOrCreateInstance(rightPaneElement) : null;
+    const bsRightPane = rightPaneElement
+        ? bootstrap.Offcanvas.getOrCreateInstance(rightPaneElement)
+        : null;
 
     renderFooter();
     renderSections();
@@ -12,32 +14,40 @@ function eventListeners() {
     initTheme();
 
     if (filterElement) {
-        filterElement.addEventListener("input", e => renderFilteredSections(e.target.value));
-        filterElement.addEventListener("search", () => handleBrandClick());
+        filterElement.addEventListener("input", onFilterInput);
+        filterElement.addEventListener("search", handleBrandClick);
     }
-    
-    if (brandElement) brandElement.addEventListener("click", handleBrandClick);
-    
-    document.addEventListener("keydown", handleEscapeOrClose);
+    if (brandElement) {
+        brandElement.addEventListener("click", handleBrandClick);
+    }
+    document.addEventListener("keydown", handleKeydown);
+
+    function onFilterInput(e) {
+        renderFilteredSections(e.target.value);
+    }
 
     function handleBrandClick(e) {
         e?.preventDefault?.();
-        resetAndClose();
+        resetFilter();
         renderSections();
-        if (bsRightPaneElement?._isShown) bsRightPaneElement.hide();
+        if (bsRightPane?._isShown) {
+            bsRightPane.hide();
+        }
     }
 
-    function handleEscapeOrClose(e) {
+    function handleKeydown(e) {
         if (e.key !== "Escape") return;
-        if (bsRightPaneElement && rightPaneElement.classList.contains("show")) {
-            bsRightPaneElement.hide();
+
+        const isRightPaneOpen = bsRightPane && rightPaneElement.classList.contains("show");
+        if (isRightPaneOpen) {
+            bsRightPane.hide();
         } else {
-            resetAndClose();
+            resetFilter();
             renderSections();
         }
     }
 
-    function resetAndClose() {
+    function resetFilter() {
         if (!filterElement) return;
         filterElement.value = "";
         filterElementedSectionsData = null;
@@ -46,37 +56,42 @@ function eventListeners() {
 }
 
 function initSectionEvents() {
-    const contentContainer = document.getElementById("content-container");
-    contentContainer.addEventListener("click", (e) => {
+    const container = document.getElementById("content-container");
+    if (!container) return;
+    container.addEventListener("click", handleContainerClick);
+
+    function handleContainerClick(e) {
         const link = e.target.closest("a[data-name]");
         if (link) {
             handleLinkClick(link);
             return;
         }
-        const sectionElement = e.target.closest("section");
-        if (sectionElement
-        && !e.target.closest("a")
-        && !e.target.closest(".nav-tabs")
-        && !e.target.closest(".dropdown-menu")) {
-            toggleSection(sectionElement);
+        const section = e.target.closest("section");
+        if (
+            section &&
+            !e.target.closest("a") &&
+            !e.target.closest(".nav-tabs") &&
+            !e.target.closest(".dropdown-menu")
+        ) {
+            toggleSection(section);
         }
-    });
+    }
 
     function handleLinkClick(link) {
         link.preventDefault?.();
         const scrollY = window.scrollY;
         const name = link.dataset.name;
         const item = findItemByName(sectionsData, name);
-        if (item) renderRightPane(item);
-        setTimeout(() => {
-            window.scrollTo(0, scrollY);
-        }, 0);
+        if (item) {
+            renderRightPane(item);
+        }
+        setTimeout(() => window.scrollTo(0, scrollY), 0);
     }
 
     function findItemByName(items, name) {
         for (const item of items) {
             if (item.name === name) return item;
-            if (item.items && Array.isArray(item.items)) {
+            if (Array.isArray(item.items)) {
                 const found = findItemByName(item.items, name);
                 if (found) return found;
             }
@@ -84,32 +99,25 @@ function initSectionEvents() {
         return null;
     }
 
-    function toggleSection(sectionElement) {
-        const filterId = document.getElementById("filter-id");
-        const isFiltered = filterId && filterId.value.trim() !== "";
+    function toggleSection(section) {
+        const filter = document.getElementById("filter-id");
+        const isFiltered = filter && filter.value.trim() !== "";
         if (isFiltered) return;
-        const isSectionClosed = !sectionElement.classList.contains("open");
-        const sectionElements = sectionElement.parentElement.querySelectorAll("section");
-        sectionElements.forEach(currentSectionElement => {
-            if (currentSectionElement !== sectionElement) {
-                closeSection(currentSectionElement);
+        const isOpen = section.classList.contains("open");
+        const siblings = section.parentElement.querySelectorAll("section");
+        siblings.forEach(sibling => {
+            if (sibling !== section) {
+                setSectionState(sibling, false);
             }
         });
-        if (isSectionClosed) openSection(sectionElement);
-        else closeSection(sectionElement);
+        setSectionState(section, !isOpen);
+    }
 
-        function openSection(sectionElement) {
-            toggleSection(sectionElement, true);
-        }
-
-        function closeSection(sectionElement) {
-            toggleSection(sectionElement, false);
-        }
-
-        function toggleSection(sectionElement, open) {
-            sectionElement.classList.toggle("open", open);
-            const content = sectionElement.querySelector(".section-content");
-             if (content) content.style.display = open ? "block" : "none";
+    function setSectionState(section, open) {
+        section.classList.toggle("open", open);
+        const content = section.querySelector(".section-content");
+        if (content) {
+            content.style.display = open ? "block" : "none";
         }
     }
 }
