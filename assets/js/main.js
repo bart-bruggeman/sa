@@ -66,14 +66,17 @@ function initSectionEvents() {
             handleLinkClick(link);
             return;
         }
+        const level2Section = e.target.closest(".level2-section");
+        if (level2Section && !e.target.closest("a")) {
+            toggleLevel2Section(level2Section);
+            return;
+        }
         const section = e.target.closest("section");
-        if (
-            section &&
-            !e.target.closest("a") &&
-            !e.target.closest(".nav-tabs") &&
-            !e.target.closest(".dropdown-menu")
-        ) {
-            toggleSection(section);
+        if (section
+        && !level2Section
+        && !e.target.closest("a")
+        && !e.target.closest(".dropdown-menu")) {
+                toggleSection(section);
         }
     }
 
@@ -116,6 +119,25 @@ function initSectionEvents() {
     function setSectionState(section, open) {
         section.classList.toggle("open", open);
         const content = section.querySelector(".section-content");
+        if (content) {
+            content.style.display = open ? "block" : "none";
+        }
+    }
+
+    function toggleLevel2Section(section) {
+        const isOpen = section.classList.contains("open");
+        const siblings = section.parentElement.querySelectorAll(".level2-section");
+        siblings.forEach(s => {
+            if (s !== section) {
+                setLevel2State(s, false);
+            }
+        });
+        setLevel2State(section, !isOpen);
+    }
+
+    function setLevel2State(section, open) {
+        section.classList.toggle("open", open);
+        const content = section.querySelector(".level2-content");
         if (content) {
             content.style.display = open ? "block" : "none";
         }

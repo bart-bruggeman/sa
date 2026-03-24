@@ -106,3 +106,47 @@ section.filtered h2 {
 .dropdown-menu {
     z-index: 1055;
 }
+
+.level2-section {
+    position: relative;
+    padding: 0.75rem 0 0.25rem 1rem;
+}
+
+.level2-header {
+    cursor: pointer;
+    margin: 0;
+    padding-left: 1rem;
+    padding-top: 0;
+    font-size: 1.125rem;
+
+    display: flex;
+    align-items: center;
+}
+
+.level2-header .chevron-icon {
+    transition: transform 0.2s ease;
+}
+
+.level2-section.open .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.level2-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    right: 0rem;
+    height: 1px;
+    background-color: var(--bs-border-color);
+}
+
+.level2-content {
+    padding-top: 1.5rem;
+}
+
+.level2-content .row {
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    padding-left: 1.5rem;
+}

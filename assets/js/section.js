@@ -63,45 +63,17 @@ function renderItemsLevel2(items = [], wrapRow = true) {
 }
 
 function renderItemsLevel3(level2Items = []) {
-    const tabsId = `tabs-${Date.now()}`;
-    const MAX_VISIBLE = 4;
-    const visible = level2Items.slice(0, MAX_VISIBLE);
-    const dropdown = level2Items.slice(MAX_VISIBLE);
-    const nav = `
-    <ul class="nav nav-tabs mb-3">
-        ${visible.map((l, i) => `
-            <li class="nav-item">
-                <button class="nav-link ${i === 0 ? 'active' : ''}" data-bs-toggle="tab" data-bs-target="#${tabsId}-${i}" type="button">
-                    ${l.label}
-                </button>
-            </li>
-        `).join("")}
-        ${dropdown.length ? `
-        <li class="nav-item dropdown">
-            <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" type="button">
-                Other...
-            </button>
-            <ul class="dropdown-menu">
-                ${dropdown.map((l, i) => `
-                    <li>
-                        <button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#${tabsId}-${i + MAX_VISIBLE}" type="button">
-                            ${l.label}
-                        </button>
-                    </li>
-                `).join("")}
-            </ul>
-        </li>` : ''}
-    </ul>`;
-
-    const content = `
-    <div class="tab-content">
-        ${level2Items.map((l, i) => `
-            <div class="tab-pane fade ${i === 0 ? 'show active' : ''}" id="${tabsId}-${i}">
-                ${renderItemsLevel2(l.items, true)}
+    return level2Items.map((level2, i) => `
+        <section class="level2-section mb-2" data-level2="${i}">
+            <h3 class="h6 d-flex justify-content-between align-items-center level2-header">
+                <span>${level2.label}</span>
+                <i class="bi bi-chevron-down chevron-icon"></i>
+            </h3>
+            <div class="level2-content" style="display:none;">
+                ${renderItemsLevel2(level2.items, true)}
             </div>
-        `).join("")}
-    </div>`;
-    return nav + content;
+        </section>
+    `).join("");
 }
 
 function renderFilteredSections(query) {
