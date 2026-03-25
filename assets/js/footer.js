@@ -11,10 +11,13 @@ function renderFooter() {
             html += `<h5>${group.label}</h5>`;
             html += `<ul class="list-unstyled">`;
             group.items.forEach(item => {
-                html += `<li>`;
-                html += `<a href="tel:${item.phone.replace(/\s+/g,'')}" class="d-flex align-items-center link-footer emergency">`;
-                html += `<i class="bi bi-telephone-fill fs-5 me-1"></i>${item.phone}</a>`;
-                if (item.comment) html += ` ${item.comment}`;
+                html += `<li class="d-flex align-items-center">`;
+                html += `<a href="tel:${item.phone.replace(/\s+/g,'')}" class="link-footer emergency d-flex align-items-center">`;
+                html += `<i class="bi bi-telephone-fill fs-5 me-1"></i>${item.phone}`;
+                html += `</a>`;
+                if (item.comment) {
+                    html += `<span class="ms-1">${item.comment}</span>`;
+                }
                 html += `</li>`;
             });
             html += `</ul></div>`;
