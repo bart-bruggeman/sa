@@ -10,19 +10,16 @@ function renderRightPane(link) {
     html += renderRightPaneBlock(link, false, true);
     if (link.items) {
         link.items.forEach((branch, index) => {
-            html += renderRightPaneBlock(branch, true, false, index === 0);
+            html += renderRightPaneBlock(branch, true, false);
         });
     }
     rightPaneBody.innerHTML = html;
     initPaneAccordion(rightPaneBody);
     bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
 
-    function renderRightPaneBlock(office, showName = true, isMain = false, isFirstSubBlock = false) {
+    function renderRightPaneBlock(office, showName = true, isMain = false) {
         const blockId = `block-${office.name?.replace(/\s+/g, "-")}-${Math.random().toString(36).slice(2,6)}`;
         let html = `<div class="pane-block ${isMain ? 'mb-5 main-open open' : 'collapsible'}" data-block="${blockId}">`;
-        if (isFirstSubBlock && !isMain) {
-            html += `<hr>`;
-        }
         if (showName && office.name) {
             html += `
                 <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>
