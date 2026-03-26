@@ -1,24 +1,24 @@
 const sectionsData = [healthcareData, realEstateData, wineEstateData];
 
-function renderSections(data = sectionsData, open = false, filtered = false) {
+function renderSections(level_1_items = sectionsData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
-    if (!Array.isArray(data) || !data.length) {
+    if (!Array.isArray(level_1_items) || !level_1_items.length) {
         const filterElement = document.getElementById("filter-id");
         const filterValue = filterElement?.value || '';
         container.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found for filter '${filterValue}'.</p>`;
         return;
     }
-    container.innerHTML = data.map((section, i) => {
+    container.innerHTML = level_1_items.map((level_1_item, i) => {
         const content = filtered
-            ? renderFilteredItems(section)
-            : hasOnlyLevel2Items(section)
-                ? renderItemsLevel2(section.items)
-                : renderItemsLevel3(section.items);
+            ? filteredContentAsList(level_1_item)                                         // filtered data (=list)
+            : hasOnlyLevel2Items(level_1_item)
+                ? contentAsSectionWithThreeColumnCards(level_1_item.items)                // level 1 (=section) + level 2 (=cards data)
+                : contentAsSectionWithSubsectionWithThreeColumnCards(level_1_item.items); // level 1 (=section) + level 2 (=subsection) + level 3 (=cards data)
         return `
         <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
                 <span class="section-title-with-filter-icon">
-                    ${section.label}
+                    ${level_1_item.label}
                     ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
                 </span>
                 ${filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
@@ -29,51 +29,52 @@ function renderSections(data = sectionsData, open = false, filtered = false) {
         </section>
         `;
     }).join("");
-}
 
-function renderFilteredItems(section) {
-    if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
-    const uniqueItems = Array.from(new Map(section.items.map(i => [i.name, i])).values());
-    const sortedItems = uniqueItems.sort((a, b) => a.name.localeCompare(b.name));
-    return `<ul class="list-unstyled mb-2 filtered-list">
-        ${sortedItems.map(i => `<li><a href="#" data-name="${i.name}">${i.name}</a></li>`).join('')}
-    </ul>`;
-}
-
-function renderItemsLevel2(items = [], wrapRow = true) {
-    const filteredItems = (items || []).filter(level2 => level2.items && level2.items.length);
-    if (!filteredItems.length) return '';
-    const content = filteredItems.map(level2 => `
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h3 class="h6 mb-3">${level2.label}</h3>
-                    ${renderLinks(level2.items)}
-                </div>
-            </div>
-        </div>
-    `).join("");
-    function renderLinks(items = []) {
-        if (!items.length) return '';
-        return `<ul class="list-unstyled mb-0">
-            ${items.map(item => `<li><a href="#" data-name="${item.name}">${item.name}</a></li>`).join("")}
+    function filteredContentAsList(level_1_item) {
+        if (!level_1_item.items?.length) return '<p class="text-muted">No data found.</p>';
+        const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.name, level_2_item])).values());
+        const sortedItems = uniqueItems.sort((a, b) => a.name.localeCompare(b.name));
+        return `<ul class="list-unstyled mb-2 filtered-list">
+            ${sortedItems.map(level_2_item => `<li><a href="#" data-name="${level_2_item.name}">${level_2_item.name}</a></li>`).join('')}
         </ul>`;
     }
-    return wrapRow ? `<div class="row">${content}</div>` : content;
-}
 
-function renderItemsLevel3(level2Items = []) {
-    return level2Items.map((level2, i) => `
-        <section class="level2-section mb-2" data-level2="${i}">
-            <h3 class="h6 d-flex justify-content-between align-items-center level2-header">
-                <span>${level2.label}</span>
-                <i class="bi bi-chevron-down chevron-icon"></i>
-            </h3>
-            <div class="level2-content" style="display:none;">
-                ${renderItemsLevel2(level2.items, true)}
+    function contentAsSectionWithThreeColumnCards(level_2_items = [], wrapRow = true) {
+        const level2Items = (level_2_items || []).filter(level_2_item => level_2_item.items && level_2_item.items.length);
+        if (!level2Items.length) return '';
+        const content = level2Items.map(level_2_item => `
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h6 mb-3">${level_2_item.label}</h3>
+                        ${renderLinks(level_2_item.items)}
+                    </div>
+                </div>
             </div>
-        </section>
-    `).join("");
+        `).join("");
+
+        function renderLinks(level_2_items = []) {
+            if (!level_2_items.length) return '';
+            return `<ul class="list-unstyled mb-0">
+                ${level_2_items.map(level_2_item => `<li><a href="#" data-name="${level_2_item.name}">${level_2_item.name}</a></li>`).join("")}
+            </ul>`;
+        }
+        return wrapRow ? `<div class="row">${content}</div>` : content;
+    }
+
+    function contentAsSectionWithSubsectionWithThreeColumnCards(level_2_items = []) {
+        return level_2_items.map((level_2_item, i) => `
+            <section class="level2-section mb-2" data-level2="${i}">
+                <h3 class="h6 d-flex justify-content-between align-items-center level2-header">
+                    <span>${level_2_item.label}</span>
+                    <i class="bi bi-chevron-down chevron-icon"></i>
+                </h3>
+                <div class="level2-content" style="display:none;">
+                    ${contentAsSectionWithThreeColumnCards(level_2_item.items, true)}
+                </div>
+            </section>
+        `).join("");
+    }
 }
 
 function renderFilteredSections(query) {
@@ -82,59 +83,36 @@ function renderFilteredSections(query) {
         renderSections(sectionsData, false, false);
         return;
     }
-    const filteredData = sectionsData.map(section => {
+    const filteredData = sectionsData.map(level_1_item => {
         const matchedItems = [];
-        if (hasOnlyLevel2Items(section)) { // Level1 + Level2
-            section.items?.forEach(level1 => {
-                level1.items?.forEach(level2 => {
-                    if (level2.name && level2.name.toLowerCase().includes(q)) {
-                        matchedItems.push(level2);
+        if (hasOnlyLevel2Items(level_1_item)) { // Level1 + Level2
+            level_1_item.items?.forEach(level_1_item => {
+                level_1_item.items?.forEach(level_2_item => {
+                    if (level_2_item.name && level_2_item.name.toLowerCase().includes(q)) {
+                        matchedItems.push(level_2_item);
                     }
                 });
             });
         } else { // Level1 + Level2 + Level3
-            section.items?.forEach(level1 => {
-                level1.items?.forEach(level2 => {
-                    level2.items?.forEach(level3 => {
-                        if (level3.name && level3.name.toLowerCase().includes(q)) {
-                            matchedItems.push(level3);
+            level_1_item.items?.forEach(level_1_item => {
+                level_1_item.items?.forEach(level_2_item => {
+                    level_2_item.items?.forEach(level_3_item => {
+                        if (level_3_item.name && level_3_item.name.toLowerCase().includes(q)) {
+                            matchedItems.push(level_3_item);
                         }
                     });
                 });
             });
         }
-        return matchedItems.length ? { label: section.label, items: matchedItems } : null;
+        return matchedItems.length ? { label: level_1_item.label, items: matchedItems } : null;
     }).filter(Boolean);
     renderSections(filteredData, true, true);
 }
 
-function hasOnlyLevel2Items(section) {
-    return !section.items?.some(level1 =>
-        Array.isArray(level1.items) && level1.items.some(level2 =>
-            level2.label && Array.isArray(level2.items)
+function hasOnlyLevel2Items(level_1_item) {
+    return !level_1_item.items?.some(level_2_item =>
+        Array.isArray(level_2_item.items) && level_2_item.items.some(level_3_item =>
+            level_3_item.label && Array.isArray(level_3_item.items)
         )
     );
-}
-
-function initSectionEvents() {
-    document.getElementById("content-container").addEventListener("click", (e) => {
-        if (
-            e.target.closest('[data-bs-toggle="tab"]') ||
-            e.target.closest('.dropdown-menu') ||
-            e.target.closest('.dropdown-toggle')
-        ) return;
-        const section = e.target.closest("section");
-        if (!section) return;
-        const content = section.querySelector(".section-content");
-        const isOpen = section.classList.contains("open");
-        document.querySelectorAll("section").forEach(s => {
-            s.classList.remove("open");
-            const c = s.querySelector(".section-content");
-            if (c) c.style.display = "none";
-        });
-        if (!isOpen) {
-            section.classList.add("open");
-            content.style.display = "block";
-        }
-    });
 }
