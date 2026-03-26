@@ -37,20 +37,21 @@ function init() {
 
     function handleKeydown(e) {
         if (e.key !== "Escape") return;
-
-        const isRightPaneOpen = bsRightPane && rightPaneElement.classList.contains("show");
-        if (isRightPaneOpen) {
-            bsRightPane.hide();
-        } else {
-            resetFilter();
-            renderSections();
+        if (isRightPaneOpen()) {
+            bsRightPane?.hide();
+            return;
         }
+        resetFilter();
+    }
+
+    function isRightPaneOpen() {
+        return bsRightPane && rightPaneElement?.classList.contains("show");
     }
 
     function resetFilter() {
         if (!filterElement) return;
+
         filterElement.value = "";
-        filterElementedSectionsData = null;
         renderSections(sectionsData, false, false);
     }
 }
@@ -66,7 +67,7 @@ function initSectionEvents() {
             handleLinkClick(link);
             return;
         }
-        const level2Section = e.target.closest(".level2-section");
+        const level2Section = e.target.closest(".subsection");
         if (level2Section && !e.target.closest("a")) {
             toggleLevel2Section(level2Section);
             return;
@@ -74,8 +75,7 @@ function initSectionEvents() {
         const section = e.target.closest("section");
         if (section
         && !level2Section
-        && !e.target.closest("a")
-        && !e.target.closest(".dropdown-menu")) {
+        && !e.target.closest("a")) {
                 toggleSection(section);
         }
     }
@@ -126,20 +126,20 @@ function initSectionEvents() {
 
     function toggleLevel2Section(section) {
         const isOpen = section.classList.contains("open");
-        const siblings = section.parentElement.querySelectorAll(".level2-section");
+        const siblings = section.parentElement.querySelectorAll(".subsection");
         siblings.forEach(s => {
             if (s !== section) {
                 setLevel2State(s, false);
             }
         });
         setLevel2State(section, !isOpen);
-    }
 
-    function setLevel2State(section, open) {
-        section.classList.toggle("open", open);
-        const content = section.querySelector(".level2-content");
-        if (content) {
-            content.style.display = open ? "block" : "none";
+        function setLevel2State(section, open) {
+            section.classList.toggle("open", open);
+            const content = section.querySelector(".subsection-content");
+            if (content) {
+                content.style.display = open ? "block" : "none";
+            }
         }
     }
 }

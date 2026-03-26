@@ -57,7 +57,7 @@ li a {
     border: 1px solid var(--bs-border-color);
 }
 
-.section-title-with-filter-icon {
+.section-title {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -98,25 +98,17 @@ section.filtered h2 {
     pointer-events: none;
 }
 
-.nav-tabs {
-    display: flex !important;
-    flex-wrap: wrap;
-}
-
-.dropdown-menu {
-    z-index: 1055;
-}
 
 /* =========================
    LEVEL 2 / LEVEL 3 FIX
 ========================= */
 
-.level2-section {
+.subsection {
     position: relative;
     padding: 0.25rem 0 0 0;
 }
 
-.level2-header {
+.subsection-header {
     position: relative;
     padding: 0.25rem 0 1rem 1.75rem;
     font-size: 1.06rem;
@@ -128,7 +120,7 @@ section.filtered h2 {
 /* lijn boven */
 
 /* lijn onder */
-.level2-header::after {
+.subsection-header::after {
     content: "";
     position: absolute;
     bottom: 0;        /* onderkant van section */
@@ -138,28 +130,28 @@ section.filtered h2 {
     background-color: var(--bs-border-color);
 }
 /* Oude lijn verwijderen */
-.level2-section::before {
+.subsection::before {
     content: none;
 }
 
-.level2-section:last-child .level2-header::after {
+.subsection:last-child .subsection-header::after {
     content: none;
 }
 
-.level2-header .chevron-icon {
+.subsection-header .chevron-icon {
     transition: transform 0.2s ease;
 }
 
-.level2-section.open .chevron-icon {
+.subsection.open .chevron-icon {
     transform: rotate(180deg);
 }
 
 /* Content spacing */
-.level2-content {
+.subsection-content {
     padding-top: 1rem; /* licht aangepast voor nieuwe lijnpositie */
 }
 
-.level2-content .row {
+.subsection-content .row {
     margin-left: calc(-0.5 * var(--bs-gutter-x));
     margin-right: calc(-0.5 * var(--bs-gutter-x));
     padding-left: 1.5rem;

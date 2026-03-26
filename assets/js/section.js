@@ -17,7 +17,7 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
         return `
         <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
-                <span class="section-title-with-filter-icon">
+                <span class="section-title">
                     ${level_1_item.label}
                     ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
                 </span>
@@ -64,12 +64,12 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
     function contentAsSectionWithSubsectionWithThreeColumnCards(level_2_items = []) {
         return level_2_items.map((level_2_item, i) => `
-            <section class="level2-section mb-2" data-level2="${i}">
-                <h3 class="h6 d-flex justify-content-between align-items-center level2-header">
+            <section class="subsection mb-2" data-level2="${i}">
+                <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
                     <span>${level_2_item.label}</span>
                     <i class="bi bi-chevron-down chevron-icon"></i>
                 </h3>
-                <div class="level2-content" style="display:none;">
+                <div class="subsection-content" style="display:none;">
                     ${contentAsSectionWithThreeColumnCards(level_2_item.items, true)}
                 </div>
             </section>
