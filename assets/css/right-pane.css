@@ -73,10 +73,6 @@
     margin-bottom: 1rem;
 }
 
-.pane-block.collapsible.open {
-    margin-bottom: 3rem;
-}
-
 .pane-block.collapsible .block-content {
     display: none;
 }
@@ -96,4 +92,8 @@
 .toggle-icon {
     transition: transform 0.3s;
     margin-left: auto;
+}
+
+.block-header p {
+    padding-left: 30px;
 }

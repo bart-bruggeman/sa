@@ -1,79 +1,86 @@
+let idCounter = 0;
+
 function renderRightPane(link) {
+    idCounter = 0;
     const rightPane = document.getElementById("rightpane-id");
     const rightPaneBody = rightPane.querySelector(".offcanvas-body");
-    let html = `
-        <div class="mb-3">
-            <p><strong style="font-size: 1rem;">${link.name}</strong></p>
+
+    const blocks = [
+        { ...link, isMain: true },
+        ...(link.items || []).map(item => ({ ...item, isMain: false }))
+    ];
+
+    rightPaneBody.innerHTML = `${blocks.map(renderBlock).join("")}`;
+
+    initPaneAccordion(rightPaneBody);
+    bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
+}
+
+function renderBlock(office) {
+    const blockId = `block-${idCounter++}`;
+    const isMain = office.isMain;
+
+    return `
+        <div class="pane-block ${isMain ? 'open mb-0' : 'collapsible'}" data-block="${blockId}">
+            
+            ${renderHeader(office, blockId, isMain)}
+
+            <div class="block-content">
+                ${renderData(office)}
+            </div>
             <hr>
         </div>
     `;
-    html += renderRightPaneBlock(link, false, true);
-    if (link.items) {
-        link.items.forEach((branch, index) => {
-            html += renderRightPaneBlock(branch, true, false);
-        });
-    }
-    rightPaneBody.innerHTML = html;
-    initPaneAccordion(rightPaneBody);
-    bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
+}
 
-    function renderRightPaneBlock(office, showName = true, isMain = false) {
-        const blockId = `block-${office.name?.replace(/\s+/g, "-")}-${Math.random().toString(36).slice(2,6)}`;
-        let html = `<div class="pane-block ${isMain ? 'mb-5 main-open open' : 'collapsible'}" data-block="${blockId}">`;
-        if (showName && office.name) {
-            html += `
-                <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>
-                    <div class="header-content d-flex justify-content-between align-items-center">
-                        <p class="mb-0"><strong style="font-size: 1rem;">${office.name}</strong></p>
-                        ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
-                    </div>
-                    <hr>
-                </div>
+function renderHeader(office, blockId, isMain) {
+    if (!office.name) return "";
+
+    return `
+        <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>
+            <div class="header-content d-flex justify-content-between align-items-center">
+                <p class="mb-0"><strong style="font-size: 1rem;">${office.name}</strong></p>
+                ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
+            </div>
+        </div>
+    `;
+}
+
+function renderData(data) {
+    return Object.entries(data)
+        .filter(([key, val]) => val && key !== "name" && key !== "items" && key !== "isMain")
+        .map(([key, val]) => {
+            const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
+            const color = cfg.colorClass || "";
+
+            return `
+                <p class="value ${color} mt-3">
+                    <i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}
+                </p>
             `;
-        }
-        html += `<div class="block-content">`;
-        html += renderData(office);
-        html += `</div></div>`;
-        return html;
+        })
+        .join("");
+}
 
-        function renderData(data) {
-            let html = "";
-            for (const [key, val] of Object.entries(data)) {
-                if (!val || key === "name" || key === "items") continue;
-                const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
-                const color = cfg.colorClass || "";
-                html += `
-                    <p class="value ${color} mt-3">
-                        <i class="bi ${cfg.icon} icon ${color}"></i>${cfg.render(val)}
-                    </p>
-                `;
-            }
-            return html;
-        }
-    }
+function initPaneAccordion(container) {
+    container.querySelectorAll(".block-header[data-toggle]").forEach(header => {
+        header.addEventListener("click", () => {
+            const blockId = header.dataset.toggle;
+            const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
+            const isOpen = currentBlock.classList.contains("open");
 
-    function initPaneAccordion(container) {
-        const headers = container.querySelectorAll(".block-header[data-toggle]");
-        headers.forEach(header => {
-            header.addEventListener("click", () => {
-                const blockId = header.dataset.toggle;
-                const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
-                const isOpen = currentBlock.classList.contains("open");
-                container.querySelectorAll(".pane-block.collapsible").forEach(b => {
-                    b.classList.remove("open");
-                    const icon = b.querySelector(".toggle-icon");
-                    if(icon) icon.style.transform = "rotate(0deg)";
-                });
-                if (!isOpen) {
-                    currentBlock.classList.add("open");
-                    const icon = currentBlock.querySelector(".toggle-icon");
-                    if(icon) icon.style.transform = "rotate(180deg)";
-                    currentBlock.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
+            container.querySelectorAll(".pane-block.collapsible").forEach(b => {
+                b.classList.remove("open");
+                const icon = b.querySelector(".toggle-icon");
+                if (icon) icon.style.transform = "rotate(0deg)";
             });
+
+            if (!isOpen) {
+                currentBlock.classList.add("open");
+                const icon = currentBlock.querySelector(".toggle-icon");
+                if (icon) icon.style.transform = "rotate(180deg)";
+                currentBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
         });
-    }
+    });
 }
