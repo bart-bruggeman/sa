@@ -27,11 +27,6 @@
     font-size:.9rem;
 }
 
-.offcanvas-body hr{
-    border-top:1px solid var(--pane-line-color);
-    margin:.75rem 0;
-}
-
 .offcanvas-body .value{
     display:grid;
     grid-template-columns:24px 1fr;
@@ -69,12 +64,10 @@
     opacity: 0.8;
 }
 
-.block-header p,
-.block-header-n p {
+.block-header h3,
+.block-header-n h3 {
     padding-left: 30px;
 }
-
-
 
 .pane-block.collapsible .block-content {
     display: none;
@@ -93,6 +86,14 @@
     margin-left: auto;
 }
 
-strong {
+.block-header h3,
+.block-header-n h3 {
     font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.pane-block {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
 }

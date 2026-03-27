@@ -21,15 +21,14 @@ function renderBlock(office) {
     const isMain = office.isMain;
 
     return `
-        <div class="pane-block ${isMain ? 'open mb-0' : 'collapsible'}" data-block="${blockId}">
+        <section class="pane-block ${isMain ? 'open mb-0' : 'collapsible'}" data-block="${blockId}">
             
             ${renderHeader(office, blockId, isMain)}
 
             <div class="block-content">
                 ${renderData(office)}
             </div>
-            <hr>
-        </div>
+        </section>
     `;
 }
 
@@ -39,7 +38,7 @@ function renderHeader(office, blockId, isMain) {
     return `
         <div class="${isMain ? `block-header` : `block-header-n`}" ${!isMain ? `data-toggle="${blockId}"` : ""}>
             <div class="header-content d-flex justify-content-between align-items-center">
-                <p class="mb-0"><strong>${office.name}</strong></p>
+                <h3 class="mb-0">${office.name}</h3>
                 ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
             </div>
         </div>
