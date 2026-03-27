@@ -37,9 +37,9 @@ function renderHeader(office, blockId, isMain) {
     if (!office.name) return "";
 
     return `
-        <div class="block-header" ${!isMain ? `data-toggle="${blockId}"` : ""}>
+        <div class="${isMain ? `block-header` : `block-header-n`}" ${!isMain ? `data-toggle="${blockId}"` : ""}>
             <div class="header-content d-flex justify-content-between align-items-center">
-                <p class="mb-0"><strong style="font-size: 1rem;">${office.name}</strong></p>
+                <p class="mb-0"><strong>${office.name}</strong></p>
                 ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
             </div>
         </div>
@@ -63,7 +63,7 @@ function renderData(data) {
 }
 
 function initPaneAccordion(container) {
-    container.querySelectorAll(".block-header[data-toggle]").forEach(header => {
+    container.querySelectorAll(".block-header-n[data-toggle]").forEach(header => {
         header.addEventListener("click", () => {
             const blockId = header.dataset.toggle;
             const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
