@@ -95,6 +95,8 @@
 .block-header-n h3 {
     font-size: 0.95rem;
     font-weight: 600;
+    letter-spacing: 0.015em;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
 }
 

@@ -15,8 +15,18 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.h5, .h6 {
+.h5 {
     font-weight: 600;
+    letter-spacing: 0.02em;   /* meer lucht nodig */
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+}
+
+.h6 {
+    font-weight: 600;
+    letter-spacing: 0.025em;  /* nog iets meer */
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
