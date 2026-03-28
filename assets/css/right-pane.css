@@ -56,12 +56,17 @@
     color:var(--emergency-hover-color);
 }
 
+.block-header, .block-header-n {
+    color: var(--right-pane-section-title-color);
+}
+
 .block-header-n {
     cursor: pointer;
+    transition: color 0.25s ease;
 }
 
 .block-header-n:hover {
-    opacity: 0.8;
+    color: var(--right-pane-section-title-hover-color);
 }
 
 .block-header h3,

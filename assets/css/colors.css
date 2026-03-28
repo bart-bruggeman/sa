@@ -13,6 +13,8 @@
     --emergency-color:#dc3545;
     --emergency-hover-color:#D2143A;
     --bs-border-color: #dee2e6;
+    --right-pane-section-title-color: var(--text-body);
+    --right-pane-section-title-hover-color: #16181b;
 
     /* Nord palette (dark reference) */
     --nord0:#2E3440;
@@ -49,4 +51,6 @@
     --emergency-color:var(--nord12);
     --emergency-hover-color:var(--nord11);
     --bs-border-color: var(--nord3);
+    --right-pane-section-title-color: var(--nord4);
+    --right-pane-section-title-hover-color: var(--nord5);
 }
