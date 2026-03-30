@@ -11,7 +11,7 @@
     --tooltip-color:#f8f9fa;
     --bg-footer:#f1f3f5;
     --emergency-color:#dc3545;
-    --emergency-hover-color:#D2143A;
+    --emergency-hover-color:#b02a37;
     --bs-border-color: #dee2e6;
     --right-pane-section-title-color: var(--text-body);
     --right-pane-section-title-hover-color: #16181b;
@@ -48,8 +48,8 @@
     --tooltip-bg:var(--nord2);
     --tooltip-color:var(--nord5);
     --bg-footer:var(--bg-navbar);
-    --emergency-color:var(--nord12);
-    --emergency-hover-color:var(--nord11);
+    --emergency-color:var(--nord11);
+    --emergency-hover-color:var(--nord12);
     --bs-border-color: var(--nord3);
     --right-pane-section-title-color: var(--nord4);
     --right-pane-section-title-hover-color: var(--nord5);

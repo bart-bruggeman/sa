@@ -32,6 +32,7 @@ body {
 a {
     color: var(--link-color);
     text-decoration: none;
+    transition: color 0.25s ease;
 }
 
 a:hover {
