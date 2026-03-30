@@ -32,7 +32,7 @@
     color:var(--text-body);
     border:1px solid var(--pane-line-color);
     border-radius:5px;
-    transition:background-color .3s ease,border-color .3s ease,box-shadow .25s ease,color .25s ease;
+    transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease,color .25s ease;
 }
 
 #filter-id:focus{
@@ -68,7 +68,7 @@
     display:flex;
     align-items:center;
     height:32px;
-    transition:color .3s ease;
+    transition:color .25s ease;
 }
 
 #theme-id i{
@@ -80,7 +80,7 @@
 }
 
 #theme-id i {
-    transition: transform .2s ease, color .3s ease;
+    transition: transform .25s ease, color .25s ease;
 }
 
 /* ---------------------------------------------------------------

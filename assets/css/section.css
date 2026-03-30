@@ -6,7 +6,7 @@ li a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: color 0.25s ease, transform 0.15s ease;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
 
@@ -125,7 +125,7 @@ section li,
 ------------------------------------------------------------------------------*/
 section h2 i,
 .subsection-header .chevron-icon {
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
 }
 
 section.open h2 i.chevron-icon,

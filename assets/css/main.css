@@ -3,8 +3,8 @@ html {
 }
 
 html, body, .offcanvas, a {
-    transition: background-color .3s ease,
-                border-color .3s ease,
+    transition: background-color .25s ease,
+                border-color .25s ease,
                 box-shadow .25s ease,
                 color .25s ease;
 }
@@ -17,14 +17,14 @@ body {
 
 .h5 {
     font-weight: 600;
-    letter-spacing: 0.02em;   /* meer lucht nodig */
+    letter-spacing: 0.02em;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
 }
 
 .h6 {
     font-weight: 600;
-    letter-spacing: 0.025em;  /* nog iets meer */
+    letter-spacing: 0.025em;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
 }
