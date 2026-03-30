@@ -1,7 +1,6 @@
 /*------------------------------------------------------------------------------
   general
 ------------------------------------------------------------------------------*/
-
 li a {
     display: inline-block;
     white-space: nowrap;
@@ -74,36 +73,33 @@ section .row {
 ------------------------------------------------------------------------------*/
 .subsection {
     position: relative;
-    padding-top: 0.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
-.subsection::before,
-.subsection:last-child .subsection-header::after {
+.subsection::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 1.75rem;
+    right: 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.subsection:last-child::after { /* no line on last subsection */
     content: none;
 }
 
 .subsection-header {
     position: relative;
     display: block;
-    padding: 0.25rem 0 1rem 1.75rem;
+    padding: 0 0 0 1.75rem;
     font-size: 1.06rem;
     cursor: pointer;
     z-index: 1;
 }
 
-.subsection-header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 1.75rem;
-    right: 0;
-    height: 1px;
-    background-color: var(--bs-border-color);
-}
 
-.subsection-content {
-    padding-top: 1rem;
-}
 
 .subsection-content .row {
     margin-left: calc(-0.5 * var(--bs-gutter-x));
