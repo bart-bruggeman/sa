@@ -67,11 +67,11 @@ section .row {
     line-height: 1.2;
 }
 
-section .section-title, .subsection-header {
+section .section-title-icon, .subsection-header {
     color: var(--right-pane-section-title-color);
 }
 
-section:not(.filtered):hover .section-title, section:not(.filtered) .subsection-header:hover {
+section:not(.filtered):hover .section-title-icon, section:not(.filtered) .subsection-header:hover {
     color: var(--right-pane-section-title-hover-color);
 }
 

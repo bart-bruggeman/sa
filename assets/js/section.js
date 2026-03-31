@@ -16,7 +16,7 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
                 : contentAsSectionWithSubsectionWithThreeColumnCards(level_1_item.items); // level 1 (=section) + level 2 (=subsection) + level 3 (=cards data)
         return `
         <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
-            <h2 class="h5 mb-3 d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
                 <span class="section-title">
                     ${level_1_item.label}
                     ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
