@@ -27,7 +27,7 @@ footer .link-footer i{
 
 footer a.emergency{
     color:var(--emergency-color);
-    transition: color 0.25s ease;
+    transition: color 0.2s ease;
 }
 
 footer a.emergency:hover{

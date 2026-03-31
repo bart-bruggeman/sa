@@ -1,20 +1,20 @@
 :root {
     /* Base colors */
     --bg-body:#f8f9fa;
-    --text-body:#212529;
+    --text-body:#343a40;
     --bg-card:#fdfdfd;
     --bg-navbar:#ffffff;
     --link-color:#0d6efd;
     --link-hover-color:#084298;
     --pane-line-color:#a6a6a6;
-    --tooltip-bg:#212529;
+    --tooltip-bg:#343a40;
     --tooltip-color:#f8f9fa;
     --bg-footer:#f1f3f5;
     --emergency-color:#dc3545;
     --emergency-hover-color:#b02a37;
     --bs-border-color: #dee2e6;
-    --right-pane-section-title-color: var(--text-body);
-    --right-pane-section-title-hover-color: #16181b;
+    --right-pane-section-title-color: #343a40;
+    --right-pane-section-title-hover-color: #0a0c0e;
 
     /* Nord palette (dark reference) */
     --nord0:#2E3440;
@@ -52,5 +52,5 @@
     --emergency-hover-color:var(--nord12);
     --bs-border-color: var(--nord3);
     --right-pane-section-title-color: var(--nord4);
-    --right-pane-section-title-hover-color: var(--nord5);
+    --right-pane-section-title-hover-color: #fff;
 }

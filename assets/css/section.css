@@ -6,7 +6,7 @@ li a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: color 0.25s ease, transform 0.25s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 
@@ -67,6 +67,14 @@ section .row {
     line-height: 1.2;
 }
 
+section .section-title, .subsection-header {
+    color: var(--right-pane-section-title-color);
+}
+
+section:not(.filtered):hover .section-title, section:not(.filtered) .subsection-header:hover {
+    color: var(--right-pane-section-title-hover-color);
+}
+
 
 /*------------------------------------------------------------------------------
   subsection
@@ -125,7 +133,7 @@ section li,
 ------------------------------------------------------------------------------*/
 section h2 i,
 .subsection-header .chevron-icon {
-    transition: transform 0.25s ease;
+    transition: transform 0.2s ease;
 }
 
 section.open h2 i.chevron-icon,
