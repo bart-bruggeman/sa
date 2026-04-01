@@ -63,23 +63,39 @@ function renderData(data) {
 
 function initPaneAccordion(container) {
     container.querySelectorAll(".block-header-n[data-toggle]").forEach(header => {
-        header.addEventListener("click", () => {
+        header.addEventListener("click", (e) => {
+            e.stopPropagation();
             const blockId = header.dataset.toggle;
             const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
             const isOpen = currentBlock.classList.contains("open");
-
-            container.querySelectorAll(".pane-block.collapsible").forEach(b => {
-                b.classList.remove("open");
-                const icon = b.querySelector(".toggle-icon");
-                if (icon) icon.style.transform = "rotate(0deg)";
-            });
-
+            closeAll(container);
             if (!isOpen) {
-                currentBlock.classList.add("open");
-                const icon = currentBlock.querySelector(".toggle-icon");
-                if (icon) icon.style.transform = "rotate(180deg)";
-                currentBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+                openBlock(currentBlock);
             }
         });
     });
+
+    container.querySelectorAll(".pane-block.collapsible").forEach(block => {
+        block.addEventListener("click", (e) => {
+            const clickedHeader = e.target.closest(".block-header-n");
+            const clickedLink = e.target.closest("a");
+            if (clickedHeader || clickedLink) return;
+            closeAll(container);
+        });
+    });
+
+    function closeAll(container) {
+        container.querySelectorAll(".pane-block.collapsible").forEach(b => {
+            b.classList.remove("open");
+            const icon = b.querySelector(".toggle-icon");
+            if (icon) icon.style.transform = "rotate(0deg)";
+        });
+    }
+
+    function openBlock(block) {
+        block.classList.add("open");
+        const icon = block.querySelector(".toggle-icon");
+        if (icon) icon.style.transform = "rotate(180deg)";
+        block.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 }
