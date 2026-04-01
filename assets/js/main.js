@@ -8,6 +8,15 @@ function init() {
         ? bootstrap.Offcanvas.getOrCreateInstance(rightPaneElement)
         : null;
 
+    if (rightPaneElement && filterElement) {
+        rightPaneElement.addEventListener("show.bs.offcanvas", () => {
+            filterElement.disabled = true;
+        });
+        rightPaneElement.addEventListener("hidden.bs.offcanvas", () => {
+            filterElement.disabled = false;
+        });
+    }
+
     renderFooter();
     renderSections();
     initSectionEvents();

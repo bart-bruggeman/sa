@@ -15,6 +15,9 @@
     --bs-border-color: #dee2e6;
     --right-pane-section-title-color: #343a40;
     --right-pane-section-title-hover-color: #0a0c0e;
+    --filter-color-disabled: #adb5bd;
+    --filter-border-color-disabled: #adb5bd;
+    --filter-bg-color-disabled: #e9ecef;
 
     /* Nord palette (dark reference) */
     --nord0:#2E3440;
@@ -53,4 +56,7 @@
     --bs-border-color: var(--nord3);
     --right-pane-section-title-color: var(--nord4);
     --right-pane-section-title-hover-color: #fff;
+    --filter-color-disabled: var(--nord3);
+    --filter-border-color-disabled: var(--nord3);
+    --filter-bg-color-disabled: #000;
 }

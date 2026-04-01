@@ -40,25 +40,17 @@
     box-shadow:none;
 }
 
-#filter-id:disabled{
-    background:var(--bg-card);
-    color:var(--text-body);
-    border:1px solid var(--pane-line-color);
-    opacity:1;
-    cursor:default;
+#filter-id:disabled {
+    background: var(--filter-bg-color-disabled);
+    color: var(--filter-color-disabled);
+    border: 1px solid var(--filter-border-color-disabled);
+    cursor: not-allowed;
 }
 
-#filter-id:disabled::placeholder,
-#filter-id:disabled::-webkit-input-placeholder,
-#filter-id:disabled::-moz-placeholder,
-#filter-id:disabled:-ms-input-placeholder{
-    color:var(--pane-line-color);
-    opacity:.8;
+#filter-id:disabled::placeholder {
+    color: var(--filter-color-disabled);
 }
 
-#filter-id::-webkit-search-cancel-button{
-    -webkit-appearance:auto;
-}
 
 /* ---------------------------------------------------------------
    theme
