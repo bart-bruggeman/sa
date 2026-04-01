@@ -1,41 +1,42 @@
-html {
-    overflow-y: scroll;
+html{
+    overflow-y:scroll;
 }
 
-html, body, .offcanvas, a {
-    transition: background-color .25s ease,
-                border-color .25s ease,
-                box-shadow .25s ease,
-                color .25s ease;
+html, body, .offcanvas, a{
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        color .25s ease;
 }
 
-body {
-    background: var(--bg-body);
-    color: var(--text-body);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body{
+    background:var(--bg-body);
+    color:var(--text-body);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.h5 {
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    line-height: 1.4;
-    -webkit-font-smoothing: antialiased;
+.h5, .h6{
+    font-weight:600;
+    line-height:1.4;
+    -webkit-font-smoothing:antialiased;
 }
 
-.h6 {
-    font-weight: 600;
-    letter-spacing: 0.025em;
-    line-height: 1.4;
-    -webkit-font-smoothing: antialiased;
+.h5{
+    letter-spacing:.02em;
 }
 
-a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
+.h6{
+    letter-spacing:.025em;
 }
 
-a:hover {
-    color: var(--link-hover-color);
-    outline: none;
+a{
+    color:var(--link-color);
+    text-decoration:none;
+    transition:color .2s ease;
+}
+
+a:hover{
+    color:var(--link-hover-color);
+    outline:0;
 }

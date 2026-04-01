@@ -2,15 +2,15 @@
     position:sticky;
     top:0;
     z-index:1050;
-    background:var(--bg-navbar) !important;
+    background:var(--bg-navbar)!important;
     box-shadow:0 2px 4px rgba(0,0,0,.1);
 }
 
 .navbar-brand{
-    font-weight: 600;
-    letter-spacing: 0.005em;
-    line-height: 1.2;
-    -webkit-font-smoothing: antialiased;
+    font-weight:600;
+    letter-spacing:.005em;
+    line-height:1.2;
+    -webkit-font-smoothing:antialiased;
     cursor:pointer;
 }
 
@@ -32,7 +32,7 @@
     color:var(--text-body);
     border:1px solid var(--pane-line-color);
     border-radius:5px;
-    transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease;
+    transition:background-color .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
 }
 
 #filter-id:focus{
@@ -40,15 +40,15 @@
     box-shadow:none;
 }
 
-#filter-id:disabled {
-    background: var(--filter-bg-color-disabled);
-    color: var(--filter-color-disabled);
-    border: 1px solid var(--filter-border-color-disabled);
-    cursor: not-allowed;
+#filter-id:disabled{
+    background:var(--filter-bg-color-disabled);
+    color:var(--filter-color-disabled);
+    border-color:var(--filter-border-color-disabled);
+    cursor:not-allowed;
 }
 
-#filter-id:disabled::placeholder {
-    color: var(--filter-color-disabled);
+#filter-id:disabled::placeholder{
+    color:var(--filter-color-disabled);
 }
 
 
@@ -65,27 +65,24 @@
 
 #theme-id i{
     font-size:1.3rem;
+    transition:transform .2s ease, color .2s ease;
 }
 
 #theme-id:hover{
     color:var(--link-hover-color);
 }
 
-#theme-id i {
-    transition: transform .2s ease, color .2s ease;
-}
-
 /* ---------------------------------------------------------------
    responsive / mobile fixes
    --------------------------------------------------------------- */
-@media(max-width:768px){
+@media (max-width:768px){
     #filter-id{
         font-size:16px;
         -webkit-text-size-adjust:100%;
     }
 }
 
-@media(max-width:576px){
+@media (max-width:576px){
     #filter-id{
         width:140px;
     }

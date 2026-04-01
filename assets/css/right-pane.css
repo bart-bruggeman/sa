@@ -1,4 +1,4 @@
-@media(max-width:768px){
+@media (max-width:768px){
     .offcanvas-end{
         width:100%!important;
     }
@@ -7,19 +7,18 @@
 .offcanvas{
     background:var(--bg-card);
     color:var(--text-body);
-    box-shadow:-4px 0 20px rgba(0,0,0,0.15);
+    box-shadow:-4px 0 20px rgba(0,0,0,.15);
 }
 
 .offcanvas-header{
-    border:none;
-    margin-top:3rem;
-    margin-bottom:-2rem;
+    border:0;
+    margin:3rem 0 -2rem;
 }
 
 .offcanvas-header .btn-close{
-    outline:none;
+    outline:0;
     box-shadow:none;
-    font-size:0.9rem;
+    font-size:.9rem;
 }
 
 .offcanvas-body{
@@ -56,51 +55,48 @@
     color:var(--emergency-hover-color);
 }
 
-.block-header, .block-header-n {
-    color: var(--right-pane-section-title-color);
+.block-header,
+.block-header-n{
+    color:var(--right-pane-section-title-color);
 }
 
-.block-header-n {
-    cursor: pointer;
-    transition: color 0.2s ease, font-weight 0.2s ease;
+.block-header-n{
+    cursor:pointer;
+    transition:color .2s ease, font-weight .2s ease;
 }
 
-.block-header-n:hover {
-    color: var(--right-pane-section-title-hover-color);
-}
-
-.block-header h3,
-.block-header-n h3 {
-    padding-left: 30px;
-}
-
-.pane-block.collapsible .block-content {
-    display: none;
-}
-
-.pane-block.open .block-content {
-    display: block;
-}
-
-.header-content {
-    width: 100%;
-}
-
-.toggle-icon {
-    transition: transform 0.3s;
-    margin-left: auto;
+.block-header-n:hover{
+    color:var(--right-pane-section-title-hover-color);
 }
 
 .block-header h3,
-.block-header-n h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.015em;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
+.block-header-n h3{
+    padding-left:30px;
+    font-size:.95rem;
+    font-weight:600;
+    letter-spacing:.015em;
+    -webkit-font-smoothing:antialiased;
+    margin:0;
 }
 
-.pane-block {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--bs-border-color);
+.pane-block.collapsible .block-content{
+    display:none;
+}
+
+.pane-block.open .block-content{
+    display:block;
+}
+
+.header-content{
+    width:100%;
+}
+
+.toggle-icon{
+    margin-left:auto;
+    transition:transform .3s;
+}
+
+.pane-block{
+    padding:.75rem 0;
+    border-bottom:1px solid var(--bs-border-color);
 }
