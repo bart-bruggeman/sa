@@ -12,6 +12,11 @@
     line-height:1.2;
     -webkit-font-smoothing:antialiased;
     cursor:pointer;
+    color: var(--navbar-brand-color)
+}
+
+.navbar-brand:hover{
+    color:var(--navbar-brand-hover-color);
 }
 
 .navbar-tools{

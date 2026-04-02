@@ -13,6 +13,8 @@
     --emergency-color:#dc3545;
     --emergency-hover-color:#b02a37;
     --bs-border-color: #dee2e6;
+    --navbar-brand-color: #343a40;
+    --navbar-brand-hover-color: #0a0c0e;
     --right-pane-section-title-color: #343a40;
     --right-pane-section-title-hover-color: #0a0c0e;
     --filter-color-disabled: #adb5bd;
@@ -54,6 +56,8 @@
     --emergency-color:var(--nord11);
     --emergency-hover-color:var(--nord12);
     --bs-border-color: var(--nord3);
+    --navbar-brand-color: var(--nord4);
+    --navbar-brand-hover-color: #fff;
     --right-pane-section-title-color: var(--nord4);
     --right-pane-section-title-hover-color: #fff;
     --filter-color-disabled: var(--nord3);
