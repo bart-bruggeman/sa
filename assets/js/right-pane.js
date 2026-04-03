@@ -61,7 +61,8 @@ function renderData(data) {
         .join("");
 
     function shouldRenderField(key, val) {
-        return val && key !== "items" && key !== "name" && key !== "mode" && key !== "isMain";
+        const skipFields = ["items", "name", "mode", "isMain"];
+        return val && !skipFields.includes(key);
     }
 }
 
