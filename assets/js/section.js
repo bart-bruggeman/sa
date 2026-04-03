@@ -97,7 +97,8 @@ function renderFilteredSections(query) {
         if (hasOnlyLevel2Items(level_1_item)) { // Level1 + Level2
             level_1_item.items?.forEach(level_2_item => {
                 level_2_item.items?.forEach(level_3_item => {
-                    if (level_3_item.name && level_3_item.name.toLowerCase().includes(q)) {
+                    if (level_3_item.name && level_3_item.name.toLowerCase().includes(q)
+                    ||  level_3_item.mode && level_3_item.mode) {
                         matchedItems.push(level_3_item);
                     }
                 });
@@ -106,7 +107,8 @@ function renderFilteredSections(query) {
             level_1_item.items?.forEach(level_2_item => {
                 level_2_item.items?.forEach(level_3_item => {
                     level_3_item.items?.forEach(level_4_item => {
-                        if (level_4_item.name && level_4_item.name.toLowerCase().includes(q)) {
+                        if (level_4_item.name && level_4_item.name.toLowerCase().includes(q)
+                        ||  level_4_item.mode && level_4_item.mode.toLowerCase().includes(q)) {
                             matchedItems.push(level_4_item);
                         }
                     });
