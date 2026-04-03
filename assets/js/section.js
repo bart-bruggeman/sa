@@ -33,7 +33,7 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     function filteredContentAsList(level_1_item) {
         if (!level_1_item.items?.length) return '<p class="text-muted">No data found.</p>';
         const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.name, level_2_item])).values());
-        const sortedItems = uniqueItems.sort((a, b) => a.name.localeCompare(b.name));
+        const sortedItems = uniqueItems.sort(byField("name"));
         return `<ul class="list-unstyled mb-2 filtered-list">
             ${sortedItems.map(item => {
                 const hotIcon = item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
@@ -45,7 +45,8 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     function contentAsSectionWithThreeColumnCards(level_2_items = [], wrapRow = true) {
         const level2Items = (level_2_items || []).filter(level_2_item => level_2_item.items && level_2_item.items.length);
         if (!level2Items.length) return '';
-        const content = level2Items.map(level_2_item => `
+        const sortedLevel2Items = level2Items.sort(byField("label"));
+        const content = sortedLevel2Items.map(level_2_item => `
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100">
                     <div class="card-body">
@@ -58,8 +59,9 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
         function renderLinks(level_2_items = []) {
             if (!level_2_items.length) return '';
+            const sortedLevel2Items = level_2_items.sort(byField("name"));
             return `<ul class="list-unstyled mb-0">
-                ${level_2_items.map(level_2_item => {
+                ${sortedLevel2Items.map(level_2_item => {
                     const hotIcon = level_2_item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
                     return `<li>
                                 <a href="#" data-name="${level_2_item.name}">${level_2_item.name}${hotIcon}</a>
@@ -72,7 +74,8 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     }
 
     function contentAsSectionWithSubsectionWithThreeColumnCards(level_2_items = []) {
-        return level_2_items.map((level_2_item, i) => `
+        const sortedLevel2Items = level_2_items.sort(byField("label"));
+        return sortedLevel2Items.map((level_2_item, i) => `
             <section class="subsection mb-2" data-level2="${i}">
                 <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
                     <span>${level_2_item.label}</span>
@@ -130,4 +133,14 @@ function hasOnlyLevel2Items(level_1_item) {
             level_3_item.label && Array.isArray(level_3_item.items)
         )
     );
+}
+
+function byField(field) {
+    return (a, b) => {
+        const v1 = (a[field] || "").toLowerCase().trim();
+        const v2 = (b[field] || "").toLowerCase().trim();
+        if (v1 < v2) return -1;
+        if (v1 > v2) return 1;
+        return 0;
+    };
 }
