@@ -102,6 +102,7 @@ const wineEstateData = {
                     "items": [
                         {
                             "name": "Cape Point Vineyards",
+                            "mode": "hot",
                             "address": "Silvermine Rd, Noordhoek, Cape Town 7979, South Africa",
                             "coordinates": "-34.09360723884719, 18.38751004963936",
                             "phone": [
