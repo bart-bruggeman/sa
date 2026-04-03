@@ -98,7 +98,7 @@ function renderFilteredSections(query) {
             level_1_item.items?.forEach(level_2_item => {
                 level_2_item.items?.forEach(level_3_item => {
                     if (level_3_item.name && level_3_item.name.toLowerCase().includes(q)
-                    ||  level_3_item.mode && level_3_item.mode) {
+                    ||  level_3_item.mode && level_3_item.mode.toLowerCase().includes(q)) {
                         matchedItems.push(level_3_item);
                     }
                 });
