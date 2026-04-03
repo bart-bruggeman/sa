@@ -35,7 +35,10 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
         const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.name, level_2_item])).values());
         const sortedItems = uniqueItems.sort((a, b) => a.name.localeCompare(b.name));
         return `<ul class="list-unstyled mb-2 filtered-list">
-            ${sortedItems.map(level_2_item => `<li><a href="#" data-name="${level_2_item.name}">${level_2_item.name}</a></li>`).join('')}
+            ${sortedItems.map(item => {
+                const hotIcon = item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
+                return `<li><a href="#" data-name="${item.name}">${item.name}${hotIcon}</a></li>`;
+            }).join('')}
         </ul>`;
     }
 
@@ -92,19 +95,19 @@ function renderFilteredSections(query) {
     const filteredData = sectionsData.map(level_1_item => {
         const matchedItems = [];
         if (hasOnlyLevel2Items(level_1_item)) { // Level1 + Level2
-            level_1_item.items?.forEach(level_1_item => {
-                level_1_item.items?.forEach(level_2_item => {
-                    if (level_2_item.name && level_2_item.name.toLowerCase().includes(q)) {
-                        matchedItems.push(level_2_item);
+            level_1_item.items?.forEach(level_2_item => {
+                level_2_item.items?.forEach(level_3_item => {
+                    if (level_3_item.name && level_3_item.name.toLowerCase().includes(q)) {
+                        matchedItems.push(level_3_item);
                     }
                 });
             });
         } else { // Level1 + Level2 + Level3
-            level_1_item.items?.forEach(level_1_item => {
-                level_1_item.items?.forEach(level_2_item => {
-                    level_2_item.items?.forEach(level_3_item => {
-                        if (level_3_item.name && level_3_item.name.toLowerCase().includes(q)) {
-                            matchedItems.push(level_3_item);
+            level_1_item.items?.forEach(level_2_item => {
+                level_2_item.items?.forEach(level_3_item => {
+                    level_3_item.items?.forEach(level_4_item => {
+                        if (level_4_item.name && level_4_item.name.toLowerCase().includes(q)) {
+                            matchedItems.push(level_4_item);
                         }
                     });
                 });
