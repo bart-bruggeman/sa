@@ -57,7 +57,7 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
             if (!level_2_items.length) return '';
             return `<ul class="list-unstyled mb-0">
                 ${level_2_items.map(level_2_item => {
-                    const hotIcon = level_2_item.mode === 'hot' ? ' <i class="bi bi-fire hot-icon"></i>' : '';
+                    const hotIcon = level_2_item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
                     return `<li>
                                 <a href="#" data-name="${level_2_item.name}">${level_2_item.name}${hotIcon}</a>
                             </li>`;
