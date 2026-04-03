@@ -56,9 +56,15 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
         function renderLinks(level_2_items = []) {
             if (!level_2_items.length) return '';
             return `<ul class="list-unstyled mb-0">
-                ${level_2_items.map(level_2_item => `<li><a href="#" data-name="${level_2_item.name}">${level_2_item.name}</a></li>`).join("")}
+                ${level_2_items.map(level_2_item => {
+                    const hotIcon = level_2_item.mode === 'hot' ? ' <i class="bi bi-fire hot-icon"></i>' : '';
+                    return `<li>
+                                <a href="#" data-name="${level_2_item.name}">${level_2_item.name}</a>${hotIcon}
+                            </li>`;
+                }).join("")}
             </ul>`;
         }
+
         return wrapRow ? `<div class="row">${content}</div>` : content;
     }
 

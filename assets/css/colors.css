@@ -43,6 +43,7 @@
 /* Dark theme */
 :root[data-bs-theme="dark"]{
     --bs-secondary:#c0c8d2;
+    --bs-danger: var(--nord11);
     --bg-body:var(--nord0);
     --text-body:var(--nord4);
     --bg-card:var(--nord1);

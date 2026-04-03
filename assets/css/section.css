@@ -9,6 +9,10 @@ li a {
     transition: color .2s ease, transform .2s ease;
 }
 
+.hot-icon {
+    color: var(--bs-danger);
+}
+
 
 /*------------------------------------------------------------------------------
   filtered section
