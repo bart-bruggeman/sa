@@ -37,9 +37,9 @@ function renderFooter() {
         html += `Region: ${geographicData.region} | `;
         html += `Metropolitan Municipality: ${geographicData.municipality} | `;
         html += `Province: ${geographicData.province}`;
-        html += `</p>`;
+        html += ``;
         if (Array.isArray(geographicData.suburbs) && geographicData.suburbs.length > 0) {
-            html += `<p>Gordon's Bay Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
+            html += `<br/>Gordon's Bay Suburbs: ${geographicData.suburbs.join(', ')}</p>`;
         }
         html += `</div>`;
         geographyContainer.innerHTML = html;
