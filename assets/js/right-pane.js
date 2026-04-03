@@ -61,7 +61,7 @@ function renderData(data) {
         .join("");
 
     function shouldRenderField(key, val) {
-        return val && key !== "items" && key !== "name" && key !== "isMain";
+        return val && key !== "items" && key !== "name" && key !== "mode" && key !== "isMain";
     }
 }
 
