@@ -13,6 +13,9 @@ li a {
     color: var(--bs-danger);
 }
 
+a:hover .hot-icon {
+    color: var(--bs-danger-hover-color);
+}
 
 /*------------------------------------------------------------------------------
   filtered section

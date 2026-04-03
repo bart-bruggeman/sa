@@ -1,6 +1,8 @@
 :root {
     /* Base colors */
     --bg-body:#f8f9fa;
+    --bs-danger: #dc3545;
+    --bs-danger-hover-color: #b02a37;
     --text-body:#343a40;
     --bg-card:#fdfdfd;
     --bg-navbar:#ffffff;
@@ -44,6 +46,7 @@
 :root[data-bs-theme="dark"]{
     --bs-secondary:#c0c8d2;
     --bs-danger: var(--nord11);
+    --bs-danger-hover-color:var(--nord12);
     --bg-body:var(--nord0);
     --text-body:var(--nord4);
     --bg-card:var(--nord1);
