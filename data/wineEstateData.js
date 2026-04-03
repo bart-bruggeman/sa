@@ -256,14 +256,14 @@ const wineEstateData = {
                                 "info@uitsig.co.za", 
                                 "wines@uitsig.co.za"
                             ],
-                            "url": "https://www.constantiauitsig.co.za/",
+                            "url": "https://www.constantiauitsig.co.za/"
                         },
                         {
                             "name": "Eagles' Nest",
                             "address": "Constantia Main Rd, Constantia, Cape Town, 7806, Zuid-Afrika",
                             "coordinates": "-34.014885013603184, 18.415135",
-                            "phone": "++27 21 794 3359",
-                            "url": "https://www.eaglesnestwines.com/",
+                            "phone": "+27 21 794 3359",
+                            "url": "https://www.eaglesnestwines.com/"
                         },
                         {
                             "name": "Beau Constantia",
@@ -271,7 +271,7 @@ const wineEstateData = {
                             "coordinates": "-34.013481696499056, 18.40642401349141",
                             "phone": "+27 21 794 8632",
                             "email": "reservations@beauconstantia.com",
-                            "url": "https://www.beauconstantia.com/",
+                            "url": "https://www.beauconstantia.com/"
                         },
                         {
                             "name": "Silvermist",
@@ -279,6 +279,26 @@ const wineEstateData = {
                             "coordinates": "-34.01194769970817, 18.40240151349141",
                             "phone": "+27 21 110 5420",
                             "url": "https://silvermistestate.co.za/"
+                        },
+                        {
+                            "name": "High Constantia",
+                            "address": "Groot Constantia Rd, Constantia, Cape Town, 7848, South Africa",
+                            "coordinates": "-34.0253622, 18.4268933",
+                            "phone": "+27 21 794 7171",
+                            "email": "info@highconstantia.co.za",
+                            "url": "http://www.highconstantia.co.za/"
+                        },
+                        {
+                            "name": "Constantia Glen",
+                            "address": "Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
+                            "coordinates": "-34.0156509, 18.4090992",
+                            "phone": "+27 21 795 5639",
+                            "email": "enquiries@constantiaglen.com",
+                            "url": "https://www.constantiaglen.com/",
+                            "hours": [
+                                "Sun - Thu: 10:30 - 18:00",
+                                "Fri - Sat: 10:30 - 21:00"
+                            ]
                         }
                     ]
                 },
