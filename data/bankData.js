@@ -20,7 +20,7 @@ const bankData  = {
                     "url": "https://www.absa.co.za/"
                 },
                 {
-                    "name": " Nedbank",
+                    "name": "Nedbank",
                     "info": "Nedbank is a leading South African bank that provides a comprehensive range of financial products and services, including personal and business banking, investment solutions, and digital banking services.",
                     "url": "https://www.nedbank.co.za/"
                 },
