@@ -99,6 +99,7 @@ const realEstateData  = {
                 },
                 {
                     "name": "Property.CoZa",
+                    "mode": "hot",
                     "address": "7 Lourensford Drive, Somerset West, 7130, Western Cape, South Africa",
                     "coordinates": "-34.0784879374563, 18.848856673995737",
                     "phone": "+27 12 658 0046",

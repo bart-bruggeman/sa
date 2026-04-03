@@ -47,7 +47,7 @@ function renderHeader(office, blockId, isMain) {
 
 function renderData(data) {
     return Object.entries(data)
-        .filter(([key, val]) => val && key !== "name" && key !== "items" && key !== "isMain")
+        .filter(([key, val]) => shouldRenderField(key, val))
         .map(([key, val]) => {
             const cfg = fieldConfig[key] || { icon: DEFAULT_ICON, render: v => v };
             const color = cfg.colorClass || "";
@@ -59,6 +59,10 @@ function renderData(data) {
             `;
         })
         .join("");
+
+    function shouldRenderField(key, val) {
+        return val && key !== "items" && key !== "name" && key !== "isMain";
+    }
 }
 
 function initPaneAccordion(container) {
