@@ -13,7 +13,7 @@ html, body, .offcanvas, a{
 body{
     background:var(--bg-body);
     color:var(--text-body);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI', Arial, Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .h5, .h6{
