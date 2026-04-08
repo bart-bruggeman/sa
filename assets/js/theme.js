@@ -8,8 +8,7 @@ function initTheme() {
 
     btn.addEventListener("click", e => {
         e.preventDefault();
-        const newTheme = html.dataset.bsTheme === "dark" ? "light" : "dark";
-        setTheme(newTheme);
+        setTheme(html.dataset.bsTheme === "dark" ? "light" : "dark");
     });
 
     function setTheme(theme) {
