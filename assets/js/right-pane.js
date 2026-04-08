@@ -1,101 +1,69 @@
 let idCounter = 0;
+let scrollTimeout;
 
 function renderRightPane(link) {
     idCounter = 0;
     const rightPane = document.getElementById("rightpane-id");
-    const rightPaneBody = rightPane.querySelector(".offcanvas-body");
+    const body = rightPane.querySelector(".offcanvas-body");
+    const blocks = [{ ...link, isMain: true }, ...(link.items || []).map(item => ({ ...item, isMain: false }))];
 
-    const blocks = [
-        { ...link, isMain: true },
-        ...(link.items || []).map(item => ({ ...item, isMain: false }))
-    ];
-
-    rightPaneBody.innerHTML = `${blocks.map(renderBlock).join("")}`;
-
-    initPaneAccordion(rightPaneBody);
-    bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
-
-    function renderBlock(office) {
+    body.innerHTML = blocks.map(({ isMain, ...office }) => {
         const blockId = `block-${idCounter++}`;
-        const isMain = office.isMain;
-        return `
-            <section class="pane-block ${isMain ? 'open mb-0' : 'collapsible'}" data-block="${blockId}"> 
-                ${renderBlockHeader(office, blockId, isMain)}
-                <div class="block-content">
-                    ${renderBlockData(office)}
-                </div>
-            </section>
-        `;
-
-        function renderBlockHeader(office, blockId, isMain) {
-            if (!office.name) return "";
-            return `
-                <div class="${isMain ? `block-header` : `block-header-n`}" ${!isMain ? `data-toggle="${blockId}"` : ""}>
+        const header = office.name
+            ? `<div class="${isMain ? 'block-header' : 'block-header-n'}" ${!isMain ? `data-toggle="${blockId}"` : ''}>
                     <div class="header-content d-flex justify-content-between align-items-center">
                         <h3 class="mb-0">${office.name}</h3>
-                        ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
+                        ${!isMain ? '<i class="bi bi-chevron-down toggle-icon"></i>' : ''}
                     </div>
-                </div>
-            `;
-        }
+               </div>`
+            : '';
+        const content = Object.entries(office)
+            .filter(([k, v]) => v && !["items", "name", "mode", "isMain"].includes(k))
+            .map(([k, v]) => {
+                const { icon = DEFAULT_ICON, colorClass = '', render = val => val } = iconMap[k] || {};
+                return `<p class="value ${colorClass} mt-3">
+                            <i class="bi ${icon} icon ${colorClass}"></i>${render(v)}
+                        </p>`;
+            }).join('');
+        return `<section class="pane-block ${isMain ? 'open mb-0' : 'collapsible'}" data-block="${blockId}">
+                    ${header}<div class="block-content">${content}</div>
+                </section>`;
+    }).join('');
 
-        function renderBlockData(data) {
-            return Object.entries(data)
-                .filter(([key, val]) => shouldRenderField(key, val))
-                .map(([key, val]) => {
-                    const iconMapItem = iconMap[key] || { icon: DEFAULT_ICON, render: v => v };
-                    const color = iconMapItem.colorClass || "";
-                    return `
-                        <p class="value ${color} mt-3">
-                            <i class="bi ${iconMapItem.icon} icon ${color}"></i>${iconMapItem.render(val)}
-                        </p>
-                    `;
-                })
-                .join("");
+    const blocksCollapsible = body.querySelectorAll(".pane-block.collapsible");
+    const headersToggle = body.querySelectorAll(".block-header-n[data-toggle]");
 
-            function shouldRenderField(key, val) {
-                const skipFields = ["items", "name", "mode", "isMain"]; // skipped fields from icon + label/link rendering
-                return val && !skipFields.includes(key);
-            }
-        }
-    }
+    const closeAll = () => blocksCollapsible.forEach(b => {
+        b.classList.remove("open");
+        const icon = b.querySelector(".toggle-icon");
+        if (icon) icon.style.transform = "";
+    });
 
-    function initPaneAccordion(container) {
-        container.querySelectorAll(".block-header-n[data-toggle]").forEach(header => {
-            header.addEventListener("click", (e) => {
-                e.stopPropagation();
-                const blockId = header.dataset.toggle;
-                const currentBlock = container.querySelector(`[data-block="${blockId}"]`);
-                const isOpen = currentBlock.classList.contains("open");
-                closeAll(container);
-                if (!isOpen) {
-                    openBlock(currentBlock);
-                }
-            });
-        });
-
-        container.querySelectorAll(".pane-block.collapsible").forEach(block => {
-            block.addEventListener("click", (e) => {
-                const clickedHeader = e.target.closest(".block-header-n");
-                const clickedLink = e.target.closest("a");
-                if (clickedHeader || clickedLink) return;
-                closeAll(container);
-            });
-        });
-
-        function closeAll(container) {
-            container.querySelectorAll(".pane-block.collapsible").forEach(b => {
-                b.classList.remove("open");
-                const icon = b.querySelector(".toggle-icon");
-                if (icon) icon.style.transform = "rotate(0deg)";
-            });
-        }
-
-        function openBlock(block) {
-            block.classList.add("open");
-            const icon = block.querySelector(".toggle-icon");
-            if (icon) icon.style.transform = "rotate(180deg)";
+    const openBlock = block => {
+        block.classList.add("open");
+        const icon = block.querySelector(".toggle-icon");
+        if (icon) icon.style.transform = "rotate(180deg)";
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
             block.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    }
+        }, 50);
+    };
+
+    headersToggle.forEach(header => {
+        header.addEventListener("click", e => {
+            e.stopPropagation();
+            const block = body.querySelector(`[data-block="${header.dataset.toggle}"]`);
+            const isOpen = block.classList.contains("open");
+            closeAll();
+            if (!isOpen) openBlock(block);
+        });
+    });
+
+    blocksCollapsible.forEach(block => {
+        block.addEventListener("click", e => {
+            if (!e.target.closest(".block-header-n") && !e.target.closest("a")) closeAll();
+        });
+    });
+
+    bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
 }
