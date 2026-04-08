@@ -2,18 +2,15 @@ html{
     overflow-y:scroll;
 }
 
-html, body, .offcanvas, a{
-    transition:
-        background-color .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease,
-        color .25s ease;
+a{
+    transition: color .25s ease;
 }
 
 body{
     background:var(--bg-body);
     color:var(--text-body);
     font-family:'Segoe UI', Arial, Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color .25s ease, color .25s ease;
 }
 
 .h5, .h6{

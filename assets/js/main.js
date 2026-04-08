@@ -12,7 +12,9 @@ function init() {
             filterElement.disabled = true;
         });
         rightPaneElement.addEventListener("hidden.bs.offcanvas", () => {
-            filterElement.disabled = false;
+            requestAnimationFrame(() => {
+                filterElement.disabled = false;
+            });
         });
     }
     renderFooter();
