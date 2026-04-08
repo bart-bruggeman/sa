@@ -6,7 +6,6 @@ function renderRightPane(link) {
     const rightPane = document.getElementById("rightpane-id");
     const body = rightPane.querySelector(".offcanvas-body");
     const blocks = [{ ...link, isMain: true }, ...(link.items || []).map(item => ({ ...item, isMain: false }))];
-
     body.innerHTML = blocks.map(({ isMain, ...office }) => {
         const blockId = `block-${idCounter++}`;
         const header = office.name
@@ -29,16 +28,13 @@ function renderRightPane(link) {
                     ${header}<div class="block-content">${content}</div>
                 </section>`;
     }).join('');
-
     const blocksCollapsible = body.querySelectorAll(".pane-block.collapsible");
     const headersToggle = body.querySelectorAll(".block-header-n[data-toggle]");
-
     const closeAll = () => blocksCollapsible.forEach(b => {
         b.classList.remove("open");
         const icon = b.querySelector(".toggle-icon");
         if (icon) icon.style.transform = "";
     });
-
     const openBlock = block => {
         block.classList.add("open");
         const icon = block.querySelector(".toggle-icon");
@@ -48,7 +44,6 @@ function renderRightPane(link) {
             block.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 50);
     };
-
     headersToggle.forEach(header => {
         header.addEventListener("click", e => {
             e.stopPropagation();
@@ -58,12 +53,10 @@ function renderRightPane(link) {
             if (!isOpen) openBlock(block);
         });
     });
-
     blocksCollapsible.forEach(block => {
         block.addEventListener("click", e => {
             if (!e.target.closest(".block-header-n") && !e.target.closest("a")) closeAll();
         });
     });
-
     bootstrap.Offcanvas.getOrCreateInstance(rightPane).show();
 }
