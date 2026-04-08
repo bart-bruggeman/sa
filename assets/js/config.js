@@ -21,6 +21,14 @@ const iconMap = {
             .map(item => `<a href="mailto:${item}">${item}</a>`)
             .join("<br>")
     },
+    hours: {
+        icon: "bi-clock",
+        render: item => makeArray(item).join("<br>")
+    },
+    info: {
+        icon: "bi-info-circle",
+        render: item => makeArray(item).join("<br>")
+    },
     phone: {
         icon: "bi-telephone",
         render: v => makeArray(v)
@@ -39,13 +47,5 @@ const iconMap = {
         render: v => makeArray(v)
             .map(item => `<a href="${item}" target="_blank">${item}</a>`)
             .join("<br>")
-    },
-    hours: {
-        icon: "bi-clock",
-        render: item => makeArray(item).join("<br>")
-    },
-    info: {
-        icon: "bi-info-circle",
-        render: item => makeArray(item).join("<br>")
     }
 };
