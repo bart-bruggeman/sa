@@ -8,7 +8,7 @@ function renderFooter() {
         let html = '<div class="row">';
         emergencyData.forEach(group => {
             html += `<div class="col-md-3 col-6 mb-1">`;
-            html += `<h5>${group.label}</h5>`;
+            html += `<h5>${group.name}</h5>`;
             html += `<ul class="list-unstyled">`;
             group.items.forEach(item => {
                 html += `<li class="d-flex align-items-center">`;
