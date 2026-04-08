@@ -1,6 +1,6 @@
-const DEFAULT_ICON = "bi-dot";
+const DEFAULT_ICON = "";
 
-const fieldConfig = {
+const iconMap = {
     address: {
         icon: "bi-geo-alt",
         render: v => `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v)}" target="_blank">${v}</a>`
