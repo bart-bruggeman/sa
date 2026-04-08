@@ -1,56 +1,45 @@
+let filterElement;
+let brandElement;
+let rightPaneElement;
+let bsRightPane;
+
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    const filterElement = document.getElementById("filter-id");
-    const brandElement = document.querySelector(".navbar-brand");
-    const rightPaneElement = document.getElementById("rightpane-id");
-    const bsRightPane = rightPaneElement
+    filterElement = document.getElementById("filter-id");
+    brandElement = document.querySelector(".navbar-brand");
+    rightPaneElement = document.getElementById("rightpane-id");
+    bsRightPane = rightPaneElement
         ? bootstrap.Offcanvas.getOrCreateInstance(rightPaneElement)
         : null;
+
     if (rightPaneElement && filterElement) {
-        rightPaneElement.addEventListener("show.bs.offcanvas", () => {
-            filterElement.disabled = true;
-        });
-        rightPaneElement.addEventListener("hidden.bs.offcanvas", () => {
-            requestAnimationFrame(() => {
-                filterElement.disabled = false;
-            });
-        });
+        rightPaneElement.addEventListener("show.bs.offcanvas", () => filterElement.disabled = true);
+        rightPaneElement.addEventListener("hidden.bs.offcanvas", () => requestAnimationFrame(() => filterElement.disabled = false));
     }
+
     renderFooter();
     renderSections();
     initSectionEvents();
     initTheme();
-    if (filterElement) {
-        filterElement.addEventListener("input", onFilterInput);
-        filterElement.addEventListener("search", handleBrandClick);
-    }
-    if (brandElement) {
-        brandElement.addEventListener("click", handleBrandClick);
-    }
-    document.addEventListener("keydown", handleKeydown);
-}
 
-function onFilterInput(e) {
-    renderFilteredSections(e.target.value);
+    filterElement?.addEventListener("input", e => renderFilteredSections(e.target.value));
+    filterElement?.addEventListener("search", handleBrandClick);
+    brandElement?.addEventListener("click", handleBrandClick);
+    document.addEventListener("keydown", handleKeydown);
 }
 
 function handleBrandClick(e) {
     e?.preventDefault?.();
     resetFilter();
     renderSections();
-    if (bsRightPane?._isShown) {
-        bsRightPane.hide();
-    }
+    bsRightPane?._isShown && bsRightPane.hide();
 }
 
 function handleKeydown(e) {
-    if (e.key !== "Escape") return;
-    if (isRightPaneOpen()) {
-        bsRightPane?.hide();
-        return;
+    if (e.key === "Escape") {
+        isRightPaneOpen() ? bsRightPane?.hide() : resetFilter();
     }
-    resetFilter();
 }
 
 function isRightPaneOpen() {
@@ -65,37 +54,25 @@ function resetFilter() {
 
 function initSectionEvents() {
     const container = document.getElementById("content-container");
-    if (!container) return;
-    container.addEventListener("click", handleContainerClick);
+    container?.addEventListener("click", handleContainerClick);
 }
 
 function handleContainerClick(e) {
     const link = e.target.closest("a[data-name]");
-    if (link) {
-        handleLinkClick(link);
-        return;
-    }
+    if (link) return handleLinkClick(link);
+
     const level2Section = e.target.closest(".subsection");
-    if (level2Section && !e.target.closest("a")) {
-        toggleLevel2Section(level2Section);
-        return;
-    }
+    if (level2Section && !e.target.closest("a")) return toggleLevel2Section(level2Section);
+
     const section = e.target.closest("section");
-    if (section
-    && !level2Section
-    && !e.target.closest("a")) {
-            toggleSection(section);
-    }
+    if (section && !level2Section && !e.target.closest("a")) toggleSection(section);
 }
 
 function handleLinkClick(link) {
     link.preventDefault?.();
     const scrollY = window.scrollY;
-    const name = link.dataset.name;
-    const item = findItemByName(sectionsData, name);
-    if (item) {
-        renderRightPane(item);
-    }
+    const item = findItemByName(sectionsData, link.dataset.name);
+    if (item) renderRightPane(item);
     setTimeout(() => window.scrollTo(0, scrollY), 0);
 }
 
@@ -111,42 +88,22 @@ function findItemByName(items, name) {
 }
 
 function toggleSection(section) {
-    const filter = document.getElementById("filter-id");
-    const isFiltered = filter && filter.value.trim() !== "";
-    if (isFiltered) return;
-    const isOpen = section.classList.contains("open");
-    const siblings = section.parentElement.querySelectorAll("section");
-    siblings.forEach(sibling => {
-        if (sibling !== section) {
-            setSectionState(sibling, false);
-        }
-    });
-    setSectionState(section, !isOpen);
-}
-
-function setSectionState(section, open) {
-    section.classList.toggle("open", open);
-    const content = section.querySelector(".section-content");
-    if (content) {
-        content.style.display = open ? "block" : "none";
-    }
+    if (filterElement?.value.trim()) return;
+    toggleWithSiblings(section, "section", ".section-content");
 }
 
 function toggleLevel2Section(section) {
-    const isOpen = section.classList.contains("open");
-    const siblings = section.parentElement.querySelectorAll(".subsection");
-    siblings.forEach(s => {
-        if (s !== section) {
-            setLevel2State(s, false);
-        }
-    });
-    setLevel2State(section, !isOpen);
+    toggleWithSiblings(section, ".subsection", ".subsection-content");
 }
 
-function setLevel2State(section, open) {
+function toggleWithSiblings(section, selector, contentSelector) {
+    const isOpen = section.classList.contains("open");
+    section.parentElement.querySelectorAll(selector).forEach(s => s !== section && setOpen(s, false, contentSelector));
+    setOpen(section, !isOpen, contentSelector);
+}
+
+function setOpen(section, open, contentSelector) {
     section.classList.toggle("open", open);
-    const content = section.querySelector(".subsection-content");
-    if (content) {
-        content.style.display = open ? "block" : "none";
-    }
+    const content = section.querySelector(contentSelector);
+    if (content) content.style.display = open ? "block" : "none";
 }
