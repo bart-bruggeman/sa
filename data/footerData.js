@@ -1,7 +1,7 @@
 const emergencyData = 
 [
     {
-        "label": "Emergency",
+        "name": "Emergency",
         "items":
         [
             {
@@ -15,7 +15,7 @@ const emergencyData =
         ]
     },
     {
-        "label": "Police",
+        "name": "Police",
         "items":
         [
             {
@@ -24,7 +24,7 @@ const emergencyData =
         ]
     },
     {
-        "label": "Ambulance",
+        "name": "Ambulance",
         "items":
         [
             {

@@ -71,7 +71,7 @@ function initSectionEvents() {
     container.addEventListener("click", handleContainerClick);
 
     function handleContainerClick(e) {
-        const link = e.target.closest("a[data-label]");
+        const link = e.target.closest("a[data-name]");
         if (link) {
             handleLinkClick(link);
             return;
@@ -92,19 +92,19 @@ function initSectionEvents() {
     function handleLinkClick(link) {
         link.preventDefault?.();
         const scrollY = window.scrollY;
-        const label = link.dataset.label;
-        const item = findItemByLabel(sectionsData, label);
+        const name = link.dataset.name;
+        const item = findItemByName(sectionsData, name);
         if (item) {
             renderRightPane(item);
         }
         setTimeout(() => window.scrollTo(0, scrollY), 0);
     }
 
-    function findItemByLabel(items, label) {
+    function findItemByName(items, name) {
         for (const item of items) {
-            if (item.label === label) return item;
+            if (item.name === name) return item;
             if (Array.isArray(item.items)) {
-                const found = findItemByLabel(item.items, label);
+                const found = findItemByName(item.items, name);
                 if (found) return found;
             }
         }

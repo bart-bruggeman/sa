@@ -1,14 +1,14 @@
 const realEstateData =
 {
-    "label": "Real Estate",
+    "name": "Real Estate",
     "items":
     [
         {
-            "label": "Real Estate Agency",
+            "name": "Real Estate Agency",
             "items":
             [
                 {
-                    "label": "Greeff Christie's International Real Estate",
+                    "name": "Greeff Christie's International Real Estate",
                     "address": "262 Main Rd, Kenilworth, Cape Town, Western Cape, 7708, South Africa",
                     "coordinates": "-33.99307823023089, 18.468778993562882",
                     "phone": "+27 21 763 4120",
@@ -17,14 +17,14 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "label": "Gordon's Bay & Strand Branch Office",
+                            "name": "Gordon's Bay & Strand Branch Office",
                             "address": "32A Miller Rd, Gordons Bay Central, Cape Town, 7140, South Africa",
                             "coordinates": "-34.15623998401359, 18.868613413494263",
                             "phone": "+27 21 856 4846",
                             "hours": "Mon - Fri: 09:00 - 16:00"
                         },
                         {
-                            "label": "Helderberg Branch Office",
+                            "name": "Helderberg Branch Office",
                             "address": "Cnr 204 Main Road & Coronation Road, Somerset West, 7130, South Africa",
                             "coordinates": "-34.07532758605864, 18.843277203928196",
                             "phone": "+27 21 205 8284",
@@ -37,7 +37,7 @@ const realEstateData =
                     ]
                 },
                 {
-                    "label": "Harbour Island Properties",
+                    "name": "Harbour Island Properties",
                     "address": "Krystal Beach Hotel, Breakwater Lane, Harbour Island, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                     "coordinates": "-34.1514874193122, 18.85890464989621",
                     "phone":
@@ -54,7 +54,7 @@ const realEstateData =
                     ]
                 },
                 {
-                    "label": "Homelink Estates",
+                    "name": "Homelink Estates",
                     "address": "The Boardwalk, 8 Breakwater Lane, Harbour Island, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                     "coordinates": "-34.15162895705638, 18.858354043596645",
                     "phone": "+27 021 856 0235",
@@ -62,20 +62,20 @@ const realEstateData =
                     "url": "https://www.homelinkestates.co.za/"
                 },
                 {
-                    "label": "Pam Golding Properties",
+                    "name": "Pam Golding Properties",
                     "address": "12 - 14 Klaassens Road, Bishopscourt, Cape Town, Western Cape, 7708, South Africa",
                     "phone": "+27 21 710 1700",
                     "url": "https://www.pamgolding.co.za/",
                     "items":
                     [
                         {
-                            "label": "Gordon's Bay Branch Office",
+                            "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road Unit 4, The Anchorage, Gordon's Bay Central, 7140, South Africa",
                             "coordinates": "-34.16011213832758, 18.868430133871946",
                             "phone": "+27 21 856 2178"
                         },
                         {
-                            "label": "Somerset West Office Branch Office",
+                            "name": "Somerset West Office Branch Office",
                             "address": "FF04, Waterstone Village Shopping Centre, C/O Main Road & R44, Somerset West, 7130, Western Cape, South Africa",
                             "coordinates": "-34.070632213984055, 18.822644225549475",
                             "phone": "+27 21 851 2633"
@@ -83,7 +83,7 @@ const realEstateData =
                     ]
                 },  
                 {
-                    "label": "Paul Matthews Real Estate",
+                    "name": "Paul Matthews Real Estate",
                     "address": "69 Beach Road Unit 4, The Anchorage, Gordon's Bay, Western Cape, 7151, South Africa",
                     "coordinates": "-34.16018103464403, 18.868456959395736",
                     "phone": "+27 21 856 3364",
@@ -91,14 +91,14 @@ const realEstateData =
                     "url": "https://www.paulmatthews.co.za/"
                 },
                 {
-                    "label": "Peter Venter Estates",
+                    "name": "Peter Venter Estates",
                     "address": "79 Beach Road, Gordons Bay Central, Cape Town, Western Cape, 7151, South Africa",
                     "coordinates": "-34.16082958310041, 18.86811114214538",
                     "url": "https://www.peterventer.com/",
                     "items":
                     [ 
                         {
-                            "label": "Gordon's Bay Branch Office",
+                            "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                             "coordinates": "-34.15986884678564, 18.868545742039604",
                             "phone": "+27 21 856 5050",
@@ -107,7 +107,7 @@ const realEstateData =
                     ]
                 },
                 {
-                    "label": "Property.CoZa",
+                    "name": "Property.CoZa",
                     "mode": "hot",
                     "address": "7 Lourensford Drive, Somerset West, 7130, Western Cape, South Africa",
                     "coordinates": "-34.0784879374563, 18.848856673995737",
@@ -116,7 +116,7 @@ const realEstateData =
                     "url": "https://www.propertycoza.com/"
                 },
                 {
-                    "label": "Rawson Property Group",
+                    "name": "Rawson Property Group",
                     "address": "222 Main Road, Rondebosch, Western Cape, 7700, South Africa",
                     "coordinates": "-33.96793465344247, 18.466092053623488",
                     "phone": "+27 21 658 7100",
@@ -124,7 +124,7 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "label": "Helderberg-Strand Branch Office",
+                            "name": "Helderberg-Strand Branch Office",
                             "address": "On Strand, 97 Beach Rd, Strand, Cape Town, 7139, South Africa",
                             "coordinates": "-34.11671935875248, 18.825820171164274",
                             "phone": "+27 21 854 8905"
@@ -132,7 +132,7 @@ const realEstateData =
                     ]
                 },
                 {
-                    "label": "RE/MAX South Africa",
+                    "name": "RE/MAX South Africa",
                     "address": "19 Tokai Road, Kirstenhof, Cape Town, 7945, Western Cape, South Africa",
                     "coordinates": "-34.065701115861984, 18.455397317579017",
                     "phone": "+27 21 700 2000",
@@ -140,7 +140,7 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "label": "Helderberg Branch Office",
+                            "name": "Helderberg Branch Office",
                             "address": "167 Main Road, Audas Estate, Somerset West, 7130, Western Cape, South Africa",
                             "coordinates": "-34.078888215525254, 18.84734202699312",
                             "phone": "+27 21 852 6464",
@@ -149,7 +149,7 @@ const realEstateData =
                     ]
                 },
                 {
-                    "label": "Seef Property Group",
+                    "name": "Seef Property Group",
                     "address": "35 On Rose, 35 Rose Street, Bo-Kaap, Cape Town, 8001, Western Cape, South Africa",
                     "coordinates": "-33.91964588320177, 18.416924944449775",
                     "phone": "+27 21 200 0999",
@@ -157,7 +157,7 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "label": "Gordon's Bay Branch Office",
+                            "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road, Gordons Bay Central, Cape Town, 7140, Western Cape, South Africa",
                             "coordinates": "-34.160052654138546, 18.86849780610293",
                             "phone": "+27 21 300 1138"
@@ -167,48 +167,48 @@ const realEstateData =
             ]
         }, 
         {
-            "label": "Real Estate Portal",
+            "name": "Real Estate Portal",
             "items":
             [
                 // probleem met PHP versie
                 /*{
-                    "label": "Buy a Property",
+                    "name": "Buy a Property",
                     "url": "https://www.buyaproperty.co.za/"
                 },*/
                 {
-                    "label": "House24",
+                    "name": "House24",
                     "url": "https://www.house24.co.za/"
                 },
                 {
-                    "label": "ImmoAfrika",
+                    "name": "ImmoAfrika",
                     "url": "https://www.immoafrika.de/nl-be/",
                 },
                 {
-                    "label": "JamesEdition",
+                    "name": "JamesEdition",
                     "url": "https://www.jamesedition.com/"
                 },
                 {
-                    "label": "PrimeLocation",
+                    "name": "PrimeLocation",
                     "url": "https://www.primelocation.com/"
                 },
                 {
-                    "label": "Private Property",
+                    "name": "Private Property",
                     "url": "https://www.privateproperty.co.za/"
                 },
                 {
-                    "label": "Properstar",
+                    "name": "Properstar",
                     "url": "https://www.properstar.be/"
                 },
                 {
-                    "label": "Property24",
+                    "name": "Property24",
                     "url": "https://www.property24.com/"
                 },
                 {
-                    "label": "Property Portal",
+                    "name": "Property Portal",
                     "url": "https://propertyportal.co.za/"
                 },
                 {
-                    "label": "SA Hometraders",
+                    "name": "SA Hometraders",
                     "url": "https://www.sahometraders.co.za/"
                 }
             ]

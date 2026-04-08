@@ -1,14 +1,14 @@
 const healthcareData =
 {
-    "label": "Healthcare",
+    "name": "Healthcare",
     "items":
     [
         {
-            "label": "Doctors",
+            "name": "Doctors",
             "items":
             [
                 {
-                    "label": "Gordon's Bay Medical",
+                    "name": "Gordon's Bay Medical",
                     "address": "8 Riverside Avenue, Winslow, Gordon's Bay, Cape Town, 7140, South Africa",
                     "coordinates": "-34.15348994625148, 18.870561784302375",
                     "phone": "+27 21 856 2504",
@@ -21,7 +21,7 @@ const healthcareData =
                     ]
                 },
                 {
-                    "label": "Sr Claire's Essential Care Clinic (Strand)",
+                    "name": "Sr Claire's Essential Care Clinic (Strand)",
                     "address": "Shop 4 Broadway Business Centre, Cnr Chicago Avenue & Joseph Crescent, Strand, 7140",
                     "coordinates": "-34.12057570628986, 18.85160429779488",
                     "phone": "+27 81 236 2219",
@@ -36,11 +36,11 @@ const healthcareData =
             ]
         },
         {
-            "label": "Dentists",
+            "name": "Dentists",
             "items":
             [
                 {
-                    "label": "Dental & Ortho (Strand)",
+                    "name": "Dental & Ortho (Strand)",
                     "address": "152 Gordon's Bay Dr, Broadlands Rd, Greenways, Cape Town, 7140, South Africa",
                     "coordinates": "-34.134620345571875, 18.846838755822432",
                     "phone": "+27 60 617 3260",
@@ -55,17 +55,17 @@ const healthcareData =
             ]
         },
         {
-            "label": "Pharmacies",
+            "name": "Pharmacies",
             "items":
             [
             ]
         },
         {
-            "label": "Hospitals",
+            "name": "Hospitals",
             "items":
             [
                 {
-                    "label": "Mediclinic Vergelegen Hospital",
+                    "name": "Mediclinic Vergelegen Hospital",
                     "address": "Main Road, Somerset West, Cape Town, 7130, South Africa",
                     "coordinates": "",
                     "phone":
@@ -77,7 +77,7 @@ const healthcareData =
                     "url": "https://www.mediclinic.co.za/en/vergelegen/home.html"
                 },
                 {
-                    "label": "Busamed Paardevlei Private Hospital",
+                    "name": "Busamed Paardevlei Private Hospital",
                     "address": "Paardevlei Estate, 4 Gardner Williams Ave, Paardevlei, Cape Town, 7130, South Africa",
                     "coordinates": "",
                     "phone":

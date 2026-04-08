@@ -18,7 +18,7 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
         <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
                 <span class="section-title">
-                    ${level_1_item.label}
+                    ${level_1_item.name}
                     ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
                 </span>
                 ${filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
@@ -32,12 +32,12 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
     function filteredContentAsList(level_1_item) {
         if (!level_1_item.items?.length) return '<p class="text-muted">No data found.</p>';
-        const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.label, level_2_item])).values());
-        const sortedItems = uniqueItems.sort(byField("label"));
+        const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.name, level_2_item])).values());
+        const sortedItems = uniqueItems.sort(byField("name"));
         return `<ul class="list-unstyled mb-2 filtered-list">
             ${sortedItems.map(item => {
                 const hotIcon = item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
-                return `<li><a href="#" data-label="${item.label}">${item.label}${hotIcon}</a></li>`;
+                return `<li><a href="#" data-name="${item.name}">${item.name}${hotIcon}</a></li>`;
             }).join('')}
         </ul>`;
     }
@@ -45,12 +45,12 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     function contentAsSectionWithThreeColumnCards(level_2_items = [], wrapRow = true) {
         const level2Items = (level_2_items || []).filter(level_2_item => level_2_item.items && level_2_item.items.length);
         if (!level2Items.length) return '';
-        const sortedLevel2Items = level2Items.sort(byField("label"));
+        const sortedLevel2Items = level2Items.sort(byField("name"));
         const content = sortedLevel2Items.map(level_2_item => `
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h3 class="h6 mb-3">${level_2_item.label}</h3>
+                        <h3 class="h6 mb-3">${level_2_item.name}</h3>
                         ${renderLinks(level_2_item.items)}
                     </div>
                 </div>
@@ -59,12 +59,12 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
         function renderLinks(level_2_items = []) {
             if (!level_2_items.length) return '';
-            const sortedLevel2Items = level_2_items.sort(byField("label"));
+            const sortedLevel2Items = level_2_items.sort(byField("name"));
             return `<ul class="list-unstyled mb-0">
                 ${sortedLevel2Items.map(level_2_item => {
                     const hotIcon = level_2_item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
                     return `<li>
-                                <a href="#" data-label="${level_2_item.label}">${level_2_item.label}${hotIcon}</a>
+                                <a href="#" data-name="${level_2_item.name}">${level_2_item.name}${hotIcon}</a>
                             </li>`;
                 }).join("")}
             </ul>`;
@@ -74,11 +74,11 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     }
 
     function contentAsSectionWithSubsectionWithThreeColumnCards(level_2_items = []) {
-        const sortedLevel2Items = level_2_items.sort(byField("label"));
+        const sortedLevel2Items = level_2_items.sort(byField("name"));
         return sortedLevel2Items.map((level_2_item, i) => `
             <section class="subsection mb-2" data-level2="${i}">
                 <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
-                    <span>${level_2_item.label}</span>
+                    <span>${level_2_item.name}</span>
                     <i class="bi bi-chevron-down chevron-icon"></i>
                 </h3>
                 <div class="subsection-content" style="display:none;">
@@ -116,11 +116,11 @@ function renderFilteredSections(query) {
                 });
             });
         }
-        return matchedItems.length ? { label: level_1_item.label, items: matchedItems } : null;
+        return matchedItems.length ? { name: level_1_item.name, items: matchedItems } : null;
     }).filter(Boolean);
 
     function matchesQuery(item, q) {
-        return item.label?.toLowerCase().includes(q)
+        return item.name?.toLowerCase().includes(q)
             || item.mode?.toLowerCase().includes(q);
     }
 
@@ -136,7 +136,7 @@ function hasOnlyLevel2Items(level_1_item) {
 
     function isPureContainer(item) {
         const keys = Object.keys(item);
-        return keys.length === 2 && keys.includes("label") && keys.includes("items");
+        return keys.length === 2 && keys.includes("name") && keys.includes("items");
     }
 }
 
