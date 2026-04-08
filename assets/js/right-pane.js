@@ -33,12 +33,12 @@ function renderBlock(office) {
 }
 
 function renderHeader(office, blockId, isMain) {
-    if (!office.name) return "";
+    if (!office.label) return "";
 
     return `
         <div class="${isMain ? `block-header` : `block-header-n`}" ${!isMain ? `data-toggle="${blockId}"` : ""}>
             <div class="header-content d-flex justify-content-between align-items-center">
-                <h3 class="mb-0">${office.name}</h3>
+                <h3 class="mb-0">${office.label}</h3>
                 ${!isMain ? `<i class="bi bi-chevron-down toggle-icon"></i>` : ""}
             </div>
         </div>
@@ -61,7 +61,7 @@ function renderData(data) {
         .join("");
 
     function shouldRenderField(key, val) {
-        const skipFields = ["items", "name", "mode", "isMain"];
+        const skipFields = ["items", "label", "mode", "isMain"];
         return val && !skipFields.includes(key);
     }
 }

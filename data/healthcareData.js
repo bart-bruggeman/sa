@@ -1,28 +1,33 @@
-const healthcareData  = {
+const healthcareData =
+{
     "label": "Healthcare",
-    "items": [
+    "items":
+    [
         {
             "label": "Doctors",
-            "items": [
+            "items":
+            [
                 {
-                    "name": "Gordon's Bay Medical",
+                    "label": "Gordon's Bay Medical",
                     "address": "8 Riverside Avenue, Winslow, Gordon's Bay, Cape Town, 7140, South Africa",
                     "coordinates": "-34.15348994625148, 18.870561784302375",
                     "phone": "+27 21 856 2504",
                     "email": "reception@gbmedical.co.za",
                     "url": "https://gbmedical.co.za/",
-                    "hours": [
+                    "hours": 
+                    [
                         "Mon - Fri: 08:00 - 17:00",
                         "Sat: 09:00 - 12:00"
                     ]
                 },
                 {
-                    "name": "Sr Claire's Essential Care Clinic (Strand)",
+                    "label": "Sr Claire's Essential Care Clinic (Strand)",
                     "address": "Shop 4 Broadway Business Centre, Cnr Chicago Avenue & Joseph Crescent, Strand, 7140",
                     "coordinates": "-34.12057570628986, 18.85160429779488",
                     "phone": "+27 81 236 2219",
                     "email": "admin@claireclinic.co.za",
-                    "hours": [
+                    "hours":
+                    [
                         "Mon - Fri: 09:00 - 17:00",
                         "Sa: 09:00 - 13:00",
                         "Sun: 09:00 - 12:00"
@@ -32,15 +37,17 @@ const healthcareData  = {
         },
         {
             "label": "Dentists",
-            "items": [
+            "items":
+            [
                 {
-                    "name": "Dental & Ortho (Strand)",
+                    "label": "Dental & Ortho (Strand)",
                     "address": "152 Gordon's Bay Dr, Broadlands Rd, Greenways, Cape Town, 7140, South Africa",
                     "coordinates": "-34.134620345571875, 18.846838755822432",
                     "phone": "+27 60 617 3260",
                     "email": "info@dentalandortho.co.za",
                     "url": "https://dentalandortho.co.za/",
-                    "hours": [
+                    "hours":
+                    [
                         "Mon - Fri: 09:00 - 18:00",
                         "Sat: 09:00 - 13:00"
                     ]
@@ -49,17 +56,20 @@ const healthcareData  = {
         },
         {
             "label": "Pharmacies",
-            "items": [
+            "items":
+            [
             ]
         },
         {
             "label": "Hospitals",
-            "items": [
+            "items":
+            [
                 {
-                    "name": "Mediclinic Vergelegen Hospital",
+                    "label": "Mediclinic Vergelegen Hospital",
                     "address": "Main Road, Somerset West, Cape Town, 7130, South Africa",
                     "coordinates": "",
-                    "phone": [
+                    "phone":
+                    [
                         "+27 86 133 5566",
                         "+27 21 850 9000"
                     ],
@@ -67,10 +77,11 @@ const healthcareData  = {
                     "url": "https://www.mediclinic.co.za/en/vergelegen/home.html"
                 },
                 {
-                    "name": "Busamed Paardevlei Private Hospital",
+                    "label": "Busamed Paardevlei Private Hospital",
                     "address": "Paardevlei Estate, 4 Gardner Williams Ave, Paardevlei, Cape Town, 7130, South Africa",
                     "coordinates": "",
-                    "phone": [
+                    "phone":
+                    [
                         "+27 21 840 6600",
                         "+27 21 840 6643"
                     ],

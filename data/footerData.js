@@ -1,7 +1,9 @@
-const emergencyData = [
+const emergencyData = 
+[
     {
         "label": "Emergency",
-        "items": [
+        "items":
+        [
             {
                 "phone": "112",
                 "comment": "(mobile)"
@@ -14,7 +16,8 @@ const emergencyData = [
     },
     {
         "label": "Police",
-        "items": [
+        "items":
+        [
             {
                 "phone": "10111"
             }
@@ -22,7 +25,8 @@ const emergencyData = [
     },
     {
         "label": "Ambulance",
-        "items": [
+        "items":
+        [
             {
                 "phone": "10177"
             }
@@ -30,13 +34,20 @@ const emergencyData = [
     }
 ]
 
-const geographicData = {
+const geographicData =
+{
     "country": "South Africa",
     "province": "Western Cape",
     "municipality": "City of Cape Town",
     "region": "Helderberg",
-    "towns": ["Gordons Bay", "Somerset West", "Strand"],
-    "suburbs": [
+    "towns":
+    [
+        "Gordons Bay",
+        "Somerset West",
+        "Strand"
+    ],
+    "suburbs":
+    [
         "Admirals Park",
         "Anchorage Park",
         "Bay Park",

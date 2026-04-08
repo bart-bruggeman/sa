@@ -10,10 +10,10 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     }
     container.innerHTML = level_1_items.map((level_1_item, i) => {
         const content = filtered
-            ? filteredContentAsList(level_1_item)                                         // filtered data (=list)
+            ? filteredContentAsList(level_1_item)
             : hasOnlyLevel2Items(level_1_item)
-                ? contentAsSectionWithThreeColumnCards(level_1_item.items)                // level 1 (=section) + level 2 (=cards data)
-                : contentAsSectionWithSubsectionWithThreeColumnCards(level_1_item.items); // level 1 (=section) + level 2 (=subsection) + level 3 (=cards data)
+                ? contentAsSectionWithThreeColumnCards(level_1_item.items)
+                : contentAsSectionWithSubsectionWithThreeColumnCards(level_1_item.items);
         return `
         <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
             <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
@@ -32,12 +32,12 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
     function filteredContentAsList(level_1_item) {
         if (!level_1_item.items?.length) return '<p class="text-muted">No data found.</p>';
-        const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.name, level_2_item])).values());
-        const sortedItems = uniqueItems.sort(byField("name"));
+        const uniqueItems = Array.from(new Map(level_1_item.items.map(level_2_item => [level_2_item.label, level_2_item])).values());
+        const sortedItems = uniqueItems.sort(byField("label"));
         return `<ul class="list-unstyled mb-2 filtered-list">
             ${sortedItems.map(item => {
                 const hotIcon = item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
-                return `<li><a href="#" data-name="${item.name}">${item.name}${hotIcon}</a></li>`;
+                return `<li><a href="#" data-label="${item.label}">${item.label}${hotIcon}</a></li>`;
             }).join('')}
         </ul>`;
     }
@@ -59,12 +59,12 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
         function renderLinks(level_2_items = []) {
             if (!level_2_items.length) return '';
-            const sortedLevel2Items = level_2_items.sort(byField("name"));
+            const sortedLevel2Items = level_2_items.sort(byField("label"));
             return `<ul class="list-unstyled mb-0">
                 ${sortedLevel2Items.map(level_2_item => {
                     const hotIcon = level_2_item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
                     return `<li>
-                                <a href="#" data-name="${level_2_item.name}">${level_2_item.name}${hotIcon}</a>
+                                <a href="#" data-label="${level_2_item.label}">${level_2_item.label}${hotIcon}</a>
                             </li>`;
                 }).join("")}
             </ul>`;
@@ -97,7 +97,7 @@ function renderFilteredSections(query) {
     }
     const filteredData = sectionsData.map(level_1_item => {
         const matchedItems = [];
-        if (hasOnlyLevel2Items(level_1_item)) { // Level1 + Level2
+        if (hasOnlyLevel2Items(level_1_item)) {
             level_1_item.items?.forEach(level_2_item => {
                 level_2_item.items?.forEach(level_3_item => {
                     if (matchesQuery(level_3_item, q)) {
@@ -105,7 +105,7 @@ function renderFilteredSections(query) {
                     }
                 });
             });
-        } else { // Level1 + Level2 + Level3
+        } else {
             level_1_item.items?.forEach(level_2_item => {
                 level_2_item.items?.forEach(level_3_item => {
                     level_3_item.items?.forEach(level_4_item => {
@@ -120,7 +120,7 @@ function renderFilteredSections(query) {
     }).filter(Boolean);
 
     function matchesQuery(item, q) {
-        return item.name?.toLowerCase().includes(q)
+        return item.label?.toLowerCase().includes(q)
             || item.mode?.toLowerCase().includes(q);
     }
 
@@ -130,9 +130,14 @@ function renderFilteredSections(query) {
 function hasOnlyLevel2Items(level_1_item) {
     return !level_1_item.items?.some(level_2_item =>
         Array.isArray(level_2_item.items) && level_2_item.items.some(level_3_item =>
-            level_3_item.label && Array.isArray(level_3_item.items)
+            isPureContainer(level_3_item)
         )
     );
+
+    function isPureContainer(item) {
+        const keys = Object.keys(item);
+        return keys.length === 2 && keys.includes("label") && keys.includes("items");
+    }
 }
 
 function byField(field) {

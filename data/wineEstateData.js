@@ -1,94 +1,103 @@
-const wineEstateData = {
+const wineEstateData =
+{
 	"label": "Wine Regions",
 	"items": [
         // geografisch gezien geen echte wijnregio, maar aanduiding voor versterkte wijnen
         // geproduceerd in Paarl, Franschhoek en Tulbagh
         /*{
             "label": "Boberg",
-            "items": [
+            "items":
+            [
             ]
         },*/
         {
             "label": "Breede River Valley (Breederiviervallei)",
-            "items": [
+            "items":
+            [
             ]
         },
         {
             "label": "Cape South Coast",
-            "items": [
+            "items":
+            [
                 {
                     "label": "Cape Agulhas District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Black Oystercatcher Wines"
+                            "label": "Black Oystercatcher Wines"
                         },
                         {
-                            "name": "Ghost Corner"
+                            "label": "Ghost Corner"
                         },
                         {
-                            "name": "Kroonpoort"
+                            "label": "Kroonpoort"
                         },
                         {
-                            "name": "Land's End"
+                            "label": "Land's End"
                         },
                         {
-                            "name": "Lomond Wine Estate"
+                            "label": "Lomond Wine Estate"
                         },
                         {
-                            "name": "Lost Boy"
+                            "label": "Lost Boy"
                         },
                         {
-                            "name": "Olivedale Wines"
+                            "label": "Olivedale Wines"
                         },
                         {
-                            "name": "Sijnn Wines"
+                            "label": "Sijnn Wines"
                         },
                         {
-                            "name": "Strandveld Vineyards"
+                            "label": "Strandveld Vineyards"
                         },
                         {
-                            "name": "The Drift Estate"
+                            "label": "The Drift Estate"
                         },
                         {
-                            "name": "The Giant Periwinkle"
+                            "label": "The Giant Periwinkle"
                         },
                         {
-                            "name": "Trizanne Signature Wines"
+                            "label": "Trizanne Signature Wines"
                         },
                         {
-                            "name": "Zoetendal Vineyard"
+                            "label": "Zoetendal Vineyard"
                         }
                     ]
                 },
                 {
                     "label": "Overberg District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": ""
+                            "label": ""
                         }
                     ]
                 },
                 {
                     "label": "Plettenberg Bay District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": ""
+                            "label": ""
                         }
                     ]
                 },
                 {
                     "label": "Swellendam District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": ""
+                            "label": ""
                         }
                     ]
                 },
                 {
                     "label": "Walker Bay District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": ""
+                            "label": ""
                         }
                     ]
                 }
@@ -96,85 +105,93 @@ const wineEstateData = {
         },
 		{
             "label": "Coastal Region Wine Estates",
-            "items": [
+            "items":
+            [
                 {
                     "label": "Cape Peninsula District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Cape Point Vineyards",
+                            "label": "Cape Point Vineyards",
                             "mode": "hot",
                             "address": "Silvermine Rd, Noordhoek, Cape Town 7979, South Africa",
                             "coordinates": "-34.09360723884719, 18.38751004963936",
-                            "phone": [
+                            "phone":
+                            [
                                 "+27 21 789 0900",
                                 "+27 82 863 0578"
                             ],
                             "email": "info@cape-point.com",
                             "url": "https://cpv.co.za/",
-                            "hours": [
+                            "hours":
+                            [
                                 "Mon - Tue 11:00-18:00",
                                 "Thu - Sat 11:00 - 22:00",
                                 "Sun: 11:00 - 17:00"
                             ],
-                            "items": [
+                            "items":
+                            [
                                 {
-                                    "name": "The Restaurant",
-                                    "hours": [
+                                    "label": "The Restaurant",
+                                    "hours":
+                                    [
                                         "Sun - Thu: 12:00 - 16:00",
                                         "Sat: 12:00 - 19:00"
                                     ]
                                 },
                                 {
-                                    "name": "The Courtyard",
+                                    "label": "The Courtyard",
                                     "hours": "12:00 - 21:00"
                                 },
                                 {
-                                    "name": "The Tasting Room",
+                                    "label": "The Tasting Room",
                                     "hours": "11:00 - 18:00"
                                 },
                                 {
-                                    "name": "The Picnic Lawns",
+                                    "label": "The Picnic Lawns",
                                     "hours": "11:00 - 18:00"
                                 },
                                 {
-                                    "name": "Market Thursdays",
+                                    "label": "Market Thursdays",
                                     "hours": "16:30 - 20:30"
                                 }
                             ]
                         },
                         {
-                            "name": "Groot Constantia",
+                            "label": "Groot Constantia",
                             "address": "Groot Constantia Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.02935654497266, 18.42020943587593",
                             "phone": "+27 21 794 5128",
                             "email": "enquiries@grootconstantia.co.za",
                             "url": "https://grootconstantia.co.za/",
                             "hours": "Mon - Sun: 10:00 - 17:00",
-                            "items": [
+                            "items":
+                            [
                                 {
-                                    "name": "Wine Tasting & Retail Shop",
+                                    "label": "Wine Tasting & Retail Shop",
                                     "hours": "Mon - Sun: 09:00 - 18:00"
                                 },
                                 {
-                                    "name": "Jonkershuis Restaurant",
+                                    "label": "Jonkershuis Restaurant",
                                     "coordinates": "-34.030414630792215, 18.418986348595567",
                                     "phone": "+27 21 794 6255",
                                     "email": "info@jhuis.co.za",
                                     "url": "https://jonkershuisconstantia.co.za/",
-                                    "hours": [
+                                    "hours":
+                                    [
                                         "Mon - Sat: 08:00 - 21:00",
                                         "Sun: 08:00 - 17:00"
                                     ]
                                 },
                                 {
-                                    "name": "Simon's Restaurant",
+                                    "label": "Simon's Restaurant",
                                     "coordinates": "-34.031161506955975, 18.417731074807826",
                                     "phone": "+27 21 794 1143",
                                     "email": "info@simons.co.za",
                                     "url": "https://simons.co.za/"
                                 },
                                 {
-                                    "name": "Iziko Museums of Cape Town",
+                                    "label": "Iziko Museums of Cape Town",
                                     "coordinates": "-34.03096467203029, 18.418772853608303",
                                     "phone": "+27 21 795 5140",
                                     "url": "https://www.iziko.org.za/museums/groot-constantia/",
@@ -183,34 +200,37 @@ const wineEstateData = {
                             ]
                         },
                         {
-                            "name": "Klein Constantia",
+                            "label": "Klein Constantia",
                             "address": "Klein Constantia Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.0383551804114, 18.413399497787527",
                             "phone": "+27 21 794 5188",
                             "email": "info@kleinconstantia.com",
                             "url": "https://www.kleinconstantia.com/",
-                            "items": [
+                            "items":
+                            [
                                 {
-                                    "name": "Tasting Room",
+                                    "label": "Tasting Room",
                                     "hours": "Mon - Sun: 10:00-  17:00"
                                 },
                                 {
-                                    "name": "Bistro",
+                                    "label": "Bistro",
                                     "hours": "Mon - Sun: 12:00 - 16:00"
                                 }
                             ]
                         },
                         {
-                            "name": "Steenberg Vineyards",
+                            "label": "Steenberg Vineyards",
                             "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
                             "phone": "+27 21 207 8800",
                             "url": "https://www.steenbergfarm.com/",
-                            "items": [
+                            "items":
+                            [
                                 {
-                                    "name": "Bistro 1682 Restaurant",
+                                    "label": "Bistro 1682 Restaurant",
                                     "phone": "+27 21 205 3866",
                                     "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
-                                    "hours": [
+                                    "hours":
+                                    [
                                         "Mon - Sun:",
                                         "09:00 - 11:00 (breakfast)",
                                         "12:00 - 15:00 (lunch)",
@@ -218,11 +238,12 @@ const wineEstateData = {
                                     ]
                                 },
                                 {
-                                    "name": "Tryn Restaurant",
+                                    "label": "Tryn Restaurant",
                                     "phone": "+27 21 713 7178",
                                     "email": "info@tryn.co.za",
                                     "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
-                                    "hours": [
+                                    "hours":
+                                    [
                                         "Mon - Sun:",
                                         "08:00 - 11:00 (breakfast)",
                                         "12:00 - 15:00 (lunch)",
@@ -230,7 +251,7 @@ const wineEstateData = {
                                     ]
                                 },
                                 {
-                                    "name": "Steenberg 5-star Hotel",
+                                    "label": "Steenberg 5-star Hotel",
                                     "phone": "+27 21 713 2222",
                                     "email": "reservations@steenberghotel.com",
                                     "url": "https://steenbergfarm.com/hotel/"
@@ -238,35 +259,37 @@ const wineEstateData = {
                             ]
                         },
                         {
-                            "name": "Buitenverwachting",
+                            "label": "Buitenverwachting",
                             "address": "37 Klein Constantia Road, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.041203129770125, 18.41684802698282",
                             "url": "https://buitenverwachting.com/",
-                            "phone": [
+                            "phone":
+                            [
                                 "+27 21 794 5190", 
                                 "+27 21 794 5191"
                             ]
                         },
                         {
-                            "name": "Constantia Uitsig",
+                            "label": "Constantia Uitsig",
                             "address": "Spaanschemat River Rd, Fir Grove, Cape Town, 7806, South Afrika",
                             "coordinates": "-34.047485674589005, 18.42483801263897",
                             "phone": "+27 76 987 0743",
-                            "email": [
+                            "email":
+                            [
                                 "info@uitsig.co.za", 
                                 "wines@uitsig.co.za"
                             ],
                             "url": "https://www.constantiauitsig.co.za/"
                         },
                         {
-                            "name": "Eagles' Nest",
+                            "label": "Eagles' Nest",
                             "address": "Constantia Main Rd, Constantia, Cape Town, 7806, Zuid-Afrika",
                             "coordinates": "-34.014885013603184, 18.415135",
                             "phone": "+27 21 794 3359",
                             "url": "https://www.eaglesnestwines.com/"
                         },
                         {
-                            "name": "Beau Constantia",
+                            "label": "Beau Constantia",
                             "address": "1043 Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.013481696499056, 18.40642401349141",
                             "phone": "+27 21 794 8632",
@@ -274,14 +297,14 @@ const wineEstateData = {
                             "url": "https://www.beauconstantia.com/"
                         },
                         {
-                            "name": "Silvermist",
+                            "label": "Silvermist",
                             "address": "Silvermist Wine Estate, Constantia Nek, Hout Bay Main Rd, Hout Bay, Cape Town, 7806, South Africa",
                             "coordinates": "-34.01194769970817, 18.40240151349141",
                             "phone": "+27 21 110 5420",
                             "url": "https://silvermistestate.co.za/"
                         },
                         {
-                            "name": "High Constantia",
+                            "label": "High Constantia",
                             "address": "Groot Constantia Rd, Constantia, Cape Town, 7848, South Africa",
                             "coordinates": "-34.0253622, 18.4268933",
                             "phone": "+27 21 794 7171",
@@ -289,13 +312,14 @@ const wineEstateData = {
                             "url": "http://www.highconstantia.co.za/"
                         },
                         {
-                            "name": "Constantia Glen",
+                            "label": "Constantia Glen",
                             "address": "Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.0156509, 18.4090992",
                             "phone": "+27 21 795 5639",
                             "email": "enquiries@constantiaglen.com",
                             "url": "https://www.constantiaglen.com/",
-                            "hours": [
+                            "hours":
+                            [
                                 "Sun - Thu: 10:30 - 18:00",
                                 "Fri - Sat: 10:30 - 21:00"
                             ]
@@ -304,176 +328,185 @@ const wineEstateData = {
                 },
                 {
                     "label": "Darling District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Darling Cellars",
+                            "label": "Darling Cellars",
                             "url": "https://www.darlingcellars.co.za/"
                         },
                         {
-                            "name": "Cloof Wine Estate",
+                            "label": "Cloof Wine Estate",
                             "url": "https://www.cloofwines.co.za/"
                         },
                         {
-                            "name": "Groote Post Vineyards",
+                            "label": "Groote Post Vineyards",
                             "url": "https://www.grootepost.co.za/",
                         },
                         {
-                            "name": "Mawson Wines",
+                            "label": "Mawson Wines",
                             "url": "https://www.mawsonwine.co.za/",
                         },
                         {
-                            "name": "Ormonde Private Cellar",
+                            "label": "Ormonde Private Cellar",
                             "url": "https://www.ormonde.co.za/",
                         }
                     ]
                 },
                 {
                     "label": "Franschhoek District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Babylonstoren",
+                            "label": "Babylonstoren",
                             "url": "https://www.babylonstoren.com/",
                         },
                         {
-                            "name": "Haute Cabrière",
+                            "label": "Haute Cabrière",
                             "url": "https://www.cabriere.co.za/",
                         },
                         {
-                            "name": "La Motte Estate",
+                            "label": "La Motte Estate",
                             "url": "https://www.la-motte.com/",
                         },
                         {
-                            "name": "Leopard's Leap",
+                            "label": "Leopard's Leap",
                             "url": "https://www.leopardsleap.co.za/",
                         },
                         {
-                            "name": "Mont Rochelle",
+                            "label": "Mont Rochelle",
                             "url": "https://www.montrochelle.co.za/",
                         }
                     ]
                 },
                 {
                     "label": "Paarl District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Avondale Wine",
+                            "label": "Avondale Wine",
                             "url": "https://avondalewine.co.za/",
                         },
                         {
-                            "name": "Boschendal Estate",
+                            "label": "Boschendal Estate",
                             "url": "https://boschendal.com/",
                         },
                         {
-                            "name": "Fairview Wine & Cheese",
+                            "label": "Fairview Wine & Cheese",
                             "url": "https://www.fairview.co.za/",
                         },
                         {
-                            "name": "Lanzerac Wine Estate",
+                            "label": "Lanzerac Wine Estate",
                             "url": "https://www.lanzerac.co.za/",
                         },
                         {
-                            "name": "Rustenberg Wines",
+                            "label": "Rustenberg Wines",
                             "url": "https://www.rustenberg.co.za/",
                         }
                     ]
                 },
                 {
                     "label": "Stellenbosch District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Delaire Graff Estate",
+                            "label": "Delaire Graff Estate",
                             "url": "https://www.delaire.co.za/",
                         },
                         {
-                            "name": "Quoin Rock",
+                            "label": "Quoin Rock",
                             "url": "https://www.quoinrock.co.za/",
                         },
                         {
-                            "name": "Simonsig Estate",
+                            "label": "Simonsig Estate",
                             "url": "https://www.simonsig.co.za/",
                         },
                         {
-                            "name": "Spier Wine Farm",
+                            "label": "Spier Wine Farm",
                             "url": "https://www.spier.co.za/",
                         },
                         {
-                            "name": "Tokara Wine Estate",
+                            "label": "Tokara Wine Estate",
                             "url": "https://www.tokara.com/",
                         }
                     ]
                 },
                 {
                     "label": "Swartland District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "AA Badenhorst Family Wines",
+                            "label": "AA Badenhorst Family Wines",
                             "url": "https://www.badenhorstwine.co.za/",
                         },
                         {
-                            "name": "Kloovenburg Wines",
+                            "label": "Kloovenburg Wines",
                             "url": "https://www.kloovenburg.com/",
                         },
                         {
-                            "name": "Mullineux & Leeu Family Wines",
+                            "label": "Mullineux & Leeu Family Wines",
                             "url": "https://www.mullineux.com/",
                         },
                         {
-                            "name": "Sadie Family Wines",
+                            "label": "Sadie Family Wines",
                             "url": "https://www.sadiefamily.com/",
                         },
                         {
-                            "name": "Testalonga",
+                            "label": "Testalonga",
                             "url": "https://testalonga.co.za/",
                         }
                     ]
                 },
                 {
                     "label": "Tulbagh District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Lemberg Wine Estate",
+                            "label": "Lemberg Wine Estate",
                             "url": "https://www.lemberg.co.za/",
                         },
                         {
-                            "name": "Olifantsberg Wine Estate",
+                            "label": "Olifantsberg Wine Estate",
                             "url": "https://olifantsberg.com/",
                         },
                         {
-                            "name": "Rijk's Wine Estate",
+                            "label": "Rijk's Wine Estate",
                             "url": "https://rjks.co.za/",
                         },
                         {
-                            "name": "Saronsberg Wine Cellar",
+                            "label": "Saronsberg Wine Cellar",
                             "url": "https://www.saronsberg.com/",
                         },
                         {
-                            "name": "Waverley Hills",
+                            "label": "Waverley Hills",
                             "url": "https://waverley.co.za/",
                         }
                     ]
                 },
                 {
                     "label": "Tygerberg District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "De Grendel Wine Estate",
+                            "label": "De Grendel Wine Estate",
                             "url": "https://degrendel.co.za/",
                         },
                         {
-                            "name": "Diemersdal Wine Estate",
+                            "label": "Diemersdal Wine Estate",
                             "url": "http://www.diemersdal.co.za/",
                         },
                         {
-                            "name": "Durbanville Hills Winery",
+                            "label": "Durbanville Hills Winery",
                             "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
                             "coordinates": "-33.82472307633439, 18.565798168946426",
                             "phone": "+27 21 558 1300",
                             "email": "info_durbanvillehills@heineken.com",
                             "url": "https://www.durbanvillehills.co.za/",
-                            "items": [
+                            "items":
+                            [
                                 {
-                                    "name": "The Restaurant",
-                                    "hours": [
+                                    "label": "The Restaurant",
+                                    "hours":
+                                    [
                                         "Mon - Sun:",
                                         "08:30 - 11:00 (breakfast)",
                                         "12:00 - 15:00 (lunch)",
@@ -481,8 +514,9 @@ const wineEstateData = {
                                     ]
                                 },
                                 {
-                                    "name": "The Tasting Room",
-                                    "hours": [
+                                    "label": "The Tasting Room",
+                                    "hours":
+                                    [
                                         "Mon: 12:00 - 17:00",
                                         "Tue - Fri: 11:00 - 17:00",
                                         "Sat - Sun: 11:00 - 16:30"
@@ -491,36 +525,37 @@ const wineEstateData = {
                             ]
                         },
                         {
-                            "name": "Hillcrest Wine & Olive Estate",
+                            "label": "Hillcrest Wine & Olive Estate",
                             "url": "https://www.hillcrestwineestate.co.za/",
                         },
                         {
-                            "name": "Meerendal Wine Estate",
+                            "label": "Meerendal Wine Estate",
                             "url": "https://www.meerendal.co.za/",
                         }
                     ]
                 },
                 {
                     "label": "Wellington District",
-                    "items": [
+                    "items":
+                    [
                         {
-                            "name": "Bosman Family Vineyards",
+                            "label": "Bosman Family Vineyards",
                             "url": "https://www.bosmanwines.com/",
                         },
                         {
-                            "name": "Diemersfontein Wine & Country Estate",
+                            "label": "Diemersfontein Wine & Country Estate",
                             "url": "https://www.diemersfontein.co.za/",
                         },
                         {
-                            "name": "Doolhof Wine Estate",
+                            "label": "Doolhof Wine Estate",
                             "url": "https://www.doolhof.co.za/",
                         },
                         {
-                            "name": "Dunstone Winery",
+                            "label": "Dunstone Winery",
                             "url": "https://www.dunstonewines.co.za/",
                         },
                         {
-                            "name": "Vrymansfontein",
+                            "label": "Vrymansfontein",
                             "url": "https://vrymansfontein.co.za/",
                         }
                     ]
@@ -529,12 +564,14 @@ const wineEstateData = {
         }, 
         {
             "label": "Klein Karoo",
-            "items": [
+            "items":
+            [
             ]
         },
         {
             "label": "Olifants River (Olifantsrivier)",
-            "items": [
+            "items":
+            [
             ]
         }
 	]

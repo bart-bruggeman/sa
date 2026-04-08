@@ -1,24 +1,28 @@
-const insuranceData = {
+const insuranceData =
+{
     "label": "Insurances",
-    "items": [
+    "items":
+    [
         {
             "label": "Long-Term Insurance classes",
-            "items": [
+            "items":
+            [
                 {
                     "label": "Life",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Sanlam Life Insurance",
+                            "label": "Sanlam Life Insurance",
                             "info": "Major South African life insurer offering death, disability, and financial protection policies.",
                             "url": "https://www.sanlam.co.za"
                         },
                         { 
-                            "name": "Discovery Life Insurance",
+                            "label": "Discovery Life Insurance",
                             "info": "Innovative life insurer providing risk cover combined with wellness and rewards programs.",
                             "url": "https://www.discovery.co.za/life"
                         },
                         { 
-                            "name": "Old Mutual Life Insurance",
+                            "label": "Old Mutual Life Insurance",
                             "info": "Established insurer offering a wide range of life and long-term financial solutions.",
                             "url": "https://www.oldmutual.com"
                         }
@@ -26,14 +30,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Disability",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Momentum Life Insurance",
+                            "label": "Momentum Life Insurance",
                             "info": "Provides income protection and disability cover tailored to individual financial needs.",
                             "url": "https://www.momentum.co.za"
                         },
                         { 
-                            "name": "Discovery Life Insurance",
+                            "label": "Discovery Life Insurance",
                             "info": "Offers comprehensive disability and severe illness protection as part of life policies.",
                             "url": "https://www.discovery.co.za/life"
                         }
@@ -41,14 +46,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Fund / Investment-Linked",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Old Mutual Investment Policies",
+                            "label": "Old Mutual Investment Policies",
                             "info": "Investment-linked insurance products combining savings, growth, and life cover.",
                             "url": "https://www.oldmutual.com"
                         },
                         { 
-                            "name": "Sanlam Investment Solutions",
+                            "label": "Sanlam Investment Solutions",
                             "info": "Long-term investment products integrated with life insurance benefits.",
                             "url": "https://www.sanlam.co.za"
                         }
@@ -56,19 +62,20 @@ const insuranceData = {
                 },
                 {
                     "label": "Assistance / Funeral Insurance",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "1Life Funeral Cover",
+                            "label": "1Life Funeral Cover",
                             "info": "Affordable funeral insurance with quick payouts to cover burial expenses.",
                             "url": "https://www.1life.co.za"
                         },
                         { 
-                            "name": "AVBOB Funeral Insurance",
+                            "label": "AVBOB Funeral Insurance",
                             "info": "Well-known funeral insurer offering burial services and financial support.",
                             "url": "https://www.avbob.co.za"
                         },
                         { 
-                            "name": "Clientèle Funeral Plan",
+                            "label": "Clientèle Funeral Plan",
                             "info": "Funeral cover focused on accessibility and fixed monthly premiums.",
                             "url": "https://www.clientele.co.za"
                         }
@@ -76,14 +83,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Health",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Discovery Health Insurance Products",
+                            "label": "Discovery Health Insurance Products",
                             "info": "Provides long-term health-related insurance products alongside medical scheme solutions.",
                             "url": "https://www.discovery.co.za"
                         },
                         { 
-                            "name": "Momentum Health Insurance",
+                            "label": "Momentum Health Insurance",
                             "info": "Offers health insurance products covering hospital and primary care needs.",
                             "url": "https://www.momentum.co.za"
                         }
@@ -93,22 +101,24 @@ const insuranceData = {
         },
         {
             "label": "Short-Term Insurance classes",
-            "items": [
+            "items":
+            [
                 {
                     "label": "Motor",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "OUTsurance Car Insurance",
+                            "label": "OUTsurance Car Insurance",
                             "info": "Direct insurer offering comprehensive motor insurance with cashback incentives.",
                             "url": "https://www.outsurance.co.za"
                         },
                         { 
-                            "name": "Santam Motor Insurance",
+                            "label": "Santam Motor Insurance",
                             "info": "Leading short-term insurer providing extensive motor cover options.",
                             "url": "https://www.santam.co.za"
                         },
                         { 
-                            "name": "King Price Car Insurance",
+                            "label": "King Price Car Insurance",
                             "info": "Motor insurer known for decreasing premiums as vehicle value depreciates.",
                             "url": "https://www.kingprice.co.za"
                         }
@@ -116,19 +126,20 @@ const insuranceData = {
                 },
                 {
                     "label": "Property",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Santam Home Insurance",
+                            "label": "Santam Home Insurance",
                             "info": "Comprehensive home insurance covering buildings, contents, and risks.",
                             "url": "https://www.santam.co.za"
                         },
                         { 
-                            "name": "Auto & General Property Insurance",
+                            "label": "Auto & General Property Insurance",
                             "info": "Provides flexible property and household insurance solutions.",
                             "url": "https://www.autoandgeneral.co.za"
                         },
                         { 
-                            "name": "ABSA Home Insurance",
+                            "label": "ABSA Home Insurance",
                             "info": "Home insurance solutions offered through the ABSA financial services group.",
                             "url": "https://www.absa.co.za"
                         }
@@ -136,14 +147,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Liability",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Santam Liability Cover",
+                            "label": "Santam Liability Cover",
                             "info": "Covers legal liability for damage or injury caused to third parties.",
                             "url": "https://www.santam.co.za"
                         },
                         { 
-                            "name": "OUTsurance Liability Insurance",
+                            "label": "OUTsurance Liability Insurance",
                             "info": "Provides personal liability protection as part of home and personal insurance.",
                             "url": "https://www.outsurance.co.za"
                         }
@@ -151,14 +163,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Accident & Health",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Oneplan Accident Cover",
+                            "label": "Oneplan Accident Cover",
                             "info": "Short-term accident insurance with fast digital claims processing.",
                             "url": "https://www.oneplan.co.za"
                         },
                         { 
-                            "name": "Affinity Health Day-to-Day Cover",
+                            "label": "Affinity Health Day-to-Day Cover",
                             "info": "Provides basic health and accident cover for everyday medical needs.",
                             "url": "https://www.affinityhealth.co.za"
                         }
@@ -166,14 +179,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Engineering",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Santam Engineering Insurance",
+                            "label": "Santam Engineering Insurance",
                             "info": "Covers machinery, equipment, and construction-related risks.",
                             "url": "https://www.santam.co.za"
                         },
                         { 
-                            "name": "Zurich Engineering Cover",
+                            "label": "Zurich Engineering Cover",
                             "info": "Specialized engineering insurance for industrial and technical assets.",
                             "url": "https://www.zurich.co.za"
                         }
@@ -181,14 +195,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Marine",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Santam Marine Insurance",
+                            "label": "Santam Marine Insurance",
                             "info": "Provides cover for goods in transit and marine-related risks.",
                             "url": "https://www.santam.co.za"
                         },
                         { 
-                            "name": "Old Mutual Marine Cover",
+                            "label": "Old Mutual Marine Cover",
                             "info": "Marine insurance solutions for cargo and transport risks.",
                             "url": "https://www.oldmutual.com"
                         }
@@ -196,14 +211,15 @@ const insuranceData = {
                 },
                 {
                     "label": "Aviation",
-                    "items": [
+                    "items":
+                    [
                         { 
-                            "name": "Santam Aviation Insurance",
+                            "label": "Santam Aviation Insurance",
                             "info": "Covers aircraft, liability, and aviation-related risks.",
                             "url": "https://www.santam.co.za"
                         },
                         { 
-                            "name": "Global Aviation Insurance (ZA)",
+                            "label": "Global Aviation Insurance (ZA)",
                             "info": "Provides specialized aviation insurance solutions in South Africa.",
                             "url": "https://www.globalaviation.co.za"
                         }
