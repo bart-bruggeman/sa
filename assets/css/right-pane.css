@@ -24,6 +24,7 @@
 .offcanvas-body{
     margin:1.25rem 0;
     font-size:.9rem;
+    text-align:justify;
 }
 
 .offcanvas-body .value{

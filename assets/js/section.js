@@ -1,4 +1,4 @@
-const sectionsData = [bankData, insuranceData, healthcareData, realEstateData, wineEstateData];
+const sectionsData = [bankData, insuranceData, healthcareData, realEstateData, foodAndDrinksData, wineEstateData];
 
 function renderSections(level_1_items = sectionsData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
