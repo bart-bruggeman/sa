@@ -17,11 +17,11 @@ function renderRightPane(link) {
                </div>`
             : '';
         const content = Object.entries(office)
-            .filter(([k, v]) => v && !["items", "name", "mode", "isMain"].includes(k))
+            .filter(([k, v]) => v && !["items", "name", "mode", "coordinates", "isMain"].includes(k))
             .map(([k, v]) => {
                 const { icon = DEFAULT_ICON, colorClass = '', render = val => val } = iconMap[k] || {};
                 return `<p class="value ${colorClass} mt-3">
-                            <i class="bi ${icon} icon ${colorClass}"></i>${render(v)}
+                            <i class="bi ${icon} icon ${colorClass}"></i>${render(v, office || {})}
                         </p>`;
             }).join('');
         return `<section class="pane-block ${isMain ? 'open mb-0' : 'collapsible'}" data-block="${blockId}">
