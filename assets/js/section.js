@@ -47,7 +47,7 @@ function filteredContentAsList(level_1_item) {
 function contentAsSectionWithThreeColumnCards(level_2_items = [], wrapRow = true) {
     const filteredItems = (level_2_items || [])
         .filter(level_2_item => level_2_item.items?.length)
-        .sort(byField("name"));
+        /*.sort(byField("name"))*/;
     if (!filteredItems.length) return '';
     const content = filteredItems.map(level_2_item => `
         <div class="col-12 col-md-6 col-lg-3">
