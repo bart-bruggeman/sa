@@ -1,5 +1,6 @@
 let idCounter = 0;
 let scrollTimeout;
+const SKIP_FIELDS = ["items", "name", "id", "type", "mode", "coordinates", "isMain"];
 
 function renderRightPane(link) {
     idCounter = 0;
@@ -17,7 +18,7 @@ function renderRightPane(link) {
                </div>`
             : '';
         const content = Object.entries(office)
-            .filter(([k, v]) => v && !["items", "name", "mode", "coordinates", "isMain"].includes(k))
+            .filter(([k, v]) => v && !SKIP_FIELDS.includes(k))
             .map(([k, v]) => {
                 const { icon = DEFAULT_ICON, colorClass = '', render = val => val } = iconMap[k] || {};
                 return `<p class="value ${colorClass} mt-3">
