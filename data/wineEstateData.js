@@ -283,7 +283,7 @@ const wineEstateData =
                         },
                         {
                             "name": "Eagles' Nest",
-                            "address": "Constantia Main Rd, Constantia, Cape Town, 7806, Zuid-Afrika",
+                            "address": "Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.014885013603184, 18.415135",
                             "phone": "+27 21 794 3359",
                             "url": "https://www.eaglesnestwines.com/"
@@ -298,8 +298,6 @@ const wineEstateData =
                         },
                         {
                             "name": "Silvermist",
-                            "id": "silvermist",
-                            "type": "Wine Estate",
                             "mode": "hot",
                             "address": "Silvermist Wine Estate, Constantia Nek, Hout Bay Main Rd, Hout Bay, Cape Town, 7806, South Africa",
                             "coordinates": "-34.01194769970817, 18.40240151349141",
