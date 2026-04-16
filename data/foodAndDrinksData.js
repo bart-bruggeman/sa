@@ -86,7 +86,7 @@ const foodAndDrinksData =
             ]
         },
         {
-            "name": "Haute Cuisine / Ultra-Luxury Fine Dining",
+            "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
             "items":
             [
                 { "name": "La Colombe",
@@ -96,7 +96,13 @@ const foodAndDrinksData =
                     "coordinates": "-34.014966041262085, 18.403281947858012",
                     "phone": "+27 21 794 2390",
                     "email": "reservations@lacolombe.co.za",
-                    "url": "https://www.lacolombe.restaurant/la-colombe"
+                    "url": "https://www.lacolombe.restaurant/la-colombe",
+                    "hours":
+                    [
+                        "Mon - Sun:",
+                        "12:00 - 14:00 (lunch)",
+                        "18:00 - 21:00 (dinner)"
+                    ]
                 }, 
                 {
                     "name": "Jordan Restaurant",
