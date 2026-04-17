@@ -1,4 +1,4 @@
-// wine estate - restaurant links and restaurant - wine estate links
+// wine estate - restaurant links
 const wineEstate_restaurant_links =
 [ 
     { 
@@ -31,39 +31,8 @@ const wineEstate_restaurant_links =
     }
 ];
 
-const restaurant_wineEstate_links =
-[
-    { 
-        "id1": "lacolombe", 
-        "id2": "silvermist" 
-    },
-    {
-        "id1": "jonkershuis",
-        "id2": "grootconstantia"
-    },
-    {
-        "id1": "simonsrestaurant",
-        "id2": "grootconstantia"
-    },
-    {
-        "id1": "bistro1682",
-        "id2": "steenbergvineyards"
-    },
-    {
-        "id1": "tryrestaurant",
-        "id2": "steenbergvineyards"
-    },
-    {
-        "id1": "thetangramrestaurant",
-        "id2": "durbanvillehills"
-    },
-    {
-        "id1": "capepointvineyardsrestaurant",
-        "id2": "capepointvineyards"
-    }
-];
 
-// wine estate - musea links and musea - wine estate links
+// wine estate - musea links
 const wineEstate_musea_links =
 [
     {
@@ -72,19 +41,9 @@ const wineEstate_musea_links =
     }
 ];
 
-const musea_wineEstate_links =
-[
-    {
-        "id1": "izikomuseum",
-        "id2": "grootconstantia"
-    }
-];
-
 // all links
 const links = 
 [
     wineEstate_restaurant_links, 
-    restaurant_wineEstate_links,
-    wineEstate_musea_links,
-    musea_wineEstate_links
+    wineEstate_musea_links
 ];
