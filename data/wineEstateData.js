@@ -3,15 +3,6 @@ const wineEstateData =
     "type": "section",
 	"name": "Wine Regions",
 	"items": [
-        // geografisch gezien geen echte wijnregio, maar aanduiding voor versterkte wijnen
-        // geproduceerd in Paarl, Franschhoek en Tulbagh
-        /*{
-            "type": "subsection",
-            "name": "Boberg",
-            "items":
-            [
-            ]
-        },*/
         {
             "type": "subsection",
             "name": "Breede River Valley (Breederiviervallei)",
@@ -124,6 +115,7 @@ const wineEstateData =
                     "items":
                     [
                         {
+                            "id": "capepointvineyards",
                             "type": "data",
                             "name": "Cape Point Vineyards",
                             "mode": "hot",
@@ -144,15 +136,6 @@ const wineEstateData =
                             ],
                             "items":
                             [
-                                {
-                                    "type": "extra-data",
-                                    "name": "The Restaurant",
-                                    "hours":
-                                    [
-                                        "Sun - Thu: 12:00 - 16:00",
-                                        "Sat: 12:00 - 19:00"
-                                    ]
-                                },
                                 {
                                     "type": "extra-data",
                                     "name": "The Courtyard",
@@ -176,8 +159,10 @@ const wineEstateData =
                             ]
                         },
                         {
+                            "id": "grootconstantia",
                             "type": "data",
                             "name": "Groot Constantia",
+                            "displayName": "Groot Constantia Wine Estate",
                             "address": "Groot Constantia Rd, Constantia, Cape Town, 7806, South Africa",
                             "coordinates": "-34.02935654497266, 18.42020943587593",
                             "phone": "+27 21 794 5128",
@@ -190,35 +175,6 @@ const wineEstateData =
                                     "type": "extra-data",
                                     "name": "Wine Tasting & Retail Shop",
                                     "hours": "Mon - Sun: 09:00 - 18:00"
-                                },
-                                {
-                                    "type": "extra-data",
-                                    "name": "Jonkershuis Restaurant",
-                                    "coordinates": "-34.030414630792215, 18.418986348595567",
-                                    "phone": "+27 21 794 6255",
-                                    "email": "info@jhuis.co.za",
-                                    "url": "https://jonkershuisconstantia.co.za/",
-                                    "hours":
-                                    [
-                                        "Mon - Sat: 08:00 - 21:00",
-                                        "Sun: 08:00 - 17:00"
-                                    ]
-                                },
-                                {
-                                    "type": "extra-data",
-                                    "name": "Simon's Restaurant",
-                                    "coordinates": "-34.031161506955975, 18.417731074807826",
-                                    "phone": "+27 21 794 1143",
-                                    "email": "info@simons.co.za",
-                                    "url": "https://simons.co.za/"
-                                },
-                                {
-                                    "type": "extra-data",
-                                    "name": "Iziko Museums of Cape Town",
-                                    "coordinates": "-34.03096467203029, 18.418772853608303",
-                                    "phone": "+27 21 795 5140",
-                                    "url": "https://www.iziko.org.za/museums/groot-constantia/",
-                                    "hours": "Mon - Sun: 10:00 - 17:00"
                                 }
                             ]
                         },
@@ -245,6 +201,7 @@ const wineEstateData =
                             ]
                         },
                         {
+                            "id": "steenbergvineyards",
                             "type": "data",
                             "name": "Steenberg Vineyards",
                             "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
@@ -252,33 +209,6 @@ const wineEstateData =
                             "url": "https://www.steenbergfarm.com/",
                             "items":
                             [
-                                {
-                                    "type": "extra-data",
-                                    "name": "Bistro 1682 Restaurant",
-                                    "phone": "+27 21 205 3866",
-                                    "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
-                                    "hours":
-                                    [
-                                        "Mon - Sun:",
-                                        "09:00 - 11:00 (breakfast)",
-                                        "12:00 - 15:00 (lunch)",
-                                        "17:00 - 22:00 (dinner)"
-                                    ]
-                                },
-                                {
-                                    "type": "extra-data",
-                                    "name": "Tryn Restaurant",
-                                    "phone": "+27 21 713 7178",
-                                    "email": "info@tryn.co.za",
-                                    "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
-                                    "hours":
-                                    [
-                                        "Mon - Sun:",
-                                        "08:00 - 11:00 (breakfast)",
-                                        "12:00 - 15:00 (lunch)",
-                                        "18:00 - 22:00 (dinner)"
-                                    ]
-                                },
                                 {
                                     "type": "extra-data",
                                     "name": "Steenberg 5-star Hotel",
@@ -574,6 +504,7 @@ const wineEstateData =
                             "url": "http://www.diemersdal.co.za/",
                         },
                         {
+                            "id": "durbanvillehills",
                             "type": "data",
                             "name": "Durbanville Hills Winery",
                             "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
@@ -583,17 +514,6 @@ const wineEstateData =
                             "url": "https://www.durbanvillehills.co.za/",
                             "items":
                             [
-                                {
-                                    "type": "extra-data",
-                                    "name": "The Restaurant",
-                                    "hours":
-                                    [
-                                        "Mon - Sun:",
-                                        "08:30 - 11:00 (breakfast)",
-                                        "12:00 - 15:00 (lunch)",
-                                        "Mon - Sat: 18:00 - 23:00 (dinner)"
-                                    ]
-                                },
                                 {
                                     "type": "extra-data",
                                     "name": "The Tasting Room",
@@ -666,5 +586,14 @@ const wineEstateData =
             [
             ]
         }
+        // geografisch gezien geen echte wijnregio, maar aanduiding voor versterkte wijnen
+        // geproduceerd in Paarl, Franschhoek en Tulbagh
+        /*{
+            "type": "subsection",
+            "name": "Boberg",
+            "items":
+            [
+            ]
+        },*/
 	]
 }

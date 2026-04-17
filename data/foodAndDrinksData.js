@@ -20,6 +20,29 @@ const foodAndDrinksData =
                 {
                     "type": "data", 
                     "name": "Talla's Tavern"
+                },
+                {
+                    "id": "jonkershuis",
+                    "type": "data",
+                    "name": "Jonkershuis Restaurant",
+                    "coordinates": "-34.030414630792215, 18.418986348595567",
+                    "phone": "+27 21 794 6255",
+                    "email": "info@jhuis.co.za",
+                    "url": "https://jonkershuisconstantia.co.za/",
+                    "hours":
+                    [
+                        "Mon - Sat: 08:00 - 21:00",
+                        "Sun: 08:00 - 17:00"
+                    ]
+                },
+                {
+                    "id": "simonsrestaurant",
+                    "type": "data",
+                    "name": "Simon's Restaurant",
+                    "coordinates": "-34.031161506955975, 18.417731074807826",
+                    "phone": "+27 21 794 1143",
+                    "email": "info@simons.co.za",
+                    "url": "https://simons.co.za/"
                 }
             ]
         },
@@ -81,6 +104,45 @@ const foodAndDrinksData =
                     "phone": "+27 21 123 4567",
                     "email": "info@thetestkitchencarbon.co.za",
                     "url": "https://ttkfledgelings.co.za/gallery/"
+                },
+                {
+                    "id": "bistro1682",
+                    "type": "data",
+                    "name": "Bistro 1682 Restaurant",
+                    "phone": "+27 21 205 3866",
+                    "url": "https://steenbergfarm.com/bistro1682-cape-town-contemporary-restaurant/",
+                    "hours":
+                    [
+                        "Mon - Sun:",
+                        "09:00 - 11:00 (breakfast)",
+                        "12:00 - 15:00 (lunch)",
+                        "17:00 - 22:00 (dinner)"
+                    ]
+                },
+                {
+                    "id": "trynrestaurant",
+                    "type": "data",
+                    "name": "Tryn Restaurant",
+                    "phone": "+27 21 713 7178",
+                    "email": "info@tryn.co.za",
+                    "url": "https://steenbergfarm.com/tryn-cape-town-contemporary-restaurant/",
+                    "hours":
+                    [
+                        "Mon - Sun:",
+                        "08:00 - 11:00 (breakfast)",
+                        "12:00 - 15:00 (lunch)",
+                        "18:00 - 22:00 (dinner)"
+                    ]
+                },
+                {
+                    "id": "capepointvineyardsrestaurant",
+                    "type": "data",
+                    "name": "Cape Point Vineyards Restaurant",
+                    "hours":
+                    [
+                        "Sun - Thu: 12:00 - 16:00",
+                        "Sat: 12:00 - 19:00"
+                    ]
                 }
             ]
         },
@@ -108,6 +170,18 @@ const foodAndDrinksData =
                 {
                     "type": "data", 
                     "name": "La Petite Colombe"
+                },
+                {
+                    "id": "thetangramrestaurant",
+                    "type": "data",
+                    "name": "The Tangram Restaurant",
+                    "hours":
+                    [
+                        "Mon - Sun:",
+                        "08:30 - 11:00 (breakfast)",
+                        "12:00 - 15:00 (lunch)",
+                        "Mon - Sat: 18:00 - 23:00 (dinner)"
+                    ]
                 }
             ]
         },

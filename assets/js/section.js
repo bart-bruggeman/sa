@@ -1,4 +1,4 @@
-const sectionsData = [bankData, insuranceData, healthcareData, realEstateData, foodAndDrinksData, wineEstateData];
+const sectionsData = [bankData, insuranceData, healthcareData, realEstateData, foodAndDrinksData, wineEstateData, museumData];
 
 function isType(item, type) {
     return item?.type === type;
