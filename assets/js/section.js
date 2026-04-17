@@ -4,7 +4,7 @@ function isType(item, type) {
     return item?.type === type;
 }
 
-function byField(field) {
+function sortByField(field) {
     return (a, b) => {
         const v1 = (a[field] || "").toLowerCase().trim();
         const v2 = (b[field] || "").toLowerCase().trim();
@@ -12,7 +12,7 @@ function byField(field) {
     };
 }
 
-function renderSections(level_1_items = sectionsData, open = false, filtered = false) {
+function renderCategories(level_1_items = sectionsData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
     if (!Array.isArray(level_1_items) || !level_1_items.length) {
         const filterValue = document.getElementById("filter-id")?.value || '';
@@ -22,10 +22,10 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
 
     container.innerHTML = level_1_items.map((section, i) => {
         const content = filtered
-            ? filteredContentAsList(section)
-            : hasSubsections(section)
-                ? contentAsSectionWithSubsections(section.items)
-                : contentAsSectionWithColumns(section.items);
+            ? renderFilteredEntries(section)
+            : hasGroups(section)
+                ? renderCategoryGroups(section.items)
+                : renderCategoryPanels(section.items);
 
         return `
         <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
@@ -44,11 +44,11 @@ function renderSections(level_1_items = sectionsData, open = false, filtered = f
     }).join("");
 }
 
-function hasSubsections(section) {
+function hasGroups(section) {
     return section.items?.some(item => isType(item, "subsection"));
 }
 
-function contentAsSectionWithColumns(columns = [], wrapRow = true) {
+function renderCategoryPanels(columns = [], wrapRow = true) {
     const validColumns = (columns || [])
         .filter(col => isType(col, "column"));
     if (!validColumns.length) return '';
@@ -60,7 +60,7 @@ function contentAsSectionWithColumns(columns = [], wrapRow = true) {
                 <div class="card h-100">
                     <div class="card-body">
                         <h3 class="h6 mb-3">${column.name}</h3>
-                        ${renderColumnData(dataItems)}
+                        ${renderPanelEntries(dataItems)}
                     </div>
                 </div>
             </div>
@@ -69,10 +69,10 @@ function contentAsSectionWithColumns(columns = [], wrapRow = true) {
     return wrapRow ? `<div class="row">${content}</div>` : content;
 }
 
-function contentAsSectionWithSubsections(items = []) {
+function renderCategoryGroups(items = []) {
     return (items || [])
         .filter(item => isType(item, "subsection"))
-        .sort(byField("name"))
+        .sort(sortByField("name"))
         .map((subsection, i) => `
             <section class="subsection mb-2" data-level2="${i}">
                 <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
@@ -80,17 +80,17 @@ function contentAsSectionWithSubsections(items = []) {
                     <i class="bi bi-chevron-down chevron-icon"></i>
                 </h3>
                 <div class="subsection-content" style="display:none;">
-                    ${contentAsSectionWithColumns(subsection.items)}
+                    ${renderCategoryPanels(subsection.items)}
                 </div>
             </section>
         `).join("");
 }
 
-function renderColumnData(dataItems = []) {
+function renderPanelEntries(dataItems = []) {
     if (!dataItems.length) return '';
     return `<ul class="list-unstyled mb-0">
         ${dataItems
-            .sort(byField("name"))
+            .sort(sortByField("name"))
             .map(item => {
                 const hotIcon = item.mode === 'hot'
                     ? '<i class="bi bi-fire hot-icon ms-2"></i>'
@@ -106,10 +106,10 @@ function renderColumnData(dataItems = []) {
     </ul>`;
 }
 
-function filteredContentAsList(section) {
+function renderFilteredEntries(section) {
     if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
     const uniqueItems = [...new Map(section.items.map(item => [item.name, item])).values()]
-        .sort(byField("name"));
+        .sort(sortByField("name"));
     return `<ul class="list-unstyled mb-2 filtered-list">
         ${uniqueItems.map(item => {
             const hotIcon = item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
@@ -118,39 +118,39 @@ function filteredContentAsList(section) {
     </ul>`;
 }
 
-function getAllExtraData(items = []) {
+function collectEntrieDetails(items = []) {
     let result = [];
     items.forEach(item => {
         if (isType(item, "extra-data") || isType(item, "data")) {
             result.push(item);
         }
         if (item.items?.length) {
-            result = result.concat(getAllExtraData(item.items));
+            result = result.concat(collectEntrieDetails(item.items));
         }
     });
     return result;
 }
 
-function renderFilteredSections(query) {
+function renderFilteredCategories(query) {
     const q = query.toLowerCase().trim();
     if (!q) {
-        renderSections(sectionsData, false, false);
+        renderCategories(sectionsData, false, false);
         return;
     }
     const filteredData = sectionsData
         .map(section => {
-            const matches = getAllExtraData(section.items)
-                .filter(item => matchesQuery(item, q));
+            const matches = collectEntrieDetails(section.items)
+                .filter(item => matchesFilterQuery(item, q));
 
             return matches.length
                 ? { name: section.name, items: matches }
                 : null;
         })
         .filter(Boolean);
-    renderSections(filteredData, true, true);
+    renderCategories(filteredData, true, true);
 }
 
-function matchesQuery(item, q) {
+function matchesFilterQuery(item, q) {
     return item.name?.toLowerCase().includes(q) ||
            item.mode?.toLowerCase().includes(q);
 }
