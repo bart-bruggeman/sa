@@ -139,7 +139,8 @@ const foodAndDrinksData =
             "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
             "items":
             [
-                { 
+                {
+                    "id": "lacolombe",
                     "type": "data",
                     "name": "La Colombe",
                     "displayName": "Restaurant La Colombe",
