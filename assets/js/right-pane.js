@@ -1,6 +1,6 @@
 let idCounter = 0;
 let scrollTimeout;
-const SKIP_FIELDS = ["items", "name", "id", "type", "mode", "coordinates", "isMain"];
+const SKIP_FIELDS = ["items", "name", "displayName", "id", "type", "mode", "coordinates", "isMain"];
 
 function renderRightPane(link) {
     idCounter = 0;
@@ -9,10 +9,11 @@ function renderRightPane(link) {
     const blocks = [{ ...link, isMain: true }, ...(link.items || []).map(item => ({ ...item, isMain: false }))];
     body.innerHTML = blocks.map(({ isMain, ...office }) => {
         const blockId = `block-${idCounter++}`;
-        const header = office.name
+        const name = office.displayName ?? office.name;
+        const header = name
             ? `<div class="${isMain ? 'block-header' : 'block-header-n'}" ${!isMain ? `data-toggle="${blockId}"` : ''}>
                     <div class="header-content d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">${office.name}</h3>
+                        <h3 class="mb-0">${name}</h3>
                         ${!isMain ? '<i class="bi bi-chevron-down toggle-icon"></i>' : ''}
                     </div>
                </div>`

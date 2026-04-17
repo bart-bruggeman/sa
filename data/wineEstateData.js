@@ -333,6 +333,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Silvermist",
+                            "displayName": "Silvermist Wine Estate",
                             "mode": "hot",
                             "address": "Silvermist Wine Estate, Constantia Nek, Hout Bay Main Rd, Hout Bay, Cape Town, 7806, South Africa",
                             "coordinates": "-34.01194769970817, 18.40240151349141",
