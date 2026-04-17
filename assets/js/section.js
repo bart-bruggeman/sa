@@ -12,114 +12,165 @@ function sortByField(field) {
     };
 }
 
-function renderCategories(level_1_items = sectionsData, open = false, filtered = false) {
+/* =========================
+   ROOT
+========================= */
+
+function renderCategories(items = sectionsData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
-    if (!Array.isArray(level_1_items) || !level_1_items.length) {
+
+    if (!Array.isArray(items) || !items.length) {
         const filterValue = document.getElementById("filter-id")?.value || '';
         container.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found for filter '${filterValue}'.</p>`;
         return;
     }
 
-    container.innerHTML = level_1_items.map((section, i) => {
-        const content = filtered
-            ? renderFilteredEntries(section)
-            : hasGroups(section)
-                ? renderCategoryGroups(section.items)
-                : renderCategoryPanels(section.items);
-
-        return `
-        <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${i}">
-            <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
-                <span class="section-title">
-                    ${section.name}
-                    ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
-                </span>
-                ${filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
-            </h2>
-            <div class="section-content" style="display:${open ? 'block' : 'none'}" data-loaded="true">
-                ${content}
-            </div>
-        </section>
-        `;
-    }).join("");
+    container.innerHTML = items.map((item, i) =>
+        renderNode(item, { level: 1, index: i, open, filtered })
+    ).join("");
 }
 
-function hasGroups(section) {
-    return section.items?.some(item => isType(item, "subsection"));
-}
+/* =========================
+   CORE RENDERER (🔥)
+========================= */
 
-function renderCategoryPanels(columns = [], wrapRow = true) {
-    const validColumns = (columns || [])
-        .filter(col => isType(col, "column"));
-    if (!validColumns.length) return '';
-    const content = validColumns.map(column => {
-        const dataItems = (column.items || [])
-            .filter(item => isType(item, "data"));
-        return `
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h6 mb-3">${column.name}</h3>
-                        ${renderPanelEntries(dataItems)}
-                    </div>
+function renderNode(node, ctx = {}) {
+    const { level = 1, index = 0, open = false, filtered = false } = ctx;
+
+    if (!node) return '';
+
+    switch (node.type) {
+
+        case "section":
+            return `
+            <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${index}">
+                <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
+                    <span class="section-title">
+                        ${node.name}
+                        ${filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
+                    </span>
+                    ${filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
+                </h2>
+                <div class="section-content" style="display:${open ? 'block' : 'none'}">
+                    ${filtered
+                        ? renderFilteredEntries(node)
+                        : renderChildren(node, ctx)}
                 </div>
-            </div>
-        `;
-    }).join("");
-    return wrapRow ? `<div class="row">${content}</div>` : content;
-}
+            </section>
+            `;
 
-function renderCategoryGroups(items = []) {
-    return (items || [])
-        .filter(item => isType(item, "subsection"))
-        .sort(sortByField("name"))
-        .map((subsection, i) => `
-            <section class="subsection mb-2" data-level2="${i}">
+        case "subsection":
+            return `
+            <section class="subsection mb-2" data-level2="${index}">
                 <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
-                    <span>${subsection.name}</span>
+                    <span>${node.name}</span>
                     <i class="bi bi-chevron-down chevron-icon"></i>
                 </h3>
                 <div class="subsection-content" style="display:none;">
-                    ${renderCategoryPanels(subsection.items)}
+                    ${renderChildren(node, ctx)}
                 </div>
             </section>
-        `).join("");
+            `;
+
+        case "column":
+            return `
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h6 mb-3">${node.name}</h3>
+                        ${renderChildren(node, ctx)}
+                    </div>
+                </div>
+            </div>
+            `;
+
+        case "data":
+            return renderDataItem(node);
+
+        default:
+            return '';
+    }
 }
 
-function renderPanelEntries(dataItems = []) {
-    if (!dataItems.length) return '';
-    return `<ul class="list-unstyled mb-0">
-        ${dataItems
-            .sort(sortByField("name"))
-            .map(item => {
-                const hotIcon = item.mode === 'hot'
-                    ? '<i class="bi bi-fire hot-icon ms-2"></i>'
-                    : '';
-                return `
-                    <li>
-                        <a href="#" data-name="${item.name}">
-                            ${item.name}${hotIcon}
-                        </a>
-                    </li>
-                `;
-            }).join("")}
-    </ul>`;
+/* =========================
+   CHILD RENDERING
+========================= */
+
+function renderChildren(node, ctx) {
+    if (!node.items?.length) return '';
+
+    const items = [...node.items].sort(sortByField("name"));
+
+    // subsection children → render directly
+    if (items.some(i => isType(i, "subsection"))) {
+        return items
+            .filter(i => isType(i, "subsection"))
+            .map((child, i) => renderNode(child, { ...ctx, index: i }))
+            .join("");
+    }
+
+    // column children → wrap in row
+    if (items.some(i => isType(i, "column"))) {
+        const cols = items
+            .filter(i => isType(i, "column"))
+            .map((child, i) => renderNode(child, { ...ctx, index: i }))
+            .join("");
+        return `<div class="row">${cols}</div>`;
+    }
+
+    // data children → render as list
+    if (items.some(i => isType(i, "data"))) {
+        return `
+        <ul class="list-unstyled mb-0">
+            ${items
+                .filter(i => isType(i, "data"))
+                .map(renderDataItem)
+                .join("")}
+        </ul>
+        `;
+    }
+
+    return '';
 }
+
+/* =========================
+   DATA ITEM
+========================= */
+
+function renderDataItem(item) {
+    const hotIcon = item.mode === 'hot'
+        ? '<i class="bi bi-fire hot-icon ms-2"></i>'
+        : '';
+
+    return `
+        <li>
+            <a href="#" data-name="${item.name}">
+                ${item.name}${hotIcon}
+            </a>
+        </li>
+    `;
+}
+
+/* =========================
+   FILTERING (blijft grotendeels gelijk)
+========================= */
 
 function renderFilteredEntries(section) {
     if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
+
     const uniqueItems = [...new Map(section.items.map(item => [item.name, item])).values()]
         .sort(sortByField("name"));
-    return `<ul class="list-unstyled mb-2 filtered-list">
-        ${uniqueItems.map(item => {
-            const hotIcon = item.mode === 'hot' ? '<i class="bi bi-fire hot-icon ms-2"></i>' : '';
-            return `<li><a href="#" data-name="${item.name}">${item.name}${hotIcon}</a></li>`;
-        }).join('')}
-    </ul>`;
+
+    return `
+    <ul class="list-unstyled mb-2 filtered-list">
+        ${uniqueItems.map(renderDataItem).join('')}
+    </ul>
+    `;
 }
 
 function collectEntrieDetails(items = []) {
     let result = [];
+
     items.forEach(item => {
         if (isType(item, "extra-data") || isType(item, "data")) {
             result.push(item);
@@ -128,25 +179,29 @@ function collectEntrieDetails(items = []) {
             result = result.concat(collectEntrieDetails(item.items));
         }
     });
+
     return result;
 }
 
 function renderFilteredCategories(query) {
     const q = query.toLowerCase().trim();
+
     if (!q) {
         renderCategories(sectionsData, false, false);
         return;
     }
+
     const filteredData = sectionsData
         .map(section => {
             const matches = collectEntrieDetails(section.items)
                 .filter(item => matchesFilterQuery(item, q));
 
             return matches.length
-                ? { name: section.name, items: matches }
+                ? { type: "section", name: section.name, items: matches }
                 : null;
         })
         .filter(Boolean);
+
     renderCategories(filteredData, true, true);
 }
 
