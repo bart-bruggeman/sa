@@ -1,23 +1,39 @@
 const foodAndDrinksData = 
 {
+    "type": "section",
     "name": "Food and Drinks",
     "items": 
     [
         {
+            "type": "column",
             "name": "Tavern & Casual Dining",
             "items":
             [
-                { "name": "Café Zest" },
-                { "name": "The Thirsty Oyster Tavern" },
-                { "name": "Talla's Tavern" }
+                {
+                    "type": "data", 
+                    "name": "Café Zest"
+                },
+                {
+                    "type": "data", 
+                    "name": "The Thirsty Oyster Tavern"
+                },
+                {
+                    "type": "data", 
+                    "name": "Talla's Tavern"
+                }
             ]
         },
         {
+            "type": "column",
             "name": "Casual Fine Dining",
             "items":
             [
-                { "name": "Chorus" },
                 {
+                    "type": "data", 
+                    "name": "Chorus"
+                },
+                {
+                    "type": "data",
                     "name": "Ouzeri",
                     "info": "Ouzeri is a vibrant Turkish restaurant known for its authentic flavors and warm atmosphere. It offers a delightful selection of mezze, kebabs, and other traditional Turkish dishes.",
                     "address": "789 Ouzeri Street, Cape Town, 8000, South Africa",
@@ -26,7 +42,8 @@ const foodAndDrinksData =
                     "email": "info@ouzeri.co.za",
                     "url": "https://www.ouzeri.co.za/"
                 },
-                { "name": "Seebamboes",
+                {
+                    "type": "data", "name": "Seebamboes",
                     "mode": "hot",
                     "info": "Seebamboes is a fine dining restaurant offering a unique culinary experience focused on local ingredients and flavors. The menu combines traditional and contemporary dishes, highlighting the diversity of South African cuisine.",
                     "address": "99 Harrington St, District Six, Cape Town, 7925, South Africa",
@@ -35,7 +52,8 @@ const foodAndDrinksData =
                     "email": "eat@seebamboescpt.co.za",
                     "url": "https://www.seebamboes.co.za/"
                 },
-                { "name": "Galjoen",
+                {
+                    "type": "data", "name": "Galjoen",
                     "mode": "hot",
                     "info": "Galjoen is a fine dining restaurant offering a sophisticated culinary experience that combines local and international flavors. The menu emphasizes fresh, seasonal ingredients. Its elegant setting and attentive service make it a popular choice for special occasions.",
                     "address": "99 Harrington St, District Six, Cape Town, 7925, South Africa",
@@ -44,7 +62,8 @@ const foodAndDrinksData =
                     "email": "eat@galjoencpt.co.za",
                     "url": "https://www.galjoenrestaurant.co.za/"
                 },
-                { "name": "Belly of the Beast",
+                {
+                    "type": "data", "name": "Belly of the Beast",
                     "mode": "hot",
                     "info": "Belly of the Beast is a modern fine dining restaurant known for its innovative, experimental cuisine. It offers a unique dining experience where food and art come together, with creatively presented dishes. The menu often highlights local ingredients in surprising ways.",
                     "address": "110 Harrington St, Cape Town City Centre, Cape Town, 8000, South Africa",
@@ -54,6 +73,7 @@ const foodAndDrinksData =
                     "url": "https://www.bellyofthebeast.co.za/"
                 },
                 {
+                    "type": "data",
                     "name": "The Test Kitchen Fledgelings",
                     "info": "The Test Kitchen Fledgelings is a high-end dining establishment known for its exceptional culinary offerings and sophisticated atmosphere. It features a diverse menu that showcases the best of contemporary cuisine, utilizing only the finest ingredients.",
                     "address": "123 Test Street, Cape Town, 8000, South Africa",
@@ -65,31 +85,63 @@ const foodAndDrinksData =
             ]
         },
         {
+            "type": "column",
             "name": "Modern Fine Dining",
             "items":
             [
-                { "name": "Epice" },
-                { "name": "The Waterside" },
-                { "name": "Dusk" },
-                { "name": "FYN" },
-                { "name": "La Petite Colombe" }
+                {
+                    "type": "data", 
+                    "name": "Epice"
+                },
+                {
+                    "type": "data", 
+                    "name": "The Waterside"
+                },
+                {
+                    "type": "data", 
+                    "name": "Dusk"
+                },
+                {
+                    "type": "data", 
+                    "name": "FYN"
+                },
+                {
+                    "type": "data", 
+                    "name": "La Petite Colombe"
+                }
             ]
         },
         {
+            "type": "column",
             "name": "Classic Fine Dining",
             "items":
             [
-                { "name": "Salsify" },
-                { "name": "Beyond" },
-                { "name": "Rust en Vrede" },
-                { "name": "Cavalli" }
+                {
+                    "type": "data", 
+                    "name": "Salsify"
+                },
+                {
+                    "type": "data", 
+                    "name": "Beyond"
+                },
+                {
+                    "type": "data", 
+                    "name": "Rust en Vrede"
+                },
+                {
+                    "type": "data", 
+                    "name": "Cavalli"
+                }
             ]
         },
         {
+            "type": "column",
             "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
             "items":
             [
-                { "name": "La Colombe",
+                { 
+                    "type": "data",
+                    "name": "La Colombe",
                     "mode": "hot",
                     "info": "La Colombe is an award-winning fine dining restaurant located on Silvermist Wine Estate at the top of Constantia Nek in Cape Town. Known for its innovative cuisine, the restaurant blends French techniques with Asian influences to create a unique and refined tasting experience.",
                     "address": "Silvermist Wine Estate, Main Road, Constantia Nek, Cape Town, 7806, South Africa",
@@ -105,6 +157,7 @@ const foodAndDrinksData =
                     ]
                 }, 
                 {
+                    "type": "data",
                     "name": "Jordan Restaurant",
                     "info": "Jordan Restaurant is a renowned fine dining establishment offering an exquisite culinary experience. Known for its elegant ambiance and exceptional service, it features a carefully curated menu that highlights the best of both local and international flavors.",
                     "address": "456 Jordan Avenue, Cape Town, 8000, South Africa",
@@ -114,6 +167,7 @@ const foodAndDrinksData =
                     "url": "https://www.jordanrestaurant.co.za/"
                 },
                 {
+                    "type": "data",
                     "name": "The Restaurant at Waterkloof",
                     "info": "The Restaurant at Waterkloof is a prestigious fine dining establishment located in Cape Town, South Africa. It offers a unique culinary experience with a focus on contemporary cuisine, utilizing locally sourced ingredients to create innovative and flavorful dishes.",
                     "address": "Waterkloof Estate, 1 Waterkloof Road, Cape Town, 7945, South Africa",
