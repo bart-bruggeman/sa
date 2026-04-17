@@ -60,10 +60,8 @@ function initSectionEvents() {
 function handleContainerClick(e) {
     const link = e.target.closest("a[data-name]");
     if (link) return handleLinkClick(link);
-
     const level2Section = e.target.closest(".subsection");
     if (level2Section && !e.target.closest("a")) return toggleLevel2Section(level2Section);
-
     const section = e.target.closest("section");
     if (section && !level2Section && !e.target.closest("a")) toggleSection(section);
 }

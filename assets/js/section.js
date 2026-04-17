@@ -12,35 +12,22 @@ function sortByField(field) {
     };
 }
 
-/* =========================
-   ROOT
-========================= */
-
 function renderCategories(items = sectionsData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
-
     if (!Array.isArray(items) || !items.length) {
         const filterValue = document.getElementById("filter-id")?.value || '';
         container.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found for filter '${filterValue}'.</p>`;
         return;
     }
-
     container.innerHTML = items.map((item, i) =>
         renderNode(item, { level: 1, index: i, open, filtered })
     ).join("");
 }
 
-/* =========================
-   CORE RENDERER (🔥)
-========================= */
-
 function renderNode(node, ctx = {}) {
     const { level = 1, index = 0, open = false, filtered = false } = ctx;
-
     if (!node) return '';
-
     switch (node.type) {
-
         case "section":
             return `
             <section class="mb-3 border-bottom ${filtered ? 'filtered' : ''}" data-section="${index}">
@@ -58,7 +45,6 @@ function renderNode(node, ctx = {}) {
                 </div>
             </section>
             `;
-
         case "subsection":
             return `
             <section class="subsection mb-2" data-level2="${index}">
@@ -71,7 +57,6 @@ function renderNode(node, ctx = {}) {
                 </div>
             </section>
             `;
-
         case "column":
             return `
             <div class="col-12 col-md-6 col-lg-3">
@@ -86,30 +71,20 @@ function renderNode(node, ctx = {}) {
 
         case "data":
             return renderDataItem(node);
-
         default:
             return '';
     }
 }
 
-/* =========================
-   CHILD RENDERING
-========================= */
-
 function renderChildren(node, ctx) {
     if (!node.items?.length) return '';
-
     const items = [...node.items].sort(sortByField("name"));
-
-    // subsection children → render directly
     if (items.some(i => isType(i, "subsection"))) {
         return items
             .filter(i => isType(i, "subsection"))
             .map((child, i) => renderNode(child, { ...ctx, index: i }))
             .join("");
     }
-
-    // column children → wrap in row
     if (items.some(i => isType(i, "column"))) {
         const cols = items
             .filter(i => isType(i, "column"))
@@ -117,8 +92,6 @@ function renderChildren(node, ctx) {
             .join("");
         return `<div class="row">${cols}</div>`;
     }
-
-    // data children → render as list
     if (items.some(i => isType(i, "data"))) {
         return `
         <ul class="list-unstyled mb-0">
@@ -129,19 +102,13 @@ function renderChildren(node, ctx) {
         </ul>
         `;
     }
-
     return '';
 }
-
-/* =========================
-   DATA ITEM
-========================= */
 
 function renderDataItem(item) {
     const hotIcon = item.mode === 'hot'
         ? '<i class="bi bi-fire hot-icon ms-2"></i>'
         : '';
-
     return `
         <li>
             <a href="#" data-name="${item.name}">
@@ -151,16 +118,10 @@ function renderDataItem(item) {
     `;
 }
 
-/* =========================
-   FILTERING (blijft grotendeels gelijk)
-========================= */
-
 function renderFilteredEntries(section) {
     if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
-
     const uniqueItems = [...new Map(section.items.map(item => [item.name, item])).values()]
         .sort(sortByField("name"));
-
     return `
     <ul class="list-unstyled mb-2 filtered-list">
         ${uniqueItems.map(renderDataItem).join('')}
@@ -170,7 +131,6 @@ function renderFilteredEntries(section) {
 
 function collectEntrieDetails(items = []) {
     let result = [];
-
     items.forEach(item => {
         if (isType(item, "extra-data") || isType(item, "data")) {
             result.push(item);
@@ -179,18 +139,15 @@ function collectEntrieDetails(items = []) {
             result = result.concat(collectEntrieDetails(item.items));
         }
     });
-
     return result;
 }
 
 function renderFilteredCategories(query) {
     const q = query.toLowerCase().trim();
-
     if (!q) {
         renderCategories(sectionsData, false, false);
         return;
     }
-
     const filteredData = sectionsData
         .map(section => {
             const matches = collectEntrieDetails(section.items)
@@ -201,8 +158,7 @@ function renderFilteredCategories(query) {
                 : null;
         })
         .filter(Boolean);
-
-    renderCategories(filteredData, true, true);
+        renderCategories(filteredData, true, true);
 }
 
 function matchesFilterQuery(item, q) {
