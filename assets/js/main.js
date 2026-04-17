@@ -1,26 +1,3 @@
-const wineEstate_restaurant_link =
-[ 
-    { 
-        "id1": "silvermist" , 
-        "id2": "lacolombe"
-    }
-];
-
-const restaurant_wineEstate_link =
-[
-    { 
-        "id1": "lacolombe" , 
-        "id2": "silvermist" 
-    }
-];
-
-const linkRelations  = 
-[
-    wineEstate_restaurant_link, 
-    restaurant_wineEstate_link
-];
-
-
 let filterElement;
 let brandElement;
 let rightPaneElement;
@@ -93,7 +70,7 @@ function handleLinkClick(link) {
     link.preventDefault?.();
     const scrollY = window.scrollY;
     const item = findItemByName(sectionsData, link.dataset.name);
-    if (item) renderRightPane(item, [sectionsData], linkRelations);
+    if (item) renderRightPane(item, [sectionsData], links);
     setTimeout(() => window.scrollTo(0, scrollY), 0);
 }
 
