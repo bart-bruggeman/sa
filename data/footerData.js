@@ -71,4 +71,4 @@ const geographicData =
         "Whispering Pines",
         "Winslow"
     ]
-}
+};

@@ -135,4 +135,4 @@ const bankData =
             ]
         }
     ]
-}
+};
