@@ -2,6 +2,8 @@ const foodAndDrinksData =
 {
     "type": "section",
     "name": "Food and Drinks",
+    "sortSubsections": "true",
+    "sortColumns": "true",
     "items":
     [
         {
@@ -184,7 +186,7 @@ const foodAndDrinksData =
                 },
                 {
                     "type": "column",
-                    "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
+                    "name": "Luxury Fine Dining",
                     "items":
                     [
                         {
@@ -271,7 +273,7 @@ const foodAndDrinksData =
                 },
                 {
                     "type": "column",
-                    "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
+                    "name": "Luxury Fine Dining",
                     "items":
                     [
                         {
@@ -343,7 +345,7 @@ const foodAndDrinksData =
                 },
                 {
                     "type": "column",
-                    "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
+                    "name": "Luxury Fine Dining",
                     "items":
                     [
                         {
@@ -403,7 +405,7 @@ const foodAndDrinksData =
                 },
                 {
                     "type": "column",
-                    "name": "Ultra-Luxury Fine Dining (Haute Cuisine)",
+                    "name": "Luxury Fine Dining",
                     "items":
                     [
                     ]
