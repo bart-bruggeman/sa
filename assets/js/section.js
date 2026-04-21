@@ -27,6 +27,7 @@ function renderCategories(items = sectionsData, open = false, filtered = false) 
 function renderNode(node, ctx = {}) {
     const { level = 1, index = 0, open = false, filtered = false } = ctx;
     if (!node) return '';
+    if (!hasRenderableItems(node)) return '';
     switch (node.type) {
         case "section":
             return `
@@ -58,7 +59,6 @@ function renderNode(node, ctx = {}) {
             </section>
             `;
         case "column":
-            if (!node.items || node.items.length === 0) return '';
             return `
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100">
@@ -177,4 +177,15 @@ function renderFilteredCategories(query) {
 function matchesFilterQuery(item, q) {
     return item.name?.toLowerCase().includes(q) ||
            item.mode?.toLowerCase().includes(q);
+}
+
+function hasRenderableItems(node) {
+    if (!node) return false;
+    if (isType(node, "data") || isType(node, "extra-data")) {
+        return true;
+    }
+    if (!Array.isArray(node.items) || node.items.length === 0) {
+        return false;
+    }
+    return node.items.some(hasRenderableItems);
 }
