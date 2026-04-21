@@ -63,12 +63,11 @@ function renderNode(node, ctx = {}) {
                 <div class="card h-100">
                     <div class="card-body">
                         <h3 class="h6 mb-3">${node.name}</h3>
-                        ${renderChildren(node, ctx)}
+                        ${renderChildren(node, { ...ctx, forceColumn: true })}
                     </div>
                 </div>
             </div>
             `;
-
         case "data":
             return renderDataItem(node);
         default:
@@ -93,15 +92,28 @@ function renderChildren(node, ctx) {
         return `<div class="row">${cols}</div>`;
     }
     if (items.some(i => isType(i, "data"))) {
+        const dataItems = items.filter(i => isType(i, "data"));
+        const list = `
+            <ul class="list-unstyled mb-0">
+                ${dataItems.map(renderDataItem).join("")}
+            </ul>
+        `;
+        if (ctx?.forceColumn) {
+            return list;
+        }
         return `
-        <ul class="list-unstyled mb-0">
-            ${items
-                .filter(i => isType(i, "data"))
-                .map(renderDataItem)
-                .join("")}
-        </ul>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            ${list}
+                        </div>
+                    </div>
+                </div>
+            </div>
         `;
     }
+
     return '';
 }
 
@@ -158,7 +170,7 @@ function renderFilteredCategories(query) {
                 : null;
         })
         .filter(Boolean);
-        renderCategories(filteredData, true, true);
+    renderCategories(filteredData, true, true);
 }
 
 function matchesFilterQuery(item, q) {
