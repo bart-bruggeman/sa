@@ -29,7 +29,7 @@ const wineEstate_restaurant_links =
         "id1": "capepointvineyards",
         "id2": "capepointvineyardsrestaurant"
     }
-];
+]
 
 
 // wine estate - musea links
@@ -39,11 +39,11 @@ const wineEstate_musea_links =
         "id1": "grootconstantia",
         "id2": "izikomuseum"
     }
-];
+]
 
 // all links
 const links = 
 [
     wineEstate_restaurant_links, 
     wineEstate_musea_links
-];
+]

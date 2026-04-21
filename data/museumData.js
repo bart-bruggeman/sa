@@ -14,4 +14,4 @@ const museumData =
             "hours": "Mon - Sun: 10:00 - 17:00"
         }
     ]
-};
+}

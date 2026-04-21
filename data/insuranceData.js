@@ -271,4 +271,4 @@ const insuranceData =
             ]
         }
     ]
-};
+}
