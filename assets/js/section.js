@@ -58,6 +58,7 @@ function renderNode(node, ctx = {}) {
             </section>
             `;
         case "column":
+            if (!node.items || node.items.length === 0) return '';
             return `
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100">

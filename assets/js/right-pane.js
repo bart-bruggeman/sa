@@ -1,5 +1,5 @@
 const SKIP_FIELDS = new Set([
-    "items", "name", "displayName", "id", "type", "mode", "coordinates", "isMain"
+    "items", "name", "displayName", "area", "id", "type", "mode", "coordinates", "isMain"
 ]);
 
 let idCounter = 0;
