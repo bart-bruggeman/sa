@@ -2,8 +2,8 @@ const foodAndDrinksData =
 {
     "type": "section",
     "name": "Food and Drinks",
-    "sortSubsections": "true",
-    "sortColumns": "true",
+    "sortOnSubsectionNames": true,
+    "sortOnColumnNames": false, // force manual order of columns, so the order is from casual to luxury dining
     "items":
     [
         {

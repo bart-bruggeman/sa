@@ -1,4 +1,6 @@
 const sectionsData = [bankData, insuranceData, healthcareData, realEstateData, foodAndDrinksData, wineEstateData, museumData];
+let sortOnSectionNames = true;
+
 
 function isType(item, type) {
     return item?.type === type;
@@ -12,6 +14,13 @@ function sortByField(field) {
     };
 }
 
+function getSortConfig(node, parent = {}) {
+    return {
+        sortOnSubsectionNames: node.sortOnSubsectionNames ?? parent.sortOnSubsectionNames ?? true,
+        sortOnColumnNames: node.sortOnColumnNames ?? parent.sortOnColumnNames ?? true
+    };
+}
+
 function renderCategories(items = sectionsData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
     if (!Array.isArray(items) || !items.length) {
@@ -19,15 +28,17 @@ function renderCategories(items = sectionsData, open = false, filtered = false) 
         container.innerHTML = `<p class="text-muted"><i class="bi bi-exclamation-square"></i> No results found for filter '${filterValue}'.</p>`;
         return;
     }
-    container.innerHTML = items.map((item, i) =>
-        renderNode(item, { level: 1, index: i, open, filtered })
+    const sortedSections = sortOnSectionNames ? [...items].sort(sortByField("name")) : [...items];
+    container.innerHTML = sortedSections.map((item, i) =>
+        renderNode(item, { level: 1, index: i, open, filtered, sortConfig: {} })
     ).join("");
 }
 
 function renderNode(node, ctx = {}) {
-    const { level = 1, index = 0, open = false, filtered = false } = ctx;
+    const { level = 1, index = 0, open = false, filtered = false, sortConfig = {} } = ctx;
     if (!node) return '';
     if (!hasRenderableItems(node)) return '';
+    const currentSortConfig = getSortConfig(node, sortConfig);
     switch (node.type) {
         case "section":
             return `
@@ -42,7 +53,7 @@ function renderNode(node, ctx = {}) {
                 <div class="section-content" style="display:${open ? 'block' : 'none'}">
                     ${filtered
                         ? renderFilteredEntries(node)
-                        : renderChildren(node, ctx)}
+                        : renderChildren(node, { ...ctx, sortConfig: currentSortConfig })}
                 </div>
             </section>
             `;
@@ -54,7 +65,7 @@ function renderNode(node, ctx = {}) {
                     <i class="bi bi-chevron-down chevron-icon"></i>
                 </h3>
                 <div class="subsection-content" style="display:none;">
-                    ${renderChildren(node, ctx)}
+                    ${renderChildren(node, { ...ctx, sortConfig: currentSortConfig })}
                 </div>
             </section>
             `;
@@ -64,7 +75,7 @@ function renderNode(node, ctx = {}) {
                 <div class="card h-100">
                     <div class="card-body">
                         <h3 class="h6 mb-3">${node.name}</h3>
-                        ${renderChildren(node, { ...ctx, forceColumn: true })}
+                        ${renderChildren(node, { ...ctx, forceColumn: true, sortConfig: currentSortConfig })}
                     </div>
                 </div>
             </div>
@@ -78,22 +89,32 @@ function renderNode(node, ctx = {}) {
 
 function renderChildren(node, ctx) {
     if (!node.items?.length) return '';
-    const items = [...node.items].sort(sortByField("name"));
+    const { sortConfig = {} } = ctx;
+    let items = [...node.items];
     if (items.some(i => isType(i, "subsection"))) {
+        if (sortConfig.sortOnSubsectionNames) {
+            items.sort(sortByField("name"));
+        }
         return items
             .filter(i => isType(i, "subsection"))
             .map((child, i) => renderNode(child, { ...ctx, index: i }))
             .join("");
     }
     if (items.some(i => isType(i, "column"))) {
+        if (sortConfig.sortOnColumnNames) {
+            items.sort(sortByField("name"));
+        }
         const cols = items
             .filter(i => isType(i, "column"))
             .map((child, i) => renderNode(child, { ...ctx, index: i }))
             .join("");
+
         return `<div class="row">${cols}</div>`;
     }
     if (items.some(i => isType(i, "data"))) {
-        const dataItems = items.filter(i => isType(i, "data"));
+        const dataItems = items
+            .filter(i => isType(i, "data"))
+            .sort(sortByField("name"));
         const list = `
             <ul class="list-unstyled mb-0">
                 ${dataItems.map(renderDataItem).join("")}
@@ -114,7 +135,6 @@ function renderChildren(node, ctx) {
             </div>
         `;
     }
-
     return '';
 }
 
@@ -165,7 +185,6 @@ function renderFilteredCategories(query) {
         .map(section => {
             const matches = collectEntrieDetails(section.items)
                 .filter(item => matchesFilterQuery(item, q));
-
             return matches.length
                 ? { type: "section", name: section.name, items: matches }
                 : null;
