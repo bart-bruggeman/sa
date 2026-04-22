@@ -19,11 +19,11 @@ function init() {
     }
 
     renderFooter();
-    renderCategories();
+    renderAllData();
     initSectionEvents();
     initTheme();
 
-    filterElement?.addEventListener("input", e => renderFilteredCategories(e.target.value));
+    filterElement?.addEventListener("input", e => renderFilteredData(e.target.value));
     filterElement?.addEventListener("search", handleBrandClick);
     brandElement?.addEventListener("click", handleBrandClick);
     document.addEventListener("keydown", handleKeydown);
@@ -32,7 +32,7 @@ function init() {
 function handleBrandClick(e) {
     e?.preventDefault?.();
     resetFilter();
-    renderCategories();
+    renderAllData();
     bsRightPane?._isShown && bsRightPane.hide();
 }
 
@@ -49,7 +49,7 @@ function isRightPaneOpen() {
 function resetFilter() {
     if (!filterElement) return;
     filterElement.value = "";
-    renderCategories(allData, false, false);
+    renderAllData(allData, false, false);
 }
 
 function initSectionEvents() {

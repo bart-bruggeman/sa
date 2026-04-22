@@ -137,22 +137,18 @@ const wineEstateData =
                             "items":
                             [
                                 {
-                                    "type": "extra-data",
                                     "name": "The Courtyard",
                                     "hours": "12:00 - 21:00"
                                 },
                                 {
-                                    "type": "extra-data",
                                     "name": "The Tasting Room",
                                     "hours": "11:00 - 18:00"
                                 },
                                 {
-                                    "type": "extra-data",
                                     "name": "The Picnic Lawns",
                                     "hours": "11:00 - 18:00"
                                 },
                                 {
-                                    "type": "extra-data",
                                     "name": "Market Thursdays",
                                     "hours": "16:30 - 20:30"
                                 }
@@ -172,7 +168,6 @@ const wineEstateData =
                             "items":
                             [
                                 {
-                                    "type": "extra-data",
                                     "name": "Wine Tasting & Retail Shop",
                                     "hours": "Mon - Sun: 09:00 - 18:00"
                                 }
@@ -189,12 +184,10 @@ const wineEstateData =
                             "items":
                             [
                                 {
-                                    "type": "extra-data",
                                     "name": "Tasting Room",
                                     "hours": "Mon - Sun: 10:00-  17:00"
                                 },
                                 {
-                                    "type": "extra-data",
                                     "name": "Bistro",
                                     "hours": "Mon - Sun: 12:00 - 16:00"
                                 }
@@ -210,7 +203,6 @@ const wineEstateData =
                             "items":
                             [
                                 {
-                                    "type": "extra-data",
                                     "name": "Steenberg 5-star Hotel",
                                     "phone": "+27 21 713 2222",
                                     "email": "reservations@steenberghotel.com",
@@ -515,7 +507,6 @@ const wineEstateData =
                             "items":
                             [
                                 {
-                                    "type": "extra-data",
                                     "name": "The Tasting Room",
                                     "hours":
                                     [

@@ -20,7 +20,6 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "type": "extra-data",
                             "name": "Gordon's Bay & Strand Branch Office",
                             "address": "32A Miller Rd, Gordons Bay Central, Cape Town, 7140, South Africa",
                             "coordinates": "-34.15623998401359, 18.868613413494263",
@@ -28,7 +27,6 @@ const realEstateData =
                             "hours": "Mon - Fri: 09:00 - 16:00"
                         },
                         {
-                            "type": "extra-data",
                             "name": "Helderberg Branch Office",
                             "address": "Cnr 204 Main Road & Coronation Road, Somerset West, 7130, South Africa",
                             "coordinates": "-34.07532758605864, 18.843277203928196",
@@ -77,14 +75,12 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "type": "extra-data",
                             "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road Unit 4, The Anchorage, Gordon's Bay Central, 7140, South Africa",
                             "coordinates": "-34.16011213832758, 18.868430133871946",
                             "phone": "+27 21 856 2178"
                         },
                         {
-                            "type": "extra-data",
                             "name": "Somerset West Office Branch Office",
                             "address": "FF04, Waterstone Village Shopping Centre, C/O Main Road & R44, Somerset West, 7130, Western Cape, South Africa",
                             "coordinates": "-34.070632213984055, 18.822644225549475",
@@ -110,7 +106,6 @@ const realEstateData =
                     "items":
                     [ 
                         {
-                            "type": "extra-data",
                             "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road, Gordon's Bay, Cape Town, Western Cape, 7140, South Africa",
                             "coordinates": "-34.15986884678564, 18.868545742039604",
@@ -139,7 +134,6 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "type": "extra-data",
                             "name": "Helderberg-Strand Branch Office",
                             "address": "On Strand, 97 Beach Rd, Strand, Cape Town, 7139, South Africa",
                             "coordinates": "-34.11671935875248, 18.825820171164274",
@@ -157,7 +151,6 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "type": "extra-data",
                             "name": "Helderberg Branch Office",
                             "address": "167 Main Road, Audas Estate, Somerset West, 7130, Western Cape, South Africa",
                             "coordinates": "-34.078888215525254, 18.84734202699312",
@@ -176,7 +169,6 @@ const realEstateData =
                     "items":
                     [
                         {
-                            "type": "extra-data",
                             "name": "Gordon's Bay Branch Office",
                             "address": "69 Beach Road, Gordons Bay Central, Cape Town, 7140, Western Cape, South Africa",
                             "coordinates": "-34.160052654138546, 18.86849780610293",

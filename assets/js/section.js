@@ -32,7 +32,7 @@ function getConfig(node, parent = {}) {
 
 function hasRenderableItems(node) {
     if (!node) return false;
-    if (isType(node, "data") || isType(node, "extra-data")) return true;
+    if (isType(node, "data")) return true;
     if (!Array.isArray(node.items) || node.items.length === 0) return false;
     return node.items.some(hasRenderableItems);
 }
@@ -63,7 +63,7 @@ function collectEntryDetails(items = []) {
     let result = [];
 
     items.forEach(item => {
-        if (isType(item, "extra-data") || isType(item, "data")) {
+        if (isType(item, "data")) {
             result.push(item);
         }
         if (item.items?.length) {
@@ -245,7 +245,7 @@ function renderNode(node, ctx = {}) {
     }
 }
 
-function renderCategories(items = allData, open = false, filtered = false) {
+function renderAllData(items = allData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
 
     if (!Array.isArray(items) || !items.length) {
@@ -262,23 +262,15 @@ function renderCategories(items = allData, open = false, filtered = false) {
         : [...items];
 
     container.innerHTML = sortedSections
-        .map((item, i) =>
-            renderNode(item, {
-                level: 1,
-                index: i,
-                open,
-                filtered,
-                config: {}
-            })
-        )
+        .map((item, i) => renderNode(item, {level: 1, index: i, open, filtered, config: {}}))
         .join("");
 }
 
-function renderFilteredCategories(query) {
+function renderFilteredData(query) {
     const q = query.toLowerCase().trim();
 
     if (!q) {
-        renderCategories(allData, false, false);
+        renderAllData(allData, false, false);
         return;
     }
 
@@ -293,5 +285,5 @@ function renderFilteredCategories(query) {
         })
         .filter(Boolean);
 
-    renderCategories(filteredData, true, true);
+    renderAllData(filteredData, true, true);
 }
