@@ -60,10 +60,16 @@ function initSectionEvents() {
 function handleContainerClick(e) {
     const link = e.target.closest("a[data-name]");
     if (link) return handleLinkClick(link);
+
     const subsection = e.target.closest(".subsection");
-    if (subsection && !e.target.closest("a")) return toggleSubsection(subsection);
+    if (subsection && !e.target.closest("a")) {
+        return toggleItem({element: subsection, siblingSelector: ".subsection", contentSelector: ".subsection-content"});
+    }
+
     const section = e.target.closest("section");
-    if (section && !subsection && !e.target.closest("a")) toggleSection(section);
+    if (section && !subsection && !e.target.closest("a")) {
+        return toggleItem({element: section, siblingSelector: "section", contentSelector: ".section-content", guard: () => filterElement?.value.trim() });
+    }
 }
 
 function handleLinkClick(link) {
@@ -85,19 +91,15 @@ function findItemByName(items, name) {
     return null;
 }
 
-function toggleSection(section) {
-    if (filterElement?.value.trim()) return;
-    toggleWithSiblings(section, "section", ".section-content");
-}
-
-function toggleSubsection(section) {
-    toggleWithSiblings(section, ".subsection", ".subsection-content");
-}
-
-function toggleWithSiblings(section, selector, contentSelector) {
-    const isOpen = section.classList.contains("open");
-    section.parentElement.querySelectorAll(selector).forEach(s => s !== section && setOpen(s, false, contentSelector));
-    setOpen(section, !isOpen, contentSelector);
+function toggleItem({element, siblingSelector, contentSelector, guard = () => false}) {
+    if (guard()) return;
+    const isOpen = element.classList.contains("open");
+    element.parentElement
+        .querySelectorAll(siblingSelector)
+        .forEach(el => {
+            if (el !== element) setOpen(el, false, contentSelector);
+        });
+    setOpen(element, !isOpen, contentSelector);
 }
 
 function setOpen(section, open, contentSelector) {
@@ -108,10 +110,10 @@ function setOpen(section, open, contentSelector) {
         const openChildren = section.querySelectorAll(".open");
         openChildren.forEach(child => {
             child.classList.remove("open");
-            const childContent = child.querySelector(".section-content, .subsection-content");
-            if (childContent) {
-                childContent.style.display = "none";
-            }
+            const childContent = child.querySelector(
+                ".section-content, .subsection-content"
+            );
+            if (childContent) childContent.style.display = "none";
         });
     }
 }
