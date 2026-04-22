@@ -49,7 +49,7 @@ function isRightPaneOpen() {
 function resetFilter() {
     if (!filterElement) return;
     filterElement.value = "";
-    renderCategories(sectionsData, false, false);
+    renderCategories(allData, false, false);
 }
 
 function initSectionEvents() {
@@ -60,17 +60,17 @@ function initSectionEvents() {
 function handleContainerClick(e) {
     const link = e.target.closest("a[data-name]");
     if (link) return handleLinkClick(link);
-    const level2Section = e.target.closest(".subsection");
-    if (level2Section && !e.target.closest("a")) return toggleLevel2Section(level2Section);
+    const subsection = e.target.closest(".subsection");
+    if (subsection && !e.target.closest("a")) return toggleSubsection(subsection);
     const section = e.target.closest("section");
-    if (section && !level2Section && !e.target.closest("a")) toggleSection(section);
+    if (section && !subsection && !e.target.closest("a")) toggleSection(section);
 }
 
 function handleLinkClick(link) {
     link.preventDefault?.();
     const scrollY = window.scrollY;
-    const item = findItemByName(sectionsData, link.dataset.name);
-    if (item) renderRightPane(item, [sectionsData], links);
+    const item = findItemByName(allData, link.dataset.name);
+    if (item) renderRightPane(item, [allData], links);
     setTimeout(() => window.scrollTo(0, scrollY), 0);
 }
 
@@ -90,7 +90,7 @@ function toggleSection(section) {
     toggleWithSiblings(section, "section", ".section-content");
 }
 
-function toggleLevel2Section(section) {
+function toggleSubsection(section) {
     toggleWithSiblings(section, ".subsection", ".subsection-content");
 }
 

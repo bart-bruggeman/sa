@@ -1,4 +1,4 @@
-const sectionsData = [
+const allData = [
     bankData,
     insuranceData,
     healthcareData,
@@ -245,7 +245,7 @@ function renderNode(node, ctx = {}) {
     }
 }
 
-function renderCategories(items = sectionsData, open = false, filtered = false) {
+function renderCategories(items = allData, open = false, filtered = false) {
     const container = document.getElementById("content-container");
 
     if (!Array.isArray(items) || !items.length) {
@@ -278,11 +278,11 @@ function renderFilteredCategories(query) {
     const q = query.toLowerCase().trim();
 
     if (!q) {
-        renderCategories(sectionsData, false, false);
+        renderCategories(allData, false, false);
         return;
     }
 
-    const filteredData = sectionsData
+    const filteredData = allData
         .map(section => {
             const matches = collectEntryDetails(section.items)
                 .filter(item => matchesFilterQuery(item, q));
