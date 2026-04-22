@@ -42,7 +42,7 @@ const geographicData =
     "region": "Helderberg",
     "towns":
     [
-        "Gordons Bay",
+        "Gordon's Bay",
         "Somerset West",
         "Strand"
     ],
@@ -57,7 +57,7 @@ const geographicData =
         "Firlands",
         "Gordon Heights",
         "Gordon Strand Estate",
-        "Gordons Bay Central",
+        "Gordon's Bay Central",
         "Gordons Bay Village",
         "Greenbay Eco Estate",
         "Harbour Island",
