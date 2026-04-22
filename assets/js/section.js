@@ -25,7 +25,8 @@ function sortByField(field) {
 function getSortConfig(node, parent = {}) {
     return {
         sortOnSubsectionNames: node.sortOnSubsectionNames ?? parent.sortOnSubsectionNames ?? true,
-        sortOnColumnNames: node.sortOnColumnNames ?? parent.sortOnColumnNames ?? true
+        sortOnColumnNames: node.sortOnColumnNames ?? parent.sortOnColumnNames ?? true,
+        showAreaOnSubsectionNames: node.showAreaOnSubsectionNames ?? parent.showAreaOnSubsectionNames ?? false
     };
 }
 
@@ -109,10 +110,23 @@ function renderSection(node, nextCtx, ctx) {
 }
 
 function renderSubsection(node, nextCtx) {
+    const showAreas = nextCtx.sortConfig?.showAreaOnSubsectionNames 
+        ?? node.showAreaOnSubsectionNames 
+        ?? false;
+
+    let title = node.name;
+
+    if (showAreas) {
+        const areas = collectAreas(node.items);
+        if (areas.length) {
+            title += ` <span class="subsection-areas">(${areas.join(", ")})</span>`;
+        }
+    }
+
     return `
     <section class="subsection mb-2">
         <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
-            <span>${node.name}</span>
+            <span>${title}</span>
             <i class="bi bi-chevron-down chevron-icon"></i>
         </h3>
         <div class="subsection-content" style="display:none;">
@@ -263,4 +277,21 @@ function renderFilteredCategories(query) {
         .filter(Boolean);
 
     renderCategories(filteredData, true, true);
+}
+
+function collectAreas(items = []) {
+    let areas = [];
+
+    items.forEach(item => {
+        if (isType(item, "data") && item.area) {
+            areas.push(item.area);
+        }
+        if (item.items?.length) {
+            areas = areas.concat(collectAreas(item.items));
+        }
+    });
+
+    return [...new Set(areas)].sort((a, b) =>
+        a.toLowerCase().localeCompare(b.toLowerCase())
+    );
 }

@@ -6,6 +6,7 @@
   "name": "string",
   "sortOnSubsectionNames": "boolean (optional, default: true)",
   "sortOnColumnNames": "boolean (optional, default: true)",
+  "showAreaOnSubsectionNames": "booleab (optional, default: false)",
   "items": "(subsection | column | data)[]"
 }
 ```

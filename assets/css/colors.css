@@ -22,6 +22,7 @@
     --filter-color-disabled: #adb5bd;
     --filter-border-color-disabled: #adb5bd;
     --filter-bg-color-disabled: #e9ecef;
+    --subsection-area-color: rgba(52, 58, 64, 0.75);
 
     /* Nord palette (dark reference) */
     --nord0:#2E3440;
@@ -67,4 +68,5 @@
     --filter-color-disabled: var(--nord3);
     --filter-border-color-disabled: var(--nord3);
     --filter-bg-color-disabled: #000;
+    --subsection-area-color: var(--nord4);
 }

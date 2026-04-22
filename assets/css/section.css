@@ -120,6 +120,14 @@ section:not(.filtered) .subsection-header:hover {
     padding-left: 1.5rem;
 }
 
+.subsection-areas {
+    font-size: 0.78em;
+    font-weight: 400;
+    margin-left: .25rem;
+    color: var(--subsection-area-color);
+    opacity: .75;
+}
+
 
 /*------------------------------------------------------------------------------
   section & filtered

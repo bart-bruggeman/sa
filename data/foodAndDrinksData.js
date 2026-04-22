@@ -3,7 +3,8 @@ const foodAndDrinksData =
     "type": "section",
     "name": "Food and Drinks",
     "sortOnSubsectionNames": true,
-    "sortOnColumnNames": false, // force manual order of columns, so the order is from casual to luxury dining
+    "sortOnColumnNames": false, // when false: force order of entry for columns, so the order is from casual to luxury dining
+    "showAreaOnSubsectionNames": true, // when true: area names are, sorted, filtered and added between brackets after subsection name"
     "items":
     [
         {
