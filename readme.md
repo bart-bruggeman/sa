@@ -1,7 +1,6 @@
-# South Africa
+# Data Model / Content Schema
 
-## Data Model / Content Schema
-```
+```json
 {
   "type": "section",
   "name": "string",
@@ -9,19 +8,25 @@
   "sortOnColumnNames": "boolean (optional, default: true)",
   "items": "(subsection | column | data)[]"
 }
+```
 
+```json
 {
   "type": "subsection",
   "name": "string",
-  "items": "Column[]"
+  "items": "column[]"
 }
+```
 
+```json
 {
   "type": "column",
   "name": "string",
-  "items": "DataItem[]"
+  "items": "data[]"
 }
+```
 
+```json
 {
   "type": "data",
   "id": "string (optional)",
@@ -32,9 +37,30 @@
   "info": "string (optional)",
   "address": "string (optional)",
   "coordinates": "string (optional)",
-  "phone": "string (optional)",
-  "email": "string (optional)",
+  "phone": "string or string[] (optional)",
+  "phone_emergency": "string (optional)",
+  "email": "string or string[] (optional)",
   "url": "string (optional)",
-  "hours": "string[] (optional)"
+  "hours": "string or string[] (optional)",
+  "items": "extra-data[]"
+}
+```
+
+```json
+{
+  "type": "extra-data",
+  "name": "string",
+  "displayName": "string (optional)",
+  "area": "string (optional)",
+  "mode": "string (optional)",
+  "info": "string (optional)",
+  "address": "string (optional)",
+  "coordinates": "string (optional)",
+  "phone": "string or string[] (optional)",
+  "phone_emergency": "string (optional)",
+  "email": "string or string[] (optional)",
+  "url": "string (optional)",
+  "hours": "string or string[] (optional)",
+  "items": "extra-data[]"
 }
 ```
