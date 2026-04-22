@@ -1,5 +1,7 @@
 # Data Model / Content Schema
 
+## section
+
 ```json
 {
   "type": "section",
@@ -11,6 +13,8 @@
 }
 ```
 
+## subsection
+
 ```json
 {
   "type": "subsection",
@@ -19,6 +23,8 @@
 }
 ```
 
+## column
+
 ```json
 {
   "type": "column",
@@ -26,6 +32,8 @@
   "items": "data[]"
 }
 ```
+
+## data
 
 ```json
 {
@@ -46,6 +54,8 @@
   "items": "extra-data[]"
 }
 ```
+
+## extra-data
 
 ```json
 {
