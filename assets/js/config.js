@@ -1,6 +1,5 @@
 const DEFAULT_ICON = "";
 
-// --- Helpers ---
 const makeArray = v => Array.isArray(v) ? v : (v ? [v] : []);
 
 const firstValid = v => {
@@ -11,14 +10,12 @@ const firstValid = v => {
 const isNonEmpty = v =>
     v !== undefined && v !== null && String(v).trim() !== "";
 
-// --- Icon Map ---
 const iconMap = {
     address: {
         icon: "bi-geo-alt",
         render: (v, office = {}) => {
             const addressArray = makeArray(v).filter(isNonEmpty);
 
-            // neem eerste geldige coordinate indien aanwezig
             const coords = firstValid(office.coordinates);
 
             return addressArray
