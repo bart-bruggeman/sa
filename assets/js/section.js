@@ -22,7 +22,7 @@ function sortByField(field) {
     };
 }
 
-function getSortConfig(node, parent = {}) {
+function getConfig(node, parent = {}) {
     return {
         sortOnSubsectionNames: node.sortOnSubsectionNames ?? parent.sortOnSubsectionNames ?? true,
         sortOnColumnNames: node.sortOnColumnNames ?? parent.sortOnColumnNames ?? true,
@@ -37,131 +37,86 @@ function hasRenderableItems(node) {
     return node.items.some(hasRenderableItems);
 }
 
-function renderCategories(items = sectionsData, open = false, filtered = false) {
-    const container = document.getElementById("content-container");
-
-    if (!Array.isArray(items) || !items.length) {
-        const filterValue = document.getElementById("filter-id")?.value || '';
-        container.innerHTML = `<p class="text-muted">
-            <i class="bi bi-exclamation-square"></i>
-            No results found for filter '${filterValue}'.
-        </p>`;
-        return;
-    }
-
-    const sortedSections = sortOnSectionNames
-        ? [...items].sort(sortByField("name"))
-        : [...items];
-
-    container.innerHTML = sortedSections
-        .map((item, i) =>
-            renderNode(item, {
-                level: 1,
-                index: i,
-                open,
-                filtered,
-                sortConfig: {}
-            })
-        )
-        .join("");
+function matchesFilterQuery(item, q) {
+    return item.name?.toLowerCase().includes(q) ||
+           item.mode?.toLowerCase().includes(q);
 }
 
-function renderNode(node, ctx = {}) {
-    if (!node || !hasRenderableItems(node)) return '';
+function collectAreas(items = []) {
+    let areas = [];
 
-    const currentSortConfig = getSortConfig(node, ctx.sortConfig);
-
-    const nextCtx = {
-        ...ctx,
-        sortConfig: currentSortConfig
-    };
-
-    switch (node.type) {
-        case "section":
-            return renderSection(node, nextCtx, ctx);
-        case "subsection":
-            return renderSubsection(node, nextCtx);
-        case "column":
-            return renderColumn(node, nextCtx);
-        case "data":
-            return renderDataItem(node);
-        default:
-            return '';
-    }
-}
-
-function renderSection(node, nextCtx, ctx) {
-    return `
-    <section class="mb-3 border-bottom ${ctx.filtered ? 'filtered' : ''}" data-section="${ctx.index}">
-        <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
-            <span class="section-title">
-                ${node.name}
-                ${ctx.filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
-            </span>
-            ${ctx.filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
-        </h2>
-
-        <div class="section-content" style="display:${ctx.open ? 'block' : 'none'}">
-            ${ctx.filtered
-                ? renderFilteredEntries(node)
-                : renderChildren(node, nextCtx)}
-        </div>
-    </section>`;
-}
-
-function renderSubsection(node, nextCtx) {
-    const showAreas = nextCtx.sortConfig?.showAreaOnSubsectionNames 
-        ?? node.showAreaOnSubsectionNames 
-        ?? false;
-
-    let title = node.name;
-
-    if (showAreas) {
-        const areas = collectAreas(node.items);
-        if (areas.length) {
-            title += ` <span class="subsection-areas">(${areas.join(", ")})</span>`;
+    items.forEach(item => {
+        if (isType(item, "data") && item.area) {
+            areas.push(item.area);
         }
-    }
+        if (item.items?.length) {
+            areas = areas.concat(collectAreas(item.items));
+        }
+    });
 
-    return `
-    <section class="subsection mb-2">
-        <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
-            <span>${title}</span>
-            <i class="bi bi-chevron-down chevron-icon"></i>
-        </h3>
-        <div class="subsection-content" style="display:none;">
-            ${renderChildren(node, nextCtx)}
-        </div>
-    </section>`;
+    return [...new Set(areas)].sort((a, b) =>
+        a.toLowerCase().localeCompare(b.toLowerCase())
+    );
 }
 
-function renderColumn(node, nextCtx) {
+function collectEntryDetails(items = []) {
+    let result = [];
+
+    items.forEach(item => {
+        if (isType(item, "extra-data") || isType(item, "data")) {
+            result.push(item);
+        }
+        if (item.items?.length) {
+            result = result.concat(collectEntryDetails(item.items));
+        }
+    });
+
+    return result;
+}
+
+function renderDataItem(item) {
+    const hotIcon = item.mode === 'hot'
+        ? '<i class="bi bi-fire hot-icon ms-2"></i>'
+        : '';
+
     return `
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="h6 mb-3">${node.name}</h3>
-                ${renderChildren(node, { ...nextCtx, forceColumn: true })}
-            </div>
-        </div>
-    </div>`;
+        <li>
+            <a href="#" data-name="${item.name}">
+                ${item.name}${hotIcon}
+            </a>
+        </li>
+    `;
+}
+
+function renderFilteredEntries(section) {
+    if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
+
+    const uniqueItems = [...new Map(
+        section.items.map(item => [item.name, item])
+    ).values()].sort(sortByField("name"));
+
+    return `
+    <ul class="list-unstyled mb-2 filtered-list">
+        ${uniqueItems.map(renderDataItem).join('')}
+    </ul>
+    `;
 }
 
 function renderChildren(node, ctx) {
     const items = node.items || [];
     if (!items.length) return '';
 
-    const { sortConfig = {} } = ctx;
+    const { config = {} } = ctx;
 
     let sorted = [...items];
 
     const firstType = items[0]?.type;
 
-    if (firstType === "subsection" && sortConfig.sortOnSubsectionNames) {
+    if (firstType === "subsection" && config.sortOnSubsectionNames) {
         sorted.sort(sortByField("name"));
     }
 
-    if (firstType === "column" && sortConfig.sortOnColumnNames) {
+    if (firstType === "column" && config.sortOnColumnNames) {
         sorted.sort(sortByField("name"));
     }
 
@@ -209,52 +164,114 @@ function renderChildren(node, ctx) {
     return '';
 }
 
-function renderDataItem(item) {
-    const hotIcon = item.mode === 'hot'
-        ? '<i class="bi bi-fire hot-icon ms-2"></i>'
-        : '';
+function renderColumn(node, nextCtx) {
+    return `
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-3">${node.name}</h3>
+                ${renderChildren(node, { ...nextCtx, forceColumn: true })}
+            </div>
+        </div>
+    </div>`;
+}
+
+function renderSubsection(node, nextCtx) {
+    const showAreas = nextCtx.config?.showAreaOnSubsectionNames 
+        ?? node.showAreaOnSubsectionNames 
+        ?? false;
+
+    let title = node.name;
+
+    if (showAreas) {
+        const areas = collectAreas(node.items);
+        if (areas.length) {
+            title += ` <span class="subsection-areas">(areas: ${areas.join(", ")})</span>`;
+        }
+    }
 
     return `
-        <li>
-            <a href="#" data-name="${item.name}">
-                ${item.name}${hotIcon}
-            </a>
-        </li>
-    `;
+    <section class="subsection mb-2">
+        <h3 class="h6 d-flex justify-content-between align-items-center subsection-header">
+            <span>${title}</span>
+            <i class="bi bi-chevron-down chevron-icon"></i>
+        </h3>
+        <div class="subsection-content" style="display:none;">
+            ${renderChildren(node, nextCtx)}
+        </div>
+    </section>`;
 }
 
-function renderFilteredEntries(section) {
-    if (!section.items?.length) return '<p class="text-muted">No data found.</p>';
-
-    const uniqueItems = [...new Map(
-        section.items.map(item => [item.name, item])
-    ).values()].sort(sortByField("name"));
-
+function renderSection(node, nextCtx, ctx) {
     return `
-    <ul class="list-unstyled mb-2 filtered-list">
-        ${uniqueItems.map(renderDataItem).join('')}
-    </ul>
-    `;
+    <section class="mb-3 border-bottom ${ctx.filtered ? 'filtered' : ''}" data-section="${ctx.index}">
+        <h2 class="h5 mb-3 d-flex justify-content-between align-items-center section-title-icon">
+            <span class="section-title">
+                ${node.name}
+                ${ctx.filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
+            </span>
+            ${ctx.filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
+        </h2>
+
+        <div class="section-content" style="display:${ctx.open ? 'block' : 'none'}">
+            ${ctx.filtered
+                ? renderFilteredEntries(node)
+                : renderChildren(node, nextCtx)}
+        </div>
+    </section>`;
 }
 
-function collectEntrieDetails(items = []) {
-    let result = [];
+function renderNode(node, ctx = {}) {
+    if (!node || !hasRenderableItems(node)) return '';
 
-    items.forEach(item => {
-        if (isType(item, "extra-data") || isType(item, "data")) {
-            result.push(item);
-        }
-        if (item.items?.length) {
-            result = result.concat(collectEntrieDetails(item.items));
-        }
-    });
+    const currentConfig = getConfig(node, ctx.config);
 
-    return result;
+    const nextCtx = {
+        ...ctx,
+        config: currentConfig
+    };
+
+    switch (node.type) {
+        case "section":
+            return renderSection(node, nextCtx, ctx);
+        case "subsection":
+            return renderSubsection(node, nextCtx);
+        case "column":
+            return renderColumn(node, nextCtx);
+        case "data":
+            return renderDataItem(node);
+        default:
+            return '';
+    }
 }
 
-function matchesFilterQuery(item, q) {
-    return item.name?.toLowerCase().includes(q) ||
-           item.mode?.toLowerCase().includes(q);
+function renderCategories(items = sectionsData, open = false, filtered = false) {
+    const container = document.getElementById("content-container");
+
+    if (!Array.isArray(items) || !items.length) {
+        const filterValue = document.getElementById("filter-id")?.value || '';
+        container.innerHTML = `<p class="text-muted">
+            <i class="bi bi-exclamation-square"></i>
+            No results found for filter '${filterValue}'.
+        </p>`;
+        return;
+    }
+
+    const sortedSections = sortOnSectionNames
+        ? [...items].sort(sortByField("name"))
+        : [...items];
+
+    container.innerHTML = sortedSections
+        .map((item, i) =>
+            renderNode(item, {
+                level: 1,
+                index: i,
+                open,
+                filtered,
+                config: {}
+            })
+        )
+        .join("");
 }
 
 function renderFilteredCategories(query) {
@@ -267,7 +284,7 @@ function renderFilteredCategories(query) {
 
     const filteredData = sectionsData
         .map(section => {
-            const matches = collectEntrieDetails(section.items)
+            const matches = collectEntryDetails(section.items)
                 .filter(item => matchesFilterQuery(item, q));
 
             return matches.length
@@ -277,21 +294,4 @@ function renderFilteredCategories(query) {
         .filter(Boolean);
 
     renderCategories(filteredData, true, true);
-}
-
-function collectAreas(items = []) {
-    let areas = [];
-
-    items.forEach(item => {
-        if (isType(item, "data") && item.area) {
-            areas.push(item.area);
-        }
-        if (item.items?.length) {
-            areas = areas.concat(collectAreas(item.items));
-        }
-    });
-
-    return [...new Set(areas)].sort((a, b) =>
-        a.toLowerCase().localeCompare(b.toLowerCase())
-    );
 }
