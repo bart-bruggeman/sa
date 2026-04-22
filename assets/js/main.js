@@ -104,4 +104,14 @@ function setOpen(section, open, contentSelector) {
     section.classList.toggle("open", open);
     const content = section.querySelector(contentSelector);
     if (content) content.style.display = open ? "block" : "none";
+    if (!open) {
+        const openChildren = section.querySelectorAll(".open");
+        openChildren.forEach(child => {
+            child.classList.remove("open");
+            const childContent = child.querySelector(".section-content, .subsection-content");
+            if (childContent) {
+                childContent.style.display = "none";
+            }
+        });
+    }
 }
