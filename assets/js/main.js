@@ -19,11 +19,11 @@ function init() {
     }
 
     renderFooter();
-    renderAllData();
+    renderCategories();
     initSectionEvents();
     initTheme();
 
-    filterElement?.addEventListener("input", e => renderFilteredData(e.target.value));
+    filterElement?.addEventListener("input", e => renderFilteredCategories(e.target.value));
     filterElement?.addEventListener("search", handleBrandClick);
     brandElement?.addEventListener("click", handleBrandClick);
     document.addEventListener("keydown", handleKeydown);
@@ -32,7 +32,7 @@ function init() {
 function handleBrandClick(e) {
     e?.preventDefault?.();
     resetFilter();
-    renderAllData();
+    renderCategories();
     bsRightPane?._isShown && bsRightPane.hide();
 }
 
@@ -49,7 +49,7 @@ function isRightPaneOpen() {
 function resetFilter() {
     if (!filterElement) return;
     filterElement.value = "";
-    renderAllData(allData, false, false);
+    renderCategories(allData, false, false);
 }
 
 function initSectionEvents() {
@@ -61,14 +61,14 @@ function handleContainerClick(e) {
     const link = e.target.closest("a[data-name]");
     if (link) return handleLinkClick(link);
 
-    const subsection = e.target.closest(".subsection");
-    if (subsection && !e.target.closest("a")) {
-        return toggleItem({element: subsection, siblingSelector: ".subsection", contentSelector: ".subsection-content"});
+    const subcategory = e.target.closest(".subcategory");
+    if (subcategory && !e.target.closest("a")) {
+        return toggleItem({element: subcategory, siblingSelector: ".subcategory", contentSelector: ".subcategory-content"});
     }
 
-    const section = e.target.closest("section");
-    if (section && !subsection && !e.target.closest("a")) {
-        return toggleItem({element: section, siblingSelector: "section", contentSelector: ".section-content", guard: () => filterElement?.value.trim() });
+    const category = e.target.closest("[data-category]");
+    if (category && !subcategory && !e.target.closest("a")) {
+        return toggleItem({element: category, siblingSelector: "[data-category]", contentSelector: ".category-content", guard: () => filterElement?.value.trim() });
     }
 }
 
@@ -111,7 +111,7 @@ function setOpen(section, open, contentSelector) {
         openChildren.forEach(child => {
             child.classList.remove("open");
             const childContent = child.querySelector(
-                ".section-content, .subsection-content"
+                ".category-content, .subcategory-content"
             );
             if (childContent) childContent.style.display = "none";
         });

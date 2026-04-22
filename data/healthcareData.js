@@ -1,11 +1,11 @@
 const healthcareData =
 {
-    "type": "section",
+    "type": "category",
     "name": "Healthcare",
     "items":
     [
         {
-            "type": "column",
+            "type": "group",
             "name": "Doctors",
             "items":
             [
@@ -40,7 +40,7 @@ const healthcareData =
             ]
         },
         {
-            "type": "column",
+            "type": "group",
             "name": "Dentists",
             "items":
             [
@@ -61,14 +61,14 @@ const healthcareData =
             ]
         },
         {
-            "type": "column",
+            "type": "group",
             "name": "Pharmacies",
             "items":
             [
             ]
         },
         {
-            "type": "column",
+            "type": "group",
             "name": "Hospitals",
             "items":
             [

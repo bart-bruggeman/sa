@@ -18,7 +18,7 @@ a:hover .hot-icon {
 }
 
 /*------------------------------------------------------------------------------
-  filtered section
+  filtered categories
 ------------------------------------------------------------------------------*/
 section.filtered {
     cursor: default;
@@ -52,7 +52,7 @@ section.filtered h2 {
 
 
 /*------------------------------------------------------------------------------
-  section
+  category
 ------------------------------------------------------------------------------*/
 section > h2 {
     margin: .5rem 0;
@@ -67,33 +67,33 @@ section .row {
     margin: 0;
 }
 
-.section-title {
+.category-title {
     display: inline-flex;
     align-items: center;
     gap: .25rem;
     line-height: 1.2;
 }
 
-section .section-title-icon,
-.subsection-header {
-    color: var(--right-pane-section-title-color);
+section .category-title-icon,
+.subcategory-header {
+    color: var(--category-color);
 }
 
-section:not(.filtered):hover .section-title-icon,
-section:not(.filtered) .subsection-header:hover {
-    color: var(--right-pane-section-title-hover-color);
+section:not(.filtered):hover .category-title-icon,
+section:not(.filtered) .subcategory-header:hover {
+    color: var(--category-hover-color);
 }
 
 
 /*------------------------------------------------------------------------------
-  subsection
+  subcategory
 ------------------------------------------------------------------------------*/
-.subsection {
+.subcategory {
     position: relative;
     padding: .5rem 0;
 }
 
-.subsection::after {
+.subcategory::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -102,11 +102,11 @@ section:not(.filtered) .subsection-header:hover {
     border-bottom: 1px solid var(--bs-border-color);
 }
 
-.subsection:last-child::after {
+.subcategory:last-child::after {
     content: none;
 }
 
-.subsection-header {
+.subcategory-header {
     position: relative;
     z-index: 1;
     display: block;
@@ -115,22 +115,22 @@ section:not(.filtered) .subsection-header:hover {
     cursor: pointer;
 }
 
-.subsection-content .row {
+.subcategory-content .row {
     margin-inline: calc(-.5 * var(--bs-gutter-x));
     padding-left: 1.5rem;
 }
 
-.subsection-areas {
+.subcategory-areas {
     font-size: 0.78em;
     font-weight: 400;
     margin-left: .25rem;
-    color: var(--subsection-area-color);
+    color: var(--subcategory-area-color);
     opacity: .75;
 }
 
 
 /*------------------------------------------------------------------------------
-  section & filtered
+  category & filtered categories
 ------------------------------------------------------------------------------*/
 section li,
 .filtered-list li {
@@ -142,21 +142,21 @@ section li,
 
 
 /*------------------------------------------------------------------------------
-  section & subsection
+  category & subcategory
 ------------------------------------------------------------------------------*/
 section h2 i,
-.subsection-header .chevron-icon {
+.subcategory-header .chevron-icon {
     transition: transform .2s ease;
 }
 
 section.open h2 i.chevron-icon,
-.subsection.open .chevron-icon {
+.subcategory.open .chevron-icon {
     transform: rotate(180deg);
 }
 
 
 /*------------------------------------------------------------------------------
-  card
+  group
 ------------------------------------------------------------------------------*/
 .card {
     background: transparent;

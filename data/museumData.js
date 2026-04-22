@@ -1,6 +1,6 @@
 const museumData =
 {
-    "type": "section",
+    "type": "category",
     "name": "Museums",
     "items":
     [

@@ -1,19 +1,19 @@
 const foodAndDrinksData = 
 {
-    "type": "section",
+    "type": "category",
     "name": "Food and Drinks",
-    "sortOnSubsectionNames": true,
-    "sortOnColumnNames": false, // when false: force order of entry for columns, so the order is from casual to luxury dining
-    "showAreaOnSubsectionNames": true, // when true: area names are, sorted, filtered and added between brackets after subsection name"
+    "sortOnSubcategoryNames": true,
+    "sortOnGroupNames": false, // when false: force order of groups as occurence, so the order is from Tavern & Casual Dining to Luxury Dining
+    "showAreaOnSubcategoryNames": true, // when true: area names are sorted, filtered and added between brackets after subcategory name"
     "items":
     [
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Cape Town",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Tavern & Casual Dining",
                     "items":
                     [
@@ -45,7 +45,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Casual Fine Dining",
                     "items":
                     [
@@ -152,7 +152,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Classic Fine Dining",
                     "items":
                     [
@@ -169,7 +169,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Modern Fine Dining",
                     "items":
                     [
@@ -186,7 +186,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Luxury Fine Dining",
                     "items":
                     [
@@ -215,12 +215,12 @@ const foodAndDrinksData =
             ]
         },
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Helderberg",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Tavern & Casual Dining",
                     "items":
                     [
@@ -242,7 +242,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Casual Fine Dining",
                     "items":
                     [
@@ -254,7 +254,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Classic Fine Dining",
                     "items":
                     [
@@ -266,14 +266,14 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Modern Fine Dining",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Luxury Fine Dining",
                     "items":
                     [
@@ -292,26 +292,26 @@ const foodAndDrinksData =
             ]
         },
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Stellenbosch",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Tavern & Casual Dining",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Casual Fine Dining",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Classic Fine Dining",
                     "items":
                     [
@@ -322,7 +322,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Modern Fine Dining",
                     "items":
                     [
@@ -345,7 +345,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Luxury Fine Dining",
                     "items":
                     [
@@ -364,33 +364,33 @@ const foodAndDrinksData =
             ]
         },
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Franschhoek",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Tavern & Casual Dining",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Casual Fine Dining",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Classic Fine Dining",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Modern Fine Dining",
                     "items":
                     [
@@ -405,7 +405,7 @@ const foodAndDrinksData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Luxury Fine Dining",
                     "items":
                     [

@@ -1,22 +1,22 @@
 const wineEstateData =
 {
-    "type": "section",
+    "type": "category",
 	"name": "Wine Regions",
 	"items": [
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Breede River Valley (Breederiviervallei)",
             "items":
             [
             ]
         },
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Cape South Coast",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Cape Agulhas District",
                     "items":
                     [
@@ -75,28 +75,28 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Overberg District",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Plettenberg Bay District",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Swellendam District",
                     "items":
                     [
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Walker Bay District",
                     "items":
                     [
@@ -105,12 +105,12 @@ const wineEstateData =
             ]
         },
 		{
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Coastal Region Wine Estates",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Cape Peninsula District",
                     "items":
                     [
@@ -289,7 +289,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Darling District",
                     "items":
                     [
@@ -321,7 +321,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Franschhoek District",
                     "items":
                     [
@@ -353,7 +353,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Paarl District",
                     "items":
                     [
@@ -385,7 +385,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Stellenbosch District",
                     "items":
                     [
@@ -417,7 +417,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Swartland District",
                     "items":
                     [
@@ -449,7 +449,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Tulbagh District",
                     "items":
                     [
@@ -481,7 +481,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Tygerberg District",
                     "items":
                     [
@@ -530,7 +530,7 @@ const wineEstateData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Wellington District",
                     "items":
                     [
@@ -564,14 +564,14 @@ const wineEstateData =
             ]
         }, 
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Klein Karoo",
             "items":
             [
             ]
         },
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Olifants River (Olifantsrivier)",
             "items":
             [
@@ -580,7 +580,7 @@ const wineEstateData =
         // geografisch gezien geen echte wijnregio, maar aanduiding voor versterkte wijnen
         // geproduceerd in Paarl, Franschhoek en Tulbagh
         /*{
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Boberg",
             "items":
             [

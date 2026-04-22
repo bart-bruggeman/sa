@@ -58,7 +58,7 @@
 
 .block-header,
 .block-header-n{
-    color:var(--right-pane-section-title-color);
+    color:var(--right-pane-block-header-title-color);
 }
 
 .block-header-n{
@@ -67,7 +67,7 @@
 }
 
 .block-header-n:hover{
-    color:var(--right-pane-section-title-hover-color);
+    color:var(--right-pane-block-header-title-hover-color);
 }
 
 .block-header h3,

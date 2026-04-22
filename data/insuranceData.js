@@ -1,16 +1,16 @@
 const insuranceData =
 {
-    "type": "section",
+    "type": "category",
     "name": "Insurances",
     "items":
     [
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Long-Term Insurance classes",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Life",
                     "items":
                     [
@@ -35,7 +35,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Disability",
                     "items":
                     [
@@ -54,7 +54,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Fund / Investment-Linked",
                     "items":
                     [
@@ -73,7 +73,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Assistance / Funeral Insurance",
                     "items":
                     [
@@ -98,7 +98,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Health",
                     "items":
                     [
@@ -119,12 +119,12 @@ const insuranceData =
             ]
         },
         {
-            "type": "subsection",
+            "type": "subcategory",
             "name": "Short-Term Insurance classes",
             "items":
             [
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Motor",
                     "items":
                     [
@@ -149,7 +149,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Property",
                     "items":
                     [
@@ -174,7 +174,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Liability",
                     "items":
                     [
@@ -193,7 +193,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Accident & Health",
                     "items":
                     [
@@ -212,7 +212,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Engineering",
                     "items":
                     [
@@ -231,7 +231,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Marine",
                     "items":
                     [
@@ -250,7 +250,7 @@ const insuranceData =
                     ]
                 },
                 {
-                    "type": "column",
+                    "type": "group",
                     "name": "Aviation",
                     "items":
                     [

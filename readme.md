@@ -1,33 +1,33 @@
 # Data Model / Content Schema
 
-## section
+## category
 
 ```json
 {
-  "type": "section",
+  "type": "category",
   "name": "string",
-  "sortOnSubsectionNames": "boolean (optional, default: true)",
-  "sortOnColumnNames": "boolean (optional, default: true)",
-  "showAreaOnSubsectionNames": "booleab (optional, default: false)",
-  "items": "(subsection | column | data)[]"
+  "sortOnSubcategoryNames": "boolean (optional, default: true)",
+  "sortOnGroupNames": "boolean (optional, default: true)",
+  "showAreaOnSubcategoryNames": "boolean (optional, default: false)",
+  "items": "(subcategory[] | group[] | data[])"
 }
 ```
 
-## subsection
+## subcategory
 
 ```json
 {
-  "type": "subsection",
+  "type": "subcategory",
   "name": "string",
-  "items": "column[]"
+  "items": "group[]"
 }
 ```
 
-## column
+## group
 
 ```json
 {
-  "type": "column",
+  "type": "group",
   "name": "string",
   "items": "data[]"
 }
@@ -51,27 +51,6 @@
   "email": "string or string[] (optional)",
   "url": "string (optional)",
   "hours": "string or string[] (optional)",
-  "items": "extra-data[]"
-}
-```
-
-## extra-data
-
-```json
-{
-  "type": "extra-data",
-  "name": "string",
-  "displayName": "string (optional)",
-  "area": "string (optional)",
-  "mode": "string (optional)",
-  "info": "string (optional)",
-  "address": "string (optional)",
-  "coordinates": "string (optional)",
-  "phone": "string or string[] (optional)",
-  "phone_emergency": "string (optional)",
-  "email": "string or string[] (optional)",
-  "url": "string (optional)",
-  "hours": "string or string[] (optional)",
-  "items": "extra-data[]"
+  "items": "data[] (optional)"
 }
 ```

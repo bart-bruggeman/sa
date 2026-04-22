@@ -1,11 +1,11 @@
 const bankData = 
 {
-    "type": "section",
+    "type": "category",
     "name": "Banks",
     "items":
     [
         {
-            "type": "column",
+            "type": "group",
             "name": "Big Five Banks",
             "items":
             [
@@ -42,7 +42,7 @@ const bankData =
             ]
         },
         {
-            "type": "column",
+            "type": "group",
             "name": "New & Digital Banks",
             "items": 
             [
@@ -73,7 +73,7 @@ const bankData =
             ]
         },
         {
-            "type": "column",
+            "type": "group",
             "name": "International Banks",
             "items":
             [
@@ -104,7 +104,7 @@ const bankData =
             ]
         },
         {
-            "type": "column",
+            "type": "group",
             "name": "Other Banks",
             "items":
             [

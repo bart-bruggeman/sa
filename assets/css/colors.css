@@ -17,12 +17,14 @@
     --bs-border-color: #dee2e6;
     --navbar-brand-color: #343a40;
     --navbar-brand-hover-color: #0a0c0e;
-    --right-pane-section-title-color: #343a40;
-    --right-pane-section-title-hover-color: #0a0c0e;
+    --category-color: #343a40;
+    --category-hover-color: #0a0c0e;
+    --right-pane-block-header-title-color: #343a40;
+    --right-pane-block-header-title-hover-color: #0a0c0e;
     --filter-color-disabled: #adb5bd;
     --filter-border-color-disabled: #adb5bd;
     --filter-bg-color-disabled: #e9ecef;
-    --subsection-area-color: rgba(52, 58, 64, 0.75);
+    --subcategory-area-color: rgba(52, 58, 64, 0.75);
 
     /* Nord palette (dark reference) */
     --nord0:#2E3440;
@@ -63,10 +65,12 @@
     --bs-border-color: var(--nord3);
     --navbar-brand-color: var(--nord4);
     --navbar-brand-hover-color: #fff;
-    --right-pane-section-title-color: var(--nord4);
-    --right-pane-section-title-hover-color: #fff;
+    --category-color: var(--nord4);
+    --category-hover-color: #fff;
+    --right-pane-block-header-title-color: var(--nord4);
+    --right-pane-block-header-title-hover-color: #fff;
     --filter-color-disabled: var(--nord3);
     --filter-border-color-disabled: var(--nord3);
     --filter-bg-color-disabled: #000;
-    --subsection-area-color: var(--nord4);
+    --subcategory-area-color: var(--nord4);
 }

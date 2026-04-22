@@ -1,11 +1,11 @@
 const realEstateData =
 {
-    "type": "section",
+    "type": "category",
     "name": "Real Estate",
     "items":
     [
         {
-            "type": "column",
+            "type": "group",
             "name": "Real Estate Agency",
             "items":
             [
@@ -179,7 +179,7 @@ const realEstateData =
             ]
         }, 
         {
-            "type": "column",
+            "type": "group",
             "name": "Real Estate Portal",
             "items":
             [
