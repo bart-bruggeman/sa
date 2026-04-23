@@ -412,6 +412,149 @@ const foodAndDrinksData =
                     ]
                 }
             ]
+        },
+        {
+            "type": "subcategory",
+            "name": "Paarl",
+            "items":
+            [
+                {
+                    "type": "group",
+                    "name": "Tavern & Casual Dining",
+                    "items":
+                    [
+                        {
+                            "type": "data",
+                            "name": "Kapstadt Brauhaus",
+                            "address": "90A Main Road, Hoog-en-Droog, Paarl, 7646, South Africa",
+                            "coordinates": "-33.39224351557837, 18.880993484227567",
+                            "phone": "+27 60 355 4633",
+                            "email": "paarl@kapstadtbrauhaus.co.za",
+                            "url": "https://www.kapstadtbrauhaus.co.za/stores-paarl",
+                            "hours":
+                            [
+                                "Fri - Sat: 11:00 - 00:00",
+                                "Sun - Thu: 11:00 - 23:00"
+                            ]
+                        },
+                        {
+                            "type": "data",
+                            "name": "Back's Restaurant",
+                            "address": "Erf 778 Val de Vie Blvd, Paarl, 7646, South Africa",
+                            "coordinates": "-33.80425298409359, 18.968291371164057",
+                            "phone": "+27 21 300 6993",
+                            "email": "hello@backs.co.za",
+                            "url": "https://www.backs.co.za/",
+                            "hours":
+                            [
+                                "Mon - Fri: 08:00 - 18:00",
+                                "Sat - Sun: 09:00 - 14:00"
+                            ]
+                        },
+                        {
+                            "type": "data",
+                            "name": "Cattle Baron Paarl",
+                            "address": "Pontac Manor Estate, 16 Zion St, Hoog-En-Droog, Paarl, Cape Winelands, 7646, Western Cape,South Africa",
+                            "coordinates": "-33.74150545476523, 18.96010519999999",
+                            "phone": "+27 21 872 5577",
+                            "email": 
+                            [
+                                "paarlbistro@cattlebaron.co.za",
+                                "info@cattlebaronpaarl.co.za"
+                            ],
+                            "url": "https://cattlebaronpaarl.co.za/",
+                            "hours":
+                            [
+                                "Mon - Thu: 12:00 - 22:00",
+                                "Fri: 12:00 - 22:30",
+                                "Sat: 17:00 - 22:30",
+                                "Sun: 12:00 - 21:00"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "name": "Casual Fine Dining",
+                    "items":
+                    [
+                        {
+                            "type": "data",
+                            "name": "Salmon & Brine",
+                            "address": "Vendôme Wine Farm, Arboretum Av, Paarl, 7620, South Africa",
+                            "coordinates": "-33.75732520181869, 18.978623157671873",
+                            "phone": "+27 64 681 8464",
+                            "url": "https://salmonandbrine.co.za/",
+                            "hours":
+                            [
+                                "Mon - Sat: 11:30 - 21:00",
+                                "Sun: 11:30 - 16:00"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "name": "Classic Fine Dining",
+                    "items":
+                    [
+                        {
+                            "type": "data",
+                            "name": "Faber Restaurant",
+                            "address": "FABER, Avondale Estate, Lustigan Road, Klein Drakenstein, Paarl, South Africa",
+                            "coordinates": "-33.76466615164244, 19.000980996960596",
+                            "phone": "+27 21 202 1219",
+                            "mail": "Faber@avondalewine.co.za",
+                            "url": "https://avondalewine.co.za/faber/",
+                            "hours":
+                            [
+                                "Wed - Sun: 12:30 - 16:00 (lunch)",
+                                "Thu - Sat: 18:00 - 21:00 (dinner)"
+                            ]
+                        },
+                        {
+                            "type": "data",
+                            "name": "Grand Roche Restaurant",
+                            "address": "1 Plantasie St, Paarl, 7646, South Africa",
+                            "coordinates": "-33.75116892691979, 18.95899352883532",
+                            "phone": "+27 21 863 5100",
+                            "mail": 
+                            [
+                                "info@granderoche.co.za",
+                                "restaurant@granderoche.co.za",
+                                "events@granderoche.co.za"
+                            ],
+                            "url": "https://granderoche.com/grande-roche-restaurant/",
+                            "hours": "Mon - Sun: 08:00 - 21:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "name": "Modern Fine Dining",
+                    "items":
+                    [
+                        {
+                            "type": "data",
+                            "name": "Noop Restaurant",
+                            "address": "127 Main Rd, Vrykyk, Paarl, 7624, South Africa",
+                            "coordinates": "-33.752132163873696, 18.962197496960204",
+                            "phone": "+27 21 863 3925",
+                            "mail": "info@noop.co.za",
+                            "url": "https://www.noop.co.za/",
+                            "hours": "Mon - Sat: 12:00 - 23:30"
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "name": "Luxury Fine Dining",
+                    "items":
+                    [
+                    ]
+                }
+            ]
+            
         }
     ]
 }
