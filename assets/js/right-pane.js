@@ -140,19 +140,17 @@ function resolveLinkedBlocks(links, dataIndex, currentId) {
     if (!currentId) return [];
     const result = [];
     const seen = new Set();
-    for (const group of links) {
-        for (const { id1, id2 } of group) {
-            if (id1 !== currentId && id2 !== currentId) continue;
-            const otherId = id1 === currentId ? id2 : id1;
-            if (seen.has(otherId)) continue;
-            const data = dataIndex.get(otherId);
-            if (data) {
-                result.push({
-                    ...data,
-                    isMain: false
-                });
-                seen.add(otherId);
-            }
+    for (const { id1, id2 } of links) {
+        if (id1 !== currentId && id2 !== currentId) continue;
+        const otherId = id1 === currentId ? id2 : id1;
+        if (seen.has(otherId)) continue;
+        const data = dataIndex.get(otherId);
+        if (data) {
+            result.push({
+                ...data,
+                isMain: false
+            });
+            seen.add(otherId);
         }
     }
     return result;
