@@ -238,17 +238,52 @@ const foodAndDrinksData =
                         {
                             "type": "data", 
                             "name": "Talla's Tavern",
-                            "area": "Gordon's Bay"
+                            "area": "Gordon's Bay",
+                            "address": "67 Beach Rd, Gordons Bay Central, Cape Town, 7151, South Africa",
+                            "coordinates": "-34.15977126934993, 18.868541977909075",
+                            "phone": "+27 21 856 3513",
+                            "email": "wessel.tallas@gmail.com",
+                            "url": "http://tallastavern.co.za/",
+                            "hours":
+                            [
+                                "Mon: 09:15 - 22:00",
+                                "Tue - Sat: 08:15 - 22:00",
+                                "Sun: 08:15 - 21:00"
+                            ]
                         },
                         {
                             "type": "data", 
                             "name": "The Thirsty Oyster Tavern",
-                            "area": "Gordon's Bay"
+                            "area": "Gordon's Bay",
+                            "address": "Old Harbour, 156 Beach Rd, Helderberg Rural, Cape Town, 7140, South Africa",
+                            "coordinates": "-34.16433657957473, 18.860064938359802",
+                            "phone": "+27  21 856 4457",
+                            "email": "info@thirstyoyster.co.za",
+                            "url": "https://www.thirstyoyster.co.za/",
+                            "hours": "Mon - Sun: 11:00 - 02:00"
                         },
                         {
                             "type": "data", 
                             "name": "Café Zest",
-                            "area": "Gordon's Bay"
+                            "area": "Gordon's Bay",
+                            "address": "75 Beach Rd, Gordons Bay Central, Cape Town, 7151, South Africa",
+                            "coordinates": "-34.16027732262559, 18.868246886507606",
+                            "phone": "+27 21 200 2605",
+                            "url": "https://zestdining.co.za/",
+                            "hours":
+                            [
+                                "Tue - Sat: 12:00 - 22:00",
+                                "Sun: 12:00 - 21:00"
+                            ]
+                        },
+                        {
+                            "type": "data",
+                            "name": "The Waffle Cafe",
+                            "area": "Gordon's Bay",
+                            "address": "33 Beach Rd, Gordons Bay Central, Cape Town, 7140, South Africa",
+                            "coordinates": "-34.156937725885335, 18.86820917211051",
+                            "phone": "+27 79 308 6895",
+                            "hours": "Mon - Sun: 09:30 - 17:30"
                         }
                     ]
                 },
