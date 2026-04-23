@@ -41,6 +41,17 @@ const foodAndDrinksData =
                             "phone": "+27 21 794 1143",
                             "email": "info@simons.co.za",
                             "url": "https://simons.co.za/"
+                        },
+                        {
+                            "type": "data",
+                            "name": "Den Anker",
+                            "area": "Waterfront",
+                            "address": "Shop 1, 2 Dock Road, V&A Waterfront, Cape Town, 8001, South Africa",
+                            "coordinates": "-33.90590347998938, 18.421133952788676",
+                            "phone": "+27 21 419 0249",
+                            "email": "madam@denanker.co.za",
+                            "url": "https://denanker.co.za/",
+                            "hours": "Mon - Sun: 08:00 - 22:30"
                         }
                     ]
                 },
@@ -499,12 +510,13 @@ const foodAndDrinksData =
                     "items":
                     [
                         {
+                            "id": "faberrestaurant",
                             "type": "data",
-                            "name": "Faber Restaurant",
+                            "name": "FABER Restaurant",
                             "address": "FABER, Avondale Estate, Lustigan Road, Klein Drakenstein, Paarl, South Africa",
                             "coordinates": "-33.76466615164244, 19.000980996960596",
                             "phone": "+27 21 202 1219",
-                            "mail": "Faber@avondalewine.co.za",
+                            "email": "Faber@avondalewine.co.za",
                             "url": "https://avondalewine.co.za/faber/",
                             "hours":
                             [
@@ -518,7 +530,7 @@ const foodAndDrinksData =
                             "address": "1 Plantasie St, Paarl, 7646, South Africa",
                             "coordinates": "-33.75116892691979, 18.95899352883532",
                             "phone": "+27 21 863 5100",
-                            "mail": 
+                            "email": 
                             [
                                 "info@granderoche.co.za",
                                 "restaurant@granderoche.co.za",
@@ -540,7 +552,7 @@ const foodAndDrinksData =
                             "address": "127 Main Rd, Vrykyk, Paarl, 7624, South Africa",
                             "coordinates": "-33.752132163873696, 18.962197496960204",
                             "phone": "+27 21 863 3925",
-                            "mail": "info@noop.co.za",
+                            "email": "info@noop.co.za",
                             "url": "https://www.noop.co.za/",
                             "hours": "Mon - Sat: 12:00 - 23:30"
                         }

@@ -358,9 +358,15 @@ const wineEstateData =
                     "items":
                     [
                         {
+                            "id": "avondalewine",
                             "type": "data",
                             "name": "Avondale Wine",
+                            "address": "Lustigan Road, Klein Drakenstein, Paarl, South Africa",
+                            "coordinates": "-33.76447650873529, 19.001069024936168",
+                            "phone": "+27 21 863 1976",
+                            "email": "wine@avondalewine.co.za",
                             "url": "https://avondalewine.co.za/",
+                            "hours": "Mon - Sun: 10:00 - 16:00"
                         },
                         {
                             "type": "data",

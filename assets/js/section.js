@@ -170,7 +170,7 @@ function renderSubcategory(node, nextCtx) {
     if (showAreas) {
         const areas = collectAreas(node.items);
         if (areas.length) {
-            title += ` <span class="subcategory-areas">(areas: ${areas.join(", ")})</span>`;
+            title += ` <span class="subcategory-areas">(${areas.join(", ")})</span>`;
         }
     }
 

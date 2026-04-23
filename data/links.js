@@ -1,5 +1,6 @@
 const links =  
 [
+    ["avondalewine", "faberrestaurant"],
     ["capepointvineyards", "capepointvineyardsrestaurant"],
     ["durbanvillehills", "thetangramrestaurant"],
     ["grootconstantia", "izikomuseum"],
