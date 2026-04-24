@@ -2,81 +2,33 @@ const emergencyData =
 [
     {
         "name": "Emergency",
-        "items":
-        [
-            {
-                "phone": "112",
-                "comment": "(mobile)"
-            },
-            {
-                "phone": "107",
-                "comment": "(landline)"
-            }
-        ]
+        "phone": ["112 (mobile)", "107 (landline)"]
     },
     {
         "name": "Ambulance",
-        "items":
-        [
-            {
-                "phone": "082 911",
-                "comment": "(Netcare 911)"
-            },
-            {
-                "phone": "084 124",
-                "comment": "(ER24)"
-            },
-            {
-                "phone": "10177"
-            }
-        ]
+        "phone": ["082 911 (Netcare 911)", "084 124 (ER24)", "10177"]
     },
     {
         "name": "Police",
-        "items":
-        [
-            {
-                "phone": "10111"
-            }
-        ]
+        "phone": "10111"
     },
     {
         "name": "Crime Stop Hotline",
-        "items":
-        [
-            {
-                "phone": "08600 10111"
-            }
-        ]
+        "phone": "08600 10111"
     },
     {
         "name": "Poison Control Center",
-        "items":
-        [
-            {
-                "phone": "0861 555 777"
-            }
-        ]
+        "phone": "0861 555 777"
     },
     {
         "name": "Roadside Assistance",
-        "items":
-        [
-            {
-                "phone": "0800 010 101"
-            }
-        ]
+        "phone": "0800 010 101"
     },
     {
         "name": "Coast Guard / Sea Rescue",
-        "items":
-        [
-            {
-                "phone": "087 094 9774"
-            }
-        ]
+        "phone": "087 094 9774"
     }
-]
+];
 
 const geographicData =
 {
