@@ -15,6 +15,23 @@ const emergencyData =
         ]
     },
     {
+        "name": "Ambulance",
+        "items":
+        [
+            {
+                "phone": "082 911",
+                "comment": "(Netcare 911)"
+            },
+            {
+                "phone": "084 124",
+                "comment": "(ER24)"
+            },
+            {
+                "phone": "10177"
+            }
+        ]
+    },
+    {
         "name": "Police",
         "items":
         [
@@ -24,11 +41,38 @@ const emergencyData =
         ]
     },
     {
-        "name": "Ambulance",
+        "name": "Crime Stop Hotline",
         "items":
         [
             {
-                "phone": "10177"
+                "phone": "08600 10111"
+            }
+        ]
+    },
+    {
+        "name": "Poison Control Center",
+        "items":
+        [
+            {
+                "phone": "0861 555 777"
+            }
+        ]
+    },
+    {
+        "name": "Roadside Assistance",
+        "items":
+        [
+            {
+                "phone": "0800 010 101"
+            }
+        ]
+    },
+    {
+        "name": "Coast Guard / Sea Rescue",
+        "items":
+        [
+            {
+                "phone": "087 094 9774"
             }
         ]
     }

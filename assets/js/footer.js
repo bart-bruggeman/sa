@@ -1,6 +1,6 @@
 function renderFooter() {
     renderEmergencyPhonesFooter();
-    renderGeographyFooter();
+    //renderGeographyFooter();
 }
 
 function renderEmergencyPhonesFooter() {
