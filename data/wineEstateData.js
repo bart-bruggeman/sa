@@ -119,7 +119,7 @@ const wineEstateData =
                             "type": "data",
                             "name": "Cape Point Vineyards",
                             "mode": "hot",
-                            "address": "Silvermine Rd, Noordhoek, Cape Town 7979, South Africa",
+                            "address": "Silvermine Road, Noordhoek, Cape Town, 7979, Western Cape, South Africa",
                             "coordinates": "-34.09360723884719, 18.38751004963936",
                             "phone":
                             [
@@ -159,7 +159,7 @@ const wineEstateData =
                             "type": "data",
                             "name": "Groot Constantia",
                             "displayName": "Groot Constantia Wine Estate",
-                            "address": "Groot Constantia Rd, Constantia, Cape Town, 7806, South Africa",
+                            "address": "Groot Constantia Road, Constantia, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.02935654497266, 18.42020943587593",
                             "phone": "+27 21 794 5128",
                             "email": "enquiries@grootconstantia.co.za",
@@ -176,7 +176,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Klein Constantia",
-                            "address": "Klein Constantia Rd, Constantia, Cape Town, 7806, South Africa",
+                            "address": "Klein Constantia Road, Constantia, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.0383551804114, 18.413399497787527",
                             "phone": "+27 21 794 5188",
                             "email": "info@kleinconstantia.com",
@@ -197,7 +197,7 @@ const wineEstateData =
                             "id": "steenbergvineyards",
                             "type": "data",
                             "name": "Steenberg Vineyards",
-                            "address": "Steenberg Road, Constantia Valley, 7945, Cape Town, South Africa",
+                            "address": "Steenberg Road, Constantia Valley, Cape Town, 7945, Western Cape, South Africa",
                             "phone": "+27 21 207 8800",
                             "url": "https://www.steenbergfarm.com/",
                             "items":
@@ -213,7 +213,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Buitenverwachting",
-                            "address": "37 Klein Constantia Road, Constantia, Cape Town, 7806, South Africa",
+                            "address": "37 Klein Constantia Road, Constantia, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.041203129770125, 18.41684802698282",
                             "url": "https://buitenverwachting.com/",
                             "phone":
@@ -225,7 +225,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Constantia Uitsig",
-                            "address": "Spaanschemat River Rd, Fir Grove, Cape Town, 7806, South Afrika",
+                            "address": "Spaanschemat River Road, Fir Grove, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.047485674589005, 18.42483801263897",
                             "phone": "+27 76 987 0743",
                             "email":
@@ -238,7 +238,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Eagles' Nest",
-                            "address": "Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
+                            "address": "Constantia Main Road, Constantia, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.014885013603184, 18.415135",
                             "phone": "+27 21 794 3359",
                             "url": "https://www.eaglesnestwines.com/"
@@ -246,7 +246,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Beau Constantia",
-                            "address": "1043 Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
+                            "address": "1043 Constantia Main Road, Constantia, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.013481696499056, 18.40642401349141",
                             "phone": "+27 21 794 8632",
                             "email": "reservations@beauconstantia.com",
@@ -258,7 +258,7 @@ const wineEstateData =
                             "name": "Silvermist",
                             "displayName": "Silvermist Wine Estate",
                             "mode": "hot",
-                            "address": "Silvermist Wine Estate, Constantia Nek, Hout Bay Main Rd, Hout Bay, Cape Town, 7806, South Africa",
+                            "address": "Silvermist Wine Estate, Main Road, Constantia Nek, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.01194769970817, 18.40240151349141",
                             "phone": "+27 21 110 5420",
                             "url": "https://silvermistestate.co.za/"
@@ -266,7 +266,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "High Constantia",
-                            "address": "Groot Constantia Rd, Constantia, Cape Town, 7848, South Africa",
+                            "address": "Groot Constantia Road, Constantia, Cape Town, 7848, Western Cape, South Africa",
                             "coordinates": "-34.0253622, 18.4268933",
                             "phone": "+27 21 794 7171",
                             "email": "info@highconstantia.co.za",
@@ -275,7 +275,7 @@ const wineEstateData =
                         {
                             "type": "data",
                             "name": "Constantia Glen",
-                            "address": "Constantia Main Rd, Constantia, Cape Town, 7806, South Africa",
+                            "address": "Constantia Main Road, Constantia, Cape Town, 7806, Western Cape, South Africa",
                             "coordinates": "-34.0156509, 18.4090992",
                             "phone": "+27 21 795 5639",
                             "email": "enquiries@constantiaglen.com",
@@ -361,7 +361,7 @@ const wineEstateData =
                             "id": "avondalewine",
                             "type": "data",
                             "name": "Avondale Wine",
-                            "address": "Lustigan Road, Klein Drakenstein, Paarl, South Africa",
+                            "address": "Lustigan Road, Klein Drakenstein, Paarl, Western Cape, South Africa",
                             "coordinates": "-33.76447650873529, 19.001069024936168",
                             "phone": "+27 21 863 1976",
                             "email": "wine@avondalewine.co.za",
@@ -505,7 +505,7 @@ const wineEstateData =
                             "id": "durbanvillehills",
                             "type": "data",
                             "name": "Durbanville Hills Winery",
-                            "address": "Tygerberg Valley Rd, Cape Farms, Cape Town, 7550, South Africa",
+                            "address": "Tygerberg Valley Road, Cape Farms, Cape Town, 7550, Western Cape, South Africa",
                             "coordinates": "-33.82472307633439, 18.565798168946426",
                             "phone": "+27 21 558 1300",
                             "email": "info_durbanvillehills@heineken.com",

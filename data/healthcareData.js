@@ -12,7 +12,7 @@ const healthcareData =
                 {
                     "type": "data",
                     "name": "Gordon's Bay Medical",
-                    "address": "8 Riverside Avenue, Winslow, Gordon's Bay, Cape Town, 7140, South Africa",
+                    "address": "8 Riverside Avenue, Winslow, Gordon's Bay, Cape Town, 7140, Western Cape, South Africa",
                     "coordinates": "-34.15348994625148, 18.870561784302375",
                     "phone": "+27 21 856 2504",
                     "email": "reception@gbmedical.co.za",
@@ -26,7 +26,7 @@ const healthcareData =
                 {
                     "type": "data",
                     "name": "Sr Claire's Essential Care Clinic (Strand)",
-                    "address": "Shop 4 Broadway Business Centre, Cnr Chicago Avenue & Joseph Crescent, Strand, 7140",
+                    "address": "Shop 4, Broadway Business Centre, Corner of Chicago Avenue and Joseph Crescent, Strand, Cape Town, 7140, Western Cape, South Africa",
                     "coordinates": "-34.12057570628986, 18.85160429779488",
                     "phone": "+27 81 236 2219",
                     "email": "admin@claireclinic.co.za",
@@ -47,7 +47,7 @@ const healthcareData =
                 {
                     "type": "data",
                     "name": "Dental & Ortho (Strand)",
-                    "address": "152 Gordon's Bay Dr, Broadlands Rd, Greenways, Cape Town, 7140, South Africa",
+                    "address": "152 Gordon's Bay Drive, Broadlands Road, Greenways, Cape Town, 7140, Western Cape, South Africa",
                     "coordinates": "-34.134620345571875, 18.846838755822432",
                     "phone": "+27 60 617 3260",
                     "email": "info@dentalandortho.co.za",
@@ -75,7 +75,7 @@ const healthcareData =
                 {
                     "type": "data",
                     "name": "Mediclinic Vergelegen Hospital",
-                    "address": "Main Road, Somerset West, Cape Town, 7130, South Africa",
+                    "address": "Main Road, Somerset West, Cape Town, 7130, Western Cape, South Africa",
                     "coordinates": "",
                     "phone":
                     [
@@ -88,7 +88,7 @@ const healthcareData =
                 {
                     "type": "data",
                     "name": "Busamed Paardevlei Private Hospital",
-                    "address": "Paardevlei Estate, 4 Gardner Williams Ave, Paardevlei, Cape Town, 7130, South Africa",
+                    "address": "Paardevlei Estate, 4 Gardner Williams Avenue, Paardevlei, Cape Town, 7130, Western Cape, South Africa",
                     "coordinates": "",
                     "phone":
                     [
