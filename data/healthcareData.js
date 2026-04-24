@@ -47,7 +47,7 @@ const healthcareData =
                 {
                     "type": "data",
                     "name": "Dental & Ortho (Strand)",
-                    "address": "152 Gordon's Bay Drive, Broadlands Road, Greenways, Cape Town, 7140, Western Cape, South Africa",
+                    "address": "152 Gordon's Bay Drive, Greenways Estate, Strand, 7140, Cape Town, Western Cape, South Africa",
                     "coordinates": "-34.134620345571875, 18.846838755822432",
                     "phone": "+27 60 617 3260",
                     "email": "info@dentalandortho.co.za",
