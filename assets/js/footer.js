@@ -7,12 +7,21 @@ function renderFooter() {
         html += `<h5>${group.name}</h5>`;
         html += `<ul class="list-unstyled">`;
         const phones = Array.isArray(group.phone) ? group.phone : [group.phone];
-        phones.forEach(phone => {
-            const cleanPhone = phone.replace(/\s+/g, '');
+        phones.forEach(item => {
+            const match = item.match(/^([^\(]+)(\((.*)\))?$/);
+            const numberPart = match ? match[1].trim() : item;
+            const extraPart = match && match[3] ? match[3] : "";
+            const cleanNumber = numberPart.replace(/\s+/g, '');
             html += `<li class="d-flex align-items-center">`;
-            html += `<a href="tel:${cleanPhone}" class="link-footer emergency d-flex align-items-center">`;
-            html += `<i class="bi bi-telephone-fill fs-5 me-1"></i>${phone}`;
-            html += `</a>`;
+            html += `
+                <a href="tel:${cleanNumber}" class="link-footer emergency d-flex align-items-center">
+                    <i class="bi bi-telephone-fill fs-5 me-1"></i>
+                    ${numberPart}
+                </a>
+            `;
+            if (extraPart) {
+                html += `<span class="ms-1">(${extraPart})</span>`;
+            }
             html += `</li>`;
         });
         html += `</ul></div>`;
