@@ -109,7 +109,7 @@ function renderFilteredCategories(query) {
                 .filter(item => matchesFilterQuery(item, q));
 
             return matches.length
-                ? { type: "category", name: category.name, items: matches }
+                ? { type: "category", name: category.name, icon: category.icon, items: matches }
                 : null;
         })
         .filter(Boolean);
