@@ -146,6 +146,7 @@ function renderCategory(node, nextCtx, ctx) {
     <section class="mb-3 border-bottom ${ctx.filtered ? 'filtered' : ''}" data-category="${ctx.index}">
         <h2 class="h5 mb-3 d-flex justify-content-between align-items-center category-title-icon">
             <span class="category-title">
+                <i class="bi ${node.icon}"></i>
                 ${node.name}
                 ${ctx.filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
             </span>

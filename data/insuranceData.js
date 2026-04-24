@@ -2,6 +2,7 @@ const insuranceData =
 {
     "type": "category",
     "name": "Insurances",
+    "icon": "bi-shield-check",
     "items":
     [
         {

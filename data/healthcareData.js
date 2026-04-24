@@ -2,6 +2,7 @@ const healthcareData =
 {
     "type": "category",
     "name": "Healthcare",
+    "icon": "bi-heart-pulse",
     "items":
     [
         {

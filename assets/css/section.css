@@ -74,6 +74,14 @@ section .row {
     line-height: 1.2;
 }
 
+.category-title i.bi {
+    font-size: 1.2em;
+    line-height: 1;
+    margin-right: .45rem;
+    flex-shrink: 0;
+    opacity: .65;
+}
+
 section .category-title-icon,
 .subcategory-header {
     color: var(--category-color);

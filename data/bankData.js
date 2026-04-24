@@ -2,6 +2,7 @@ const bankData =
 {
     "type": "category",
     "name": "Banks",
+    "icon": "bi-cash-coin",
     "items":
     [
         {

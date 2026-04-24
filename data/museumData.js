@@ -2,6 +2,7 @@ const museumData =
 {
     "type": "category",
     "name": "Museums",
+    "icon": "bi-bank",
     "items":
     [
         {

@@ -2,6 +2,7 @@ const realEstateData =
 {
     "type": "category",
     "name": "Real Estate",
+    "icon": "bi-house",
     "items":
     [
         {

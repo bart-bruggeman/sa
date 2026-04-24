@@ -2,6 +2,7 @@ const foodAndDrinksData =
 {
     "type": "category",
     "name": "Food and Drinks",
+    "icon": "bi-cup-straw",
     "sortOnSubcategoryNames": true,
     "sortOnGroupNames": false, // when false: force order of groups as occurence, so the order is from Tavern & Casual Dining to Luxury Dining
     "showAreaOnSubcategoryNames": true, // when true: area names are sorted, filtered and added between brackets after subcategory name"

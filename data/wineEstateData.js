@@ -2,6 +2,7 @@ const wineEstateData =
 {
     "type": "category",
 	"name": "Wine Regions",
+    "icon": "bi-database",
 	"items": [
         {
             "type": "subcategory",
