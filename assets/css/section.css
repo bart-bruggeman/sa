@@ -75,11 +75,11 @@ section .row {
 }
 
 .category-title i.bi {
-    font-size: 1.125em;
-    line-height: 1;
+    font-size: 1.15em;
     margin-right: .45rem;
     flex-shrink: 0;
     opacity: .65;
+    transform: translateY(1px);
 }
 
 .category-content {
