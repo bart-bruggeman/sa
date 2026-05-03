@@ -236,6 +236,28 @@ const realEstateData =
                     "url": "https://www.sahometraders.co.za/"
                 }
             ]
+        },
+        {
+            "type": "group",
+            "name": "Real Estate Media",
+            "items":
+            [
+                {
+                    "type": "data",
+                    "name": "Property Mail & Guardian",
+                    "url": "https://property.mg.co.za"
+                },
+                {
+                    "type": "data",
+                    "name": "IOL Property",
+                    "url": "https://iolproperty.co.za"
+                },
+                {
+                    "type": "data",
+                    "name": "Property Junction",
+                    "url": "https://www.propjunction.co.za"
+                }
+            ]
         }
     ]
 };
