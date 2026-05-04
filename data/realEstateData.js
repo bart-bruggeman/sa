@@ -35,7 +35,7 @@ const realEstateData =
                             "hours":
                             [
                                 "Mon - Thu: 09:00 - 16:00",
-                                "Frii: 09:00 - 15:00"
+                                "Fri: 09:00 - 15:00"
                             ]
                         }
                     ]
