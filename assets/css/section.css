@@ -71,19 +71,22 @@ section .row {
     display: inline-flex;
     align-items: center;
     gap: .25rem;
-    line-height: 1.2;
 }
 
 .category-title i.bi {
     font-size: 1.15em;
-    margin-right: .45rem;
+    margin-right: .25rem;
     flex-shrink: 0;
-    opacity: .65;
+    opacity: .5;
     transform: translateY(1px);
 }
 
 .category-content {
     padding-left: calc(1.2em + .5rem);
+}
+
+.category-title-icon {
+    font-weight: 500;
 }
 
 section .category-title-icon,
@@ -123,7 +126,8 @@ section:not(.filtered) .subcategory-header:hover {
     z-index: 1;
     display: block;
     padding-left: 1.75rem;
-    font-size: 1.06rem;
+    font-size: 1.05rem;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -160,6 +164,11 @@ section li,
 /*------------------------------------------------------------------------------
   category & subcategory
 ------------------------------------------------------------------------------*/
+.chevron-icon {
+    opacity: .6;
+    font-size: .9em;
+}
+
 section h2 i,
 .subcategory-header .chevron-icon {
     transition: transform .2s ease;
