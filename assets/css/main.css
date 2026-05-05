@@ -18,17 +18,17 @@ body{
 }
 
 .h5, .h6{
-    font-weight:600;
+    font-weight:500;
     line-height:1.4;
     -webkit-font-smoothing:antialiased;
 }
 
 .h5{
-    letter-spacing:.02em;
+    letter-spacing:.015em;
 }
 
 .h6{
-    letter-spacing:.025em;
+    letter-spacing:.02em;
 }
 
 a{

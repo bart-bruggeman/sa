@@ -17,6 +17,7 @@ a:hover .hot-icon {
     color: var(--bs-danger-hover-color);
 }
 
+
 /*------------------------------------------------------------------------------
   filtered categories
 ------------------------------------------------------------------------------*/
@@ -40,6 +41,7 @@ section.filtered h2 {
     top: -.1em;
     font-size: .75em;
     color: var(--bs-secondary);
+    opacity: .7;
 }
 
 .filtered-icon i {
@@ -55,12 +57,12 @@ section.filtered h2 {
   category
 ------------------------------------------------------------------------------*/
 section > h2 {
-    margin: .5rem 0;
+    margin: .4rem 0;
     cursor: pointer;
 }
 
 section.open {
-    padding-bottom: .75rem;
+    padding-bottom: .6rem;
 }
 
 section .row {
@@ -70,33 +72,40 @@ section .row {
 .category-title {
     display: inline-flex;
     align-items: center;
-    gap: .25rem;
+    gap: .35rem;
 }
 
 .category-title i.bi {
-    font-size: 1.15em;
+    font-size: 1.05em;
     margin-right: .25rem;
     flex-shrink: 0;
-    opacity: .5;
+    opacity: .7;
+    color: currentColor;
     transform: translateY(1px);
 }
 
 .category-content {
-    padding-left: calc(1.2em + .5rem);
+    padding-left: calc(1.1em + .5rem);
 }
 
 .category-title-icon {
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 section .category-title-icon,
 .subcategory-header {
     color: var(--category-color);
+    opacity: .9;
 }
 
 section:not(.filtered):hover .category-title-icon,
 section:not(.filtered) .subcategory-header:hover {
     color: var(--category-hover-color);
+}
+
+section:not(.filtered):hover .category-title i.bi {
+    opacity: .9;
 }
 
 
@@ -105,16 +114,17 @@ section:not(.filtered) .subcategory-header:hover {
 ------------------------------------------------------------------------------*/
 .subcategory {
     position: relative;
-    padding: .5rem 0;
+    padding: .4rem 0;
 }
 
 .subcategory::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 1.75rem;
+    left: 1.6rem;
     right: 0;
     border-bottom: 1px solid var(--bs-border-color);
+    opacity: .6;
 }
 
 .subcategory:last-child::after {
@@ -125,8 +135,8 @@ section:not(.filtered) .subcategory-header:hover {
     position: relative;
     z-index: 1;
     display: block;
-    padding-left: 1.75rem;
-    font-size: 1.05rem;
+    padding-left: 1.6rem;
+    font-size: .98rem;
     font-weight: 500;
     cursor: pointer;
 }
@@ -137,36 +147,34 @@ section:not(.filtered) .subcategory-header:hover {
 
 .subcategory-content .row {
     margin-inline: calc(-.5 * var(--bs-gutter-x));
-    padding-left: 1.5rem;
+    padding-left: 1.4rem;
 }
 
 .subcategory-areas {
-    font-size: 0.78em;
+    font-size: 0.75em;
     font-weight: 400;
     margin-left: .25rem;
     color: var(--subcategory-area-color);
-    opacity: .75;
+    opacity: .65;
 }
 
 
 /*------------------------------------------------------------------------------
   category & filtered categories
-------------------------------------------------------------------------------*/
-section li,
+------------------------------------------------------------------------------*/section li,
 .filtered-list li {
     display: flex;
     align-items: center;
     gap: .25rem;
-    margin-bottom: .125rem;
+    margin-bottom: .1rem;
 }
 
 
 /*------------------------------------------------------------------------------
   category & subcategory
-------------------------------------------------------------------------------*/
-.chevron-icon {
-    opacity: .6;
-    font-size: .9em;
+------------------------------------------------------------------------------*/.chevron-icon {
+    opacity: .45;
+    font-size: .85em;
 }
 
 section h2 i,
