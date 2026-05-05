@@ -20,7 +20,7 @@ function renderFooter() {
                 </a>
             `;
             if (extraPart) {
-                html += `<span class="ms-1">(${extraPart})</span>`;
+                html += `<span class="ms-1 extra-part">(${extraPart})</span>`;
             }
             html += `</li>`;
         });

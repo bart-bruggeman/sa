@@ -33,3 +33,9 @@ footer a.emergency{
 footer a.emergency:hover{
     color:var(--emergency-hover-color);
 }
+
+footer .extra-part {
+    font-size: 0.8em;
+    opacity: 0.75;
+    white-space: nowrap;
+}
