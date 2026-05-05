@@ -91,6 +91,7 @@ section .row {
 .category-title-icon {
     font-weight: 600;
     font-size: 1.1rem;
+    letter-spacing: .01em;
 }
 
 section .category-title-icon,
@@ -124,7 +125,7 @@ section:not(.filtered):hover .category-title i.bi {
     left: 1.6rem;
     right: 0;
     border-bottom: 1px solid var(--bs-border-color);
-    opacity: .6;
+    opacity: .45;
 }
 
 .subcategory:last-child::after {
@@ -161,7 +162,8 @@ section:not(.filtered):hover .category-title i.bi {
 
 /*------------------------------------------------------------------------------
   category & filtered categories
-------------------------------------------------------------------------------*/section li,
+------------------------------------------------------------------------------*/
+section li,
 .filtered-list li {
     display: flex;
     align-items: center;
@@ -172,7 +174,8 @@ section:not(.filtered):hover .category-title i.bi {
 
 /*------------------------------------------------------------------------------
   category & subcategory
-------------------------------------------------------------------------------*/.chevron-icon {
+------------------------------------------------------------------------------*/
+.chevron-icon {
     opacity: .45;
     font-size: .85em;
 }
