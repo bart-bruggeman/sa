@@ -190,7 +190,7 @@ function renderSubcategory(node, nextCtx) {
 function renderGroup(node, nextCtx) {
     return `
     <div class="col-12 col-md-6 col-lg-3">
-        <div class="card h-100">
+        <div class="card bg-transparent border-0 text-reset h-100">
             <div class="card-body">
                 <h3 class="h6 mb-3">${node.name}</h3>
                 ${renderGroupedData(node, { ...nextCtx, forceColumn: true })}

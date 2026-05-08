@@ -189,13 +189,3 @@ section.open h2 i.chevron-icon,
 .subcategory.open .chevron-icon {
     transform: rotate(180deg);
 }
-
-
-/*------------------------------------------------------------------------------
-  group
-------------------------------------------------------------------------------*/
-.card {
-    background: transparent;
-    border: 0;
-    color: inherit;
-}
