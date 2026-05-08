@@ -2,9 +2,6 @@
   general
 ------------------------------------------------------------------------------*/
 li a {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     transition: color .2s ease, transform .2s ease;
 }

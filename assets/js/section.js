@@ -205,7 +205,7 @@ function renderData(item) {
 
     return `
         <li>
-            <a href="#" data-name="${item.name}">
+            <a class="d-inline-block text-nowrap overflow-hidden" href="#" data-name="${item.name}">
                 ${item.name}${hotIcon}
             </a>
         </li>
