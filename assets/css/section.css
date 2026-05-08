@@ -6,12 +6,8 @@ li a {
     transition: color .2s ease, transform .2s ease;
 }
 
-.hot-icon {
-    color: var(--bs-danger);
-}
-
 a:hover .hot-icon {
-    color: var(--bs-danger-hover-color);
+    color: var(--bs-danger-hover-color) !important;
 }
 
 

@@ -200,7 +200,7 @@ function renderGroup(node, nextCtx) {
 
 function renderData(item) {
     const hotIcon = item.mode === 'hot'
-        ? '<i class="bi bi-fire hot-icon ms-2"></i>'
+        ? '<i class="bi bi-fire text-danger hot-icon ms-2"></i>'
         : '';
 
     return `
