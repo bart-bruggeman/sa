@@ -188,12 +188,36 @@ const foodAndDrinksData =
                         {
                             "type": "data", 
                             "name": "FYN",
-                            "area": "City Bowl"
+                            "area": "City Bowl",
+                            "info": "FYN is a fine dining restaurant known for its innovative tasting menus that blend South African ingredients with Japanese techniques. It offers a modern, creative dining experience with refined, seasonal dishes.",
+                            "address": "Speakers Corner, 5th Floor, 37 Parliament St, Cape Town City Centre, Cape Town, 8001, Western Cape, South Africa",
+                            "coordinates": "-33.9245093133463, 18.421803095993827",
+                            "phone": "+27 21 286 2733",
+                            "email": "info@fynrestaurant.com",
+                            "url": "https://www.fynrestaurant.com/",
+                            "hours":
+                            [
+                                "Mon - Sat:",
+                                "12:00 - 14:00 (lunch)",
+                                "18:00 - 20:30 (dinner)"
+                            ]
                         },
                         {
                             "type": "data", 
                             "name": "The Waterside",
-                            "area": "Waterfront"
+                            "area": "Waterfront",
+                            "info": "The Waterside is a fine dining restaurant offering a seasonal tasting menu with a focus on modern, refined cuisine. It delivers a creative and elegant dining experience centered on high-quality ingredients and precise technique.",
+                            "address": "Pierhead Building, Victoria & Alfred Waterfront, Cape Town, 8001, Western Cape, South Africa",
+                            "coordinates": "-33.905578749370726, 18.42110474232872",
+                            "phone": "+27 21 879 6328",
+                            "email": "reservations@thewaterside.restaurant",
+                            "url": "https://www.lacolombe.restaurant/waterside",
+                            "hours":
+                            [
+                                "Mon - Sat:",
+                                "12:00 - 14:00 (lunch)",
+                                "18:30 - 20:30 (dinner)"
+                            ]
                         }
                     ]
                 },
