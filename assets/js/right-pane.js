@@ -75,14 +75,22 @@ function buildBlocks(link, dataIndex, links = []) {
 
 function renderBlock({ isMain, ...office }, index) {
     const blockId = `block-${index}`;
+
     const title = getSectionTitle(office);
+
     const header = title
         ? `
         <div class="${isMain ? "block-header" : "block-header-n"}"
              ${!isMain ? `data-toggle="${blockId}"` : ""}>
             <div class="header-content d-flex justify-content-between align-items-center">
-                <h3 class="mb-0">${title}</h3>
-                ${!isMain ? '<i class="bi bi-chevron-down toggle-icon"></i>' : ""}
+                <h3 class="fs-6 fw-medium mb-0 ps-4">
+                    ${title}
+                </h3>
+                ${
+                    !isMain
+                        ? '<i class="bi bi-chevron-down toggle-icon ms-auto"></i>'
+                        : ""
+                }
             </div>
         </div>
     `
@@ -96,16 +104,18 @@ function renderBlock({ isMain, ...office }, index) {
                 colorClass = "",
                 render = v => v
             } = iconMap[key] || {};
+
             return `
-                <p class="value ${colorClass} mt-3">
+                <p class="value ${colorClass} mt-3 mb-0 small">
                     <i class="bi ${icon} icon ${colorClass}"></i>
                     ${render(value, office)}
                 </p>
             `;
         })
         .join("");
+
     return `
-        <section class="pane-block ${
+        <section class="pane-block border-bottom py-3 ${
             isMain ? "open mb-0" : "collapsible"
         }" data-block="${blockId}">
             ${header}
