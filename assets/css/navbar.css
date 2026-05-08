@@ -1,101 +1,12 @@
-.navbar{
-    position:sticky;
-    top:0;
-    z-index:1050;
-    background:var(--bg-navbar)!important;
-    box-shadow:0 2px 4px rgba(0,0,0,.1);
+.navbar {
+    background-color: var(--bg-navbar) !important;
 }
 
-.navbar-brand{
-    font-weight:600;
-    letter-spacing:.005em;
-    line-height:1.2;
-    -webkit-font-smoothing:antialiased;
-    cursor:pointer;
-    color: var(--navbar-brand-color)
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--link-color);
 }
 
-.navbar-brand:hover{
-    color:var(--navbar-brand-hover-color);
-}
-
-.navbar-tools{
-    display:flex;
-    align-items:center;
-    gap:.75rem;
-}
-
-/* ---------------------------------------------------------------
-   filter
-   --------------------------------------------------------------- */
-#filter-id{
-    width:220px;
-    height:32px;
-    padding:0 10px;
-    font-size:.9rem;
-    background:var(--bg-card);
-    color:var(--text-body);
-    border:1px solid var(--pane-line-color);
-    border-radius:5px;
-    transition:background-color .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
-}
-
-#filter-id:focus{
-    border-color:var(--link-color);
-    box-shadow:none;
-}
-
-#filter-id:disabled{
-    background:var(--filter-bg-color-disabled);
-    color:var(--filter-color-disabled);
-    border-color:var(--filter-border-color-disabled);
-    cursor:not-allowed;
-}
-
-#filter-id:disabled::placeholder{
-    color:var(--filter-color-disabled);
-}
-
-
-/* ---------------------------------------------------------------
-   theme
-   --------------------------------------------------------------- */
-#theme-id{
-    margin-left:1.25rem;
-    display:flex;
-    align-items:center;
-    height:32px;
-    transition:color .2s ease;
-}
-
-#theme-id i{
-    font-size:1.3rem;
-    transition:transform .2s ease, color .2s ease;
-}
-
-#theme-id:hover{
-    color:var(--link-hover-color);
-}
-
-/* ---------------------------------------------------------------
-   responsive / mobile fixes
-   --------------------------------------------------------------- */
-@media (max-width:768px){
-    #filter-id{
-        font-size:16px;
-        -webkit-text-size-adjust:100%;
-    }
-}
-
-@media (max-width:576px){
-    #filter-id{
-        width:140px;
-    }
-}
-
-@supports (-webkit-touch-callout:none){
-    #filter-id{
-        font-size:16px;
-        -webkit-text-size-adjust:100%;
-    }
+.cursor-pointer {
+    cursor: pointer;
 }

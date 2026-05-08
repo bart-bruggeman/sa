@@ -53,7 +53,7 @@
     --bg-body:var(--nord0);
     --text-body:var(--nord4);
     --bg-card:var(--nord1);
-    --bg-navbar:var(--nord0);
+    --bg-navbar: var(--nord0);
     --link-color:var(--nord9);
     --link-hover-color:var(--nord8);
     --pane-line-color:var(--nord4);
