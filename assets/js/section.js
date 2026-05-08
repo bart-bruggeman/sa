@@ -80,7 +80,7 @@ function renderCategories(items = allData, open = false, filtered = false) {
     if (!Array.isArray(items) || !items.length) {
         const filterValue = document.getElementById("filter-id")?.value || '';
         container.innerHTML = `<p class="text-muted">
-            <i class="bi bi-exclamation-square"></i>
+            <i class="bi bi-exclamation-square me-1"></i>
             No results found for filter '${filterValue}'.
         </p>`;
         return;
@@ -148,7 +148,6 @@ function renderCategory(node, nextCtx, ctx) {
             <span class="category-title">
                 <i class="bi ${node.icon}"></i>
                 ${node.name}
-                ${ctx.filtered ? `<span class="filtered-icon"><i class="bi bi-funnel"></i></span>` : ''}
             </span>
             ${ctx.filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
         </h2>
@@ -221,7 +220,7 @@ function renderFilteredData(node) {
     ).values()].sort(sortByField("name"));
 
     return `
-    <ul class="list-unstyled mb-2 filtered-list">
+    <ul class="list-unstyled mb-2 filtered-list ps-4 py-2">
         ${uniqueItems.map(renderData).join('')}
     </ul>
     `;
