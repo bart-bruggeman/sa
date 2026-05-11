@@ -276,7 +276,7 @@ function renderGroupedData(node, ctx) {
         return `
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
+                <div class="card h-100 bg-transparent border-0 shadow-none">
                     <div class="card-body">
                         ${list}
                     </div>
