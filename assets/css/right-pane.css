@@ -38,15 +38,15 @@
     text-justify:inter-word;
 }
 
-html[data-bs-theme="light"] .text-danger:hover,
-html[data-bs-theme="light"] .text-danger:hover i {
+/*html[data-bs-theme="light"] .emergency:hover,
+html[data-bs-theme="light"] .emergency:hover i {
     color: hsl(0, 75%, 40%) !important;
 }
 
 html[data-bs-theme="dark"] .text-danger:hover,
 html[data-bs-theme="dark"] .text-danger:hover i {
     color: hsl(0, 75%, 65%) !important;
-}
+}*/
 
 .block-header-n{
     cursor:pointer;
