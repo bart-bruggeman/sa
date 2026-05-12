@@ -1,6 +1,10 @@
-# Data Model / Content Schema
+# Content Schema
 
-## category
+## Data Model
+
+All __*.Data.js__ files contain __data__ and adhere to the following structure.
+
+### category
 
 ```json
 {
@@ -13,7 +17,7 @@
 }
 ```
 
-## subcategory
+### subcategory
 
 ```json
 {
@@ -23,7 +27,7 @@
 }
 ```
 
-## group
+### group
 
 ```json
 {
@@ -33,7 +37,7 @@
 }
 ```
 
-## data
+### data
 
 ```json
 {
@@ -53,4 +57,17 @@
   "hours": "string or string[] (optional)",
   "items": "data[] (optional)"
 }
+```
+
+## Links Model
+
+The __links.js__ file contains __relational data__ linking to *Data.js entries, with each string representing the ID of a corresponding data item
+
+``` json
+[
+  [
+    "string",
+    "string"
+  ]
+]
 ```
