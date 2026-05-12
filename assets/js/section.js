@@ -170,13 +170,13 @@ function renderSubcategory(node, nextCtx) {
     if (showAreas) {
         const areas = collectAreas(node.items);
         if (areas.length) {
-            title += ` <span class="subcategory-areas">(${areas.join(", ")})</span>`;
+            title += ` <span class="subcategory-areas ms-1">(${areas.join(", ")})</span>`;
         }
     }
 
     return `
     <section class="subcategory mb-2 pb-2">
-        <h3 class="h6 d-flex justify-content-between align-items-center subcategory-header">
+        <h3 class="h6 d-flex justify-content-between align-items-center fw-medium subcategory-header">
             <span>${title}</span>
             <i class="bi bi-chevron-down chevron-icon"></i>
         </h3>
@@ -204,7 +204,7 @@ function renderData(item) {
         : '';
 
     return `
-        <li>
+        <li class="d-flex align-items-center gap-1">
             <a class="d-inline-block text-nowrap overflow-hidden" href="#" data-name="${item.name}">
                 ${item.name}${hotIcon}
             </a>
