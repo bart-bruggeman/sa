@@ -62,12 +62,12 @@ const iconMap = {
 
     phone_emergency: {
         icon: "bi-telephone-fill",
-        colorClass: "text-danger",
+        colorClass: "emergency-phone",
         render: v => makeArray(v)
             .filter(isNonEmpty)
             .map(item => {
                 const clean = item.replace(/\s+/g, '');
-                return `<a href="tel:${clean}" class="text-danger">${item} (emergency)</a>`;
+                return `<a href="tel:${clean}" class="emergency-phone">${item} (emergency)</a>`;
             })
             .join("<br>")
     },

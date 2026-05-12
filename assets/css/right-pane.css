@@ -38,9 +38,14 @@
     text-justify:inter-word;
 }
 
-.value.emergency,
-.value.emergency a{
-    cursor:pointer;
+html[data-bs-theme="light"] .text-danger:hover,
+html[data-bs-theme="light"] .text-danger:hover i {
+    color: hsl(0, 75%, 40%) !important;
+}
+
+html[data-bs-theme="dark"] .text-danger:hover,
+html[data-bs-theme="dark"] .text-danger:hover i {
+    color: hsl(0, 75%, 65%) !important;
 }
 
 .block-header-n{

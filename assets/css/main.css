@@ -33,3 +33,13 @@ a{
 a:hover{   
     outline:0;
 }
+
+.emergency-phone,
+.emergency-phone i {
+    color: var(--bs-danger);
+}
+
+.emergency-phone:hover,
+.emergency-phone:hover i {
+    color: hsl(0, 75%, 40%);
+}

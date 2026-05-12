@@ -287,8 +287,3 @@ function renderGroupedData(node, ctx) {
 
     return '';
 }
-
-
-
-
-

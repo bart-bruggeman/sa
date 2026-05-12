@@ -117,3 +117,8 @@ section.open h2 i.chevron-icon,
 .subcategory.open .chevron-icon {
     transform: rotate(180deg);
 }
+
+section h2:hover,
+section h3:hover {
+    color: rgba(var(--bs-body-color-rgb), 0.85);
+}
