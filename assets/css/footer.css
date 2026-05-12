@@ -1,12 +1,3 @@
 footer{
-    background: var(--bg-footer);
     font-size: .9rem;
-}
-
-footer a.emergency{
-    color: var(--emergency-color);
-}
-
-footer a.emergency:hover{
-    color: var(--emergency-hover-color);
 }

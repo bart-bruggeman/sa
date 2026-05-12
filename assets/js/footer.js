@@ -24,7 +24,7 @@ function renderFooter() {
             html += `
                 <li class="d-flex align-items-center gap-1 mb-1">
                     <a href="tel:${cleanNumber}"
-                       class="link-footer emergency d-flex align-items-center text-decoration-none">
+                       class="link-footer emergency text-danger d-flex align-items-center text-decoration-none">
                         <i class="bi bi-telephone-fill small me-1"></i>
                         ${numberPart}
                     </a>

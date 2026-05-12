@@ -6,10 +6,6 @@ li a {
     transition: color .2s ease, transform .2s ease;
 }
 
-a:hover .hot-icon {
-    color: var(--bs-danger-hover-color) !important;
-}
-
 
 /*------------------------------------------------------------------------------
   filtered categories
@@ -41,13 +37,7 @@ section > h2 {
 
 section .category-title-icon,
 .subcategory-header {
-    color: var(--category-color);
     opacity: .9;
-}
-
-section:not(.filtered):hover .category-title-icon,
-section:not(.filtered) .subcategory-header:hover {
-    color: var(--category-hover-color);
 }
 
 section:not(.filtered):hover .category-title i.bi {
@@ -97,7 +87,6 @@ section:not(.filtered):hover .category-title i.bi {
 
 .subcategory-areas {
     font-size: 0.75em;
-    color: var(--subcategory-area-color);
     opacity: .65;
 }
 

@@ -5,8 +5,6 @@
 }
 
 .offcanvas{
-    background:var(--bg-card);
-    color:var(--text-body);
     box-shadow:-4px 0 20px rgba(0,0,0,.15);
 }
 
@@ -31,7 +29,6 @@
 
 .offcanvas-body .icon{
     width:24px;
-    color:currentColor;
     opacity:.7;
     flex-shrink:0;
 }
@@ -43,29 +40,12 @@
 
 .value.emergency,
 .value.emergency a{
-    color:var(--emergency-color);
     cursor:pointer;
-}
-
-.value.emergency:hover,
-.value.emergency:active,
-.value.emergency a:hover,
-.value.emergency a:active{
-    color:var(--emergency-hover-color);
-}
-
-.block-header,
-.block-header-n{
-    color:var(--right-pane-block-header-title-color);
 }
 
 .block-header-n{
     cursor:pointer;
     transition:color .2s ease;
-}
-
-.block-header-n:hover{
-    color:var(--right-pane-block-header-title-hover-color);
 }
 
 .pane-block.collapsible .block-content{
@@ -78,7 +58,6 @@
 
 .toggle-icon{
     transition:transform .3s ease, opacity .2s ease;
-    color:currentColor;
     opacity:.45;
 }
 
