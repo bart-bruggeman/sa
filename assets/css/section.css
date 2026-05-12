@@ -23,30 +23,10 @@ section.filtered h2 {
   category
 ------------------------------------------------------------------------------*/
 section > h2 {
-    margin: .4rem 0;
     cursor: pointer;
 }
 
-section.open {
-    padding-bottom: .6rem;
-}
-
-section .row {
-    margin: 0;
-}
-
-.category-title {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-}
-
 .category-title i.bi {
-    font-size: 1.05em;
-    margin-right: .25rem;
-    flex-shrink: 0;
-    opacity: .7;
-    color: currentColor;
     transform: translateY(1px);
 }
 
@@ -55,7 +35,6 @@ section .row {
 }
 
 .category-title-icon {
-    font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: .01em;
 }

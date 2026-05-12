@@ -143,10 +143,10 @@ function render(node, ctx = {}) {
 
 function renderCategory(node, nextCtx, ctx) {
     return `
-    <section class="mb-3 border-bottom ${ctx.filtered ? 'filtered' : ''}" data-category="${ctx.index}">
-        <h2 class="h5 mb-3 d-flex justify-content-between align-items-center category-title-icon">
-            <span class="category-title">
-                <i class="bi ${node.icon}"></i>
+    <section class="mb-3 border-bottom pb-2 ${ctx.filtered ? 'filtered' : ''}" data-category="${ctx.index}">
+        <h2 class="h5 mt-2 mb-2 d-flex fw-semibold justify-content-between align-items-center category-title-icon">
+            <span class="category-title d-inline-flex align-items-center gap-1">
+                <i class="bi me-1 flex-shrink-0 opacity-75 ${node.icon}"></i>
                 ${node.name}
             </span>
             ${ctx.filtered ? '' : '<i class="bi bi-chevron-down chevron-icon"></i>'}
@@ -175,7 +175,7 @@ function renderSubcategory(node, nextCtx) {
     }
 
     return `
-    <section class="subcategory mb-2">
+    <section class="subcategory mb-2 pb-2">
         <h3 class="h6 d-flex justify-content-between align-items-center subcategory-header">
             <span>${title}</span>
             <i class="bi bi-chevron-down chevron-icon"></i>
@@ -250,7 +250,7 @@ function renderGroupedData(node, ctx) {
             .map((child, i) => render(child, { ...ctx, index: i }))
             .join("");
 
-        return `<div class="row">${cols}</div>`;
+        return `<div class="row g-0">${cols}</div>`;
     }
 
     if (firstType === "subcategory") {
@@ -274,7 +274,7 @@ function renderGroupedData(node, ctx) {
         if (ctx.forceColumn) return list;
 
         return `
-        <div class="row">
+        <div class="row g-0">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 bg-transparent border-0 shadow-none">
                     <div class="card-body">
